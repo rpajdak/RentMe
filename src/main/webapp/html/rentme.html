@@ -5,40 +5,26 @@
         <meta name="description" content="login page">
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
         <link rel="icon" href="../assets/logo.svg">
-        
+        <script type="text/javascript" src="../js/login.js"></script>
         <title>RentMe</title>
         <link rel="stylesheet" href="../css/style.css">
     </head>
-    <body>
+    <body onload="hideLogin(); showLogin()">
         <div class="wrapper">
             <div class="nav">
                 <div class="menu">
                     <ul>
-                        <li><a href="#">About</a></li>
+                        <li><a href="about.html">About us</a></li>
                         <li><a href="sign-up.html"><button type="button">Sign up</button></a></li>
                         <li><a href="#" id="sign-in">Sign in</a></li>
-                        <div class ="popup">
-                            <div class="popup-content">
-                                <img class="close" src="https://img.icons8.com/metro/26/000000/close-window.png" />
-                                E-mail:
-                            <input type="text" placeholder="Enter your e-mail">
-                            Password:
-                            <input type="password" placeholder="Enter your password">
-
-                            <h5><a href="#">forgot your password?</a> </h5>
-                            <a href="#" class="button">Login</a>
-                            </div>
-                        </div>
-
                     </ul>
 
                 </div>
             </div>
-        </div>
             <div class="header">
                 <img id="logo" src="../assets/logo.svg">
                 <div id="options">
-                    <form id="search-form" action="/action_page.php">
+                    <form id="search-form">
                         <input type="text" id="search-field" placeholder="browse items...">
                     </form>
                     <p>or</p>
@@ -49,17 +35,20 @@
                 <p id="see-cathegories">see cathegories</p>
                 <img id="scroll-down-arrows" src="../assets/scroll-down-arrows.svg">
             </div>
+        </div>
+        <div class ="popup">
+            <div class="popup-content">
+                <h3>Sign in</h3>
+                <img class="close" src="../assets/close-window.svg"/>
+                <h4>E-mail:</h4>
+                <input class="login-data-input" type="text" placeholder="Enter your e-mail">
+                <h4>Password:</h4>
+                <input class="login-data-input"  type="password" placeholder="Enter your password">
+
+                <h5><a href="#">forgot your password?</a> </h5>
+                <a href="#" class="button1">Login</a>
+            </div>
+        </div>
     </body>
-<script>
-    document.getElementById("sign-in").addEventListener("click", function () {
-        document.querySelector(".popup").style.display="flex";
-
-    })
-
-    document.querySelector(".close" ).addEventListener("click", function () {
-        document.querySelector(".popup").style.display="none";
-
-    })
-</script>
 
 </html>
