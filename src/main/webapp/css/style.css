@@ -9,7 +9,7 @@ body {
     height: 100%;
     background: url('../assets/background-with-icons.svg');
     background-size: cover;
-    font-family: 'Roboto';
+    font-family: "Roboto Light";
 }
 
 .nav {
@@ -29,6 +29,7 @@ body {
 
 .menu ul {
     list-style: none;
+    font-family: "Roboto Light";
 }
 
 .menu ul li {
@@ -45,7 +46,7 @@ body {
 
 .menu ul li button{
     color:white;
-    font-family: 'Roboto';
+    font-family: "Roboto Light";
     font-size: inherit;
     background: none;
     padding: 0.7vh 1vw;
@@ -70,7 +71,7 @@ body {
 }
 .header {
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -93,7 +94,7 @@ body {
     border:none;
     font-family: inherit;
     font-size: 1.5vw;
-    height: 3vw;
+    height: 3.5vw;
     width: 25vw;
     margin-right: 6vw;
 }
@@ -110,7 +111,6 @@ button:focus, textarea {
 .header p{
     display: inline;
     color: white;
-    font-family: 'Roboto';
     font-size: 2vw;
 }
 
@@ -119,7 +119,7 @@ button:focus, textarea {
     color:white;
     padding: 0.5em 1.5vw;
     border-radius: 0.7rem;
-    font-family: inherit;
+    font-family: "Roboto";
     font-size: 1.5vw;
     height: 2.2em;
     background: none;
@@ -171,7 +171,7 @@ button:focus, textarea {
     border-radius: 10px;
     color: white;
     padding: 20px;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.1);
 }
 
 
