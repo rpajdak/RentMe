@@ -5,11 +5,11 @@
         <meta name="description" content="login page">
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
         <link rel="icon" href="../assets/logo.svg">
-        
+        <script type="text/javascript" src="../js/login.js"></script>
         <title>RentMe</title>
         <link rel="stylesheet" href="../css/style.css">
     </head>
-    <body>
+    <body onload="hideLogin(); showLogin()">
         <div class="wrapper">
             <div class="nav">
                 <div class="menu">
@@ -17,8 +17,6 @@
                         <li><a href="#">About</a></li>
                         <li><a href="sign-up.html"><button type="button">Sign up</button></a></li>
                         <li><a href="#" id="sign-in">Sign in</a></li>
-
-
                     </ul>
 
                 </div>
@@ -40,25 +38,17 @@
         </div>
         <div class ="popup">
             <div class="popup-content">
-                <h3 style="display: inline; text-align: center; margin-top:0; margin-bottom:0;">Sign in</h3>
+                <h3>Sign in</h3>
                 <img class="close" src="../assets/close-window.svg"/>
-                E-mail:
+                <h4>E-mail:</h4>
                 <input class="login-data-input" type="text" placeholder="Enter your e-mail">
-                Password:
+                <h4>Password:</h4>
                 <input class="login-data-input"  type="password" placeholder="Enter your password">
 
-                <h5><a style="color:white; float:right;" href="#">forgot your password?</a> </h5>
-                <a style="color:white; text-align:center;"  href="#" class="button1">Login</a>
+                <h5><a href="#">forgot your password?</a> </h5>
+                <a href="#" class="button1">Login</a>
             </div>
         </div>
     </body>
-<script>
-    document.getElementById("sign-in").addEventListener("click", function () {
-        document.querySelector(".wrapper").style.opacity="0";
-        document.querySelector(".popup").style.display="flex";
-
-
-    })
-</script>
 
 </html>
