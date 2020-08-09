@@ -52,7 +52,7 @@ body {
     padding: 0.7vh 1vw;
     border-width: 1px;
     border-radius: 10px;
-    border-style: solid; 
+    border-style: solid;
     border-color: white;
     margin-left: 1vw;
 
@@ -90,7 +90,7 @@ body {
 #search-field{
     float:left;
     padding: 0.5em 1.5vw;
-    border-radius: 2vh;  
+    border-radius: 2vh;
     border:none;
     font-family: inherit;
     font-size: 1.5vw;
@@ -124,7 +124,7 @@ button:focus, textarea {
     height: 2.2em;
     background: none;
     border-width: 1px;
-    border-style: solid; 
+    border-style: solid;
     border-color: white;
     margin-left: 6vw;
     width: 15vw;
@@ -154,13 +154,12 @@ button:focus, textarea {
 
 .popup{
     position: fixed;
-    /*top: 10%;*/
-    /*right: 2%;*/
     top: 20%;
     right:40%;
     display: none;
     justify-content: center;
     align-items: center;
+
 }
 
 .popup-content{
@@ -190,6 +189,7 @@ button:focus, textarea {
     background: none;
     height: 20px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .close:hover{
