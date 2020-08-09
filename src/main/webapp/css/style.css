@@ -24,7 +24,7 @@ body {
 .menu {
     float: right;
     line-height: 50px;
-    margin: 0 6em;
+    margin: 0 3em;
 }
 
 .menu ul {
@@ -38,7 +38,7 @@ body {
 .menu ul li a {
     text-decoration: none;
     color: #fff;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: lighter;
     padding: 0 20px;
 }
@@ -148,32 +148,69 @@ button:focus, textarea {
 
 
 .popup{
-    top: -15px;
-    right: -15px;
+    position: fixed;
+    /*top: 10%;*/
+    /*right: 2%;*/
+    top: 20%;
+    right:40%;
     display: none;
     justify-content: center;
     align-items: center;
 }
 
 .popup-content{
-    border: white 2px solid;
+    border: white 1px solid;
     display: grid;
-    grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 1fr);
     width: 200px;
     border-radius: 10px;
     color: white;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.4);
+}
 
+.login-data-input{
+    border-radius: 10px;
+    padding: 5px;
+    border: none;
+    height: 50px;
+    width: 200px;
 }
 
 .close{
     position: absolute;
-    top: -15px;
-    right: -15px;
-    background: white;
-    height: 200px;
-    width: 20px;
+    top: 15px;
+    right: 15px;
+    background: none;
+    height: 20px;
     border-radius: 50%;
+}
+
+.button1{
+    color:white;
+    font-family: 'Roboto';
+    font-size: inherit;
+    background: none;
+    border-width: 1px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: white;
+    width: 120px;
+    height:45px;
+    text-align: center;
+    margin-left: 38px;
+    padding:0;
+    padding-top: 20px !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+.button1:hover{
+    background-color: rgba(255,255,255,0.6);
+    transition-duration: 0.5s;
+    cursor: pointer;
 }
 
 h5{
