@@ -10,7 +10,7 @@
     <title>Sign up!</title>
     <link rel="stylesheet" href="../css/sign-up.css">
 </head>
-<body onload="hideLogin(); showLogin()">
+<body onload="hideLogin(); showLogin(); forgotPass(); forgotPassHide()">
     <div class="wrapper">
         <div class="nav">
             <div class="logo">
@@ -75,18 +75,29 @@
         </div>
         </div>
     </div>
-            <div class ="popup">
-                <div class="popup-content">
-                    <h3>Sign in</h3>
-                    <img class="close" src="../assets/close-window.svg"/>
-                    <h4>E-mail:</h4>
-                    <input class="login-data-input" type="text" placeholder="Enter your e-mail">
-                    <h4>Password:</h4>
-                    <input class="login-data-input"  type="password" placeholder="Enter your password">
+    <div class ="popup">
+        <div class="popup-content">
+            <h3>Sign in</h3>
+            <img class="close" src="../assets/close-window.svg"/>
+            <h4>E-mail:</h4>
+            <input class="login-data-input" type="text" placeholder="Enter your e-mail">
+            <h4>Password:</h4>
+            <input class="login-data-input"  type="password" placeholder="Enter your password">
 
-                    <h5><a href="#">forgot your password?</a> </h5>
-                    <a href="#" class="button1">Login</a>
-                </div>
-            </div>
+            <h5><a href="#" id="forg">forgot your password?</a> </h5>
+            <a href="#" class="button1">Login</a>
+        </div>
+    </div>
+    <div class ="popup2">
+        <div class="popup-content2">
+            <h3>Enter your e-mail</h3>
+            <img class="close2" src="../assets/close-window.svg"/>
+            <h4 class="description">If you have forgotten your account password please enter your e-mail
+                and we will send you a password change code.</h4>
+            <h4 class="description">E-mail:</h4>
+            <input class="login-data-input2" type="text" placeholder="Enter your e-mail">
+            <a href="#" class="button12">Send me new password</a>
+        </div>
+    </div>
 </body>
 </html>
