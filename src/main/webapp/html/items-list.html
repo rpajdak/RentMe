@@ -12,219 +12,169 @@
 </head>
 <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
 <body onload="hideLogin(); showLogin()">
-<div class="wrapper">
-    <div class="nav">
-        <div class="logo">
-            <a href="rentme.html"><img src="../assets/logo.svg"></a>
-        </div>
-        <div class="menu">
-            <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="sign-up.html"><button type="button">Sign up</button></a></li>
-                <li><a href="#" id="sign-in">Sign in</a></li>
-            </ul>
-        </div>
+
+<div class="headder">
+    <a  href="rentme.html"><img id="logo" src="../assets/logo.svg"></a>
+
+    <div class="menu">
+        <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="sign-up.html"><button type="button">Sign up</button></a></li>
+            <li><a href="#" id="sign-in">Sign in</a></li>
+        </ul>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <form class="search-form">
-        <input type="text" class="search-field" placeholder="driller"> <h4 style=" margin: 10px; display:inline; color:white">in</h4>
-        <input type="text" style="width: 200px;" class="search-field" placeholder="Brussels">
+        <input type="text" class="item-search-field" placeholder="driller">
+        <h4 style=" margin: 10px; display:inline; color:white">in</h4>
+        <input type="text" class="distance-inputs" placeholder="Brussels">
         <h4 style=" margin: 10px; display:inline; color:white">within</h4>
-        <input type="text" style="width: 140px;" class="search-field" placeholder="100 km">
+        <select class="sorting-option-inputs-list" style="float: none; width: 100px;" required>
+            <option value="1km">1km</option>
+            <option value="3km">3km</option>
+            <option value="5km">5km</option>
+            <option value="10km">10km</option>
+            <option value="30km">30km</option>
+            <option value="100km">100km</option>
+            <option value=">100km">>100km</option>
+
+        </select>
     </form>
-    <br>
-    <br>
-    <br>
-    <br>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="items-area">
+    <select class="sorting-option-inputs-list" required>
+        <option value="low-price">Price asc</option>
+        <option value="high-price">Price desc</option>
+        <option value="name">Name asc</option>
+        <option value="name">Name desc</option>
+        <option value="distance">Lowest distance</option>
+        <option value="date-added">Date added</option>
+    </select>
     <div class="items-list">
         <div class="item">
+            <div class="item-photo-container"><img class="item-photo"  src="../assets/1.jpg"></div>
+            <div class="item-info">
+                <p class="item-name">Template item name</p>
+                <p class="item-price">Price: 22 pln/day</p>
+                <p class="item-location">Location: Krakow</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-photo-container"><img class="item-photo"  src="../assets/2.jpg"></div>
+            <div class="item-info">
+                <p class="item-name">Template item name</p>
+                <p class="item-price">Price: 22 pln/day</p>
+                <p class="item-location">Location: Krakow</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-photo-container"><img class="item-photo"  src="../assets/3.jpg"></div>
+            <div class="item-info">
+                <p class="item-name">Template item name</p>
+                <p class="item-price">Price: 22 pln/day</p>
+                <p class="item-location">Location: Krakow</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-photo-container">
+                <img class="item-photo"  src="../assets/4.jpg">
+            </div>
+            <div class="item-info">
+                <p class="item-name">Template item name</p>
+                <p class="item-price">Price: 22 pln/day</p>
+                <p class="item-location">Location: Krakow</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-photo-container"><img class="item-photo"  src="../assets/5.jpg"></div>
+            <div class="item-info">
+                <p class="item-name">Template item name</p>
+                <p class="item-price">Price: 22 pln/day</p>
+                <p class="item-location">Location: Krakow</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-photo-container"><img class="item-photo"  src="../assets/6.jpg"></div>
+            <div class="item-info">
+                <p class="item-name">Template item name</p>
+                <p class="item-price">Price: 22 pln/day</p>
+                <p class="item-location">Location: Krakow</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-photo-container"><img class="item-photo"  src="../assets/7.jpg"></div>
+            <div class="item-info">
+                <p class="item-name">Template item name</p>
+                <p class="item-price">Price: 22 pln/day</p>
+                <p class="item-location">Location: Krakow</p>
+            </div>
+        </div>
+        <div class="item">
             <div class="item-photo-container"><img class="item-photo"  src="../assets/plane.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
+            <div class="item-info">
+                <p class="item-name">Template item name</p>
+                <p class="item-price">Price: 22 pln/day</p>
+                <p class="item-location">Location: Krakow</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-photo-container"><img class="item-photo"  src="../assets/plane.jpg"></div>
+            <div class="item-info">
+                <p class="item-name">Template item name</p>
+                <p class="item-price">Price: 22 pln/day</p>
+                <p class="item-location">Location: Krakow</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-photo-container"><img class="item-photo"  src="../assets/plane.jpg"></div>
+            <div class="item-info">
+                <p class="item-name">Template item name</p>
+                <p class="item-price">Price: 22 pln/day</p>
+                <p class="item-location">Location: Krakow</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item-photo-container"><img class="item-photo"  src="../assets/plane.jpg"></div>
+            <div class="item-info">
+                <p class="item-name">Template item name</p>
+                <p class="item-price">Price: 22 pln/day</p>
+                <p class="item-location">Location: Krakow</p>
             </div>
         </div>
 
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-photo-container"><img class="item-photo"  src="../assets/item-main-photo.jpg"></div>
-            <div class="item-name">
-                <p>22 pln/day</p>
-                Template item name
-            </div>
-        </div>
     </div>
-    <div class="map-wrapper">
-        <div  style="position: relative">
-            <div id="map-container">
-                <div id="map-overview" class="hidden">Get back to map overview</div>
+</div>
+<div class="map-wrapper">
+    <div  style="position: relative">
+        <div id="map-container">
+            <div id="map-overview" class="hidden">Get back to map overview</div>
 
-                <div id="map-canvas"></div>
+            <div id="map-canvas"></div>
+        </div>
+
+        <div id="map-info">
+            <div class="gp brussels">
+                <h2>Template item name</h2>
+                <img src="../assets/item-main-photo.jpg" alt="Template item name">
+                Template item name
             </div>
 
-            <div id="map-info">
-                <div class="gp brussels">
-                    <h2>Template item name</h2>
-                    <img src="../assets/item-main-photo.jpg" alt="Template item name">
-                    Template item name
-                </div>
+            <div class="gp brussels">
+                <h2>Template item name</h2>
+                <img src="../assets/item-main-photo.jpg" alt="Template item name">
+                Template item name
+            </div>
 
-                <div class="gp brussels">
-                    <h2>Template item name</h2>
-                    <img src="../assets/item-main-photo.jpg" alt="Template item name">
-                    Template item name
-                </div>
-
-                <div class="gp brussels">
-                    <h2>Template item name</h2>
-                    <img src="../assets/item-main-photo.jpg" alt="Template item name">
-                    Template item name
-                </div>
+            <div class="gp brussels">
+                <h2>Template item name</h2>
+                <img src="../assets/item-main-photo.jpg" alt="Template item name">
+                Template item name
             </div>
         </div>
     </div>

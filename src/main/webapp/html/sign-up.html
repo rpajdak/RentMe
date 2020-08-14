@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign Up">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="icon" href="../assets/logo.svg">
+    <script type="text/javascript" src="../js/login.js"></script>
+    <title>Sign up!</title>
+    <link rel="stylesheet" href="../css/sign-up.css">
+</head>
+<body onload="hideLogin(); showLogin()">
+    <div class="wrapper">
+        <div class="nav">
+            <div class="logo">
+                <a href="rentme.html"><img src="../assets/logo.svg"></a>
+            </div>
+            <div class ="help">
+                <a href="#">Help</a>
+            </div>
+            <div class ="sign">
+                <a href="#" id="sign-in">Sign in</a>
+            </div>
+        </div>
+
+    <div class="container">
+        <div class ="form">
+            <div class="title">
+            <h2>Sign up</h2>
+            <h3>It's quick and easy!</h3>
+            </div>
+                <div class="input">
+                    <p>Name:</p>
+                    <input class="input-field name-input" id="email" name="email" type="text">
+                </div>
+                <div class="input">
+                    <p>Surname:</p>
+                    <input class="input-field surname-input" name="password" type="text">
+                </div>
+                <div class="input">
+                    <p>Phone number:</p>
+                    <input class="input-field phone-input" name="password" type="number">
+                </div>
+                <div class="input">
+                    <p>E-mail:</p>
+                    <input class="input-field email-input" name="password" type="text" >
+                </div>
+                <div class="input">
+                    <p>Address:</p>
+                    <input class="input-field address-input" name="password" type="text">
+                </div>
+                <div class="input">
+                    <p>Password:</p>
+                    <input class="input-field password-input" name="password" type="password">
+                </div>
+
+                <div class="input">
+                    <p>Date of Birth:</p>
+                    <input class="input-field DOB-input" name="password" type="date">
+                </div>
+                <div class="input">
+                    <p>City:</p>
+                    <input class="input-field address2-input" name="password" type="text">
+                </div>
+
+                <div class="input">
+                    <p>Repeat your password:</p>
+                    <input class="input-field repeat-input" name="password" type="password">
+                </div>
+
+                <div class="submit-button">
+                    <button  class="button" type="submit">Sign me up</button>
+                </div>
+        </div>
+        </div>
+    </div>
+            <div class ="popup">
+                <div class="popup-content">
+                    <h3>Sign in</h3>
+                    <img class="close" src="../assets/close-window.svg"/>
+                    <h4>E-mail:</h4>
+                    <input class="login-data-input" type="text" placeholder="Enter your e-mail">
+                    <h4>Password:</h4>
+                    <input class="login-data-input"  type="password" placeholder="Enter your password">
+
+                    <h5><a href="#">forgot your password?</a> </h5>
+                    <a href="#" class="button1">Login</a>
+                </div>
+            </div>
+</body>
+</html>
