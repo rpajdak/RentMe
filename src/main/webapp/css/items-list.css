@@ -211,6 +211,7 @@ h3{
     width: calc(70vw - 60px);
     float:left;
     padding: 0 20px 20px 20px;
+    margin-top: 110px;
 }
 
 .sorting-option-inputs-list{
@@ -279,6 +280,15 @@ h3{
     padding: 0;
 }
 
+.item-name{
+    text-align: left;
+    font-family: "Roboto-regular";
+    font-size: 1.1em;
+    /* margin-top: 8px; */
+    margin-top: 8px;
+    padding: 0;
+}
+
 .item-info{
     /* background: green; */
     /* padding: 6px; */
@@ -291,14 +301,7 @@ h3{
 
 }
 
-.item-name{
-    text-align: center;
-    font-family: "Roboto-regular";
-    font-size: 1.1em;
-    /* margin-top: 8px; */
-    margin-top: 8px;
-    padding: 0;
-}
+
 
 input:focus, textarea {
     outline: none !important;
