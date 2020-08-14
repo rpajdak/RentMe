@@ -26,3 +26,4 @@ function forgotPassHide(){
         document.querySelector(".popup2").style.display="none";
 
     })}
+

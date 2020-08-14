@@ -1,4 +1,4 @@
-<html xmlns:jsp="http://java.sun.com/JSP/Page">
+<html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,11 +6,12 @@
         <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
         <link rel="icon" href="../assets/logo.svg">
         <script type="text/javascript" src="../js/login.js"></script>
+        <script type="text/javascript" src="../js/input-validator.js"></script>
         <title>RentMe</title>
         <link rel="stylesheet" href="../css/style.css">
 
     </head>
-    <body onload="hideLogin(); showLogin(); forgotPass(); forgotPassHide()">
+    <body onload="hideLogin(); showLogin(); forgotPass(); forgotPassHide(); passwordClick()">
         <div class="wrapper">
             <div class="nav">
                 <div class="menu">
@@ -42,7 +43,10 @@
                 <h3>Sign in</h3>
                 <img class="close" src="../assets/close-window.svg"/>
                 <h4>E-mail:</h4>
-                <input class="login-data-input" type="text" placeholder="Enter your e-mail">
+                <input class="input-field email-input" id="email-input" name="email"  type="text" placeholder="Enter your e-mail">
+                <div class="warning-email hidden">
+                    <p>Email is not valid</p>
+                </div>
                 <h4>Password:</h4>
                 <input class="login-data-input"  type="password" placeholder="Enter your password">
 

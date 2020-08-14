@@ -1,0 +1,38 @@
+.logo{
+    width: 25%;
+    height: 15%;
+    display: grid;
+    padding: 20px;
+    align-content: flex-start;
+}
+
+.nav{
+    display: grid;
+    grid-template-columns: 8fr 2fr;
+    grid-auto-rows: 100px;
+}
+.user{
+    text-decoration: none;
+    display: grid;
+    padding: 10px;
+    width: 150px;
+    font-size: 20px;
+    color: white;
+}
+
+.user a{
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.user a:hover{
+    color: rgba(255,255,255,0.6);
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+.user-logo{
+    color: white;
+}

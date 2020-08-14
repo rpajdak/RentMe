@@ -316,6 +316,11 @@ h3{
     padding-top: 20px !important;
 }
 
+.popup-content2 h4{
+    display: grid;
+    align-items: end;
+}
+
 a {
     text-decoration: none;
 }
@@ -335,3 +340,19 @@ a {
     letter-spacing: 1px;
     font-weight: 700;
 }
+
+.hidden {
+    display: none;
+}
+
+.warning-email {
+    color: #BF343F;
+    height: 24px;
+    padding: 0 8px;
+    font-size: 14px;
+}
+
+.email-input{
+
+}
+
