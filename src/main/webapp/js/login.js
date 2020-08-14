@@ -10,6 +10,9 @@ document.querySelector(".close" ).addEventListener("click", function () {
     document.querySelector(".wrapper").style.opacity="1";
     document.querySelector(".popup").style.display="none";
 
+<<<<<<< HEAD
+})}
+=======
 })}
 
 function forgotPass(){
@@ -26,3 +29,4 @@ function forgotPassHide(){
         document.querySelector(".popup2").style.display="none";
 
     })}
+>>>>>>> master

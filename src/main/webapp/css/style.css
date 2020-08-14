@@ -9,7 +9,7 @@ body {
     height: 100%;
     background: url('../assets/background-with-icons.svg');
     background-size: cover;
-    font-family: 'Roboto';
+    font-family: "Roboto Light";
 }
 
 .nav {
@@ -29,6 +29,7 @@ body {
 
 .menu ul {
     list-style: none;
+    font-family: "Roboto Light";
 }
 
 .menu ul li {
@@ -38,20 +39,20 @@ body {
 .menu ul li a {
     text-decoration: none;
     color: #fff;
-    font-size: 20px;
-    font-weight: lighter;
+    font-size: 16px;
+    /*font-weight: lighter;*/
     padding: 0 20px;
 }
 
 .menu ul li button{
     color:white;
-    font-family: 'Roboto';
+    font-family: "Roboto Light";
     font-size: inherit;
     background: none;
     padding: 0.7vh 1vw;
     border-width: 1px;
     border-radius: 10px;
-    border-style: solid; 
+    border-style: solid;
     border-color: white;
     margin-left: 1vw;
 
@@ -70,7 +71,7 @@ body {
 }
 .header {
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -89,11 +90,11 @@ body {
 #search-field{
     float:left;
     padding: 0.5em 1.5vw;
-    border-radius: 2vh;  
+    border-radius: 2vh;
     border:none;
     font-family: inherit;
     font-size: 1.5vw;
-    height: 3vw;
+    height: 3.5vw;
     width: 25vw;
     margin-right: 6vw;
 }
@@ -110,7 +111,6 @@ button:focus, textarea {
 .header p{
     display: inline;
     color: white;
-    font-family: 'Roboto';
     font-size: 2vw;
 }
 
@@ -119,12 +119,12 @@ button:focus, textarea {
     color:white;
     padding: 0.5em 1.5vw;
     border-radius: 0.7rem;
-    font-family: inherit;
+    font-family: "Roboto";
     font-size: 1.5vw;
     height: 2.2em;
     background: none;
     border-width: 1px;
-    border-style: solid; 
+    border-style: solid;
     border-color: white;
     margin-left: 6vw;
     width: 15vw;
@@ -154,9 +154,6 @@ button:focus, textarea {
 
 .popup{
     position: fixed;
-
-    /*top: 10%;*/
-    /*right: 2%;*/
     top: 20%;
     right:40%;
     display: none;
@@ -169,13 +166,11 @@ button:focus, textarea {
     border: white 1px solid;
     display: grid;
     grid-template-rows: repeat(4, 1fr);
-
     width: 300px;
-
     border-radius: 10px;
     color: white;
     padding: 20px;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.1);
 }
 
 
@@ -252,86 +247,4 @@ h3{
     letter-spacing: 4px;
     font-weight: 700;
 }
-.popup2{
-    position: fixed;
-    /*top: 10%;*/
-    /*right: 2%;*/
-    top: 20%;
-    right:40%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
 
-
-.popup-content2{
-    border: white 1px solid;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    width: 300px;
-    border-radius: 10px;
-    color: white;
-    padding: 20px;
-    background-color: rgba(0,0,0,0.4);
-}
-
-
-.login-data-input2{
-    border-radius: 10px;
-    padding: 5px;
-    border: none;
-    height: 50px;
-    width: 300px;
-}
-
-.close2{
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    height: 20px;
-    border-radius: 50%;
-}
-
-.close2:hover{
-    background-color: rgba(255,255,255,0.6);
-    transition-duration: 0.5s;
-    cursor: pointer;
-}
-
-.button12{
-    color:white;
-    place-self: center;
-    text-align:center;
-    font-size: inherit;
-    background: none;
-    border-width: 1px;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: white;
-    width: 250px;
-    height:45px;
-    padding:0;
-    font-weight: 900;
-    padding-top: 20px !important;
-}
-
-a {
-    text-decoration: none;
-}
-
-.button12:hover{
-    background-color: rgba(255,255,255,0.6);
-    transition-duration: 0.5s;
-    cursor: pointer;
-}
-
-.popup-content2 h3{
-    font-size: 25px;
-    display: inline;
-    text-align: center;
-    margin-top:0;
-    margin-bottom:0;
-    letter-spacing: 1px;
-    font-weight: 700;
-}

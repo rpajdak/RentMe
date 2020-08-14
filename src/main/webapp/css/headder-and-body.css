@@ -1,0 +1,134 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* background: linear-gradient(90deg, rgba(247,0,70,1) 0%, rgba(1,0,118,1) 100%); */
+    background: url('../assets/background-with-icons.svg');
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: "Roboto Light";
+    font-size: 15px;
+    color:white;
+}
+
+.headder {
+    width: 100%;
+    position: fixed;
+    padding: 13px 13px 0 13px;
+    background: url('../assets/background-with-icons.svg');
+    background-size: cover;
+    background-attachment: fixed;
+    border-bottom: 0px solid rgba(255,255,255,0.1);
+    margin-top: 10px;
+    top: 0px;
+}
+
+
+#logo{
+    height: 28px;
+    max-width: 15cm;
+}
+
+.menu {
+    float: right;
+    margin-right: 50px;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+}
+
+.menu ul li {
+    display: inline-block;
+
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: lighter;
+    padding: 0 20px;
+}
+
+.menu ul li button{
+    color:white;
+    font-family: "Roboto Light";
+    font-size: inherit;
+    background: none;
+    padding: 0.7vh 1vw;
+    border-width: 1px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: white;
+    margin-left: 1vw;
+
+}
+
+.menu ul li button:hover{
+    background-color: rgba(255,255,255,0.6);
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+.menu ul li a:hover{
+    color: rgba(255,255,255,0.6);
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+input:focus, textarea {
+    outline: none !important;
+}
+
+button:focus, textarea {
+    outline: none !important;
+}
+
+.popup{
+    position: fixed;
+    top: 20%;
+    right:40%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.popup-content{
+    border: white 1px solid;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    width: 300px;
+    border-radius: 10px;
+    color: white;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.login-data-input{
+    border-radius: 10px;
+    padding: 5px;
+    border: none;
+    height: 50px;
+    width: 300px;
+}
+
+.close{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.close:hover{
+    background-color: rgba(255,255,255,0.6);
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
