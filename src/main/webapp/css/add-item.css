@@ -1,5 +1,6 @@
 body{
     color: white;
+    font-family: Arial !important;
 }
 
 .logo{
@@ -15,37 +16,7 @@ body{
     grid-template-columns: 7fr 1fr 2fr;
     grid-auto-rows: 100px;
 }
-.user{
-    text-decoration: none;
-    display: grid;
-    padding-top: 10px;
-    width: 150px;
-    font-size: 16px;
-    color: white;
-}
 
-.user a{
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    margin-top: 10px;
-}
-
-.user a:hover{
-    color: rgba(255,255,255,0.6);
-    transition-duration: 0.5s;
-    cursor: pointer;
-}
-
-.user-logo{
-    color: white;
-}
-
-.item-name{
-    padding: 10px;
-    border: white 1px solid;
-    border-radius: 10px;
-}
 
 .item-description{
     padding: 10px;
@@ -63,7 +34,123 @@ body{
     width: 40vw;
 }
 
-#img{
+
+.container{
+    margin-top: 50px;
+    display: grid;
     align-items: center;
     justify-content: center;
+}
+
+.container h1{
+    text-align: center;
+    margin-top: 70px;
+    letter-spacing: 1px;
+}
+
+.item-details{
+    padding: 10px;
+    border: white 1px solid;
+    border-radius: 10px;
+    width: 25vw;
+}
+
+.item-description{
+    padding: 10px;
+    border: white 1px solid;
+    border-radius: 10px;
+    width: 40vw;
+    align-self: start;
+}
+
+.item-name{
+    padding: 10px;
+    border: white 1px solid;
+    border-radius: 10px;
+    width: 40vw;
+}
+
+.submit-button{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    justify-self: center;
+}
+.button{
+    width: 266px;
+    height: 50px;
+    background: transparent;
+    border: white 1px solid;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 2px;
+    color: white;
+    margin-bottom: 20px;
+    transition: all 0.2s;
+
+}
+
+.button:hover {
+    background-color: rgba(255,255,255,0.6);
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+h6{
+    align-self: end;
+}
+
+h6 a{
+    color: cornflowerblue;
+}
+
+#icon{
+    width: 60px;
+    height: 60px;
+}
+
+.type-selector{
+    width: 20vw;
+}
+
+.item-price{
+    padding: 10px;
+    border: white 1px solid;
+    border-radius: 10px;
+    width: 10vw;
+}
+
+.input-image{
+    border: white 1px solid;
+    border-radius: 10px;
+    width: 40vw;
+    height: 30vh;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+
+.input-image a{
+    align-items: center;
+    justify-items: center;
+    color: white;
+    text-decoration: none;
+    display: grid;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.input-image a:hover{
+    color: rgba(255,255,255,0.6);
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+
+input[type="text"] {
+    text-align: left;
+    vertical-align: top;
+    align-content: start;
 }
