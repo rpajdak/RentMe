@@ -4,7 +4,6 @@ html, body{
 }
 
 body {
-    /* background: linear-gradient(90deg, rgba(247,0,70,1) 0%, rgba(1,0,118,1) 100%); */
     background: url('../assets/background-with-icons.svg');
     background-size: cover;
     background-attachment: fixed;
@@ -17,14 +16,14 @@ body {
     width: 100%;
     position: fixed;
     padding: 13px 13px 0 13px;
+
     background: url('../assets/background-with-icons.svg');
     background-size: cover;
     background-attachment: fixed;
     border-bottom: 0px solid rgba(255,255,255,0.1);
-    margin-top: 10px;
+    /*margin-top: 10px;*/
     top: 0px;
 }
-
 
 #logo{
     height: 28px;

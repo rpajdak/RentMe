@@ -13,15 +13,14 @@
 </head>
 <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
 <body onload="hideLogin(); showLogin()">
+<div class="wrapper">
 
 <div class="headder">
-    <a  href="rentme.html"><img id="logo" src="../assets/logo.svg"></a>
-
+    <a  href="landing-page.html"><img id="logo" src="../assets/logo.svg"></a>
     <div class="menu">
         <ul>
             <li><a href="#">About</a></li>
             <li><a href="sign-up.html"><button type="button">Sign up</button></a></li>
-<!--            <li><a href="sign-up.html">Sign up</a></li>-->
             <li><a href="#" id="sign-in">Sign in</a></li>
         </ul>
     </div>
@@ -38,7 +37,6 @@
             <option value="30km">30km</option>
             <option value="100km">100km</option>
             <option value=">100km">>100km</option>
-
         </select>
     </form>
 </div>
@@ -148,7 +146,7 @@
 <div class="map-wrapper">
     <div  style="position: relative">
         <div id="map-container">
-            <div id="map-overview" class="hidden">Get back to map overview</div>
+            <div id="map-overview" class="hidden">Back to map</div>
 
             <div id="map-canvas"></div>
         </div>
@@ -187,12 +185,12 @@
         <a href="#" class="button1">Login</a>
     </div>
 </div>
+</div>
 <script>
-
+    // var responsiveZoom = (window.innerWidth < 768) ? 6.75 : 7.75;
     var responsiveZoom = (window.innerWidth < 768) ? 6.75 : 7.75;
-
     function initMap() {
-        var myLatlng = new google.maps.LatLng(50.7974444, 4.48544);
+        var myLatlng = new google.maps.LatLng(50.061437, 19.937300);
         var mapOptions = {
             styles: [
                 {
@@ -324,7 +322,8 @@
                     ]
                 }
             ],
-            zoom: responsiveZoom,
+            // zoom: responsiveZoom,
+            zoom: 12,
             minZoom: 6,
             maxZoom: 17,
             zoomControl: true,
@@ -333,7 +332,7 @@
             },
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
-            scrollwheel: false,
+            scrollwheel: true,
             panControl: false,
             mapTypeControl: false,
             scaleControl: false,
@@ -415,9 +414,8 @@
         document.querySelector("#map-canvas").classList.remove("zoomed");
         document.querySelector("#map-overview").classList.add("hidden");
     }
-</script>
 
-<script>
+    //----- popup login window ------
     document.getElementById("sign-in").addEventListener("click", function () {
         document.querySelector(".popup").style.display="flex";
 
