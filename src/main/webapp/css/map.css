@@ -5,7 +5,7 @@
   position: fixed;
   top:108px;
   right: 0px;
-  border: solid 2px solid rgba(225, 225, 225, 0.3);
+  border: 2px solid rgba(225, 225, 225, 0.3);
   border-radius: 15px 0px 0px 0px;
   width: 30vw;
 }

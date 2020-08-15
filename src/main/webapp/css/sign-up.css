@@ -2,7 +2,7 @@
     display: flex;
     align-items: start;
     justify-content: center;
-    margin-top: 115px;
+    margin-top: 100px;
     position: static;
 }
 
@@ -22,9 +22,7 @@
     width: 45%;
     box-sizing: border-box;
     align-items: center;
-    /*color: white;*/
 }
-
 
 h2{
     font-size: 30px;
@@ -44,7 +42,6 @@ h4{
     border: white 1px solid;
     border-radius: 10px;
     padding: 5px;
-
 }
 
 .title{
