@@ -1,57 +1,62 @@
 html, body{
     margin: 0;
     padding: 0;
-    width: 100%
 }
 
 body {
-    width: 100%;
-    height: 100%;
     background: url('../assets/background-with-icons.svg');
     background-size: cover;
-    font-family: 'Roboto';
+    background-attachment: fixed;
+    font-family: "Roboto";
+    font-size: 15px;
+    color:white;
 }
 
-.nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
+.header {
     width: 100%;
+    position: fixed;
+    padding: 13px 13px 0 13px;
+    background-size: cover;
+    border-bottom: 0px solid rgba(255,255,255,0.1);
+    top: 0px;
+}
+
+#logo{
+    height: 28px;
+    max-width: 15cm;
 }
 
 .menu {
     float: right;
-    line-height: 50px;
-    margin: 0 3em;
+    margin-right: 50px;
 }
 
 .menu ul {
     list-style: none;
+    margin: 0;
 }
 
 .menu ul li {
     display: inline-block;
+
 }
 
 .menu ul li a {
     text-decoration: none;
     color: #fff;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: lighter;
     padding: 0 20px;
 }
 
 .menu ul li button{
     color:white;
-    font-family: 'Roboto';
     font-size: inherit;
     background: none;
     padding: 0.7vh 1vw;
     border-width: 1px;
     border-radius: 10px;
-    border-style: solid; 
+    border-style: solid;
     border-color: white;
     margin-left: 1vw;
 
@@ -68,35 +73,6 @@ body {
     transition-duration: 0.5s;
     cursor: pointer;
 }
-.header {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 60vw;
-}
-
-#logo{
-    width:40vw;
-    max-width: 15cm;
-}
-
-#options{
-    margin-top: 12vw;
-}
-
-#search-field{
-    float:left;
-    padding: 0.5em 1.5vw;
-    border-radius: 2vh;  
-    border:none;
-    font-family: inherit;
-    font-size: 1.5vw;
-    height: 3vw;
-    width: 25vw;
-    margin-right: 6vw;
-}
 
 input:focus, textarea {
     outline: none !important;
@@ -106,62 +82,14 @@ button:focus, textarea {
     outline: none !important;
 }
 
-
-.header p{
-    display: inline;
-    color: white;
-    font-family: 'Roboto';
-    font-size: 2vw;
-}
-
-#list-item-button{
-    margin-left: 6vw;
-    color:white;
-    padding: 0.5em 1.5vw;
-    border-radius: 0.7rem;
-    font-family: inherit;
-    font-size: 1.5vw;
-    height: 2.2em;
-    background: none;
-    border-width: 1px;
-    border-style: solid; 
-    border-color: white;
-    margin-left: 6vw;
-    width: 15vw;
-}
-
-#list-item-button:hover{
-    background-color: rgba(255,255,255,0.6);
-    transition-duration: 0.5s;
-}
-
-#see-cathegories-sign{
-    position: absolute;
-    bottom: 3%;
-    left: 45%;
-    text-align: center;
-}
-
-#see-cathegories{
-    color: white;
-    font-size: 1.5vw;
-}
-
-#scroll-down-arrows{
-    width: 1.5vw;
-}
-
-
 .popup{
     position: fixed;
-
-    /*top: 10%;*/
-    /*right: 2%;*/
     top: 20%;
     right:40%;
     display: none;
     justify-content: center;
     align-items: center;
+    background-color: rgba(0,0,0,0.4);
 
 }
 
@@ -169,15 +97,12 @@ button:focus, textarea {
     border: white 1px solid;
     display: grid;
     grid-template-rows: repeat(4, 1fr);
-
     width: 300px;
-
     border-radius: 10px;
     color: white;
     padding: 20px;
-    background-color: rgba(0,0,0,0.4);
-}
 
+}
 
 .login-data-input{
     border-radius: 10px;
@@ -203,55 +128,29 @@ button:focus, textarea {
     cursor: pointer;
 }
 
-.button1{
-    color:white;
-    place-self: center;
-    text-align:center;
-    letter-spacing: 3px;
-    font-size: inherit;
-    background: none;
-    border-width: 1px;
+.login-data-input2{
     border-radius: 10px;
-    border-style: solid;
-    border-color: white;
-    width: 150px;
-    height:45px;
-    padding:0;
-    font-weight: 900;
-    padding-top: 20px !important;
+    padding: 5px;
+    border: none;
+    height: 50px;
+    width: 300px;
 }
 
-a {
-    text-decoration: none;
+.close2{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    height: 20px;
+    border-radius: 50%;
 }
 
-.button1:hover{
+.close2:hover{
     background-color: rgba(255,255,255,0.6);
     transition-duration: 0.5s;
     cursor: pointer;
 }
 
-h5 a{
-    text-decoration: none;
-    color:white;
-    float: right;
-}
-
-h5 a:hover{
-    color: rgba(255,255,255,0.6);
-    transition-duration: 0.5s;
-    cursor: pointer;
-}
-
-h3{
-    font-size: 25px;
-    display: inline;
-    text-align: center;
-    margin-top:0;
-    margin-bottom:0;
-    letter-spacing: 4px;
-    font-weight: 700;
-}
 .popup2{
     position: fixed;
     /*top: 10%;*/
@@ -273,6 +172,11 @@ h3{
     color: white;
     padding: 20px;
     background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content2 h4{
+    display: grid;
+    align-items: end;
 }
 
 
@@ -316,11 +220,6 @@ h3{
     padding-top: 20px !important;
 }
 
-.popup-content2 h4{
-    display: grid;
-    align-items: end;
-}
-
 a {
     text-decoration: none;
 }
@@ -330,29 +229,39 @@ a {
     transition-duration: 0.5s;
     cursor: pointer;
 }
-
-.popup-content2 h3{
-    font-size: 25px;
-    display: inline;
-    text-align: center;
-    margin-top:0;
-    margin-bottom:0;
-    letter-spacing: 1px;
-    font-weight: 700;
+.button1{
+    color:white;
+    place-self: center;
+    text-align:center;
+    letter-spacing: 3px;
+    font-size: inherit;
+    background: none;
+    border-width: 1px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: white;
+    width: 150px;
+    height:45px;
+    padding:0;
+    font-weight: 900;
+    padding-top: 20px !important;
+}
+h5 a{
+    text-decoration: none;
+    color:white;
+    float: right;
 }
 
-.hidden {
-    display: none;
+h5 a:hover{
+    color: rgba(255,255,255,0.6);
+    transition-duration: 0.5s;
+    cursor: pointer;
 }
 
-.warning-email {
-    color: #BF343F;
-    height: 24px;
-    padding: 0 8px;
-    font-size: 14px;
+.button1:hover{
+    background-color: rgba(255,255,255,0.6);
+    transition-duration: 0.5s;
+    cursor: pointer;
 }
 
-.email-input{
-
-}
 

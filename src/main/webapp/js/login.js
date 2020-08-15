@@ -12,6 +12,7 @@ document.querySelector(".close" ).addEventListener("click", function () {
 
 })}
 
+
 function forgotPass(){
     document.getElementById("forg").addEventListener("click", function () {
         document.querySelector(".wrapper").style.opacity="0";
