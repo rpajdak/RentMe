@@ -31,9 +31,6 @@ h2{
     margin-bottom: 10px;
 }
 
-h4{
-    margin: 0;
-}
 
 .input-field{
     height: 30px;
@@ -70,7 +67,6 @@ h4{
     color: white;
     margin-bottom: 20px;
     transition: all 0.2s;
-    font-family: "Roboto Light";
 }
 
 .button:hover {
@@ -79,89 +75,14 @@ h4{
     cursor: pointer;
 }
 
-.popup{
-    position: fixed;
-    /*top: 10%;*/
-    /*right: 2%;*/
-    top: 20%;
-    right:40%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
 
-.popup-content{
-    border: white 1px solid;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    width: 300px;
-    border-radius: 10px;
-    color: white;
-    padding: 20px;
-    background-color: rgba(0,0,0,0.4);
+h3{
+    font-size: 20px;
+    display: inline;
+    text-align: center;
+    margin-top:0;
+    margin-bottom:0;
+    letter-spacing: 2px;
+    font-weight: 700;
 }
-
-.login-data-input{
-    border-radius: 10px;
-    padding: 5px;
-    border: none;
-    height: 50px;
-    width: 300px;
-}
-
-.close{
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    height: 20px;
-    border-radius: 50%;
-}
-
-.close:hover{
-    background-color: rgba(255,255,255,0.6);
-    transition-duration: 0.5s;
-    cursor: pointer;
-}
-
-.button1{
-    color:white;
-    place-self: center;
-    text-align:center;
-    letter-spacing: 3px;
-    font-size: inherit;
-    background: none;
-    border-width: 1px;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: white;
-    width: 150px;
-    height:45px;
-    padding:0;
-    font-weight: 900;
-    padding-top: 20px !important;
-}
-
-a {
-    text-decoration: none;
-}
-
-.button1:hover{
-    background-color: rgba(255,255,255,0.6);
-    transition-duration: 0.5s;
-    cursor: pointer;
-}
-
-h5 a{
-    text-decoration: none;
-    color:white;
-    float: right;
-}
-
-h5 a:hover{
-    color: rgba(255,255,255,0.6);
-    transition-duration: 0.5s;
-    cursor: pointer;
-}
-
 

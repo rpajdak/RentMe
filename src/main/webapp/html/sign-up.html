@@ -9,11 +9,12 @@
     <script type="text/javascript" src="../js/login.js"></script>
     <title>Sign up!</title>
     <link rel="stylesheet" href="../css/sign-up.css">
-    <link rel="stylesheet" href="../css/headder-and-body.css">
+    <link rel="stylesheet" href="../css/header-and-body.css">
 </head>
-<body onload="hideLogin(); showLogin()">
-<div class="headder">
-    <a href="landing-page.html"><img id="logo" src="../assets/logo.svg"></a>
+<body onload="hideLogin(); showLogin(); forgotPass(); forgotPassHide()">
+<div class="wrapper">
+<div class="header">
+    <a href="index.html"><img id="logo" src="../assets/logo.svg"></a>
     <div class="menu">
         <ul>
             <li><a href="about.html">About us</a></li>
@@ -26,7 +27,7 @@
     <div class="form">
         <div class="title">
             <h2>Sign up</h2>
-            <h4>It's quick and easy!</h4>
+            <h3>It's quick and easy!</h3>
         </div>
         <div class="input">
             <p>Name:</p>
@@ -72,17 +73,29 @@
         </div>
     </div>
 </div>
-<div class="popup">
+</div>
+<div class ="popup">
     <div class="popup-content">
         <h3>Sign in</h3>
         <img class="close" src="../assets/close-window.svg"/>
         <h4>E-mail:</h4>
         <input class="login-data-input" type="text" placeholder="Enter your e-mail">
         <h4>Password:</h4>
-        <input class="login-data-input" type="password" placeholder="Enter your password">
+        <input class="login-data-input"  type="password" placeholder="Enter your password">
 
-        <h5><a href="#">forgot your password?</a></h5>
+        <h5><a href="#" id="forg">forgot your password?</a> </h5>
         <a href="#" class="button1">Login</a>
+    </div>
+</div>
+<div class ="popup2">
+    <div class="popup-content2">
+        <h3>Enter your e-mail</h3>
+        <img class="close2" src="../assets/close-window.svg"/>
+        <h4>If you have forgotten your account password please enter your e-mail
+            and we will send you a password change code.</h4>
+        <h4 class="description">E-mail:</h4>
+        <input class="login-data-input2" type="text" placeholder="Enter your e-mail">
+        <a href="#" class="button12">Send me new password</a>
     </div>
 </div>
 </body>
