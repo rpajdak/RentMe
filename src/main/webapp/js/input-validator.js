@@ -20,7 +20,7 @@ function switchButton(id){
 }
 
 function emailValidator() {
-    var mailformat = /([a-zA-z_\-.\]+)@([a-zA-z0-9-]+)\.([a-z\.])/
+    const mailformat = /([a-zA-z_\-.\]+)@([a-zA-z0-9-]+)\.([a-z\.])/
     let email_value = email_input.value;
     let validEmail = mailformat.test(email_value);
     const email_paragraph = document.querySelector(".warning-email");
@@ -94,7 +94,9 @@ function checkPasswordForRegEx(){
 }
 
 function passwordClick() {
-    passw_input.addEventListener("click", emailValidator);
+    if(email_input) {
+        email_input.addEventListener("click", emailValidator);
+    }
 }
 
 function clickBtnResetPassw() {
