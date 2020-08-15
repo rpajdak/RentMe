@@ -1,22 +1,31 @@
 body{
     color: white;
-    font-family: Arial !important;
+    font-family: 'Roboto-regular';
 }
 
-.logo{
-    width: 25%;
-    height: 15%;
-    display: grid;
-    padding: 20px;
-    align-content: flex-start;
+
+h1{
+    margin: 20px !important;
 }
 
-.nav{
-    display: grid;
-    grid-template-columns: 7fr 1fr 2fr;
-    grid-auto-rows: 100px;
+#lets-get-started{
+    font-size: 35px;
 }
 
+#show-what-u-got{
+    font-size: 20px;
+}
+
+h2{
+    text-align: center;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+h4{
+    font-family: Roboto-regular;
+
+}
 
 .item-description{
     padding: 10px;
@@ -24,14 +33,23 @@ body{
     border-radius: 10px;
     width: 40vw;
     height: 30vh;
-
 }
 
-.type-selector{
+.item-description{
     padding: 10px;
     border: white 1px solid;
     border-radius: 10px;
     width: 40vw;
+    align-self: start;
+}
+
+.type-selector{
+    background: none;
+    padding: 10px;
+    border: white 1px solid;
+    border-radius: 10px;
+    width: 40vw;
+    color: white;
 }
 
 
