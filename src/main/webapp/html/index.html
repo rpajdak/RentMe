@@ -8,10 +8,11 @@
     <script type="text/javascript" src="../js/login.js"></script>
     <title>RentMe</title>
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/header-and-body.css">
 </head>
-<body onload="animateArrows(); hideLogin(); showLogin(); forgotPass(); forgotPassHide()">
+<body onload="animateArrows(); scrollToCategories(); hideLogin(); showLogin(); forgotPass(); forgotPassHide()">
 <div class="wrapper">
-    <div class="nav">
+    <div class="landing-page-header">
         <div class="menu">
             <ul>
                 <li><a href="about.html">About us</a></li>
@@ -21,19 +22,62 @@
 
         </div>
     </div>
-    <div class="header">
-        <img id="logo" src="../assets/logo-with-slogan.svg">
+    <div class="area-of-logo-with-options">
+        <img id="logo-with-slogan" src="../assets/logo-with-slogan.svg">
         <div id="options">
             <form id="search-form">
                 <input type="text" id="search-field" placeholder="browse items...">
             </form>
-            <p>or</p>
+            <p style="display: inline"  >or</p>
             <a href="add-item.html"><button id="list-item-button">LIST ITEM</button></a>
         </div>
     </div>
-    <div id="see-cathegories-sign">
-        <p id="see-cathegories">see cathegories</p>
+    <div id="see-categories-sign">
+        <p id="see-categories"><a href="#categories-area">see categories</a></p>
         <img id="scroll-down-arrows" src="../assets/scroll-down-arrows.svg">
+    </div>
+</div>
+
+<div id="categories-area">
+    <div class="categories">
+        <div class="category">
+            <div class="category-image-container">
+                <img class="category-image" src="../assets/item-main-photo.jpg">
+            </div>
+            CATEGORY NAME
+        </div>
+        <div class="category">
+            <div class="category-image-container">
+                <img class="category-image" src="../assets/item-main-photo.jpg">
+            </div>
+            <div class="category-name">
+                CATEGORY NAME
+            </div>
+        </div>
+        <div class="category">
+            <div class="category-image-container">
+                <img class="category-image" src="../assets/item-main-photo.jpg">
+            </div>
+            <div class="category-name">
+                CATEGORY NAME
+            </div>
+        </div>
+        <div class="category">
+            <div class="category-image-container">
+                <img class="category-image" src="../assets/item-main-photo.jpg">
+            </div>
+            <div class="category-name">
+                CATEGORY NAME
+            </div>
+        </div>
+        <div class="category">
+            <div class="category-image-container">
+                <img class="category-image" src="../assets/item-main-photo.jpg">
+            </div>
+            <div class="category-name">
+                CATEGORY NAME
+            </div>
+        </div>
     </div>
 </div>
 
@@ -61,7 +105,16 @@
     </div>
 </div>
 <script>
-    function animateArrows() {
+    document.getElementById("see-categories-sign" ).addEventListener("click", function () {
+        scrollToCategories();
+    });
+
+    function scrollToCategories(){
+        document.getElementsByClassName('categories-area').scrollIntoView();
+    }
+
+
+        function animateArrows() {
         document.getElementById("scroll-down-arrows").animate([
             {transform: 'translateY(-10px)'},
             {transform: 'translateY(0px)'},
