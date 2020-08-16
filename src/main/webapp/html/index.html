@@ -9,7 +9,7 @@
     <title>RentMe</title>
     <link rel="stylesheet" href="../css/index.css">
 </head>
-<body onload="hideLogin(); showLogin(); forgotPass(); forgotPassHide()">
+<body onload="animateArrows(); hideLogin(); showLogin(); forgotPass(); forgotPassHide()">
 <div class="wrapper">
     <div class="nav">
         <div class="menu">
@@ -60,7 +60,18 @@
         <a href="#" class="button12">Send me new password</a>
     </div>
 </div>
-
+<script>
+    function animateArrows() {
+        document.getElementById("scroll-down-arrows").animate([
+            {transform: 'translateY(-10px)'},
+            {transform: 'translateY(0px)'},
+            {transform: 'translateY(-10px)'},
+        ], {
+            duration: 2000,
+            iterations: Infinity
+        })
+    };
+</script>
 
 
 </body>
