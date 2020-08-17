@@ -1,0 +1,142 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="login page">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="icon" href="../assets/logo.svg">
+    <link rel="stylesheet" href="../css/header-and-body.css">
+    <!-- <link rel="stylesheet" href="../css/items-list2.css"> -->
+    <link rel="stylesheet" href="../css/item-view.css">
+    <script type="text/javascript" src="../js/login.js"></script>
+    <script type="text/javascript" src="../js/slider.js"></script>
+    <title>RentMe</title>
+
+
+</head>
+<script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
+<body onload="hideLogin(); showLogin(); forgotPass(); forgotPassHide()">
+<div class="wrapper">
+    <div class="header">
+        <a  href="index.html"><img id="logo" src="../assets/logo.svg"></a>
+        <div class="menu">
+            <ul>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="sign-up.html"><button type="button">Sign up</button></a></li>
+                <li><a href="#" id="sign-in">Sign in</a></li>
+            </ul>
+        </div>
+        <form class="search-form">
+            <input type="text" class="item-search-field" placeholder="driller">
+            <h4 style=" margin: 10px; display:inline; color:white">in</h4>
+            <input type="text" class="distance-inputs" placeholder="Brussels">
+            <h4 style=" margin: 10px; display:inline; color:white">within</h4>
+            <select class="sorting-option-inputs-list" style="float: none; width: 100px;" required>
+                <option value="1km">1km</option>
+                <option value="3km">3km</option>
+                <option value="5km">5km</option>
+                <option value="10km">10km</option>
+                <option value="30km">30km</option>
+                <option value="100km">100km</option>
+                <option value=">100km">>100km</option>
+            </select>
+        </form>
+    </div>
+
+
+    <div class="item-view-area">
+        <div class="item-photos">
+            <div class="main-item-photo-area">
+                <div class="main-item-photo-container">
+                    <div class="slideshow-container">
+
+                        <div class="mySlides1">
+                            <img src="../assets/item-main-photo.jpg" >
+                        </div>
+
+                        <div class="mySlides1">
+                            <img src="../assets/drill.jpg" >
+                        </div>
+
+                        <div class="mySlides1">
+                            <img src="../assets/1.jpg" >
+                        </div>
+
+                        <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="calendar">
+        </div>
+
+        <div class="map">
+        </div>
+
+
+        <div class="name-and-price">
+            <h1>Bosh Driller</h1>
+            <h3>Price: 35 PLN/per day</h3>
+            <h4>Two Speed settings, 16 torque settings and power level readout built-in to battery
+                This lightweight and compact drill driver provides the ideal mix of power and versatility.
+                The ergonomic design offers comfortable handling. Always using the right amount of power on
+                every task is possible thanks to 20 different torque settings and a maximum setting. Its 2-speed
+                planetary gearbox provides a long lifetime and good working progress.</h4>
+        </div>
+        <div class="button">
+            <button class="button" type="submit">Book now!</button>
+        </div>
+    </div>
+</div>
+
+<div class ="popup">
+    <div class="popup-content">
+        <h3>Sign in</h3>
+        <img class="close" src="../assets/close-window.svg"/>
+        <h4>E-mail:</h4>
+        <input class="login-data-input" type="text" placeholder="Enter your e-mail">
+        <h4>Password:</h4>
+        <input class="login-data-input"  type="password" placeholder="Enter your password">
+
+        <h5><a href="#" id="forg">forgot your password?</a> </h5>
+        <a href="#" class="button1">Login</a>
+    </div>
+</div>
+<div class ="popup2">
+    <div class="popup-content2">
+        <h3>Enter your e-mail</h3>
+        <img class="close2" src="../assets/close-window.svg"/>
+        <h4>If you have forgotten your account password please enter your e-mail
+            and we will send you a password change code.</h4>
+        <h4 class="description">E-mail:</h4>
+        <input class="login-data-input2" type="text" placeholder="Enter your e-mail">
+        <a href="#" class="button12">Send me new password</a>
+    </div>
+</div>
+<script>
+var slideIndex = [1,1];
+/* Class the members of each slideshow group with different CSS classes */
+var slideId = ["mySlides1", "mySlides2"]
+showSlides(1, 0);
+showSlides(1, 1);
+
+function plusSlides(n, no) {
+showSlides(slideIndex[no] += n, no);
+}
+
+function showSlides(n, no) {
+var i;
+var x = document.getElementsByClassName(slideId[no]);
+if (n > x.length) {slideIndex[no] = 1}
+if (n < 1) {slideIndex[no] = x.length}
+for (i = 0; i < x.length; i++) {
+x[i].style.display = "none";
+}
+x[slideIndex[no]-1].style.display = "block";
+}
+</script>
+</body>
+</html>
