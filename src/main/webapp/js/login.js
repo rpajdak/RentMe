@@ -9,7 +9,7 @@ document.getElementById("sign-in").addEventListener("click", function () {
 
 function hideLogin(){
 document.querySelector(".close" ).addEventListener("click", function () {
-    document.querySelector(".wrapper").style.display="flex";
+    document.querySelector(".wrapper").style.display="block";
     fadeIn("wrapper", 75)
     document.querySelector(".popup").style.display="none";
 

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/header-and-body.css">
 </head>
-<body onload="animateArrows(); scrollToCategories(); hideLogin(); showLogin(); forgotPass(); forgotPassHide()">
+<body onload="animateArrows(); hideLogin(); showLogin(); forgotPass(); forgotPassHide()">
 <div class="wrapper">
     <div class="landing-page-header">
         <div class="menu">
@@ -36,11 +36,10 @@
         <p id="see-categories"><a href="#categories-area">see categories</a></p>
         <img id="scroll-down-arrows" src="../assets/scroll-down-arrows.svg">
     </div>
-</div>
 
 <div id="categories-area">
     <div class="categories">
-        <div class="category">
+        <div class="category" type="button" class="button12">
             <div class="category-image-container">
                 <img class="category-image" src="../assets/item-main-photo.jpg">
             </div>
@@ -80,7 +79,7 @@
         </div>
     </div>
 </div>
-
+</div>
 <div class ="popup">
     <div class="popup-content">
         <h3>Sign in</h3>
@@ -105,16 +104,7 @@
     </div>
 </div>
 <script>
-    document.getElementById("see-categories-sign" ).addEventListener("click", function () {
-        scrollToCategories();
-    });
-
-    function scrollToCategories(){
-        document.getElementsByClassName('categories-area').scrollIntoView();
-    }
-
-
-        function animateArrows() {
+    function animateArrows() {
         document.getElementById("scroll-down-arrows").animate([
             {transform: 'translateY(-10px)'},
             {transform: 'translateY(0px)'},
