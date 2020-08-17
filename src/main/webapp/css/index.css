@@ -219,7 +219,7 @@ button:focus, textarea {
     cursor: pointer;
 }
 
-.button1{
+.loginBtn{
     color:white;
     place-self: center;
     text-align:center;
@@ -321,4 +321,15 @@ a {
 
 #list-item-button{
     cursor: pointer;
+}
+
+.warning-email {
+    color: #BF343F;
+    height: 24px;
+    padding: 0 8px;
+    font-size: 18px;
+}
+
+.hidden{
+    display: none;
 }
