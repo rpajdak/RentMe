@@ -1,20 +1,20 @@
 
 function showLogin(){
-document.getElementById("sign-in").addEventListener("click", function () {
-    fadeOut("wrapper", 15)
-    document.querySelector(".wrapper").style.display="none";
-    document.querySelector(".popup").style.display="flex";
-    fadeIn("popup", 35)
-})}
+    document.getElementById("sign-in").addEventListener("click", function () {
+        fadeOut("wrapper", 15)
+        document.querySelector(".wrapper").style.display="none";
+        document.querySelector(".popup").style.display="flex";
+        fadeIn("popup", 35)
+    })}
 
 function hideLogin(){
-document.querySelector(".close" ).addEventListener("click", function () {
-    document.querySelector(".wrapper").style.display="block";
-    fadeIn("wrapper", 75)
-    document.querySelector(".popup").style.display="none";
+    document.querySelector(".close" ).addEventListener("click", function () {
+        document.querySelector(".wrapper").style.display="block";
+        fadeIn("wrapper", 75)
+        document.querySelector(".popup").style.display="none";
 
 
-})}
+    })}
 
 function forgotPass(){
     document.getElementById("forg").addEventListener("click", function () {
