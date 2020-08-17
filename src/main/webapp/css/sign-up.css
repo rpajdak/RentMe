@@ -68,6 +68,7 @@ h2 {
     color: white;
     margin-bottom: 20px;
     transition: all 0.2s;
+    align-self: center;
 }
 
 .signUpBtn:hover {
