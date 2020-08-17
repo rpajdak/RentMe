@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/sign-up.css">
     <link rel="stylesheet" href="../css/header-and-body.css">
 </head>
-<body onload="hideLogin(); showLogin(); forgotPass(); forgotPassHide()">
+<body onload="hideLogin(); showLogin(); forgotPass(); forgotPassHide(),checkEmailSignUp(),checkInputs(),checkPhoneNumber()">
 <div class="wrapper">
 <div class="header">
     <a href="index.html"><img id="logo" src="../assets/logo.svg"></a>
@@ -40,10 +40,16 @@
         <div class="input">
             <p>Phone number:</p>
             <input class="input-field phone-input" name="password" type="number">
+            <div class="warning-phone hidden">
+                <p>Phone number is not valid!</p>
+            </div>
         </div>
         <div class="input">
             <p>E-mail:</p>
             <input class="input-field email-input" name="password" type="text">
+            <div class="warning-email hidden">
+                <p>Email is not valid!</p>
+            </div>
         </div>
         <div class="input">
             <p>Address:</p>
@@ -69,7 +75,10 @@
         </div>
 
         <div class="submit-button">
-            <button class="button" type="submit">Sign me up</button>
+            <button class="signUpBtn" type="submit">Sign me up</button>
+            <div class="warning-message hidden">
+                <p>Each field should be filled!</p>
+            </div>
         </div>
     </div>
 </div>
@@ -99,4 +108,5 @@
     </div>
 </div>
 </body>
+<script type="text/javascript" src="../js/input-validator.js"></script>
 </html>
