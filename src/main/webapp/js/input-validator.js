@@ -6,8 +6,12 @@ let resetPasswBtn = document.querySelector(".button");
 let name_input = document.querySelector(".name-surname");
 const submitBtn = document.querySelector(".submit-button");
 let loginBtn = document.querySelector(".loginBtn");
+let signUpBtn = document.querySelector(".signUpBtn");
+let phoneInput = document.querySelector(".phone-input");
 let correctName = true;
 let correctEmail = true;
+
+
 
 function switchButton(id) {
     var button = document.getElementById(id);
@@ -25,6 +29,7 @@ function emailValidator() {
     let email_value = email_input.value;
     let validEmail = mailformat.test(email_value);
     const email_paragraph = document.querySelector(".warning-email");
+    console.log(email_value);
     if (!validEmail) {
         email_paragraph.classList.remove("hidden");
         correctEmail = false;
@@ -61,7 +66,6 @@ function nameValidator() {
     const regExForName = /^([a-zA-Z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)/;
     let name_value = name_input.value;
     let validName = regExForName.test(name_value);
-    alert("Test");
     if (validName) {
         correctName = true;
     } else {
@@ -71,6 +75,46 @@ function nameValidator() {
     switchButton("btn-update");
 }
 
+function phoneValidator(){
+    let phone_value = document.querySelector(".phone-input").value;
+    let warning_par = document.querySelector(".warning-phone");
+    if(phone_value.match(/\d/g).length!=9 || phone_value == null){
+        warning_par.classList.remove("hidden");
+    }else{
+        warning_par.classList.add("hidden");
+    }
+    return phone_value.match(/\d/g).length===9;
+}
+
+
+function checkIfNameInputIsEmpty(){
+    const name_input = document.querySelector(".name-input");
+    return name_input.value == "";
+}
+
+function checkIfSurnNameInputIsEmpty(){
+    const surName_input = document.querySelector(".surname-input");
+    return surName_input.value == "";
+}
+
+function checkIfphoneInputIsEmpty(){
+    const phoneInput = document.querySelector(".phone-input");
+    return phoneInput.value == "";
+}
+function checkIfAddressEmpty(){
+    const address_input = document.querySelector(".address-input");
+    return address_input.value == "";
+}
+
+function checkIfCityEmpty(){
+    const city_input = document.querySelector(".address2-input");
+    return city_input.value == "";
+}
+
+function checkIDOBEmpty(){
+    const dob_input = document.querySelector(".DOB-input");
+    return dob_input.value == "";
+}
 
 function displayWarning(validatorResult) {
     if (validatorResult == false) {
@@ -106,7 +150,26 @@ function passwordClick() {
     }
 }
 
-
 function clickBtnResetPassw() {
     submitBtn.addEventListener("mouseover", emailValidator);
+}
+
+function checkEmailSignUp(){
+    email_input.addEventListener("focusout",emailValidator);
+}
+function checkPhoneNumber(){
+    phoneInput.addEventListener("mouseout",phoneValidator);
+}
+
+function checkIfEachInputisFilled(){
+    const warning = document.querySelector(".warning-message")
+    if(checkIfNameInputIsEmpty() || checkIfSurnNameInputIsEmpty() || checkIfphoneInputIsEmpty() || checkIfAddressEmpty() || checkIDOBEmpty() || checkIfCityEmpty()){
+        warning.classList.remove("hidden")
+    }else{
+        warning.classList.add("hidden")
+    }
+}
+
+function checkInputs(){
+    signUpBtn.addEventListener("click",checkIfEachInputisFilled);
 }
