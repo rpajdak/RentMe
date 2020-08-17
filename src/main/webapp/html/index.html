@@ -13,112 +13,79 @@
     <link rel="stylesheet" href="../css/header-and-body.css">
 </head>
 
-<body onload="hideLogin(); showLogin(); forgotPass(); forgotPassHide(),checkEmail()">
+<body onload="animateArrows(); hideLogin(); showLogin(); forgotPass(); forgotPassHide(),checkEmail()">
     <div class="wrapper">
-        <div class="nav">
+        <div class="landing-page-header">
             <div class="menu">
                 <ul>
                     <li><a href="about.html">About us</a></li>
                     <li><a href="sign-up.html"><button type="button">Sign up</button></a></li>
                     <li><a href="#" id="sign-in">Sign in</a></li>
                 </ul>
-
+    
             </div>
         </div>
-
-        <div class="header">
-            <img id="logo" src="../assets/logo-with-slogan.svg">
+        <div class="area-of-logo-with-options">
+            <img id="logo-with-slogan" src="../assets/logo-with-slogan.svg">
             <div id="options">
                 <form id="search-form">
                     <input type="text" id="search-field" placeholder="browse items...">
                 </form>
-                <p>or</p>
+                <p style="display: inline"  >or</p>
                 <a href="add-item.html"><button id="list-item-button">LIST ITEM</button></a>
             </div>
         </div>
-        <div id="see-cathegories-sign">
-            <p id="see-cathegories">see cathegories</p>
+        <div id="see-categories-sign">
+            <p id="see-categories"><a href="#categories-area">see categories</a></p>
             <img id="scroll-down-arrows" src="../assets/scroll-down-arrows.svg">
         </div>
-    </div>
 
-    <div class="popup">
-        <div class="popup-content">
-            <h3>Sign in</h3>
-            <img class="close" src="../assets/close-window.svg" />
-            <h4>E-mail:</h4>
-            <input class="login-data-input email-input" type="text" placeholder="Enter your e-mail">
-            <div class="warning-email hidden">
-                <p>Email is not valid</p>
+    <div id="categories-area">
+        <div class="categories">
+            <div class="category" type="button" class="button12">
+                <div class="category-image-container">
+                    <a href="#"><img class="category-image" src="../assets/camera.jpg"></a>
+                </div>
+                <div class="category-name">
+                    CAMERAS
+                </div>
             </div>
-            <h4>Password:</h4>
-            <input class="login-data-input passw-input" type="password" placeholder="Enter your password">
-
-            <h5><a href="#" id="forg">forgot your password?</a> </h5>
-            <a href="#" class="loginBtn">Login</a>
-        </div>
-    </div>
-    <div class="area-of-logo-with-options">
-        <img id="logo-with-slogan" src="../assets/logo-with-slogan.svg">
-        <div id="options">
-            <form id="search-form">
-                <input type="text" id="search-field" placeholder="browse items...">
-            </form>
-            <p style="display: inline"  >or</p>
-            <a href="add-item.html"><button id="list-item-button">LIST ITEM</button></a>
-        </div>
-    </div>
-    <div id="see-categories-sign">
-        <p id="see-categories"><a href="#categories-area">see categories</a></p>
-        <img id="scroll-down-arrows" src="../assets/scroll-down-arrows.svg">
-    </div>
-
-<div id="categories-area">
-    <div class="categories">
-        <div class="category" type="button" class="button12">
-            <div class="category-image-container">
-                <a href="#"><img class="category-image" src="../assets/camera.jpg"></a>
+            <div class="category">
+                <div class="category-image-container">
+                    <a href="#"><img class="category-image" src="../assets/home-equipment.jpg"></a>
+                </div>
+                <div class="category-name">
+                    HOME EQUIPMENT
+                </div>
             </div>
-            <div class="category-name">
-                CAMERAS
+            <div class="category">
+                <div class="category-image-container">
+                    <a href="#"> <img class="category-image" src="../assets/adventure.jpg"></a>
+                </div>
+                <div class="category-name">
+                    ADVENTURE
+                </div>
             </div>
-        </div>
-        <div class="category">
-            <div class="category-image-container">
-                <a href="#"><img class="category-image" src="../assets/home-equipment.jpg"></a>
+            <div class="category">
+                <div class="category-image-container">
+                    <a href="#">   <img class="category-image" src="../assets/scooter.jpg"></a>
+                </div>
+                <div class="category-name">
+                    SCOOTERS
+                </div>
             </div>
-            <div class="category-name">
-                HOME EQUIPMENT
-            </div>
-        </div>
-        <div class="category">
-            <div class="category-image-container">
-                <a href="#"> <img class="category-image" src="../assets/adventure.jpg"></a>
-            </div>
-            <div class="category-name">
-                ADVENTURE
-            </div>
-        </div>
-        <div class="category">
-            <div class="category-image-container">
-                <a href="#">   <img class="category-image" src="../assets/scooter.jpg"></a>
-            </div>
-            <div class="category-name">
-                SCOOTERS
-            </div>
-        </div>
-        <div class="category">
-            <div class="category-image-container">
-                <a href="#">  <img class="category-image" src="../assets/item-main-photo.jpg"></a>
-            </div>
-            <div class="category-name">
-                INSTRUMENTS
+            <div class="category">
+                <div class="category-image-container">
+                    <a href="#">  <img class="category-image" src="../assets/item-main-photo.jpg"></a>
+                </div>
+                <div class="category-name">
+                    INSTRUMENTS
+                </div>
             </div>
         </div>
     </div>
 </div>
-</div>
-</div>
+
 <div class ="popup">
     <div class="popup-content">
         <h3>Sign in</h3>
