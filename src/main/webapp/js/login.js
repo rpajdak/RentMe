@@ -25,7 +25,8 @@ function forgotPass(){
 
 function forgotPassHide(){
     document.querySelector(".close2" ).addEventListener("click", function () {
-        document.querySelector(".wrapper").style.opacity="1";
+        document.querySelector(".wrapper").style.display="block";
+        fadeIn("wrapper", 75)
         document.querySelector(".popup").style.display="none";
         document.querySelector(".popup2").style.display="none";
 
