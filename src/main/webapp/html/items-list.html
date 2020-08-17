@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../css/map.css">
 </head>
 <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
-<body onload="hideLogin(); showLogin()">
+<body onload="hideLogin(); showLogin(); forgotPass(); forgotPassHide()">
 <div class="wrapper">
 
 <div class="header">
@@ -143,34 +143,40 @@
 
     </div>
 </div>
+
 <div class="map-wrapper">
     <div  style="position: relative">
         <div id="map-container">
             <div id="map-overview" class="hidden">Back to map</div>
 
             <div id="map-canvas"></div>
-        </div>
+            <div id="map-info">
+                <div class="gp brussels">
+                    <h2>Brussels Grand Place</h2>
+                    <img class="marker-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg/800px-Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg" alt="Grand Place Brussels">
+                    <p>The Grand Place or Grote Markt is the central square of Brussels. It is surrounded by opulent guildhalls and two larger edifices, the city's Town Hall, and the King's House or Breadhouse building containing the Brussels City Museum.</p>
+                    <p>The Grand Place is the most important tourist destination and most memorable landmark in Brussels. It is also considered as one of the most beautiful squares in Europe, and has been a UNESCO World Heritage Site since 1998.</p>
+                    <p><a href="https://fr.wikipedia.org/wiki/Place_d%27Armes_(Namur)" targe="_blank">More info</a></p>
+                </div>
 
-        <div id="map-info">
-            <div class="gp brussels">
-                <h2>Template item name</h2>
-                <img src="../assets/item-main-photo.jpg" alt="Template item name">
-                Template item name
-            </div>
+                <div class="gp antwerp">
+                    <h2>Antwerp Grand Place</h2>
+                    <img class="marker-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Grote_Markt_%28Antwerpen%29.jpg/800px-Grote_Markt_%28Antwerpen%29.jpg" alt="Grand Place Antwerp">
+                    <p>The Grote Markt ("Great Market Square") of Antwerp is a town square situated in the heart of the old city quarter. It is filled with an extravagant city hall, numerous elaborate 16th century guildhalls, many restaurants and cafés. Lying within walking distance of the Scheldt river, it hosts a Christmas market and ice rink in winter.</p>
+                    <p><a href="https://en.wikipedia.org/wiki/Grote_Markt_(Antwerp)" target="_blank">More info</a></p>
+                </div>
 
-            <div class="gp brussels">
-                <h2>Template item name</h2>
-                <img src="../assets/item-main-photo.jpg" alt="Template item name">
-                Template item name
-            </div>
-
-            <div class="gp brussels">
-                <h2>Template item name</h2>
-                <img src="../assets/item-main-photo.jpg" alt="Template item name">
-                Template item name
+                <div class="gp namur">
+                    <h2>Namur Grand Place</h2>
+                    <img class="marker-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Namur_2007_04.JPG/800px-Namur_2007_04.JPG" alt="Grand Place Namur">
+                    <p>The Place d'Armes, formerly Grand Place is a cobbled square located in Namur in Belgium. Located in the center of a fortification, a place of arms is the gathering place of a small troop and a central space hosting important ceremonies of military life.</p>
+                    <p><a href="https://fr.wikipedia.org/wiki/Place_d%27Armes_(Namur)" targe="_blank">More info</a></p>
+                </div>
             </div>
         </div>
     </div>
+</div>
+
 </div>
 <div class ="popup">
     <div class="popup-content">
@@ -181,16 +187,27 @@
         <h4>Password:</h4>
         <input class="login-data-input"  type="password" placeholder="Enter your password">
 
-        <h5><a href="#">forgot your password?</a> </h5>
+        <h5><a href="#" id="forg">forgot your password?</a> </h5>
         <a href="#" class="button1">Login</a>
+    </div>
+</div>
+<div class ="popup2">
+    <div class="popup-content2">
+        <h3>Enter your e-mail</h3>
+        <img class="close2" src="../assets/close-window.svg"/>
+        <h4>If you have forgotten your account password please enter your e-mail
+            and we will send you a password change code.</h4>
+        <h4 class="description">E-mail:</h4>
+        <input class="login-data-input2" type="text" placeholder="Enter your e-mail">
+        <a href="#" class="button12">Send me new password</a>
     </div>
 </div>
 </div>
 <script>
-    // var responsiveZoom = (window.innerWidth < 768) ? 6.75 : 7.75;
     var responsiveZoom = (window.innerWidth < 768) ? 6.75 : 7.75;
+
     function initMap() {
-        var myLatlng = new google.maps.LatLng(50.061437, 19.937300);
+        var myLatlng = new google.maps.LatLng(50.7974444, 4.48544);
         var mapOptions = {
             styles: [
                 {
@@ -322,8 +339,7 @@
                     ]
                 }
             ],
-            // zoom: responsiveZoom,
-            zoom: 12,
+            zoom: responsiveZoom,
             minZoom: 6,
             maxZoom: 17,
             zoomControl: true,
@@ -332,7 +348,7 @@
             },
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
-            scrollwheel: true,
+            scrollwheel: false,
             panControl: false,
             mapTypeControl: false,
             scaleControl: false,
