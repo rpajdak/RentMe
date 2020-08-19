@@ -14,12 +14,16 @@ body {
 }
 
 .header {
+    background: url('../assets/background-with-icons.svg');
+    background-size: cover;
+    background-attachment: fixed;
     width: 100%;
     position: fixed;
     padding: 13px 13px 0 13px;
     background-size: cover;
     border-bottom: 0px solid rgba(255,255,255,0.1);
     top: 0px;
+    z-index: 99999999999;
 }
 
 #logo{
