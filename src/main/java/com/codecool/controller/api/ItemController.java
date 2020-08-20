@@ -1,4 +1,4 @@
-package com.codecool.controller.view;
+package com.codecool.controller.api;
 
 import com.codecool.dao.ItemRepository;
 import com.codecool.model.Item;
@@ -10,11 +10,7 @@ import java.util.List;
 
 @Controller
 public class ItemController {
-    private ItemRepository itemRepository;
 
-    public ItemController(ItemRepository itemRepository){
-        this.itemRepository = itemRepository;
-    }
 
     @GetMapping("/add")
     @ResponseBody
