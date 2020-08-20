@@ -15,14 +15,14 @@ public class ItemController {
     @GetMapping("/add")
     @ResponseBody
     public String addItem(){
-        itemRepository.save(new Item("drill", "description", 12, "url", 1L));
+        //itemRepository.save(new Item("drill", "description", 12, "url", 1L));
         return "it has been completed";
     }
 
     @GetMapping("/findAll")
     @ResponseBody
     public List<Item> getAllItems(){
-        return itemRepository.findAll();
+      //  return itemRepository.findAll();
     }
 
 //    @PostMapping("/add")

@@ -1,4 +1,4 @@
-package com.codecool.controller.view;
+package com.codecool.controller.api;
 
 import org.springframework.stereotype.Controller;
 
