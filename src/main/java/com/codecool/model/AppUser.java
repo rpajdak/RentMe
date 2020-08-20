@@ -32,10 +32,9 @@ public class AppUser {
     public AppUser() {
     }
 
-    public AppUser(Long id, String firstName, String lastName, String email, String password, String address,
+    public AppUser(String firstName, String lastName, String email, String password, String address,
                    String city, boolean isAdmin) {
 
-        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
