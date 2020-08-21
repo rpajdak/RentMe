@@ -1,34 +1,49 @@
 package com.codecool.controller.api;
-
-import com.codecool.dao.ItemRepository;
 import com.codecool.model.Item;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.codecool.service.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import java.util.Optional;
 
 @Controller
+@RestController
+@RequestMapping("/api/items")
 public class ItemController {
 
+    private ItemService itemService;
 
-    @GetMapping("/add")
-    @ResponseBody
-    public String addItem(){
-        //itemRepository.save(new Item("drill", "description", 12, "url", 1L));
-        return "it has been completed";
+    public ItemController(ItemService itemService){
+        this.itemService = itemService;
     }
 
-    @GetMapping("/findAll")
+    @GetMapping("/all")
     @ResponseBody
-    public List<Item> getAllItems(){
-      //  return itemRepository.findAll();
+    public Iterable<Item> getAllItems(){
+      return itemService.getAllItems();
     }
 
-//    @PostMapping("/add")
-//    public Item addItem(@RequestBody Item item ){
-//        return itemRepository.save(item);
-//    }
+    @GetMapping()
+    @ResponseBody
+    public Optional<Item> findById(@RequestParam Long id){
+        return itemService.findById(id);
+    }
 
+    @PostMapping()
+    @ResponseBody
+    public void addItem(@RequestBody Item item){
+        itemService.addItem(item);
+    }
+
+    @PutMapping()
+    @ResponseBody
+    public void updateItem(@RequestBody Item item){
+        itemService.updateItem(item);
+    }
+
+    @DeleteMapping()
+    @ResponseBody
+    public void deleteItem(@RequestParam Long id){
+        itemService.deleteItemById(id);
+    }
 
 }
