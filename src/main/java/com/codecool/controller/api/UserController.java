@@ -39,7 +39,7 @@ public class UserController {
                 .build());
     }
 
-    @GetMapping("/getAllAdmins")
+    @GetMapping("/admins/all")
     @ResponseBody
     public List<AppUser> getAllAdmins() {
         return userService.getAllAppUsers().stream()
@@ -47,14 +47,14 @@ public class UserController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/getAllRenters")
+    @GetMapping("/renters/all")
     @ResponseBody
     public List<AppUser> getAllRenters(){
         return userService.getAllAppUsers().stream()
                 .filter(user -> !user.getIsAdmin())
                 .collect(Collectors.toList());
     }
-    @GetMapping("/getUserById{id}")
+    @GetMapping("/renters/getByid{id}")
     @ResponseBody
     public AppUser findUserById(@PathVariable("id") Long id){
         return userService.getUserById(id);
