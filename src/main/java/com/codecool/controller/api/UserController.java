@@ -54,7 +54,7 @@ public class UserController {
                 .filter(user -> !user.getIsAdmin())
                 .collect(Collectors.toList());
     }
-    @GetMapping("/renters/getByid{id}")
+    @GetMapping("/renters/{id}")
     @ResponseBody
     public AppUser findUserById(@PathVariable("id") Long id){
         return userService.getUserById(id);
