@@ -1,24 +1,22 @@
+
 <?xml version = "1.0" encoding = "utf-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
 
 <hibernate-mapping>
-    <class name="com.codecool.model.Item" table="items">
+    <class name="com.codecool.model.Category" table="categories">
 
         <meta attribute="class-description">
-            This class contains the item details.
+            This class contains the categories details.
         </meta>
 
         <id name="id" type="long" column="id">
             <generator class="native"/>
         </id>
 
-        <property name="name" column="name" type="string"/>
         <property name="description" column="description" type="string"/>
-        <property name="price" column="price" type="double"/>
+        <property name="description" column="description" type="string"/>
         <property name="picUrl" column="picurl" type="string"/>
-        <property name="ownerId" column="owner_id" type="long"/>
-        <property name="categoryId" column="category_id" type="long"/>
     </class>
 </hibernate-mapping>

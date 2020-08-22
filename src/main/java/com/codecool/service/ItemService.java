@@ -14,22 +14,27 @@ public class ItemService {
     }
 
     public Iterable<Item> getAllItems(){
+
         return itemRepository.findAll();
     }
 
     public Optional<Item> findById(Long id){
+
         return itemRepository.findById(id);
     }
 
     public void addItem(Item item){
+
         itemRepository.save(item);
     }
 
     public void updateItem(Item item){
+
         itemRepository.save(item);
     }
 
     public void deleteItemById(Long id){
+
         itemRepository.deleteById(id);
     }
 

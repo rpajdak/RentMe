@@ -31,5 +31,10 @@ CREATE TABLE reservations(
                       renting_end_date DATE NOT NULL
 );
 
+CREATE TABLE categories(
+                      id serial PRIMARY KEY,
+                      description varchar(255) NOT NULL,
+                      pic_url varchar(255) NOT NULL
+);
 
 

@@ -19,7 +19,8 @@ public class ItemController {
     @GetMapping("/all")
     @ResponseBody
     public Iterable<Item> getAllItems(){
-      return itemService.getAllItems();
+
+        return itemService.getAllItems();
     }
 
     @GetMapping()
