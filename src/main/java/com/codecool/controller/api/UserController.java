@@ -1,17 +1,17 @@
 package com.codecool.controller.api;
 
 import com.codecool.converter.AppUserConverter;
+import com.codecool.model.AppUser;
 import com.codecool.modelDTO.AppUserDTO;
 import com.codecool.service.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 
 @Controller
+@RestController
 public class UserController {
 
     private UserService userService;
@@ -39,6 +39,30 @@ public class UserController {
     @ResponseBody
     public AppUserDTO findUserById(@PathVariable("id") Long id) {
         return appUserConverter.entityToDTO(userService.getUserById(id));
+    }
+
+    @GetMapping("/admins/{id}")
+    @ResponseBody
+    public AppUserDTO findAdminById(@PathVariable("id") Long id) {
+        return appUserConverter.entityToDTO(userService.getUserById(id));
+    }
+
+    @PostMapping()
+    @ResponseBody
+    public void addUser(@RequestBody AppUser appUser) {
+        userService.addUser(appUser);
+    }
+
+    @PutMapping
+    @ResponseBody
+    public void updateUser(@RequestBody AppUser appUser) {
+        userService.updateUser(appUser);
+    }
+
+    @DeleteMapping
+    @ResponseBody
+    public void deleteAppUser(long id) {
+        userService.deleteUser(id);
     }
 
 }
