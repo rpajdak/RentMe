@@ -32,8 +32,8 @@ public class UserService {
         userRepository.save(updatedUser);
     }
 
-    public void deleteUser(AppUser appUser) {
-        userRepository.deleteById(appUser.getId());
+    public void deleteUser(long id) {
+        userRepository.deleteById(id);
     }
 
     public List<AppUser> getAllAdmins() {
