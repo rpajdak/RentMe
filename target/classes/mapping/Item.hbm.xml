@@ -19,5 +19,6 @@
         <property name="price" column="price" type="double"/>
         <property name="picUrl" column="picurl" type="string"/>
         <property name="ownerId" column="owner_id" type="long"/>
+        <property name="categoryId" column="category_id" type="long"/>
     </class>
 </hibernate-mapping>

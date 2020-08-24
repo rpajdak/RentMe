@@ -59,3 +59,42 @@ VALUES (default, 'Dorota', 'Bażant','dbazant@gmail.com','dorota1234','Karmelick
 
 INSERT INTO users
 VALUES (default, 'Julia', 'Nowosad','jnowosad@gmail.com','julia1234','Karmelicka 9', 'Kraków','n');
+
+
+INSERT INTO items
+VALUES (default, 'Bosch drill', 'This is very useful drill to your home', 25,'item-main-photo.jpg', 1, 2);
+
+INSERT INTO items
+VALUES (default, 'Guitar', 'You play at home', 10,'item-main-photo.jpg', 3, 1);
+
+INSERT INTO items
+VALUES (default, 'Bike', 'You can traver whenever you want', 35,'item-main-photo.jpg', 2, 3);
+
+INSERT INTO items
+VALUES (default, 'Skis', 'Skis to rent!' , 50, 'item-main-photo.jpg', 4, 4);
+
+INSERT INTO items
+VALUES (default, 'Car', 'Dont have a car? Rent one', 70,'item-main-photo.jpg', 5, 5);
+
+
+INSERT INTO categories
+VALUES (default, 'Home equipment', 'home-equipment.png');
+
+INSERT INTO categories
+VALUES (default, 'Adventure', 'adventure.jpg');
+
+INSERT INTO categories
+VALUES (default, 'Instruments', 'instruments.png');
+
+INSERT INTO categories
+VALUES (default, 'Winter', '1.jpg');
+
+INSERT INTO categories
+VALUES (default, 'Cars', 'cars.jpg');
+
+
+INSERT INTO categories
+VALUES (default, 'Scooters', 'scooter.jpg');
+
+INSERT INTO categories
+VALUES (default, 'Cameras', 'camera.jpg');

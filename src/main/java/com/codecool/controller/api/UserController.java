@@ -25,6 +25,7 @@ public class UserController {
     @GetMapping("/admins/all")
     @ResponseBody
     public List<AppUserDTO> getAllAdmins() {
+
         return appUserConverter.entitiesToDTO(userService.getAllAdmins());
     }
 
