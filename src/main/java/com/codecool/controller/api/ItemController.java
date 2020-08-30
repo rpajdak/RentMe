@@ -6,12 +6,17 @@ import com.codecool.service.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 @Controller
 @RestController
 @RequestMapping("/api/items")
+@CrossOrigin
 public class ItemController {
 
     private ItemService itemService;
@@ -51,6 +56,37 @@ public class ItemController {
     @ResponseBody
     public void deleteItem(@RequestParam Long id){
         itemService.deleteItemById(id);
+    }
+
+
+    public static Double calculate(final double numberOne, final String operation, final double numberTwo)
+    {
+
+        if(operation == "+"){
+            return numberOne + numberTwo;
+        }
+
+        else if(operation == "-"){
+            return  numberOne - numberTwo;
+        }
+
+        else if(operation == "*"){
+            return  numberOne * numberTwo;
+        }
+
+        else if(operation == "/"){
+            if(numberTwo == 0){
+                return null;
+            }
+            return numberOne/numberTwo;
+        }
+        else
+            return null;
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(calculate(-3, "*", 0));
     }
 
 }

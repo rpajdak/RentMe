@@ -12,6 +12,7 @@ import java.util.List;
 
 @Controller
 @RestController
+@CrossOrigin
 public class UserController {
 
     private UserService userService;
