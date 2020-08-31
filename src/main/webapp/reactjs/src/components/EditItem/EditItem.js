@@ -15,6 +15,7 @@ function EditItem() {
             <h2>Item Info</h2>
             <h4><label htmlFor="quest-type">Category</label></h4>
             <select class="type-selector" id="quest-type" name="quest-type">
+
             </select>
 
             <h4>Description:</h4>

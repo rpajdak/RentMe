@@ -4,17 +4,21 @@ import App from './components/App/App'
 import FetchCategories from "./components/FetchDetails/FetchCategories";
 
 
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
-
 );
 
-ReactDOM.render(
-    <React.StrictMode>
-        <FetchCategories/>
-    </React.StrictMode>,
-    document.getElementById('quest-type')
-);
+// ReactDOM.render(
+//     <React.StrictMode>
+//         <FetchCategories />
+//     </React.StrictMode>,
+//     document.getElementById('quest-type')
+//
+//
+// );
+
+
