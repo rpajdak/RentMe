@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 import About from '../About/About'
-import SignIn from '../SignIn/SignIn'
+import Login from '../Login/Login'
 import RecoverAcc from '../RecoverAcc/RecoverAcc'
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
            <Route path="/about" component={About}/>
          </Switch>
          <Switch>
-           <Route path="/login" component={SignIn}/>
+           <Route path="/login" component={Login}/>
          </Switch>
          <Switch>
            <Route path="/account/recover" component={RecoverAcc}/>

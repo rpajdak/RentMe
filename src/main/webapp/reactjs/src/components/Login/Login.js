@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../css/header-and-body.css";
+// import "../../css/header-and-body.css";
 import closeIcon from "../../assets/close-window.svg"
 
 
-function SignIn() {
+function Login() {
   return (
     <div className ="popup">
     <div className="popup-content">
@@ -28,4 +28,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default Login;
