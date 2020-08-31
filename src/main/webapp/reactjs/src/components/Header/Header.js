@@ -17,7 +17,7 @@ function Header() {
           </li>
 
           <li>
-            <Link to="/signp">
+            <Link to="/login">
               <button type="text">Sign up</button>
             </Link>
           </li>
