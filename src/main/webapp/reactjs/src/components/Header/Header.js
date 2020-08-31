@@ -12,8 +12,7 @@ function Header() {
         <ul>
 
           <li>
-            About
-            <Link to="/about"></Link>
+            <Link to="/about">About</Link>
           </li>
 
           <li>
