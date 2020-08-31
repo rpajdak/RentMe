@@ -1,9 +1,12 @@
 import React from 'react';
 import Header from '../Header/Header'
-
+import AboutUsContent from '../AboutUsContent/AboutUsContent'
 function About() {
     return (
-        <Header/>
+        <React.Fragment>
+            <Header />
+            <AboutUsContent />
+        </React.Fragment>
     );
 }
 

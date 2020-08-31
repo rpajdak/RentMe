@@ -7,9 +7,8 @@ import {
 } from "react-router-dom";
 
 import About from '../About/About'
-import FetchCategories from "../item-details/FetchCategories";
-import EditItem from "../Edit-Item/EditItem";
-
+import SignIn from '../SignIn/SignIn'
+import RecoverAcc from '../RecoverAcc/RecoverAcc'
 
 function App() {
    return (
@@ -18,11 +17,13 @@ function App() {
          <Switch>
            <Route path="/about" component={About}/>
          </Switch>
+         <Switch>
+           <Route path="/login" component={SignIn}/>
+         </Switch>
+         <Switch>
+           <Route path="/account/recover" component={RecoverAcc}/>
+         </Switch>
        </div>
-
-         <div>
-             <Route path="/edit/item" component={EditItem}/>
-         </div>
      </Router>
    );
 }

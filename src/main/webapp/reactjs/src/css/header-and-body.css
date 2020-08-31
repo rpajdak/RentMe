@@ -91,7 +91,6 @@ button:focus, textarea {
     position: fixed;
     top: 20%;
     right:40%;
-    display: none;
     justify-content: center;
     align-items: center;
     background: none;
@@ -162,7 +161,6 @@ button:focus, textarea {
     /*right: 2%;*/
     top: 20%;
     right:40%;
-    display: none;
     justify-content: center;
     align-items: center;
 }
