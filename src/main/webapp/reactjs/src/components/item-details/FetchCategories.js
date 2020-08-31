@@ -21,7 +21,6 @@ export default class FetchCategories extends React.Component {
         data.forEach(element => { categories.push(element.description)});
         this.setState({name: categories, loading: false})
 
-
     }
 
     render() {
