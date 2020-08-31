@@ -9,6 +9,8 @@ import {
 import About from '../About/About'
 import SignIn from '../SignIn/SignIn'
 import RecoverAcc from '../RecoverAcc/RecoverAcc'
+import ItemDetails from "../EditItem/ItemDetails";
+
 
 function App() {
    return (
@@ -23,8 +25,13 @@ function App() {
          <Switch>
            <Route path="/account/recover" component={RecoverAcc}/>
          </Switch>
+           <Switch>
+               <Route path="/item/edit" component={ItemDetails}/>
+           </Switch>
        </div>
      </Router>
+
+
    );
 }
 

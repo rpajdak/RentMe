@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../css/header-and-body.css";
 import logoImg from "../../assets/logo.svg";
+
 function Header() {
   return (
     <div className="header">

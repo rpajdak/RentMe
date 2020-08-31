@@ -1,14 +1,15 @@
 import React from 'react';
 import Header from '../Header/Header'
-import AboutUsContent from '../AboutUsContent/AboutUsContent'
+import EditItem from "./EditItem";
 
-function About() {
+
+function ItemDetails() {
     return (
         <React.Fragment>
             <Header />
-            <AboutUsContent />
+            <EditItem />
         </React.Fragment>
     );
 }
 
-export default About;
+export default ItemDetails;
