@@ -1,14 +1,15 @@
-import React from 'react';
+import React, {useState, useEffect} from "react";
 import Header from '../Header/Header'
 import EditItem from "./EditItem";
 
+function ItemDetails({match}) {
 
+    const [itemIdValue, setItemID] = useState(match.params.id);
 
-function ItemDetails() {
     return (
         <React.Fragment>
-            <Header />
-            <EditItem />
+            <Header/>
+            <EditItem value={itemIdValue}/>
         </React.Fragment>
     );
 }
