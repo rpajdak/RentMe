@@ -24,6 +24,7 @@ function EditItem() {
     return (
     <div className="container">
         <h1 id="lets-get-started">Here you can edit your item</h1>
+        <form>
         <div className="inputs">
             <h4>Item name</h4>
             <input className="item-name" placeholder="Current item name"/>
@@ -61,7 +62,9 @@ function EditItem() {
                 <div className="item-photo-container 6"></div>
                 <div className="add-item-photo-container 7"></div>
             </div>
+
         </div>
+        </form>
         <div className="submit-button">
             <button className="button" type="submit">Update Item</button>
         </div>

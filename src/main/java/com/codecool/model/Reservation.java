@@ -15,8 +15,11 @@ public class Reservation {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @Column(name= "id")
     private Long id;
+    @Column(name= "item_id")
     private Long itemId;
+    @Column(name= "renter_id")
     private Long appUserId;
     @CreationTimestamp
     private Date rentingStartDate;
