@@ -20,7 +20,7 @@ public class UserService {
         return userRepository.getAppUsersById(id);
     }
 
-    public AppUser getUserAddressByItemId(long id){
+    public String getUserAddressByItemId(long id){
         return userRepository.findAppUserAddressByItemId(id);
     }
 

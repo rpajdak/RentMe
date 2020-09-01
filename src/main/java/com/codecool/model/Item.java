@@ -17,11 +17,17 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
+    @Column(name= "name")
     private String name;
+    @Column(name= "description")
     private String description;
+    @Column(name= "price")
     private double price;
+    @Column(name= "pic_url")
     private String picUrl;
+    @Column(name= "owner_id")
     private Long ownerId;
+    @Column(name= "category_id")
     private Long categoryId;
 
     public Item(String name, String description, double price, String picUrl, Long ownerId, Long categoryId) {

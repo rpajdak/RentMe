@@ -44,7 +44,7 @@ public class UserController {
 
     @GetMapping("/renters/find-by/item/{id}")
     @ResponseBody
-    public AppUser findUserAddressByItemId(@PathVariable("id") Long id) {
+    public String findUserAddressByItemId(@PathVariable("id") Long id) {
         return userService.getUserAddressByItemId(id);
     }
 
