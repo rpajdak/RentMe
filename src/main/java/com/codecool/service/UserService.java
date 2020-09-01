@@ -20,6 +20,10 @@ public class UserService {
         return userRepository.getAppUsersById(id);
     }
 
+    public AppUser getUserAddressByItemId(long id){
+        return userRepository.findAppUserAddressByItemId(id);
+    }
+
     public List<AppUser> getAllAppUsers() {
         return userRepository.findAll();
     }
@@ -35,6 +39,8 @@ public class UserService {
     public void deleteUser(long id) {
         userRepository.deleteById(id);
     }
+
+
 
     public List<AppUser> getAllAdmins() {
         return getAllAppUsers().stream()

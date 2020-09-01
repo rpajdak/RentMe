@@ -12,21 +12,18 @@ import RecoverAcc from '../RecoverAcc/RecoverAcc'
 import ItemDetails from "../EditItem/ItemDetails";
 
 
+
 function App() {
    return (
      <Router>
        <div className="App">
          <Switch>
            <Route path="/about" component={About}/>
-         </Switch>
-         <Switch>
            <Route path="/login" component={SignIn}/>
-         </Switch>
-         <Switch>
            <Route path="/account/recover" component={RecoverAcc}/>
-         </Switch>
-           <Switch>
-               <Route path="/item/edit" component={ItemDetails}/>
+           <Route path="/item/edit" exact component={ItemDetails}/>
+
+
            </Switch>
        </div>
      </Router>
