@@ -21,9 +21,7 @@ function App() {
            <Route path="/about" component={About}/>
            <Route path="/login" component={SignIn}/>
            <Route path="/account/recover" component={RecoverAcc}/>
-           <Route path="/item/edit" exact component={ItemDetails}/>
-
-
+           <Route path="/item/:id" exact component={ItemDetails}/>
            </Switch>
        </div>
      </Router>
