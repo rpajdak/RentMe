@@ -42,6 +42,12 @@ public class UserController {
         return appUserConverter.entityToDTO(userService.getUserById(id));
     }
 
+    @GetMapping("/renters/find-by/item/{id}")
+    @ResponseBody
+    public String findUserAddressByItemId(@PathVariable("id") Long id) {
+        return userService.getUserAddressByItemId(id);
+    }
+
     @GetMapping("/admins/{id}")
     @ResponseBody
     public AppUserDTO findAdminById(@PathVariable("id") Long id) {
