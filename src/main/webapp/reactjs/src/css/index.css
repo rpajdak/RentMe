@@ -22,12 +22,6 @@
     max-width: 15cm;
 }
 
-.area-of-logo-with-options p{
-    display:inline;
-    font-size: 28px;
-    margin:auto;
-}
-
 #options{
     margin-top: 8vw;
     display: grid;
@@ -43,11 +37,16 @@
     border:none;
     font-family: inherit;
     font-size: 1.5vw;
-    height: 2vw;
+    height: 2.1vw;
     width: 25vw;
     margin-right: 5vw;
 }
 
+.area-of-logo-with-options p{
+    display:inline;
+    font-size: 28px;
+    margin:auto;
+}
 
 #list-item-button{
     padding: 0.5em 1.5vw;
@@ -62,8 +61,8 @@
     margin-left: 5vw;
     color:white;
     background: none;
+    cursor: pointer;
 }
-
 
 #list-item-button:hover{
     background-color: rgba(255,255,255,0.6);
