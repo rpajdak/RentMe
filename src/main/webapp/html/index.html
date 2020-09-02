@@ -1,10 +1,13 @@
-<html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="login page">
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto-bold' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto-medium' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto-regular' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto-light' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto-thin' rel='stylesheet'>
     <link rel="icon" href="../assets/logo.svg">
     <script type="text/javascript" src="../js/login.js"></script>
 
@@ -18,11 +21,10 @@
         <div class="landing-page-header">
             <div class="menu">
                 <ul>
-                    <li><a href="about.html">About us</a></li>
+                    <li><a href="about.html" style="font-family: 'roboto';">About us</a></li>
                     <li><a href="sign-up.html"><button type="button">Sign up</button></a></li>
                     <li><a href="#" id="sign-in">Sign in</a></li>
                 </ul>
-    
             </div>
         </div>
         <div class="area-of-logo-with-options">
@@ -76,7 +78,7 @@
             </div>
             <div class="category">
                 <div class="category-image-container">
-                    <a href="#">  <img class="category-image" src="../assets/instruments.png"></a>
+                    <a href="#">  <img class="category-image" src="../assets/item-main-photo.jpg"></a>
                 </div>
                 <div class="category-name">
                     INSTRUMENTS
@@ -86,30 +88,45 @@
     </div>
 </div>
 
-    <div class ="popup">
+    <div class ="popup login-popup">
         <div class="popup-content">
-            <h3>Sign in</h3>
-            <img class="close" src="../assets/close-window.svg"/>
-            <h4>E-mail:</h4>
-            <input class="login-data-input" type="text" placeholder="Enter your e-mail">
-            <h4>Password:</h4>
-            <input class="login-data-input"  type="password" placeholder="Enter your password">
-            <h5><a href="#" id="forg">forgot your password?</a> </h5>
-            <a href="#" class="button1">Login</a>
+            <p class="sign-in">Sign in</p>
+            <img class="close close-login" src="../assets/close-window-blue.svg"/>
+            <div class="login-input-wrapper   email">
+                <p class="input-label">E-mail:</p>
+                <div class="gradient-wrapper">
+                    <input class="login-data-input" type="text" placeholder="">
+                </div>
+            </div>
+            <div class="login-input-wrapper">
+                <p class="input-label">Password:</p>
+                <div class="gradient-wrapper">
+                    <input class="login-data-input"  type="password" placeholder="">
+                </div>
+            </div>
+            <p class="forgot-password"><a href="#" id="forg">Forgot your password?</a> </p>
+            <div class="gradient-wrapper login-button-gradient-wrapper">
+                <button type="button" href="#" class="login-form-button">Login</button>
+            </div>
         </div>
     </div>
-    <div class ="popup2">
-        <div class="popup-content2">
-            <h3>Enter your e-mail</h3>
-            <img class="close2" src="../assets/close-window.svg"/>
-            <h4>If you have forgotten your account password please enter your e-mail
-                and we will send you a password change code.</h4>
-            <h4 class="description">E-mail:</h4>
-            <input class="login-data-input2" type="text" placeholder="Enter your e-mail">
-            <a href="#" class="button12">Send me new password</a>
+    <div class="popup forgot-password-popup">
+        <div class="popup-content">
+            <p class="sign-in">Password recovery</p>
+            <img class="close close-password-recovery" src="../assets/close-window-blue.svg"/>
+            <p class="password-recovery-info">Forgot your password? Just enter your email
+            and we'll send you reset link.</p>
+            <div class="login-input-wrapper">
+                <p class="input-label">Email:</p>
+                <div class="gradient-wrapper">
+                    <input class="login-data-input"  type="password" placeholder="">
+                </div>
+            </div>
+            <div class="gradient-wrapper login-button-gradient-wrapper">
+                <button type="button" href="#" class="login-form-button">Send</button>
+            </div>
         </div>
     </div>
-
 
 <script>
     function animateArrows() {

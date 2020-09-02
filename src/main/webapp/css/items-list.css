@@ -108,48 +108,5 @@ input:focus, textarea {
 button:focus, textarea {
     outline: none !important;
 }
-.popup{
-    position: fixed;
-    top: 20%;
-    right:40%;
-    display: none;
-    justify-content: center;
-    align-items: center;
 
-}
-
-.popup-content{
-    border: white 1px solid;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    width: 300px;
-    border-radius: 10px;
-    color: white;
-    padding: 20px;
-    background-color: rgba(0,0,0,0.1);
-}
-
-.login-data-input{
-    border-radius: 10px;
-    padding: 5px;
-    border: none;
-    height: 50px;
-    width: 300px;
-}
-
-.close{
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    height: 20px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.close:hover{
-    background-color: rgba(255,255,255,0.6);
-    transition-duration: 0.5s;
-    cursor: pointer;
-}
 
