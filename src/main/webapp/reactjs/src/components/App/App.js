@@ -8,8 +8,6 @@ import {
 
 import About from '../About/About'
 
-import SignIn from '../SignIn/SignIn'
-import RecoverAcc from '../RecoverAcc/RecoverAcc'
 import ItemDetails from "../EditItem/ItemDetails";
 import Login from '../Login/Login'
 import RecoverAcc from '../RecoverAcc/RecoverAcc'
