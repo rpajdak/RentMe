@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import About from '../About/About'
+import LandingPage from '../LandingPage/LandingPage'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
        <div className="App">
          <Switch>
            <Route path="/about" component={About}/>
+           <Route path="/index" component={LandingPage}/>
          </Switch>
        </div>
      </Router>
