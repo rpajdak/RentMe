@@ -1,4 +1,4 @@
-.container {
+.sign-up-container {
     display: flex;
     align-items: start;
     justify-content: center;
@@ -26,20 +26,10 @@
     text-align: center;
 }
 
-h2 {
+.sign-up-h2 {
     font-size: 30px;
     margin-top: 15px;
     margin-bottom: 10px;
-}
-
-.input-field {
-    height: 30px;
-    width: 250px;
-    background-color: white;
-    font-size: large;
-    border: white 1px solid;
-    border-radius: 10px;
-    padding: 5px;
 }
 
 .title {
@@ -47,7 +37,7 @@ h2 {
     grid-column-end: -1;
 }
 
-.submit-button {
+.sign-up-submit-button {
     grid-column-start: 3;
     margin-top: 5%;
     height: 100%;
@@ -86,13 +76,3 @@ h3 {
     font-weight: 700;
 }
 
-.warning-email {
-    color: #15c415;
-    height: 24px;
-    padding: 0 8px;
-    font-size: 18px;
-}
-
-.hidden {
-    display: none;
-}
