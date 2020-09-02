@@ -13,7 +13,7 @@
     grid-gap: 10px;
 }
 
-.item-photo-container{
+.edit-item-item-photo-container{
     width: 100%;
     /*border: 1px solid white;*/
     border-radius: 10px;
@@ -27,16 +27,16 @@
     background-position:center;
 }
 
-.item-photo-container > .item-photo {
+.edit-item-item-photo-container > .item-photo {
     margin: 0 -1000%;
 }
 
-.item-photo{
+.edit-item-item-photo{
     max-height:100%;
     border-radius: 10px;
 }
 
-.item-photo-container:hover .item-photo{
+.edit-item-item-photo-container:hover .item-photo{
     opacity: 0.18;
     transition-duration: 500ms;
 }
