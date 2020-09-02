@@ -75,7 +75,7 @@
             </div>
           <div class="description-renter-name">
               <button class="see-renter" type="submit">Renter Name</button>
-              <p class="item-heading-2 item-description">Description</p>
+              <p class="item-heading-2 item-heading-description">Description</p>
 
               <p class="item-normal-text">Two Speed settings, 16 torque settings and power level readout built-in to battery
                   This lightweight and compact drill driver provides the ideal mix of power and versatility.
@@ -91,12 +91,12 @@
           <div class="item-location-container">
               <p class="item-heading-2 item-location">Location</p>
               <p>Template item location, xx-xxx Address</p>
-              <div id="map-container">
-                  <div id="map-overview" class="hidden">
+              <div id="item-view-map-container">
+                  <div id="item-view-map-overview" class="hidden">
                       Back to map
                   </div>
-                  <div id="map-canvas">
-                      <div id="map-info">
+                  <div id="item-view-map-canvas">
+                      <div id="item-view-map-info">
                           <div class="gp brussels">
                               <h2>Brussels Grand Place</h2>
                               <img class="marker-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg/800px-Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg" alt="Grand Place Brussels">
@@ -336,7 +336,7 @@ function initMap() {
     rotateControl: false
   };
   var map = new google.maps.Map(
-    document.getElementById("map-canvas"),
+    document.getElementById("item-view-map-canvas"),
     mapOptions
   );
 
@@ -383,7 +383,7 @@ function initMap() {
   });
 
   // back to offices overview
-  document.querySelector("#map-overview").addEventListener("click", function() {
+  document.querySelector("#item-view-map-overview").addEventListener("click", function() {
     map.panTo(myLatlng);
     map.setZoom(responsiveZoom);
     hideInfo();
@@ -398,16 +398,16 @@ function initMap() {
 
 function showInfo(selector) {
   document.querySelector(selector).classList.add("shown");
-  document.querySelector("#map-canvas").classList.add("zoomed");
-  document.querySelector("#map-overview").classList.remove("hidden");
+  document.querySelector("#item-view-map-canvas").classList.add("zoomed");
+  document.querySelector("#item-view-map-overview").classList.remove("hidden");
 }
 
 function hideInfo() {
   if (document.querySelector(".shown")) {
     document.querySelector(".shown").classList.remove("shown");
   }
-  document.querySelector("#map-canvas").classList.remove("zoomed");
-  document.querySelector("#map-overview").classList.add("hidden");
+  document.querySelector("#item-view-map-canvas").classList.remove("zoomed");
+  document.querySelector("#item-view-map-overview").classList.add("hidden");
 }
 
 </script>
