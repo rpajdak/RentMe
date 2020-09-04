@@ -11,6 +11,18 @@ import instrumentsJpg from "../../assets/instruments.png"
 
 
 function LandingPageContent() {
+
+    function animateArrows() {
+        document.getElementById("scroll-down-arrows").animate([
+            {transform: 'translateY(-10px)'},
+            {transform: 'translateY(0px)'},
+            {transform: 'translateY(-10px)'},
+        ], {
+            duration: 2000,
+            iterations: Infinity
+        })
+    };
+
     return (
         <div>
             <div className="landing-page-header">
@@ -33,7 +45,7 @@ function LandingPageContent() {
                 </div>
             </div>
 
-            <div id="see-categories-sign">
+            <div id="see-categories-sign" onLoad={animateArrows}>
                 <p id="see-categories"><a href="#categories-area">see categories</a></p>
                 <img id="scroll-down-arrows" src={scrollDownArrows}/>
             </div>
