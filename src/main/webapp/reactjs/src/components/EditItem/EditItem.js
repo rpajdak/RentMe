@@ -66,16 +66,16 @@ function EditItem(id) {
                 <h4>Post-code:</h4>
                 <input className="item-details" placeholder="Post-code"/>
                 <h4>Manage item's images</h4>
-                <div className="input-image-grid">
-                    <div className="item-photo-container" type="button" href="#">
-                    </div>
-                    <div className="item-photo-container"></div>
-                    <div className="item-photo-container"></div>
-                    <div className="item-photo-container 4"></div>
-                    <div className="item-photo-container 5"></div>
-                    <div className="item-photo-container 6"></div>
-                    <div className="add-item-photo-container 7"></div>
+            </div>
+            <div className="input-image-grid">
+                <div className="item-photo-container" type="button" href="#">
                 </div>
+                <div className="item-photo-container"></div>
+                <div className="item-photo-container"></div>
+                <div className="item-photo-container 4"></div>
+                <div className="item-photo-container 5"></div>
+                <div className="item-photo-container 6"></div>
+                <div className="add-item-photo-container 7"></div>
             </div>
             <div className="submit-button">
                 <button className="button" type="submit">Update Item</button>
