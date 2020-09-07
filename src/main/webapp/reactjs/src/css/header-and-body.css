@@ -13,7 +13,7 @@ body {
     background-attachment: fixed;
     font-family: "Roboto";
     font-size: 15px;
-    color:white;
+    color: white;
 }
 
 .header {
@@ -24,12 +24,12 @@ body {
     position: fixed;
     padding: 13px 13px 0 13px;
     background-size: cover;
-    border-bottom: 0px solid rgba(255,255,255,0.1);
+    border-bottom: 0px solid rgba(255, 255, 255, 0.1);
     top: 0px;
     z-index: 99999999999;
 }
 
-#logo{
+#logo {
     height: 28px;
     max-width: 15cm;
 }
@@ -57,8 +57,8 @@ body {
     padding: 0 20px;
 }
 
-.menu ul li button{
-    color:white;
+.menu ul li button {
+    color: white;
     font-size: inherit;
     background: none;
     padding: 0.7vh 1vw;
@@ -70,14 +70,14 @@ body {
 
 }
 
-.menu ul li button:hover{
-    background-color: rgba(255,255,255,0.6);
+.menu ul li button:hover {
+    background-color: rgba(255, 255, 255, 0.6);
     transition-duration: 0.5s;
     cursor: pointer;
 }
 
-.menu ul li a:hover{
-    color: rgba(255,255,255,0.6);
+.menu ul li a:hover {
+    color: rgba(255, 255, 255, 0.6);
     transition-duration: 0.5s;
     cursor: pointer;
 }
@@ -92,41 +92,42 @@ button:focus, textarea {
 
 /*-----header with searchbar-----*/
 
-.search-form{
+.search-form {
     margin-top: 15px;
 }
-.item-search-field{
+
+.item-search-field {
     padding: 1em;
     border-radius: 6px;
-    border:none;
+    border: none;
     font-size: 15px;
     height: 36px;
     width: 20vw;
     min-width: 200px;
 }
 
-.distance-inputs{
+.distance-inputs {
     padding: 1em;
     border-radius: 6px;
-    border:none;
+    border: none;
     font-size: 15px;
     height: 36px;
     width: 150px;
 }
 
-.sorting-option-inputs-list{
+.sorting-option-inputs-list {
     float: right;
     color: white;
     background: none;
     border-radius: 10px;
-    border: 1px solid rgba(225,225,225,0.5);
+    border: 1px solid rgba(225, 225, 225, 0.5);
     font-size: 15px;
     height: 36px;
     width: 150px;
     padding: 0px 5px;
 }
 
-.sorting-option-inputs-list option{
+.sorting-option-inputs-list option {
     text-align: center;
     align-self: center;
 }
@@ -136,11 +137,11 @@ button:focus, textarea {
     outline: none !important;
 }
 
-.input-field{
+.input-field {
     height: 30px;
     width: 250px;
     background-color: white;
-    font-family:inherit;
+    font-family: inherit;
     font-size: 14px;
     border: white 1px solid;
     border-radius: 10px;
@@ -158,17 +159,17 @@ button:focus, textarea {
     display: none;
 }
 
-.popup{
+.popup {
     position: fixed;
     top: 20%;
-    right:40%;
+    right: 40%;
     display: none;
     justify-content: center;
     align-items: center;
     background: none;
 }
 
-.popup-content{
+.popup-content {
     border: white 1px solid;
     display: grid;
     grid-template-rows: repeat(4, 1fr);
@@ -178,7 +179,20 @@ button:focus, textarea {
     padding: 20px;
 }
 
-.login-data-input{
+.popup-content button {
+    background: none;
+    border: none;
+    text-align: right;
+    margin: 12px 0;
+    font-family: "Roboto";
+    color: #ffffff;
+}
+
+.popup-content button:hover{
+    cursor: pointer;
+}
+
+.login-data-input {
     border-radius: 10px;
     padding: 5px;
     border: none;
@@ -186,7 +200,7 @@ button:focus, textarea {
     width: 300px;
 }
 
-.login-data-input2{
+.login-data-input2 {
     border-radius: 10px;
     padding: 5px;
     border: none;
@@ -194,7 +208,7 @@ button:focus, textarea {
     width: 300px;
 }
 
-.close{
+.close {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -204,12 +218,12 @@ button:focus, textarea {
     cursor: pointer;
 }
 
-.close:hover{
-    background-color: rgba(255,255,255,0.6);
+.close:hover {
+    background-color: rgba(255, 255, 255, 0.6);
     transition-duration: 0.5s;
 }
 
-.close2{
+.close2 {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -218,25 +232,25 @@ button:focus, textarea {
     border-radius: 50%;
 }
 
-.close2:hover{
-    background-color: rgba(255,255,255,0.6);
+.close2:hover {
+    background-color: rgba(255, 255, 255, 0.6);
     transition-duration: 0.5s;
     cursor: pointer;
 }
 
 
-.popup2{
+.popup2 {
     position: fixed;
     /*top: 10%;*/
     /*right: 2%;*/
     top: 20%;
-    right:40%;
+    right: 40%;
     display: none;
     justify-content: center;
     align-items: center;
 }
 
-.popup-content2{
+.popup-content2 {
     border: white 1px solid;
     display: grid;
     grid-template-rows: repeat(4, 1fr);
@@ -247,17 +261,16 @@ button:focus, textarea {
     background: none;
 }
 
-.popup-content2 h4{
+.popup-content2 h4 {
     display: grid;
     align-items: end;
 }
 
 
-
-.button12{
-    color:white;
+.button12 {
+    color: white;
     place-self: center;
-    text-align:center;
+    text-align: center;
     font-size: inherit;
     background: none;
     border-width: 1px;
@@ -265,14 +278,14 @@ button:focus, textarea {
     border-style: solid;
     border-color: white;
     width: 250px;
-    height:45px;
-    padding:0;
+    height: 45px;
+    padding: 0;
     font-weight: 900;
     padding-top: 20px !important;
 }
 
-.button12:hover{
-    background-color: rgba(255,255,255,0.6);
+.button12:hover {
+    background-color: rgba(255, 255, 255, 0.6);
     transition-duration: 0.5s;
     cursor: pointer;
 }
@@ -282,10 +295,10 @@ a {
 }
 
 
-.button1{
-    color:white;
+.button1 {
+    color: white;
     place-self: center;
-    text-align:center;
+    text-align: center;
     letter-spacing: 3px;
     border-width: 1px;
     border-radius: 10px;
@@ -294,20 +307,21 @@ a {
     margin-top: 10px;
     padding: 12px;
 }
-h5 a{
+
+h5 a {
     text-decoration: none;
-    color:white;
+    color: white;
     float: right;
 }
 
-h5 a:hover{
-    color: rgba(255,255,255,0.6);
+h5 a:hover {
+    color: rgba(255, 255, 255, 0.6);
     transition-duration: 0.5s;
     cursor: pointer;
 }
 
-.button1:hover{
-    background-color: rgba(255,255,255,0.6);
+.button1:hover {
+    background-color: rgba(255, 255, 255, 0.6);
     transition-duration: 0.5s;
     cursor: pointer;
 }
