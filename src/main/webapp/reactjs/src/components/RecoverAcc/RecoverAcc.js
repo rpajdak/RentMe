@@ -51,7 +51,7 @@ function RecoverAcc() {
                                    message: "invalid email address"
                                }
                            })}/>
-                    {errors.email && <p>You need to enter email address.</p>}
+                    {errors.email && <p>You need to enter valid email address.</p>}
                     <button className="loginRecBtn"> Send me new password</button>
                 </div>
             </div>
