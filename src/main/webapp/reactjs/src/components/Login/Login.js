@@ -8,10 +8,24 @@ import {useForm} from "react-hook-form";
 
 function Login() {
 
+
+    const fetchItemDetails = async (data) => {
+        console.log("asd");
+        await fetch('http://localhost:8080/test', {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+        });
+    }
+
+
     const {register, handleSubmit, errors} = useForm();
 
     const onSubmit = (data) => {
-        console.log(data)
+        fetchItemDetails(data.email);
     };
 
     function hideLogin() {
@@ -64,7 +78,7 @@ function Login() {
                     <h4>Password:</h4>
                     <input className="login-data-input" type="password" placeholder="Enter your password" name="password" ref={register}/>
                     <button className="recoveryPassBtn" onClick={forgotPass}>forgot your password?</button>
-                    <button className="loginRecBtn">Login</button>
+                    <button className="loginRecBtn" >Login</button>
                 </div>
             </div>
         </form>
