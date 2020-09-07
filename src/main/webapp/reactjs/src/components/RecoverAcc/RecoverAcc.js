@@ -35,7 +35,7 @@ function RecoverAcc() {
                     and we will send you a password change code.</h4>
                 <h4 className="description">E-mail:</h4>
                 <input className="login-data-input2" type="text" placeholder="Enter your e-mail"/>
-                <a href="#" className="button12">Send me new password</a>
+                <button className="loginRecBtn"> Send me new password</button>
             </div>
         </div>
     );

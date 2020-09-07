@@ -2,14 +2,14 @@ import React from "react";
 import {Link} from "react-router-dom";
 import "../../css/header-and-body.css";
 import logoImg from "../../assets/logo.svg";
-import SignIn from "../SignIn/SignIn";
+import Login from "../Login/Login";
 
 function Header() {
 
 
     function renderForm() {
         return (
-            <SignIn/>
+            <Login/>
         )
     }
 
@@ -80,7 +80,7 @@ function Header() {
 
     return (
         <React.Fragment>
-            <SignIn/>
+            <Login/>
             <div className="header">
                 <Link to="">
                     <img id="logo" src={logoImg}></img>
