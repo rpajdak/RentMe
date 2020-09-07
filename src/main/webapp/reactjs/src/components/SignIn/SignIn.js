@@ -37,23 +37,20 @@ function SignIn() {
         console.log(document.querySelector(".popup2"));
         document.querySelector(".popup2").style.display = "flex";
     }
-    
+
 
     return (
-
         <React.Fragment>
             <RecoverAcc/>
             <div className="popup">
                 <div className="popup-content">
                     <h3>Sign in</h3>
-                    <img className="close" src={closeIcon} onClick={hideLogin}/>
+                    <img className="close" src={closeIcon} onClick={hideLogin} alt={"close-icon"}/>
                     <h4>E-mail:</h4>
                     <input className="login-data-input" type="text" placeholder="Enter your e-mail"/>
                     <h4>Password:</h4>
                     <input className="login-data-input" type="password" placeholder="Enter your password"/>
-
                     <button onClick={forgotPass}>forgot your password?</button>
-
                     <a href="#" className="button1">Login</a>
                 </div>
             </div>
