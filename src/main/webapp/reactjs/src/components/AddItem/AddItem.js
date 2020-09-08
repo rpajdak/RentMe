@@ -23,6 +23,10 @@ function AddItem() {
         console.log(data)
     }
 
+    @action add(data){
+
+    }
+
     return (
 
         <form onSubmit={handleSubmit(onSubmit)}>
