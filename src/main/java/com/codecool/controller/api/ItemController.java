@@ -28,11 +28,11 @@ public class ItemController {
         return itemConverter.entitiesToDTO(itemService.getAllItems());
     }
 
+
     @GetMapping("/{id}")
     @ResponseBody
     public ItemDTO findById(@PathVariable("id") Long id){
         return  itemConverter.entityToDTO(itemService.findById(id));
-
     }
 
     @PostMapping()

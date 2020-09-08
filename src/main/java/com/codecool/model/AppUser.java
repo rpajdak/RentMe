@@ -28,6 +28,8 @@ public class AppUser {
     private String city;
     @Column(name= "is_admin")
     private Boolean isAdmin;
+    @Column(name= "post_code")
+    private String postCode;
 
     public boolean isAdmin() {
         return isAdmin;

@@ -1,15 +1,22 @@
+.container{
+    text-align: center;
+}
+
 .input-image-grid{
     border: white 1px solid;
     border-radius: 10px;
     width: calc(40vw - 20px);
     height: calc(30vh - 20px);
-    margin-top: 50px;
-    margin-left: 10px;
+    margin: 50px auto;
     /*overflow: hidden;*/
     padding: 10px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 10px;
+}
+
+::placeholder{
+    color: black;
 }
 
 .edit-item-item-photo-container{
@@ -53,6 +60,7 @@
 .add-item-photo-container > .item-photo {
     margin: 0 -1000%;
 }
+
 
 
 

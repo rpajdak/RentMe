@@ -8,6 +8,7 @@ import homeEquipmentJpg from "../../assets/home-equipment.jpg"
 import adventureJpg from "../../assets/adventure.jpg"
 import scooterJpg from "../../assets/scooter.jpg"
 import instrumentsJpg from "../../assets/instruments.png"
+import {Link} from "react-router-dom";
 
 
 function LandingPageContent() {
@@ -15,7 +16,7 @@ function LandingPageContent() {
         <div>
             <div className="landing-page-header">
                 <div className="menu">
-                    <ul>using javascript 
+                    <ul>
                         <li><a href="about.html">About us</a></li>
                         <li><a href="sign-up.html"><button type="button">Sign up</button></a></li>
                         <li><a href="#" id="sign-in">Sign in</a></li>
@@ -29,7 +30,7 @@ function LandingPageContent() {
                         <input type="text" id="search-field" placeholder="browse items..."/>
                     </form>
                     <p className="or">or</p>
-                    <a href="add-item.html"><button id="list-item-button">LIST ITEM</button></a>
+                    <Link to="/add-item"><button id="list-item-button">LIST ITEM</button></Link>
                 </div>
             </div>
 
