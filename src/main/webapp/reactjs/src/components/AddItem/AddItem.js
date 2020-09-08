@@ -54,7 +54,7 @@ function AddItem() {
 
                 <h2 className="add-item-h2">How much? </h2>
                 <h4>Price (PLN/per day):</h4>
-                <input className="item-price" name="price" placeholder="Your price per day" ref={register({required: true, minLength: 10})}/>
+                <input className="item-price" name="price" placeholder="Your price per day" ref={register({required: true, minLength: 1})}/>
                 <h2 className="add-item-h2">Your personal details and address</h2>
                 <h4>Name:</h4>
                 <input className="item-details" name="name" placeholder="Enter your name" ref={register({required: true, minLength: 3})}/>

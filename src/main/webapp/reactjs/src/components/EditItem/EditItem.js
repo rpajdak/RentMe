@@ -28,7 +28,6 @@ function EditItem(id) {
     const fetchUserAddress = async (itemId) => {
         const response = await fetch(`http://localhost:8080/renters/find-by/item/${itemId}`);
         const address = await response.json();
-        console.log(address);
         setAddress(address);
     }
 
@@ -65,7 +64,7 @@ function EditItem(id) {
                 {errors.description && <p className="error-message">Item description is too short</p>}
                 <h2>Price</h2>
                 <h4>Price (PLN/per day):</h4>
-                <input className="item-price" name="price" placeholder={item.price} ref={register({required: true, minLength: 3})}/>
+                <input className="item-price" name="price" placeholder={item.price} ref={register({required: true, minLength: 2})}/>
 
                 <h2>Address</h2>
                 <h4>City:</h4>
