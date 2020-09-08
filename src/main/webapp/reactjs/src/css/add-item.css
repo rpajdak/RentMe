@@ -107,10 +107,10 @@ h6 a{
 }
 
 .inputs{
-    text-align: center;
+   text-align: center;
 }
 
-.input-image{
+#input-image{
     border: white 1px solid;
     border-radius: 10px;
     width: 40vw;
@@ -119,25 +119,22 @@ h6 a{
     margin-left: 10px;
 }
 
-.input-image a{
+#input-image a{
     align-items: center;
-    justify-items: center;
+    justify-items: center ;
     color: white;
     text-decoration: none;
     display: grid;
-    align-items: center;
     margin-top: 30px;
 }
 
-.input-image a:hover{
+#input-image a:hover{
     color: rgba(255,255,255,0.6);
     transition-duration: 0.5s;
     cursor: pointer;
 }
 
-
-input[type="text"] {
-    text-align: left;
-    vertical-align: top;
-    align-content: start;
+.error-message{
+    color: red;
 }
+

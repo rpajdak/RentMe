@@ -1,18 +1,21 @@
 import React, {useState, useEffect} from "react";
+import {useForm} from "react-hook-form";
 import "../../css/edit-item.css"
 import "../../css/add-item.css"
 import "../../css/header-and-body.css"
 
 function EditItem(id) {
 
-
     const [itemId, setItemID] = useState(id.value);
 
     const [item, setItem] = useState([]);
 
+    const [address, setAddress] = useState([]);
+
     useEffect(() => {
         fetchCategories();
-        fetchItemDetails(itemId)
+        fetchItemDetails(itemId);
+        fetchUserAddress(itemId);
     }, []);
 
     const [category, setItems] = useState([]);
@@ -22,27 +25,33 @@ function EditItem(id) {
         const category = await response.json();
         setItems(category);
     }
-    //Tu zostawiam funkcje do pobrania adresu
-    // const fetchUserAddress = async (itemId) => {
-    //     const response = await fetch(`http://localhost:8080/renters/find-by/item/${itemId}`);
-    //     const address = await response.json();
-    //     console.log(address);
-    // }
+    const fetchUserAddress = async (itemId) => {
+        const response = await fetch(`http://localhost:8080/renters/find-by/item/${itemId}`);
+        const address = await response.json();
+        console.log(address);
+        setAddress(address);
+    }
 
     const fetchItemDetails = async (itemId) => {
-
         const response = await fetch(`http://localhost:8080/api/items/${itemId}`);
         const item = await response.json();
         setItem(item);
     }
 
+    const {register, handleSubmit, errors} = useForm();
+
+    const onSubmit = (data) => {
+        console.log(data)
+    }
+
     return (
+        <form onSubmit={handleSubmit(onSubmit)}>
         <div className="container">
             <h1 id="lets-get-started">Here you can edit your item</h1>
             <div className="inputs">
                 <h4>Item name</h4>
-                <input className="item-name" placeholder={item.name}/>
-
+                <input className="item-price" name="itemName" placeholder={item.name} ref={register({required: true, minLength: 3})}/>
+                {errors.itemName && <p className="error-message">Item name is too short!</p>}
                 <h2>Item Info</h2>
                 <h4><label htmlFor="quest-type">Category</label></h4>
                 <select className="type-selector" id="quest-type" name="quest-type">
@@ -52,19 +61,22 @@ function EditItem(id) {
                 </select>
 
                 <h4>Description:</h4>
-                <input className="item-description" type="text" placeholder={item.description}/>
-
+                <textarea className="item-description" name ="description" placeholder={item.description} ref={register({required: true, minLength: 3})}/>
+                {errors.description && <p className="error-message">Item description is too short</p>}
                 <h2>Price</h2>
                 <h4>Price (PLN/per day):</h4>
-                <input className="item-price" placeholder={item.price}/>
+                <input className="item-price" name="price" placeholder={item.price} ref={register({required: true, minLength: 3})}/>
 
                 <h2>Address</h2>
                 <h4>City:</h4>
-                <input className="item-details" placeholder="Enter your city"/>
+                <input className="item-details" name="city" placeholder={address.city} ref={register({required: true, minLength: 3})}/>
+                {errors.city && <p className="error-message">City name is too short</p>}
                 <h4>Street with household number:</h4>
-                <input className="item-details" placeholder="What is the address?"/>
+                <input className="item-details" name="address" placeholder={address.address} ref={register({required: true, minLength: 3})}/>
+                {errors.address && <p className="error-message">This address is not valid</p>}
                 <h4>Post-code:</h4>
-                <input className="item-details" placeholder="Post-code"/>
+                <input className="item-details" name="postCode" placeholder={address.postCode} ref={register({required: true, minLength: 6, maxLength: 6})}/>
+                {errors.postCode && <p className="error-message">Post-Code number must be in format XX-XXX</p>}
                 <h4>Manage item's images</h4>
             </div>
             <div className="input-image-grid">
@@ -82,6 +94,7 @@ function EditItem(id) {
             </div>
 
         </div>
+        </form>
     );
 }
 
