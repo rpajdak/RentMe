@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Redirect,
+  Link,
 } from "react-router-dom";
 
 import About from '../About/About'
@@ -25,10 +26,12 @@ function App() {
            <Route path="/index" component={LandingPage}/>
            <Route path="/account/recover" component={RecoverAcc}/>
            <Route path="/item/:id" exact component={ItemDetails}/>
-           <Route path="/add-item" exact component={AddItemStructure}/>
+           <Route path="/item" exact component={AddItemStructure}/>
            <Route path="/login" component={Login}/>
+           <Route path="*" component={LandingPage} />
            <Route path="/items-list/:searchPhrase" component={ItemsList}/>
            <Route component={ErrorPage}/>
+
          </Switch>
        </div>
      </Router>

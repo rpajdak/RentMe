@@ -21,7 +21,8 @@ public class UserService {
     }
 
     public UserAddressDTO getUserAddressByItemId(long id){
-        String userAddress = userRepository.findAppUserAddressByItemId(id);
+        String userAddress = userRepository.findAppUserAddressByItemId(id)[0];
+        System.out.println(userAddress);
         String[] splitString = userAddress.split(",");
         UserAddressDTO userAddressDTO = new UserAddressDTO();
         userAddressDTO.setAddress(splitString[0]);
