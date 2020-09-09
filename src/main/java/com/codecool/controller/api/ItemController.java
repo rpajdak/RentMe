@@ -28,6 +28,11 @@ public class ItemController {
         return itemConverter.entitiesToDTO(itemService.getAllItems());
     }
 
+    @GetMapping("/list/{searchPhrase}")
+    @ResponseBody
+    public List<ItemDTO> findItemsByNameContaining(@PathVariable("searchPhrase") String searchPhrase){
+        return itemConverter.entitiesToDTO(itemService.findItemsByNameContaining(searchPhrase.toUpperCase()));
+    }
 
     @GetMapping("/{id}")
     @ResponseBody
