@@ -40,5 +40,9 @@ public class ItemService {
         itemRepository.deleteById(id);
     }
 
+    public List<Item> findItemsByNameContaining(String searchPhrase){
+
+        return itemRepository.findItemsByNameContaining(searchPhrase);
+    }
 
 }

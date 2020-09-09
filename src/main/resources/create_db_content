@@ -21,7 +21,8 @@ CREATE TABLE users(
                       password varchar(255) NOT NULL,
                       address varchar(255) NOT NULL,
                       city varchar(255) NOT NULL,
-                      is_admin boolean NOT NULL
+                      is_admin boolean NOT NULL,
+                      postal_code varchar(255) NOT NULL,
 
 );
 
@@ -40,25 +41,25 @@ CREATE TABLE categories(
 );
 
 INSERT INTO users
-VALUES (default, 'Joanna', 'Brzuchacz','jbrzuchacz@gmail.com','asia1234','Ślusarska 9', 'Kraków','t');
+VALUES (default, 'Joanna', 'Brzuchacz','jbrzuchacz@gmail.com','asia1234','Ślusarska 9', 'Kraków','t', '31-807');
 
 INSERT INTO users
-VALUES (default, 'Michał', 'Kuk','mkuk@gmail.com','michal1234','Ślusarska 9', 'Kraków','t');
+VALUES (default, 'Michał', 'Kuk','mkuk@gmail.com','michal1234','Ślusarska 9', 'Kraków','t', '31-807');
 
 INSERT INTO users
-VALUES (default, 'Miłosz', 'Bryła','mbryla@gmail.com','michal1234','Ślusarska 9', 'Kraków','t');
+VALUES (default, 'Miłosz', 'Bryła','mbryla@gmail.com','michal1234','Ślusarska 9', 'Kraków','t', '31-807');
 
 INSERT INTO users
-VALUES (default, 'Rafał', 'Pajdak','rpajdak@gmail.com','rafal1234','Ślusarska 9', 'Kraków','t');
+VALUES (default, 'Rafał', 'Pajdak','rpajdak@gmail.com','rafal1234','Ślusarska 9', 'Kraków','t', '31-807');
 
 INSERT INTO users
-VALUES (default, 'Maciek', 'Bolek','mbolek@gmail.com','asia1234','Ślusarska 9', 'Kraków','n');
+VALUES (default, 'Maciek', 'Bolek','mbolek@gmail.com','asia1234','Ślusarska 9', 'Kraków','n', '31-807');
 
 INSERT INTO users
-VALUES (default, 'Dorota', 'Bażant','dbazant@gmail.com','dorota1234','Karmelicka 9', 'Kraków','n');
+VALUES (default, 'Dorota', 'Bażant','dbazant@gmail.com','dorota1234','Karmelicka 9', 'Kraków','n', '31-807');
 
 INSERT INTO users
-VALUES (default, 'Julia', 'Nowosad','jnowosad@gmail.com','julia1234','Karmelicka 9', 'Kraków','n');
+VALUES (default, 'Julia', 'Nowosad','jnowosad@gmail.com','julia1234','Karmelicka 9', 'Kraków','n', '31-807');
 
 
 INSERT INTO items

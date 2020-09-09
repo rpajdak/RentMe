@@ -1,10 +1,13 @@
-html, body{
+html {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
     background: url('../assets/background-with-icons.svg');
     background-size: cover;
     background-attachment: fixed;
@@ -13,7 +16,6 @@ body {
     color:white;
 }
 
-/*------- HEADER -------*/
 .header {
     background: url('../assets/background-with-icons.svg');
     background-size: cover;
@@ -51,7 +53,7 @@ body {
     text-decoration: none;
     color: #fff;
     font-size: 16px;
-    font-family: roboto;
+    font-weight: lighter;
     padding: 0 20px;
 }
 
@@ -87,96 +89,101 @@ input:focus, textarea {
 button:focus, textarea {
     outline: none !important;
 }
-/*-------END OF HEADER CSS-------*/
 
-/*------- LOGIN AND PASSWORD RECOVERY -------*/
+/*-----header with searchbar-----*/
+
+.search-form{
+    margin-top: 15px;
+}
+.item-search-field{
+    padding: 1em;
+    border-radius: 6px;
+    border:none;
+    font-size: 15px;
+    height: 36px;
+    width: 20vw;
+    min-width: 200px;
+}
+
+.distance-inputs{
+    padding: 1em;
+    border-radius: 6px;
+    border:none;
+    font-size: 15px;
+    height: 36px;
+    width: 150px;
+}
+
+.sorting-option-inputs-list{
+    float: right;
+    color: white;
+    background: none;
+    border-radius: 10px;
+    border: 1px solid rgba(225,225,225,0.5);
+    font-size: 15px;
+    height: 36px;
+    width: 150px;
+    padding: 0px 5px;
+}
+
+.sorting-option-inputs-list option{
+    text-align: center;
+    align-self: center;
+}
+
+
+.sorting-option-inputs-list:focus, textarea {
+    outline: none !important;
+}
+
+.input-field{
+    height: 30px;
+    width: 250px;
+    background-color: white;
+    font-family:inherit;
+    font-size: 14px;
+    border: white 1px solid;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.warning-email {
+    color: #BF343F;
+    height: 24px;
+    padding: 0 8px;
+    font-size: 18px;
+}
+
+.hidden {
+    display: none;
+}
 
 .popup{
     position: fixed;
     top: 20%;
     right:40%;
-    opacity: 0;
     display: none;
     justify-content: center;
     align-items: center;
-    color: black;
+    background: none;
 }
 
 .popup-content{
-    box-sizing: content-box !important;
+    border: white 1px solid;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
     width: 300px;
     border-radius: 10px;
-    color: black;
-    padding: 30px 20px 20px 20px;
-    background: white;
-    text-align: center;
-}
-
-.sign-in{
-    font-size: 30px;
-    margin: 10 0 10 0 ;
-}
-
-.login-input-wrapper{
-    margin: 40px 0 15px 0;
-}
-
-.input-label{
-    float: left;
-    margin: 0 0 5 5;
-}
-
-.gradient-wrapper{
-    justify-self: center;
-    align-self: center;
-    border-radius: 10px;
-    height: 50px;
-    width: 290px;
-    background: linear-gradient(90deg, rgba(247,0,70,1) 0%, rgba(2,0,182,1) 100%);
-    text-align: center;
-    overflow: hidden;
-}
-
-.email{
-    margin-top: 40px;
-}
-
-.forgot-password {
-    height: 30px;
-    margin: 10px 0 0 0;
-}
-.forgot-password a{
-    color:black;
-    float: right;
-    margin-right: 10px;
-    font-family: roboto;
+    color: white;
+    padding: 20px;
 }
 
 .login-data-input{
-    position: relative;
-    top: 2px;
-    margin-top: auto;
-    border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 5px;
-    height: 46px;
-    width: 286px;
-}
-
-.close{
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    height: 17px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.close:hover{
-    background-color: rgba(255,255,255,0.6);
-    transition-duration: 0.5s;
-    cursor: pointer;
+    border: none;
+    height: 50px;
+    width: 300px;
 }
 
 .login-data-input2{
@@ -187,55 +194,114 @@ button:focus, textarea {
     width: 300px;
 }
 
+.close{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.close:hover{
+    background-color: rgba(255,255,255,0.6);
+    transition-duration: 0.5s;
+}
+
+.close2{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.close2:hover{
+    background-color: rgba(255,255,255,0.6);
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+
+.popup2{
+    position: fixed;
+    /*top: 10%;*/
+    /*right: 2%;*/
+    top: 20%;
+    right:40%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content2{
+    border: white 1px solid;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    width: 300px;
+    border-radius: 10px;
+    color: white;
+    padding: 20px;
+    background: none;
+}
+
+.popup-content2 h4{
+    display: grid;
+    align-items: end;
+}
+
+
+
+.button12{
+    color:white;
+    place-self: center;
+    text-align:center;
+    font-size: inherit;
+    background: none;
+    border-width: 1px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: white;
+    width: 250px;
+    height:45px;
+    padding:0;
+    font-weight: 900;
+    padding-top: 20px !important;
+}
+
+.button12:hover{
+    background-color: rgba(255,255,255,0.6);
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
 a {
     text-decoration: none;
 }
 
-.login-button-gradient-wrapper{
-    height: 44px;
-    width: 120px;
-    place-self: center;
-    margin: 20px auto 0 auto;
-}
 
-.login-form-button{
-    position: relative;
-    top: 2px;
-    color:black;
+.button1{
+    color:white;
     place-self: center;
     text-align:center;
-    letter-spacing: 2px;
-    border: none;
-    border-radius: 8px;
-    width: 116px;
-    height: 40px;
-/*    padding: 12px;*/
-    background: white;
-    font-weight: bold;
-}
-
-.login-form-button:hover{
-    color: white;
-    top: 0;
-    height: 44px;
+    letter-spacing: 3px;
+    border-width: 1px;
+    border-radius: 10px;
+    border-style: solid;
     width: 120px;
-    background: rgba(225, 225, 225, 0.4);
-    transition-duration: 0.5s;
+    margin-top: 10px;
+    padding: 12px;
 }
-.login-button-gradient-wrapper:hover{
-    color: white;
-    transition-duration: 0.5s;
-}
-
 h5 a{
     text-decoration: none;
-    color:black;
+    color:white;
     float: right;
-    cursor: pointer;
 }
 
 h5 a:hover{
-    color: rgba(0,0,0,0.6);
+    color: rgba(255,255,255,0.6);
     transition-duration: 0.5s;
     cursor: pointer;
 }
@@ -245,5 +311,5 @@ h5 a:hover{
     transition-duration: 0.5s;
     cursor: pointer;
 }
-/*-------END OF LOGIN AND PASSWORD RECOVERY CSS-------*/
+
 

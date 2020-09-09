@@ -1,21 +1,9 @@
-body{
-    color: white;
-    font-family: 'Roboto-regular';
-}
-
 .item-description{
     padding: 10px;
     border: white 1px solid;
     border-radius: 10px;
     width: 40vw;
     height: 30vh;
-}
-
-.item-description{
-    padding: 10px;
-    border: white 1px solid;
-    border-radius: 10px;
-    width: 40vw;
     align-self: start;
 }
 
@@ -24,12 +12,12 @@ body{
     padding: 10px;
     border: white 1px solid;
     border-radius: 10px;
-    width: 40vw;
+    width: 20vw;
     color: white;
 }
 
 
-.container{
+.add-items-container{
     width: 40vw;
     margin: auto;
     margin-top: 50px;  
@@ -43,7 +31,7 @@ h1{
     font-size: 56px;
 }
 
-h2{
+.add-item-h2{
     text-align: center;
     margin: 70px auto;
     font-size: 48px;
@@ -60,22 +48,16 @@ h4{
     width: 25vw;
 }
 
-.item-description{
-    padding: 10px;
-    border: white 1px solid;
-    border-radius: 10px;
-    width: 40vw;
-    align-self: start;
-}
 
-.item-name{
+
+.add-item-item-name{
     padding: 10px;
     border: white 1px solid;
     border-radius: 10px;
     width: 40vw;
 }
 
-.submit-button{
+.add-item-submit-button{
     margin-top: 40px;
     margin-bottom: 40px;
     justify-self: center;
@@ -117,10 +99,6 @@ h6 a{
     height: 60px;
 }
 
-.type-selector{
-    width: 20vw;
-}
-
 .item-price{
     padding: 10px;
     border: white 1px solid;
@@ -129,10 +107,10 @@ h6 a{
 }
 
 .inputs{
-    text-align: center;
+   text-align: center;
 }
 
-.input-image{
+#input-image{
     border: white 1px solid;
     border-radius: 10px;
     width: 40vw;
@@ -141,25 +119,22 @@ h6 a{
     margin-left: 10px;
 }
 
-.input-image a{
+#input-image a{
     align-items: center;
-    justify-items: center;
+    justify-items: center ;
     color: white;
     text-decoration: none;
     display: grid;
-    align-items: center;
     margin-top: 30px;
 }
 
-.input-image a:hover{
+#input-image a:hover{
     color: rgba(255,255,255,0.6);
     transition-duration: 0.5s;
     cursor: pointer;
 }
 
-
-input[type="text"] {
-    text-align: left;
-    vertical-align: top;
-    align-content: start;
+.error-message{
+    color: red;
 }
+

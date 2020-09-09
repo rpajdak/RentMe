@@ -1,37 +1,38 @@
 import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
+import About from '../About/About'
+import ItemDetails from "../EditItem/ItemDetails";
+import Login from '../Login/Login'
+import RecoverAcc from '../RecoverAcc/RecoverAcc'
+import LandingPage from '../LandingPage/LandingPage'
+import AddItemStructure from "../AddItem/AddItemStructure";
+import ErrorPage from '../ErrorPage/ErrorPage'
+import ItemsList from '../ItemsList/ItemsList'
 
-export default class FetchRandomUser extends React.Component {
-  state = {
-    loading: true,
-    person: null
-  };
-
-  async componentDidMount() {
-    const url = "https://api.randomuser.me/";
-    const response = await fetch(url);
-    const data = await response.json();
-    this.setState({ person: data.results[0], loading: false });
-  }
-
-  render() {
-    if (this.state.loading) {
-      return <div>loading...</div>;
-    }
-
-    if (!this.state.person) {
-      return <div>didn't get a person</div>;
-    }
-
-    return (
-
-        <div>
-          <div>{this.state.person.name.title}</div>
-          <div>{this.state.person.name.first}</div>
-          <div>{this.state.person.name.last}</div>
-          <img src={this.state.person.picture.large} />
-        </div>
-    );
-  }
-
+function App() {
+   return (
+     <Router>
+       <div className="App">
+         <Switch>
+           <Route path="/about" component={About}/>
+           <Route path="/" exact component={LandingPage}/>
+           <Route path="/index" component={LandingPage}/>
+           <Route path="/account/recover" component={RecoverAcc}/>
+           <Route path="/item/:id" exact component={ItemDetails}/>
+           <Route path="/add-item" exact component={AddItemStructure}/>
+           <Route path="/login" component={Login}/>
+           <Route path="/items-list/:searchPhrase" component={ItemsList}/>
+           <Route component={ErrorPage}/>
+         </Switch>
+       </div>
+     </Router>
+   );
 }
+
+export default App;

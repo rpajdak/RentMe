@@ -1,8 +1,8 @@
 package com.codecool.service;
 
-import com.codecool.App;
 import com.codecool.dao.UserRepository;
 import com.codecool.model.AppUser;
+import com.codecool.modelDTO.UserAddressDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +20,16 @@ public class UserService {
         return userRepository.getAppUsersById(id);
     }
 
+    public UserAddressDTO getUserAddressByItemId(long id){
+        String userAddress = userRepository.findAppUserAddressByItemId(id);
+        String[] splitString = userAddress.split(",");
+        UserAddressDTO userAddressDTO = new UserAddressDTO();
+        userAddressDTO.setAddress(splitString[0]);
+        userAddressDTO.setCity(splitString[1]);
+        userAddressDTO.setPostCode(splitString[2]);
+        return userAddressDTO;
+    }
+
     public List<AppUser> getAllAppUsers() {
         return userRepository.findAll();
     }
@@ -35,6 +45,8 @@ public class UserService {
     public void deleteUser(long id) {
         userRepository.deleteById(id);
     }
+
+
 
     public List<AppUser> getAllAdmins() {
         return getAllAppUsers().stream()
