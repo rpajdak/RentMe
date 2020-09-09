@@ -12,13 +12,13 @@ function EditItem(id) {
 
     const [address, setAddress] = useState([]);
 
+    const [category, setItems] = useState([]);
+
     useEffect(() => {
         fetchCategories();
         fetchItemDetails(itemId);
         fetchUserAddress(itemId);
     }, []);
-
-    const [category, setItems] = useState([]);
 
     const fetchCategories = async () => {
         const response = await fetch('http://localhost:8080/api/categories/all');

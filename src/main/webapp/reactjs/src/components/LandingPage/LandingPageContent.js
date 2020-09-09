@@ -1,3 +1,4 @@
+
 import React from 'react';
 import "../../css/header-and-body.css";
 import "../../css/index.css";
@@ -30,7 +31,7 @@ function LandingPageContent() {
                         <input type="text" id="search-field" placeholder="browse items..."/>
                     </form>
                     <p className="or">or</p>
-                    <Link to="/item"><button id="list-item-button">LIST ITEM</button></Link>
+                    <Link to="/add-item"><button id="list-item-button">LIST ITEM</button></Link>
                 </div>
             </div>
 

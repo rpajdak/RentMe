@@ -23,7 +23,6 @@ CREATE TABLE users(
                       city varchar(255) NOT NULL,
                       is_admin boolean NOT NULL,
                       post_code varchar(10) NOT NULL
-
 );
 
 CREATE TABLE reservations(
