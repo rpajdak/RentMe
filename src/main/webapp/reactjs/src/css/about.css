@@ -15,6 +15,7 @@
 
 }
 
+
 .page-content{
     display: flex;
     justify-content: center;
@@ -22,5 +23,14 @@
     margin-top: 5%;
     color: white;
     line-height: 2.5;
+}
+
+.error-page-redirect{
+    color: white;
+    text-align: center;
+}
+
+.error-page-redirect:hover{
+    opacity: 0.8;
 }
 

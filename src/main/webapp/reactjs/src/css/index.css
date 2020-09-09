@@ -155,6 +155,9 @@
     padding: 10px;
 }
 
+#error-page-redirect{
+    text-decoration: none;
+}
 
 
 
