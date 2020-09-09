@@ -96,35 +96,42 @@ button:focus, textarea {
     margin-top: 15px;
 }
 
-/*.item-search-field {*/
-/*    padding: 1em;*/
-/*    border-radius: 6px;*/
-/*    border: none;*/
-/*    font-size: 15px;*/
-/*    height: 36px;*/
-/*    width: 20vw;*/
-/*    min-width: 200px;*/
-/*}*/
+.search-form h4{
+    font-size: 15px;
+    margin: 10px;
+    display:inline;
+    color:white
+}
 
-/*.distance-inputs {*/
-/*    padding: 1em;*/
-/*    border-radius: 6px;*/
-/*    border: none;*/
-/*    font-size: 15px;*/
-/*    height: 36px;*/
-/*    width: 150px;*/
-/*}*/
+.item-search-field{
+    padding-left: 10px;
+    border-radius: 6px;
+    border:none;
+    font-size: 15px;
+    height: 36px;
+    width: 20vw;
+    min-width: 200px;
+}
 
-.sorting-option-inputs-list {
-    float: right;
+.distance-inputs{
+    padding-left: 10px;
+    border-radius: 6px;
+    border:none;
+    font-size: 15px;
+    height: 36px;
+    width: 150px;
+}
+
+.sorting-option-inputs-list{
     color: white;
     background: none;
     border-radius: 10px;
     border: 1px solid rgba(225, 225, 225, 0.5);
     font-size: 15px;
     height: 36px;
-    width: 150px;
-    padding: 0px 5px;
+    padding: 0 5px;
+    float: none;
+    width: 100px;
 }
 
 .sorting-option-inputs-list option {

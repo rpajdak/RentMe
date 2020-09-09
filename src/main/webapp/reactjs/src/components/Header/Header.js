@@ -107,6 +107,15 @@ function Header() {
             </div>
         </React.Fragment>
     );
+
+import Menu from "./HeaderComponents/Menu";
+
+function Header() {
+  return (
+    <div className="header">
+        <Menu />
+    </div>
+  );
 }
 
 export default Header;

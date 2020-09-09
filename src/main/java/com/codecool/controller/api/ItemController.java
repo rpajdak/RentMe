@@ -28,22 +28,29 @@ public class ItemController {
         return itemConverter.entitiesToDTO(itemService.getAllItems());
     }
 
+    @GetMapping("/list/{searchPhrase}")
+    @ResponseBody
+    public List<ItemDTO> findItemsByNameContaining(@PathVariable("searchPhrase") String searchPhrase){
+        return itemConverter.entitiesToDTO(itemService.findItemsByNameContaining(searchPhrase.toUpperCase()));
+    }
+
     @GetMapping("/{id}")
     @ResponseBody
     public ItemDTO findById(@PathVariable("id") Long id){
         return  itemConverter.entityToDTO(itemService.findById(id));
-
     }
 
     @PostMapping()
     @ResponseBody
     public void addItem(@RequestBody Item item){
+
         itemService.addItem(item);
     }
 
     @PutMapping()
     @ResponseBody
     public void updateItem(@RequestBody Item item){
+
         itemService.updateItem(item);
     }
 

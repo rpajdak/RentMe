@@ -10,4 +10,5 @@ public class AppUserDTO {
     private String lastName;
     private String address;
     private String city;
+    private String postCode;
 }

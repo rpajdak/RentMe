@@ -17,6 +17,14 @@
     width: 60vw;
 }
 
+#show-what-u-got{
+    text-align: center;
+}
+
+.input-image{
+    align-self: center;
+}
+
 #logo-with-slogan{
     width:40vw;
     max-width: 15cm;
@@ -130,6 +138,9 @@
     padding: 10px;
 }
 
+#error-page-redirect{
+    text-decoration: none;
+}
 
 
 

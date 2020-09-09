@@ -3,16 +3,18 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Redirect,
+  Link,
 } from "react-router-dom";
 
 import About from '../About/About'
-
 import ItemDetails from "../EditItem/ItemDetails";
 import Login from '../Login/Login'
 import RecoverAcc from '../RecoverAcc/RecoverAcc'
 import LandingPage from '../LandingPage/LandingPage'
-
+import AddItemStructure from "../AddItem/AddItemStructure";
+import ErrorPage from '../ErrorPage/ErrorPage'
+import ItemsList from '../ItemsList/ItemsList'
 
 function App() {
    return (
@@ -24,7 +26,11 @@ function App() {
            <Route path="/index" component={LandingPage}/>
            <Route path="/account/recover" component={RecoverAcc}/>
            <Route path="/item/:id" exact component={ItemDetails}/>
+           <Route path="/item" exact component={AddItemStructure}/>
            <Route path="/login" component={Login}/>
+           <Route path="*" component={ErrorPage} />
+           <Route path="/items-list/:searchPhrase" component={ItemsList}/>
+
          </Switch>
        </div>
      </Router>

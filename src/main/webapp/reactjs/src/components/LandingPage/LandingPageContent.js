@@ -9,7 +9,6 @@ import adventureJpg from "../../assets/adventure.jpg"
 import scooterJpg from "../../assets/scooter.jpg"
 import instrumentsJpg from "../../assets/instruments.png"
 
-
 function LandingPageContent() {
 
     function animateArrows() {
@@ -23,11 +22,12 @@ function LandingPageContent() {
         })
     };
 
+
     return (
         <div>
             <div className="landing-page-header">
                 <div className="menu">
-                    <ul>using javascript 
+                    <ul>
                         <li><a href="about.html">About us</a></li>
                         <li><a href="sign-up.html"><button type="button">Sign up</button></a></li>
                         <li><a href="#" id="sign-in">Sign in</a></li>
@@ -41,11 +41,13 @@ function LandingPageContent() {
                         <input type="text" id="search-field" placeholder="browse items..."/>
                     </form>
                     <p className="or">or</p>
+
                     <a href="add-item.html"><button id="list-item-button">LIST ITEM</button></a>
                 </div>
             </div>
 
             <div id="see-categories-sign" onLoad={animateArrows}>
+
                 <p id="see-categories"><a href="#categories-area">see categories</a></p>
                 <img id="scroll-down-arrows" src={scrollDownArrows}/>
             </div>
