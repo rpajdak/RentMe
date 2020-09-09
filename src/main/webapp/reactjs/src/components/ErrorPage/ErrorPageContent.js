@@ -4,6 +4,7 @@ import "../../css/header-and-body.css";
 import "../../css/about.css";
 import logoImg from "../../assets/logo.svg";
 
+
 function ErrorPageContent() {
   return (
     <div>
@@ -14,13 +15,12 @@ function ErrorPageContent() {
       </div>
       <div className="page-content wrapper">
         <div className="main-container">
-            <div className="description"></div>
-                <h1>Error page</h1>
+                <h1>Upsss....Error! </h1>
                 <h3>
-                Something went wrong, or the page you're looking for doesn't exist.
+                Something went wrong, or the page you're looking for does not exist.
                 </h3>
-                <h4>
-                  Click on the logo to go back.
+                <h4 >
+                    <Link to="/index" className="error-page-redirect">Click here to return to main page.</Link>
                 </h4>
         </div>
       </div>
