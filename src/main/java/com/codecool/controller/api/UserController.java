@@ -68,6 +68,14 @@ public class UserController {
         userService.updateUser(appUser);
     }
 
+//   Just for test
+    @PutMapping("/test")
+    @ResponseBody
+    public void justTest(@RequestBody String s){
+        System.out.println(s);
+    }
+
+
     @DeleteMapping
     @ResponseBody
     public void deleteAppUser(long id) {

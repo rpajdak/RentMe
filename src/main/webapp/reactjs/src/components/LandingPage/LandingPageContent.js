@@ -1,4 +1,3 @@
-
 import React from 'react';
 import "../../css/header-and-body.css";
 import "../../css/index.css";
@@ -9,10 +8,21 @@ import homeEquipmentJpg from "../../assets/home-equipment.jpg"
 import adventureJpg from "../../assets/adventure.jpg"
 import scooterJpg from "../../assets/scooter.jpg"
 import instrumentsJpg from "../../assets/instruments.png"
-import {Link} from "react-router-dom";
-
 
 function LandingPageContent() {
+
+    function animateArrows() {
+        document.getElementById("scroll-down-arrows").animate([
+            {transform: 'translateY(-10px)'},
+            {transform: 'translateY(0px)'},
+            {transform: 'translateY(-10px)'},
+        ], {
+            duration: 2000,
+            iterations: Infinity
+        })
+    };
+
+
     return (
         <div>
             <div className="landing-page-header">
@@ -31,11 +41,13 @@ function LandingPageContent() {
                         <input type="text" id="search-field" placeholder="browse items..."/>
                     </form>
                     <p className="or">or</p>
-                    <Link to="/add-item"><button id="list-item-button">LIST ITEM</button></Link>
+
+                    <a href="add-item.html"><button id="list-item-button">LIST ITEM</button></a>
                 </div>
             </div>
 
-            <div id="see-categories-sign">
+            <div id="see-categories-sign" onLoad={animateArrows}>
+
                 <p id="see-categories"><a href="#categories-area">see categories</a></p>
                 <img id="scroll-down-arrows" src={scrollDownArrows}/>
             </div>
