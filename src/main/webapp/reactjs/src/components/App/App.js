@@ -28,9 +28,8 @@ function App() {
            <Route path="/item/:id" exact component={ItemDetails}/>
            <Route path="/item" exact component={AddItemStructure}/>
            <Route path="/login" component={Login}/>
-           <Route path="*" component={LandingPage} />
+           <Route path="*" component={ErrorPage} />
            <Route path="/items-list/:searchPhrase" component={ItemsList}/>
-           <Route component={ErrorPage}/>
 
          </Switch>
        </div>
