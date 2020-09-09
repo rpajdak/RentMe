@@ -12,7 +12,6 @@ public interface UserRepository extends JpaRepository<AppUser, Long> {
 
     AppUser deleteAppUserById(long id);
 
-
     @Query("SELECT u.address, u.city, u.postCode FROM Item i LEFT JOIN AppUser u ON i.ownerId = u.id WHERE i.ownerId =:itemId")
     String findAppUserAddressByItemId(long itemId);
 }
