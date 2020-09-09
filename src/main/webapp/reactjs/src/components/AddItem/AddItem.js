@@ -6,29 +6,35 @@ import "../../css/header-and-body.css"
 
 function AddItem() {
 
-    useEffect(() => {
-        fetchCategories();
-    }, []);
+    useEffect(() => { fetchCategories(); }, []);
 
     const [category, setItems] = useState([]);
-
     const fetchCategories = async () => {
         const response = await fetch('http://localhost:8080/api/categories/all');
         const category = await response.json();
         setItems(category);
     }
+
     const {register, handleSubmit, errors} = useForm();
 
-    const onSubmit = (data) => {
-        console.log(data)
-    }
+    const onSubmit =  async (data) => {
+        const headers = new Headers();
+        headers.append('Content-type', 'application/json');
 
-    @action add(data){
+        const options = {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(data)
+        }
 
-    }
+        const request = new Request('http://localhost:8080/api/items', options);
+        const response = await fetch(request);
+        console.log(response)
+        const status = await response.status;
+
+        }
 
     return (
-
         <form onSubmit={handleSubmit(onSubmit)}>
             <h1 id="lets-get-started">Let's get started! </h1>
             <h2 id="show-what-u-got"> Show us what you've got</h2>
@@ -53,7 +59,7 @@ function AddItem() {
 
                 <h4>Description:</h4>
                 <textarea className="item-description" name="description" placeholder="Describe your item..."
-                          ref={register({required: true, minLength: 10})}></textarea>
+                          ref={register({required: true, minLength: 10})}/>
                 {errors.description && <p className="error-message">Description is too short!</p>}
 
                 <h2 className="add-item-h2">How much? </h2>
@@ -85,5 +91,6 @@ function AddItem() {
             </div>
         </form>
     )
+
 }
 export default AddItem;
