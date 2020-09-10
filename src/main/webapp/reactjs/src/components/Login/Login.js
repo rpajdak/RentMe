@@ -65,9 +65,9 @@ function Login() {
                 <div className="popup-content">
                     <h2>Sign in</h2>
                     <img className="close" src={closeIcon} onClick={hideLogin} alt={"close-icon"}/>
-                    <h4>E-mail:</h4>
+                    <p className="input-label">E-mail:</p>
                     <div className="login-data-input-decoration-wrapper">
-                        <input className="login-data-input" type="text" placeholder="Enter your e-mail" name="email" ref={register({
+                        <input className="login-data-input" type="text" placeholder="" name="email" ref={register({
                             required: "Required",
                             pattern: {
                                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -75,12 +75,12 @@ function Login() {
                             }
                         })}/>
                     </div>
-                    {errors.email && <p>You need to enter valid email address.</p>}
-                    <h4>Password:</h4>
+                    {errors.email && <p className="login-validator-message">You need to enter valid email address.</p>}
+                    <p className="input-label">Password:</p>
                     <div className="login-data-input-decoration-wrapper">
-                        <input className="login-data-input" type="password" placeholder="Enter your password" name="password" ref={register}/>
+                        <input className="login-data-input" type="password" placeholder="" name="password" ref={register}/>
                     </div>
-                    <button className="recoveryPassBtn" onClick={forgotPass}>forgot your password?</button>
+                    <button className="recoveryPassBtn" onClick={forgotPass}>Forgot your password?</button>
                     <div className="login-button-gradient-wrapper">
                         <button className="loginRecBtn">Login</button>
                     </div>

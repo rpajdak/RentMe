@@ -40,11 +40,11 @@ function RecoverAcc() {
                 <div className="popup-content2">
                     <h3>Enter your e-mail</h3>
                     <img className="close2" onClick={forgotPassHide} src={closeIcon}/>
-                    <h4>If you have forgotten your account password please enter your e-mail
-                        and we will send you a password change code.</h4>
-                    <h4 className="description">E-mail:</h4>
+                    <p>If you have forgotten your account password please enter your e-mail. 
+                        We will send you password recovery link.</p>
+                    <p className="input-label">E-mail:</p>
                     <div className="login-data-input-decoration-wrapper">
-                        <input className="login-data-input2" type="text" placeholder="Enter your e-mail" name="email"
+                        <input className="login-data-input" type="text" placeholder="" name="email"
                             ref={register({
                                 required: "Required",
                                 pattern: {
@@ -53,9 +53,9 @@ function RecoverAcc() {
                                 }
                             })}/>
                     </div>
-                    {errors.email && <p>You need to enter valid email address.</p>}
+                    {errors.email && <p className="login-validator-message">You need to enter valid email address.</p>}
                     <div className="login-button-gradient-wrapper rec">
-                        <button className="loginRecBtn rec"> Send me new password</button>
+                        <button className="loginRecBtn rec"> Send</button>
                     </div>
                 </div>
             </div>
