@@ -38,7 +38,7 @@ function RecoverAcc() {
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className="popup2">
                 <div className="popup-content2">
-                    <h3>Enter your e-mail</h3>
+                    <p className="popup-title">Password Recovery</p>
                     <img className="close2" onClick={forgotPassHide} src={closeIcon}/>
                     <p>If you have forgotten your account password please enter your e-mail. 
                         We will send you password recovery link.</p>

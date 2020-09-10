@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import Header from '../Header/Header'
+import HeaderWithLogoAndSearchBar from '../Header/HeaderWithLogoAndSearchBar'
 import ItemsListContent from "./ItemsListContent"
 import Login from "../Login/Login";
 
@@ -11,7 +11,7 @@ function ItemsList({match}) {
         <div>
             <Login />
             <div className="wrapper">
-                <Header/>
+                <HeaderWithLogoAndSearchBar/>
                 <ItemsListContent value={searchPhrase}/>
             </div>
         </div>

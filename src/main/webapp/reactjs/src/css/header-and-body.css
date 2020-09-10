@@ -191,8 +191,9 @@ button:focus, textarea {
     text-align: center;
 }
 
-.popup-content h2{
-    margin: auto;
+.popup-title{
+    font-size: 27px;
+    text-align: center !important;
 }
 
 .recoveryPassBtn {
@@ -209,6 +210,10 @@ button:focus, textarea {
 .input-label{
     float: left;
     margin: 40px 0 5px 5px;
+}
+
+.input-label.email{
+    margin-top: 10px;
 }
 
 .login-data-input-decoration-wrapper{

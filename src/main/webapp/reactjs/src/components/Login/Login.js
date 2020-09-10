@@ -63,9 +63,9 @@ function Login() {
             <form onSubmit={handleSubmit(onSubmit)}>
             <div className="popup">
                 <div className="popup-content">
-                    <h2>Sign in</h2>
+                    <p className="popup-title">Sign in</p>
                     <img className="close" src={closeIcon} onClick={hideLogin} alt={"close-icon"}/>
-                    <p className="input-label">E-mail:</p>
+                    <p className="input-label email">E-mail:</p>
                     <div className="login-data-input-decoration-wrapper">
                         <input className="login-data-input" type="text" placeholder="" name="email" ref={register({
                             required: "Required",

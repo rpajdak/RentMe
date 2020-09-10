@@ -4,7 +4,7 @@ import "../../css/header-and-body.css";
 import Menu from "./HeaderComponents/Menu";
 import Logo from "./HeaderComponents/Logo";
 
-function Header() {
+function HeaderWithLogo() {
   return (
     <div className="header">
         <Logo />
@@ -13,4 +13,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HeaderWithLogo;

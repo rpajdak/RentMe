@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import Header from '../Header/Header'
+import HeaderWithLogo from '../Header/HeaderWithLogo'
 import EditItem from "./EditItem";
 
 function ItemDetails({match}) {
@@ -8,7 +8,7 @@ function ItemDetails({match}) {
 
     return (
         <React.Fragment>
-            <Header/>
+            <HeaderWithLogo />
             <EditItem value={itemIdValue}/>
         </React.Fragment>
     );

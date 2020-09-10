@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../Header/Header'
+import HeaderWithLogo from '../Header/HeaderWithLogo'
 import AboutUsContent from '../AboutUsContent/AboutUsContent'
 import Login from "../Login/Login";
 import "../../css/header-and-body.css";
@@ -11,7 +11,7 @@ function About() {
         <div>
             <Login />
             <div className="wrapper">
-                <Header />
+                <HeaderWithLogo />
                 <AboutUsContent />
             </div>
         </div>
