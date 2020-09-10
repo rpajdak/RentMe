@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import "../../css/header-and-body.css";
 import "../../css/index.css";
 import logo from "../../assets/logo-with-slogan.svg"
@@ -37,7 +38,7 @@ function LandingPageContent() {
                     </form>
                     <p className="or">or</p>
 
-                    <a href="add-item.html"><button id="list-item-button">LIST ITEM</button></a>
+                    <Link to={"/item"}><button id="list-item-button">LIST ITEM</button></Link>
                 </div>
             </div>
 

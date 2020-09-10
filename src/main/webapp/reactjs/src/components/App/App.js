@@ -15,6 +15,7 @@ import LandingPage from '../LandingPage/LandingPage'
 import AddItemStructure from "../AddItem/AddItemStructure";
 import ErrorPage from '../ErrorPage/ErrorPage'
 import ItemsList from '../ItemsList/ItemsList'
+import ItemView from "../ItemView/ItemView";
 
 function App() {
    return (
@@ -27,6 +28,7 @@ function App() {
            <Route path="/account/recover" component={RecoverAcc}/>
            <Route path="/item/:id" exact component={ItemDetails}/>
            <Route path="/item" exact component={AddItemStructure}/>
+           <Route path="/item/view/:id" exact component={ItemView}/>
            <Route path="/login" component={Login}/>
            <Route path="/items-list/:searchPhrase" component={ItemsList}/>
            <Route path="*" component={ErrorPage} />
