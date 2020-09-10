@@ -43,8 +43,8 @@ function LandingPageContent() {
 
             <div id="see-categories-sign" onLoad={animateArrows}>
 
-                <p id="see-categories"><a href="#categories-area">see categories</a></p>
-                <img id="scroll-down-arrows" src={scrollDownArrows}/>
+                <a href="#categories-area"><p id="see-categories">see categories</p>
+                <img id="scroll-down-arrows" src={scrollDownArrows}/></a>
             </div>
 
             <div id="categories-area">

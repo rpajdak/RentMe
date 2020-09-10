@@ -1,13 +1,28 @@
-import React from "react";
-import { Link, qs } from "react-router-dom";
+import React, {useState} from "react";
 import "../../../css/header-and-body.css";
-import logoImg from "../../../assets/logo.svg";
+
+
 
 function SearchBar(props) {
 
+    let [phrase, setPhrase] = useState();
+
+
+
+    function redirect(){
+        return window.location.redirect('localhost:8080/items-list/dupa');
+    }
+
+    function handleChange(event) {
+        setPhrase(event.target.value);
+    }
+
   return (
-    <form class="search-form" action="/items-list/">
-        <input type="text" class="item-search-field" placeholder={props.SearchPhrasePassedToSearchBar}/>
+    <form className="search-form" onSubmit={redirect}>
+        <input type="search"
+               className="item-search-field"
+               placeholder={props.SearchPhrasePassedToSearchBar}
+               onChange={handleChange}/>
         <h4>in</h4>
         <input type="text" class="distance-inputs" placeholder="Brussels"/>
         <h4>within</h4>
@@ -20,6 +35,7 @@ function SearchBar(props) {
             <option value="100km">100km</option>
             <option value=">100km">+100km</option>
         </select>
+        <input className="searchbar-hidden-submit-button" type="submit"/>
     </form>
   );
 }

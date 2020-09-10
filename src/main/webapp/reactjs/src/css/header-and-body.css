@@ -122,6 +122,10 @@ button:focus, textarea {
     width: 150px;
 }
 
+.searchbar-hidden-submit-button{
+    display:none;
+}
+
 .sorting-option-inputs-list{
     color: white;
     background: none;

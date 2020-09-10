@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    font-family: Roboto-light;
+    font-family: roboto-regular;
 }
 
 .area-of-logo-with-options {
@@ -91,7 +91,7 @@
     text-align: center;
 }
 
-#see-categories a{
+#see-categories {
     color: white;
     font-size: 1.5vw;
 }
