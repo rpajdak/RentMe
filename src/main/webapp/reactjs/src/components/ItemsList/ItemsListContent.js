@@ -268,7 +268,6 @@ function ItemsListContent(searchPhrase) {
 
     return (
         <div>
-            <div className="wrapper">
                 <HeaderWithLogoAndSearchBar SearchPhrasePassedToHeader={searchPhraseContent}/>
                 <div id="items-area">
                     <SortingOptions/>
@@ -309,7 +308,6 @@ function ItemsListContent(searchPhrase) {
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     );
 }

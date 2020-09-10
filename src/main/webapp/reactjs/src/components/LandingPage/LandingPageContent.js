@@ -8,6 +8,7 @@ import homeEquipmentJpg from "../../assets/home-equipment.jpg"
 import adventureJpg from "../../assets/adventure.jpg"
 import scooterJpg from "../../assets/scooter.jpg"
 import instrumentsJpg from "../../assets/instruments.png"
+import Header from "../Header/Header"
 
 function LandingPageContent() {
 
@@ -26,13 +27,7 @@ function LandingPageContent() {
     return (
         <div>
             <div className="landing-page-header">
-                <div className="menu">
-                    <ul>
-                        <li><a href="about.html">About us</a></li>
-                        <li><a href="sign-up.html"><button type="button">Sign up</button></a></li>
-                        <li><a href="#" id="sign-in">Sign in</a></li>
-                    </ul>
-                </div>
+                <Header />
             </div>
             <div className="area-of-logo-with-options">
                 <img id="logo-with-slogan" src={logo}/>

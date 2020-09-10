@@ -269,4 +269,12 @@
     <orderEntry type="library" name="Maven: io.projectreactor:reactor-core:3.3.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.3" level="project" />
   </component>
+  <component name="MavenProjectsManager">
+      <option name="originalFiles">
+        <list>
+          <option value="$PROJECT_DIR$/pom.xml" />
+        </list>
+      </option>
+    </component>
+
 </module>
