@@ -166,6 +166,10 @@ button:focus, textarea {
     display: none;
 }
 
+/*-------END OF HEADER CSS-------*/
+
+/*------- LOGIN AND PASSWORD RECOVERY -------*/
+
 .popup {
     position: fixed;
     top: 20%;
@@ -173,7 +177,7 @@ button:focus, textarea {
     display: none;
     justify-content: center;
     align-items: center;
-    background: none;
+    color: black;
 }
 
 .popup-content {
@@ -182,8 +186,12 @@ button:focus, textarea {
     grid-template-rows: repeat(4, 1fr);
     width: 300px;
     border-radius: 10px;
-    color: white;
     padding: 20px;
+    background: white;
+}
+
+.popup-content h2{
+    margin: auto;
 }
 
 .recoveryPassBtn {
@@ -192,29 +200,44 @@ button:focus, textarea {
     text-align: right;
     margin: 12px 0;
     font-family: "Roboto";
-    color: #ffffff;
+    color: black;
 }
 
 .popup-content button:hover{
     cursor: pointer;
 }
 
-
+.login-data-input-decoration-wrapper{
+    justify-self: center;
+    align-self: center;
+    border-radius: 10px;
+    height: 50px;
+    width: 290px;
+    background: linear-gradient(90deg, rgba(247,0,70,1) 0%, rgb(36, 2, 156) 100%);
+    text-align: center;
+    overflow: hidden;
+}
 
 .login-data-input {
-    border-radius: 10px;
-    padding: 5px;
+    position: relative;
+    top: 2px;
+    margin-top: auto;
     border: none;
-    height: 50px;
-    width: 300px;
+    border-radius: 8px;
+    padding: 5px;
+    height: 36px;
+    width: 276px;
 }
 
 .login-data-input2 {
-    border-radius: 10px;
-    padding: 5px;
+    position: relative;
+    top: 2px;
+    margin-top: auto;
     border: none;
-    height: 50px;
-    width: 300px;
+    border-radius: 8px;
+    padding: 5px;
+    height: 36px;
+    width: 276px;
 }
 
 .close {
@@ -225,6 +248,7 @@ button:focus, textarea {
     height: 20px;
     border-radius: 50%;
     cursor: pointer;
+    z-index: 99999;
 }
 
 .close:hover {
@@ -249,25 +273,45 @@ button:focus, textarea {
 
 
 .popup2 {
-    position: fixed;
+    /* position: fixed;
     /*top: 10%;*/
     /*right: 2%;*/
+    /*top: 20%;
+    right: 40%;
+    display: none;
+    justify-content: center;
+    align-items: center; */
+
+    position: fixed;
     top: 20%;
     right: 40%;
     display: none;
     justify-content: center;
     align-items: center;
+    color: black;
 }
 
 .popup-content2 {
-    border: white 1px solid;
+    /* border: white 1px solid;
     display: grid;
     grid-template-rows: repeat(4, 1fr);
     width: 300px;
     border-radius: 10px;
     color: white;
     padding: 20px;
-    background: none;
+    background: none; */
+
+    border: white 1px solid;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    width: 300px;
+    border-radius: 10px;
+    padding: 20px;
+    background: white;
+}
+
+.popup-content2 h3 {
+    margin: auto;
 }
 
 .popup-content2 h4 {
@@ -317,24 +361,52 @@ h5 a:hover {
     cursor: pointer;
 }
 
-.loginRecBtn{
-    color:white;
-    place-self: center;
+.login-button-gradient-wrapper{
+    background: linear-gradient(90deg, rgba(247,0,70,1) 0%, rgba(36, 2, 156) 100%);
+    height: 44px;
+    width: 120px;
+    margin: 20px auto 0 auto;
     text-align:center;
-    font-size: inherit;
-    background: none;
-    border-width: 1px;
     border-radius: 10px;
-    border-style: solid;
-    border-color: white;
-    width: 250px;
-    height:45px;
-    padding:0;
-    font-weight: 900;
-    vertical-align: center;
+}
+
+.loginRecBtn{
+    position: relative;
+    top: 2px;
+    color:black;
+    text-align:center;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 8px;
+    width: 116px;
+    height: 40px;
+    background: white;
+    font-weight: bold;
+}
+
+.login-button-gradient-wrapper.rec{
+    width: 124px;
+}
+.loginRecBtn.rec{
+    width: 120px;
+}
+
+.login-button-gradient-wrapper:hover{
+    color: white;
+    transition-duration: 0.5s;
 }
 
 .loginRecBtn:hover{
+    color: white;
+    top: 0;
+    height: 44px;
+    width: 120px;
+    background: rgba(225, 225, 225, 0.4);
+    transition-duration: 0.5s;
+}
+
+.loginRecBtn.rec:hover{
+    width: 124px;
     cursor: pointer;
 }
 

@@ -43,16 +43,20 @@ function RecoverAcc() {
                     <h4>If you have forgotten your account password please enter your e-mail
                         and we will send you a password change code.</h4>
                     <h4 className="description">E-mail:</h4>
-                    <input className="login-data-input2" type="text" placeholder="Enter your e-mail" name="email"
-                           ref={register({
-                               required: "Required",
-                               pattern: {
-                                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                   message: "invalid email address"
-                               }
-                           })}/>
+                    <div className="login-data-input-decoration-wrapper">
+                        <input className="login-data-input2" type="text" placeholder="Enter your e-mail" name="email"
+                            ref={register({
+                                required: "Required",
+                                pattern: {
+                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                    message: "invalid email address"
+                                }
+                            })}/>
+                    </div>
                     {errors.email && <p>You need to enter valid email address.</p>}
-                    <button className="loginRecBtn"> Send me new password</button>
+                    <div className="login-button-gradient-wrapper rec">
+                        <button className="loginRecBtn rec"> Send me new password</button>
+                    </div>
                 </div>
             </div>
         </form>
