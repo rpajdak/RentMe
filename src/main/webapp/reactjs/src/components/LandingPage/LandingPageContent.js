@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from "react";
+import {useLocation, useHistory} from "react-router";
 import "../../css/header-and-body.css";
 import "../../css/index.css";
 import logo from "../../assets/logo-with-slogan.svg"
@@ -12,6 +13,18 @@ import Header from "../Header/Header"
 
 function LandingPageContent() {
 
+    const history = useHistory();
+
+    let [phrase, setPhrase] = useState();
+
+    const redirect = () => {
+        history.replace("/items-list/" + phrase);
+    }
+
+    function handleChange(event) {
+        setPhrase(event.target.value);
+    }
+
     function animateArrows() {
         document.getElementById("scroll-down-arrows").animate([
             {transform: 'translateY(-10px)'},
@@ -23,7 +36,6 @@ function LandingPageContent() {
         })
     };
 
-
     return (
         <div>
             <div className="landing-page-header">
@@ -32,8 +44,10 @@ function LandingPageContent() {
             <div className="area-of-logo-with-options">
                 <img id="logo-with-slogan" src={logo}/>
                 <div id="options">
-                    <form id="search-form">
-                        <input type="text" id="search-field" placeholder="browse items..."/>
+                    <form id="search-form" onSubmit={redirect}>
+                        <input type="text" id="search-field"
+                        onChange={handleChange}
+                        placeholder="browse items..."/>
                     </form>
                     <p className="or">or</p>
 
@@ -42,7 +56,6 @@ function LandingPageContent() {
             </div>
 
             <div id="see-categories-sign" onLoad={animateArrows}>
-
                 <a href="#categories-area"><p id="see-categories">see categories</p>
                 <img id="scroll-down-arrows" src={scrollDownArrows}/></a>
             </div>

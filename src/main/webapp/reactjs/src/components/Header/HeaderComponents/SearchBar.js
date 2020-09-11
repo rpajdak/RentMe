@@ -1,16 +1,15 @@
 import React, {useState} from "react";
+import {useLocation, useHistory} from "react-router";
 import "../../../css/header-and-body.css";
-
-
 
 function SearchBar(props) {
 
+    const history = useHistory();
+
     let [phrase, setPhrase] = useState();
 
-
-
-    function redirect(){
-        return window.location.redirect('localhost:8080/items-list/dupa');
+    const redirect = () => {
+        history.replace("/items-list/" + phrase);
     }
 
     function handleChange(event) {
@@ -24,7 +23,7 @@ function SearchBar(props) {
                placeholder={props.SearchPhrasePassedToSearchBar}
                onChange={handleChange}/>
         <h4>in</h4>
-        <input type="text" class="distance-inputs" placeholder="Brussels"/>
+        <input type="text" class="distance-inputs" placeholder="Enter city"/>
         <h4>within</h4>
         <select className="sorting-option-inputs-list" required>
             <option value="1km">1km</option>

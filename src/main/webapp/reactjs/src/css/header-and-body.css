@@ -22,7 +22,7 @@ body {
     background-attachment: fixed;
     width: 100%;
     position: fixed;
-    padding: 13px 13px 0 13px;
+    padding: 13px;
     background-size: cover;
     border-bottom: 0px solid rgba(255, 255, 255, 0.1);
     top: 0px;
@@ -113,6 +113,10 @@ button:focus, textarea {
     min-width: 200px;
 }
 
+.item-search-field:focus::placeholder{
+    color: transparent;
+}
+
 .distance-inputs{
     padding-left: 10px;
     border-radius: 6px;
@@ -120,6 +124,10 @@ button:focus, textarea {
     font-size: 15px;
     height: 36px;
     width: 150px;
+}
+
+.distance-inputs:focus::placeholder{
+    color: transparent;
 }
 
 .searchbar-hidden-submit-button{
