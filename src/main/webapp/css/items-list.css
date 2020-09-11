@@ -1,52 +1,9 @@
 
-.search-form{
-    margin-top: 15px;
-}
-.item-search-field{
-    padding: 1em;
-    border-radius: 6px;
-    border:none;
-    font-size: 15px;
-    height: 36px;
-    width: 20vw;
-    min-width: 200px;
-}
-
-.distance-inputs{
-    padding: 1em;
-    border-radius: 6px;
-    border:none;
-    font-size: 15px;
-    height: 36px;
-    width: 150px;
-}
-
 #items-area{
     width: calc(70vw - 60px);
     float:left;
     padding: 0 20px 20px 20px;
     margin-top: 110px;
-}
-
-.sorting-option-inputs-list{
-    float: right;
-    color: white;
-    background: none;
-    border-radius: 10px;
-    border: 1px solid rgba(225,225,225,0.5);
-    font-size: 15px;
-    height: 36px;
-    width: 150px;
-    padding: 0px 5px;
-}
-
-.sorting-option-inputs-list option{
-    text-align: center;
-}
-
-
-.sorting-option-inputs-list:focus, textarea {
-    outline: none !important;
 }
 
 .items-list{
@@ -79,13 +36,13 @@
     padding: 0;
 }
 
-.item-photo{
+.items-list-item-photo{
     max-height: 100%;
     margin: 0;
     padding: 0;
 }
 
-.item-name{
+.items-list-item-name{
     text-align: left;
     font-family: "Roboto-regular";
     font-size: 1.1em;
@@ -95,18 +52,9 @@
 
 .item-info{
     color: black;
-    font-family: "Roboto-light";
+    font-family: "roboto-regular";
     height: 100%;
     width: 100%;
     margin-left: 10px;
 }
-
-input:focus, textarea {
-    outline: none !important;
-}
-
-button:focus, textarea {
-    outline: none !important;
-}
-
 

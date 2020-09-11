@@ -5,13 +5,7 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    font-family: Roboto;
-}
-
-.landing-page-header p{
-    display: inline;
-    color: white;
-    font-size: 2vw;
+    font-family: roboto-regular;
 }
 
 .area-of-logo-with-options {
@@ -67,6 +61,7 @@
     margin-left: 5vw;
     color:white;
     background: none;
+    cursor: pointer;
 }
 
 #list-item-button:hover{
@@ -74,14 +69,11 @@
     transition-duration: 0.5s;
 }
 
-input:focus, textarea {
-    outline: none !important;
+.landing-page-header p{
+    display: inline;
+    color: white;
+    font-size: 2vw;
 }
-
-button:focus, textarea {
-    outline: none !important;
-}
-
 
 
 #see-categories-sign{
@@ -98,6 +90,23 @@ button:focus, textarea {
 
 #scroll-down-arrows{
     width: 1.5vw;
+}
+
+.loginBtn{
+    color:white;
+    place-self: center;
+    text-align:center;
+    font-size: inherit;
+    background: none;
+    border-width: 1px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: white;
+    width: 250px;
+    height:45px;
+    padding:0;
+    font-weight: 900;
+    padding-top: 20px !important;
 }
 
 #categories-area{
@@ -146,25 +155,6 @@ button:focus, textarea {
 .category-name{
     padding: 10px;
 }
-
-.warning-email {
-    color: #BF343F;
-    height: 24px;
-    padding: 0 8px;
-    font-size: 18px;
-}
-
-.hidden{
-    display: none;
-}
-
-
-
-
-
-
-
-
 
 
 

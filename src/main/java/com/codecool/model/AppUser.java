@@ -12,14 +12,24 @@ import javax.persistence.*;
 public class AppUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @Column(name= "id")
     private Long id;
+    @Column(name= "first_name")
     private String firstName;
+    @Column(name= "last_name")
     private String lastName;
+    @Column(name= "email")
     private String email;
+    @Column(name= "password")
     private String password;
+    @Column(name= "address")
     private String address;
+    @Column(name= "city")
     private String city;
+    @Column(name= "is_admin")
     private Boolean isAdmin;
+    @Column(name= "post_code")
+    private String postCode;
 
     public boolean isAdmin() {
         return isAdmin;

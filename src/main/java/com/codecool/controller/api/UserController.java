@@ -2,6 +2,7 @@ package com.codecool.controller.api;
 
 import com.codecool.converter.AppUserConverter;
 import com.codecool.model.AppUser;
+import com.codecool.modelDTO.UserAddressDTO;
 import com.codecool.modelDTO.AppUserDTO;
 import com.codecool.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -11,8 +12,8 @@ import java.util.List;
 
 
 @Controller
-@RestController
 @CrossOrigin
+@RestController
 public class UserController {
 
     private UserService userService;
@@ -42,6 +43,13 @@ public class UserController {
         return appUserConverter.entityToDTO(userService.getUserById(id));
     }
 
+    @GetMapping("/renters/find-by/item/{id}")
+    @ResponseBody
+    public UserAddressDTO findUserAddressByItemId(@PathVariable("id") Long id) {
+        return  userService.getUserAddressByItemId(id);
+    }
+
+
     @GetMapping("/admins/{id}")
     @ResponseBody
     public AppUserDTO findAdminById(@PathVariable("id") Long id) {
@@ -59,6 +67,14 @@ public class UserController {
     public void updateUser(@RequestBody AppUser appUser) {
         userService.updateUser(appUser);
     }
+
+//   Just for test
+    @PutMapping("/test")
+    @ResponseBody
+    public void justTest(@RequestBody String s){
+        System.out.println(s);
+    }
+
 
     @DeleteMapping
     @ResponseBody

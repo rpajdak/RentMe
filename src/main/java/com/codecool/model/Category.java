@@ -18,8 +18,11 @@ public class Category {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @Column(name= "id")
     private Long id;
+    @Column(name= "description")
     private String description;
+    @Column(name= "pic_url")
     private String picUrl;
 
 

@@ -6,12 +6,7 @@ import com.codecool.service.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 @Controller
 @RestController
@@ -33,22 +28,35 @@ public class ItemController {
         return itemConverter.entitiesToDTO(itemService.getAllItems());
     }
 
+    @GetMapping("/list/{searchPhrase}")
+    @ResponseBody
+    public List<ItemDTO> findItemsByNameContaining(@PathVariable("searchPhrase") String searchPhrase){
+        return itemConverter.entitiesToDTO(itemService.findItemsByNameContaining(searchPhrase.toUpperCase()));
+    }
+
+    @GetMapping("/list/byCategory/{searchPhrase}")
+    @ResponseBody
+    public List<ItemDTO> findItemsByCategory(@PathVariable("searchPhrase") String searchPhrase){
+        return itemConverter.entitiesToDTO(itemService.findItemsByCategory(searchPhrase.toUpperCase()));
+    }
+
     @GetMapping("/{id}")
     @ResponseBody
     public ItemDTO findById(@PathVariable("id") Long id){
         return  itemConverter.entityToDTO(itemService.findById(id));
-
     }
 
     @PostMapping()
     @ResponseBody
     public void addItem(@RequestBody Item item){
+
         itemService.addItem(item);
     }
 
     @PutMapping()
     @ResponseBody
     public void updateItem(@RequestBody Item item){
+
         itemService.updateItem(item);
     }
 

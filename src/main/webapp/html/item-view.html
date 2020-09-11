@@ -1,12 +1,12 @@
-
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="login page">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="icon" href="../assets/logo.svg">
-    <link rel="stylesheet" href="../css/item-view.css">
     <link rel="stylesheet" href="../css/header-and-body.css">
+    <link rel="stylesheet" href="../css/item-view.css">
     <script type="text/javascript" src="../js/login.js"></script>
     <script type="text/javascript" src="../js/slider.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
@@ -75,7 +75,7 @@
             </div>
           <div class="description-renter-name">
               <button class="see-renter" type="submit">Renter Name</button>
-              <p class="item-heading-2 item-description">Description</p>
+              <p class="item-heading-2 item-heading-description">Description</p>
 
               <p class="item-normal-text">Two Speed settings, 16 torque settings and power level readout built-in to battery
                   This lightweight and compact drill driver provides the ideal mix of power and versatility.
@@ -91,12 +91,12 @@
           <div class="item-location-container">
               <p class="item-heading-2 item-location">Location</p>
               <p>Template item location, xx-xxx Address</p>
-              <div id="map-container">
-                  <div id="map-overview" class="hidden">
+              <div id="item-view-map-container">
+                  <div id="item-view-map-overview" class="hidden">
                       Back to map
                   </div>
-                  <div id="map-canvas">
-                      <div id="map-info">
+                  <div id="item-view-map-canvas">
+                      <div id="item-view-map-info">
                           <div class="gp brussels">
                               <h2>Brussels Grand Place</h2>
                               <img class="marker-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg/800px-Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg" alt="Grand Place Brussels">
@@ -125,45 +125,30 @@
      </div>
   </div>
 </div>
-<div class ="popup login-popup">
-    <div class="popup-content">
-        <p class="sign-in">Sign in</p>
-        <img class="close close-login" src="../assets/close-window-blue.svg"/>
-        <div class="login-input-wrapper   email">
-            <p class="input-label">E-mail:</p>
-            <div class="gradient-wrapper">
-                <input class="login-data-input" type="text" placeholder="">
-            </div>
-        </div>
-        <div class="login-input-wrapper">
-            <p class="input-label">Password:</p>
-            <div class="gradient-wrapper">
-                <input class="login-data-input"  type="password" placeholder="">
-            </div>
-        </div>
-        <p class="forgot-password"><a href="#" id="forg">Forgot your password?</a> </p>
-        <div class="gradient-wrapper login-button-gradient-wrapper">
-            <button type="button" href="#" class="login-form-button">Login</button>
-        </div>
+<div class ="popup">
+    <div class="popup-content" style="width: 100%;">
+        <h3>Sign in</h3>
+        <img class="close" src="../assets/close-window.svg"/>
+        <h4>E-mail:</h4>
+        <input class="login-data-input" type="text" placeholder="Enter your e-mail">
+        <h4>Password:</h4>
+        <input class="login-data-input"  type="password" placeholder="Enter your password">
+
+        <h5><a href="#" id="forg">forgot your password?</a> </h5>
+        <a href="#" class="button1">Login</a>
     </div>
 </div>
-<div class="popup forgot-password-popup">
-    <div class="popup-content">
-        <p class="sign-in">Password recovery</p>
-        <img class="close close-password-recovery" src="../assets/close-window-blue.svg"/>
-        <p class="password-recovery-info">Forgot your password? Just enter your email
-            and we'll send you reset link.</p>
-        <div class="login-input-wrapper">
-            <p class="input-label">Email:</p>
-            <div class="gradient-wrapper">
-                <input class="login-data-input"  type="password" placeholder="">
-            </div>
-        </div>
-        <div class="gradient-wrapper login-button-gradient-wrapper">
-            <button type="button" href="#" class="login-form-button">Send</button>
-        </div>
+<div class ="popup2" style="width: 50%;">
+    <div class="popup-content2">
+        <h3>Enter your e-mail</h3>
+        <img class="close2" src="../assets/close-window.svg"/>
+        <h4>If you have forgotten your account password please enter your e-mail
+            and we will send you a password change code.</h4>
+        <h4 class="description">E-mail:</h4>
+        <input class="login-data-input2" type="text" placeholder="Enter your e-mail">
+        <a href="#" class="button12">Send me new password</a>
     </div>
-</div>
+</div> 
 
 
 
@@ -351,7 +336,7 @@ function initMap() {
     rotateControl: false
   };
   var map = new google.maps.Map(
-    document.getElementById("map-canvas"),
+    document.getElementById("item-view-map-canvas"),
     mapOptions
   );
 
@@ -398,7 +383,7 @@ function initMap() {
   });
 
   // back to offices overview
-  document.querySelector("#map-overview").addEventListener("click", function() {
+  document.querySelector("#item-view-map-overview").addEventListener("click", function() {
     map.panTo(myLatlng);
     map.setZoom(responsiveZoom);
     hideInfo();
@@ -413,16 +398,16 @@ function initMap() {
 
 function showInfo(selector) {
   document.querySelector(selector).classList.add("shown");
-  document.querySelector("#map-canvas").classList.add("zoomed");
-  document.querySelector("#map-overview").classList.remove("hidden");
+  document.querySelector("#item-view-map-canvas").classList.add("zoomed");
+  document.querySelector("#item-view-map-overview").classList.remove("hidden");
 }
 
 function hideInfo() {
   if (document.querySelector(".shown")) {
     document.querySelector(".shown").classList.remove("shown");
   }
-  document.querySelector("#map-canvas").classList.remove("zoomed");
-  document.querySelector("#map-overview").classList.add("hidden");
+  document.querySelector("#item-view-map-canvas").classList.remove("zoomed");
+  document.querySelector("#item-view-map-overview").classList.add("hidden");
 }
 
 </script>
