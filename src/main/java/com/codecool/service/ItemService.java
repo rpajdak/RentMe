@@ -45,5 +45,10 @@ public class ItemService {
         return itemRepository.findItemsByNameContaining(searchPhrase);
     }
 
+    public List<Item> findItemsByCategory(String searchPhrase){
+
+        return itemRepository.findItemsByCategory(searchPhrase);
+    }
+
 
 }

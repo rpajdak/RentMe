@@ -12,7 +12,7 @@ function ItemsList({match}) {
             <Login />
             <div className="wrapper">
                 <HeaderWithLogoAndSearchBar/>
-                <ItemsListContent value={searchPhrase}/>
+                <ItemsListContent phrase={searchPhrase}/>
             </div>
         </div>
     );

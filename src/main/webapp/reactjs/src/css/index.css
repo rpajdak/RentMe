@@ -5,7 +5,6 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    font-family: Roboto-light;
 }
 
 .area-of-logo-with-options {
@@ -50,6 +49,10 @@
     margin-right: 5vw;
 }
 
+#search-field:focus::placeholder{
+    color: transparent;
+}
+
 .area-of-logo-with-options p{
     display:inline;
     font-size: 28px;
@@ -91,7 +94,7 @@
     text-align: center;
 }
 
-#see-categories a{
+#see-categories {
     color: white;
     font-size: 1.5vw;
 }

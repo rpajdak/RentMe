@@ -13,16 +13,27 @@ import Plane from "./plane.jpg"
 
 function ItemsListContent(searchPhrase) {
 
-    const [searchPhraseContent, setSearchPhrase] = useState(searchPhrase.value);
+    const [searchPhraseContent, setSearchPhrase] = useState(searchPhrase.phrase);
 
     const [fetchedItems, setItems] = useState([]);
 
     useEffect(() => {fetchItems(searchPhrase)}, []);
 
-    const fetchItems = async (searchPhrase) => {
-        const response = await fetch(`http://localhost:8080/api/items/list/${searchPhraseContent}`);
-        const items = await response.json();
-        setItems(items);
+    const fetchItems = async () => {
+        if (searchPhraseContent.startsWith("category:")) {
+            const categoryToBrowse = searchPhraseContent.slice(9)
+            const response = await fetch(`http://localhost:8080/api/items/list/ofCategory/${searchPhraseContent}`);
+            const items = await response.json();
+            setItems(items);
+        }
+        else{
+            const response = await fetch(`http://localhost:8080/api/items/list/${searchPhraseContent}`);
+            const items = await response.json();
+            setItems(items);
+        }
+
+
+
     }
 
 //    function map () {
