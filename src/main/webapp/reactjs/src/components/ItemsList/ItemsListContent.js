@@ -20,9 +20,9 @@ function ItemsListContent(searchPhrase) {
     useEffect(() => {fetchItems(searchPhrase)}, []);
 
     const fetchItems = async () => {
-        if (searchPhraseContent.startsWith("category:")) {
-            const categoryToBrowse = searchPhraseContent.slice(9)
-            const response = await fetch(`http://localhost:8080/api/items/list/ofCategory/${searchPhraseContent}`);
+        if (searchPhraseContent.startsWith("category: ")) {
+            const categoryToBrowse = searchPhraseContent.slice(10);
+            const response = await fetch(`http://localhost:8080/api/items/list/byCategory/${categoryToBrowse}`);
             const items = await response.json();
             setItems(items);
         }
@@ -31,9 +31,6 @@ function ItemsListContent(searchPhrase) {
             const items = await response.json();
             setItems(items);
         }
-
-
-
     }
 
 //    function map () {

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {useLocation, useHistory} from "react-router";
+import {NavLink} from "react-router-dom";
 import "../../css/header-and-body.css";
 import "../../css/index.css";
 import logo from "../../assets/logo-with-slogan.svg"
@@ -62,14 +63,17 @@ function LandingPageContent() {
 
             <div id="categories-area">
                 <div className="categories">
-                <div className="category">
+                <NavLink to={"/items-list/category: cameras"}>
+                    <div className="category">
                         <div className="category-image-container">
-                            <a href="#"> <img className="category-image" src={cameraJpg}/></a>
+                            <img className="category-image" src={cameraJpg}/>
                         </div>
                         <div className="category-name">
                             CAMERAS
                         </div>
                     </div>
+                </NavLink>
+                <NavLink to={"/items-list/category: home equipment"}>
                     <div className="category">
                         <div className="category-image-container">
                             <a href="#"><img className="category-image" src={homeEquipmentJpg}/></a>
@@ -78,6 +82,8 @@ function LandingPageContent() {
                             HOME EQUIPMENT
                         </div>
                     </div>
+                </NavLink>
+                <NavLink to={"/items-list/category: adventure"}>
                     <div className="category">
                         <div className="category-image-container">
                             <a href="#"> <img className="category-image" src={adventureJpg}/></a>
@@ -86,6 +92,8 @@ function LandingPageContent() {
                             ADVENTURE
                         </div>
                     </div>
+                </NavLink>
+                <NavLink to={"/items-list/category: scooters"}>
                     <div className="category">
                         <div className="category-image-container">
                             <a href="#">   <img className="category-image" src={scooterJpg}/></a>
@@ -94,6 +102,8 @@ function LandingPageContent() {
                             SCOOTERS
                         </div>
                     </div>
+                </NavLink>
+                <NavLink to={"/items-list/category: instruments"}>
                     <div className="category">
                         <div className="category-image-container">
                             <a href="#">  <img className="category-image" src={instrumentsJpg}/></a>
@@ -102,6 +112,7 @@ function LandingPageContent() {
                             INSTRUMENTS
                         </div>
                     </div>
+                </NavLink>
                 </div>
             </div>
         </div>
