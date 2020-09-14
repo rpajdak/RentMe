@@ -27,16 +27,16 @@ public class Item {
     private String picUrl;
     @Column(name= "owner_id")
     private Long ownerId;
-    @Column(name= "category_id")
-    private Long categoryId;
+    @ManyToOne
+    @JoinColumn(name= "category_id")
+    private Category category;
 
-    public Item(String name, String description, double price, String picUrl, Long ownerId, Long categoryId) {
+    public Item(String name, String description, double price, String picUrl, Long ownerId, Category category) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.picUrl = picUrl;
         this.ownerId = ownerId;
-        this.categoryId = categoryId;
-
+        this.category = category;
     }
 }

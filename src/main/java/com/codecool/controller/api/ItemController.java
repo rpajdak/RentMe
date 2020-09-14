@@ -37,7 +37,7 @@ public class ItemController {
     @GetMapping("/list/byCategory/{searchPhrase}")
     @ResponseBody
     public List<ItemDTO> findItemsByCategory(@PathVariable("searchPhrase") String searchPhrase){
-        return itemConverter.entitiesToDTO(itemService.findItemsByCategory(searchPhrase.toUpperCase()));
+        return itemConverter.entitiesToDTO(itemService.findItemsByCategory(searchPhrase));
     }
 
     @GetMapping("/{id}")
