@@ -151,3 +151,6 @@ hs_err_pid*
 .target/
 
 # End of https://www.toptal.com/developers/gitignore/api/linux,intellij,java
+
+# Macbook files
+.DS_Store
