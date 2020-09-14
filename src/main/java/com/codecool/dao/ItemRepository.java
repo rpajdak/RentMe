@@ -17,6 +17,7 @@ public interface ItemRepository  extends JpaRepository<Item, Long> {
 
     @Query("select i from Item i left join i.category c where upper(i.category.description) like %:searchPhrase%")
     List<Item> findItemsByCategory (String searchPhrase);
+
 }
 
 

@@ -9,7 +9,7 @@ import HeaderWithLogoAndSearchBar from "../Header/HeaderWithLogoAndSearchBar";
 import Item from "./ItemsListComponents/Item"
 import SortingOptions from "./ItemsListComponents/SortingOptions"
 
-import Plane from "./plane.jpg"
+import {NavLink} from "react-router-dom";
 
 function ItemsListContent(searchPhrase) {
 
@@ -18,6 +18,7 @@ function ItemsListContent(searchPhrase) {
     const [fetchedItems, setItems] = useState([]);
 
     useEffect(() => {fetchItems(searchPhrase)}, []);
+
 
     const fetchItems = async () => {
         if (searchPhraseContent.startsWith("category: ")) {

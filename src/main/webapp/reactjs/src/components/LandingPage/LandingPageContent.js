@@ -11,6 +11,7 @@ import adventureJpg from "../../assets/adventure.jpg"
 import scooterJpg from "../../assets/scooter.jpg"
 import instrumentsJpg from "../../assets/instruments.png"
 import Header from "../Header/Header"
+import {Link} from "react-router-dom";
 
 function LandingPageContent() {
 
@@ -43,7 +44,7 @@ function LandingPageContent() {
                 <Header />
             </div>
             <div className="area-of-logo-with-options">
-                <img id="logo-with-slogan" src={logo}/>
+                <img alt="#" id="logo-with-slogan" src={logo}/>
                 <div id="options">
                     <form id="search-form" onSubmit={redirect}>
                         <input type="text" id="search-field"
@@ -51,8 +52,12 @@ function LandingPageContent() {
                         placeholder="browse items..."/>
                     </form>
                     <p className="or">or</p>
+                    <Link to="/item">
+                        <button id="list-item-button">LIST ITEM</button>
+                    </Link>
 
-                    <a href="add-item.html"><button id="list-item-button">LIST ITEM</button></a>
+
+
                 </div>
             </div>
 
