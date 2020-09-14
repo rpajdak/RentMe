@@ -9,7 +9,7 @@ function DropDownMenu() {
         <div className="drop-down-menu">
             <div className="drop-down-header">
                 <div className="user-image">
-                    <img id="logo" src={userImg}></img>
+                    <img id="logo" alt="user-icon" src={userImg}/>
                 </div>
                 <div className="user-name">Jan Nowak</div>
             </div>
