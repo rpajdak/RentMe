@@ -41,7 +41,6 @@ function ItemViewContent(id) {
         const oneDayMilisec = 24 * 60 * 60 * 1000;
 
         let diffInDays = Math.abs((startDateMiilisec - endDateMiilisec) / oneDayMilisec) + 1;
-        console.log(diffInDays);
         return diffInDays;
     }
 
