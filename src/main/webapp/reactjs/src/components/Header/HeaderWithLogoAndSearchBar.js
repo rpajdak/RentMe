@@ -10,7 +10,7 @@ function HeaderWithLogoAndSearchBar(props) {
     <div className="header">
         <Logo />
         <Menu />
-        <SearchBar SearchPhrasePassedToSearchBar = {props.SearchPhrasePassedToHeader}/>
+        <SearchBar SearchPhrasePassedToSearchBar={props.SearchPhrasePassedToHeader}/>
     </div>
   );
 }
