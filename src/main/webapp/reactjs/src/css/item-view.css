@@ -6,6 +6,7 @@
 /* Slideshow container */
 .slideshow-container {
     max-width: 1000px;
+    max-height: 300px;
     border-radius: 15px;
     position: relative;
     margin: auto;
@@ -37,7 +38,6 @@
 }
 
 
-/* Position the "next button" to the right */
 .next {
     right: 0;
 
@@ -48,7 +48,6 @@
     background-color: rgba(0,0,0,0.7);
 }
 
-/* Caption text */
 .text {
     color: #f2f2f2;
     font-size: 15px;
@@ -84,7 +83,6 @@
     background-color: #717171;
 }
 
-/* Fading animation */
 .fade {
     -webkit-animation-name: fade;
     -webkit-animation-duration: 1.5s;
@@ -113,18 +111,13 @@
     border-radius: 15px;
     width: 1010px;
     margin: auto;
-    margin-top: 120px;
-    margin-bottom: 50px;
+    margin-top: 50px;
     overflow: hidden;
     padding: 30px 45px;
     background: none;
     color: white;
 }
 
-.main-item-photo-area{
-    border-radius: 15px;
-    background: rgba(225,225,225,0.5);
-}
 
 #photos-name-price-container{
     display: grid;

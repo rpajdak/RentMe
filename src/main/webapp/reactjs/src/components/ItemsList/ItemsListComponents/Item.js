@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import "../../../css/header-and-body.css";
-import Plane from "../plane.jpg"
 
 function Item(props) {
 
     return (
         <div class="items-list-item">
             <div class="item-photo-container">
-                  <img class="items-list-item-photo"  src={Plane}/>
+                  <img class="items-list-item-photo"  src={props.item.picUrl}/>
             </div>
             <div class="items-list-item-info-area">
                 <div class="items-list-item-info">

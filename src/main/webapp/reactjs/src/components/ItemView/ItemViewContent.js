@@ -2,15 +2,13 @@ import React, {useState, useEffect} from "react";
 import {useForm} from "react-hook-form";
 import "../../css/item-view.css";
 import "../../css/header-and-body.css"
-import drill from "../../assets/drill.jpg";
-
-
 
 function ItemViewContent(id) {
 
     const [itemId, setItemID] = useState(id.value);
     const [item, setItem] = useState([]);
     const [user, setUser] = useState([]);
+
 
     useEffect(() => {
         fetchItemDetails(itemId);
@@ -28,7 +26,6 @@ function ItemViewContent(id) {
         const user = await response.json();
         setUser(user);
     }
-
 
     return(
 
@@ -57,7 +54,7 @@ function ItemViewContent(id) {
                     <div className="slideshow-container">
                         <div className="slides-container" >
                             <div className="mySlides1">
-                                <img src={drill} />
+                                <img src={item.picUrl} />
                             </div>
                         </div>
                         <a className="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
@@ -70,7 +67,6 @@ function ItemViewContent(id) {
                 <p className="item-heading-2">Price: {item.price} pln/day</p>
                 <div className="calendar">
                     <p className="form-label">From :</p><input type="date" className="input-field start-date"/>
-
                     <p className="form-label">Until :</p><input type="date" className="input-field start-date"/>
                     <p className="price-estimation">Estimated price: 50 pln</p>
                 </div>

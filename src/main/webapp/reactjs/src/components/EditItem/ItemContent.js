@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import HeaderWithLogo from '../Header/HeaderWithLogo'
 import EditItem from "./EditItem";
 
-function ItemDetails({match}) {
+function ItemContent({match}) {
 
     const [itemIdValue, setItemID] = useState(match.params.id);
 
@@ -14,4 +14,4 @@ function ItemDetails({match}) {
     );
 }
 
-export default ItemDetails;
+export default ItemContent;

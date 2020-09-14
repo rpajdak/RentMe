@@ -8,11 +8,11 @@ import {
 } from "react-router-dom";
 
 import About from '../About/About'
-import ItemDetails from "../EditItem/ItemDetails";
+import ItemContent from "../EditItem/ItemContent";
 import Login from '../Login/Login'
 import RecoverAcc from '../RecoverAcc/RecoverAcc'
 import LandingPage from '../LandingPage/LandingPage'
-import AddItemStructure from "../AddItem/AddItemStructure";
+import AddItemContent from "../AddItem/AddItemContent";
 import ErrorPage from '../ErrorPage/ErrorPage'
 import ItemsList from '../ItemsList/ItemsList'
 import ItemView from "../ItemView/ItemView";
@@ -26,8 +26,8 @@ function App() {
            <Route path="/" exact component={LandingPage}/>
            <Route path="/index" component={LandingPage}/>
            <Route path="/account/recover" component={RecoverAcc}/>
-           <Route path="/item/:id" exact component={ItemDetails}/>
-           <Route path="/item" exact component={AddItemStructure}/>
+           <Route path="/item/:id" exact component={ItemContent}/>
+           <Route path="/item" exact component={AddItemContent}/>
            <Route path="/item/view/:id" exact component={ItemView}/>
            <Route path="/login" component={Login}/>
            <Route path="/items-list/:searchPhrase" component={ItemsList}/>
