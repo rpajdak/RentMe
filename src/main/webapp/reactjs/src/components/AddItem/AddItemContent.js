@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import HeaderWithLogo from '../Header/HeaderWithLogo'
 import AddItem from "./AddItem";
 
-function AddItemStructure() {
+function AddItemContent() {
 
     return (
         <React.Fragment>
@@ -12,4 +12,4 @@ function AddItemStructure() {
     );
 }
 
-export default AddItemStructure
+export default AddItemContent

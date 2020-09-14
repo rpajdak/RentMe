@@ -14,5 +14,8 @@ public interface UserRepository extends JpaRepository<AppUser, Long> {
 
     @Query("SELECT  u.address, u.city, u.postCode  FROM Item i LEFT JOIN AppUser u ON i.ownerId = u.id WHERE i.ownerId=:itemId")
     String[] findAppUserAddressByItemId(long itemId);
+
+    @Query("SELECT  u.firstName, u.lastName FROM Item i LEFT JOIN AppUser u ON i.ownerId = u.id WHERE i.ownerId=:itemId")
+    String findAppUserNmeByItemId(long itemId);
 }
 

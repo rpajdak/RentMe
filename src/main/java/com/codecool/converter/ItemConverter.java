@@ -23,6 +23,7 @@ public class ItemConverter {
         itemDTO.setName(item.getName());
         itemDTO.setDescription(item.getDescription());
         itemDTO.setPrice(item.getPrice());
+        itemDTO.setPicUrl(item.getPicUrl());
 
         return itemDTO;
     }

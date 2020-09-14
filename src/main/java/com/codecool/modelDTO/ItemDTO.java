@@ -12,4 +12,6 @@ public class ItemDTO {
     private String name;
     private String description;
     private double price;
+    private String picUrl;
+    private String city;
 }
