@@ -13,4 +13,5 @@ public class ItemDTO {
     private String description;
     private double price;
     private String picUrl;
+    private String city;
 }

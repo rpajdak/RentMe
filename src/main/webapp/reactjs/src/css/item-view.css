@@ -111,7 +111,7 @@
     border-radius: 15px;
     width: 1010px;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 15vh;
     overflow: hidden;
     padding: 30px 45px;
     background: none;
@@ -292,8 +292,4 @@
       width: 100px;
   }
 
-  .search-form{
-      margin-left: 10px;
-      margin-top: 15vh;
-  }
 

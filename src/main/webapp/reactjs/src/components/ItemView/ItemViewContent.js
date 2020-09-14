@@ -31,22 +31,6 @@ function ItemViewContent(id) {
 
     <div className="wrapper">
 
-    <form className="search-form">
-        <input type="text" className="item-search-field" placeholder="driller"/>
-        <h4 className="search-nav">in</h4>
-        <input type="text" className="distance-inputs" placeholder="Brussels"/>
-            <h4 className="search-nav">within</h4>
-            <select className="sorting-option-inputs-list"  required>
-                <option value="1km">1km</option>
-                <option value="3km">3km</option>
-                <option value="5km">5km</option>
-                <option value="10km">10km</option>
-                <option value="30km">30km</option>
-                <option value="100km">100km</option>
-                <option value=">100km">>100km</option>
-            </select>
-    </form>
-
     <div className="item-view-container">
         <div id="photos-name-price-container">
             <div className="main-item-photo-area">
