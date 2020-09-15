@@ -26,7 +26,7 @@ body {
     background-size: cover;
     border-bottom: 0px solid rgba(255, 255, 255, 0.1);
     top: 0px;
-    z-index: 99999999999;
+    z-index: 2;
 }
 
 #logo {
@@ -55,6 +55,7 @@ body {
     font-size: 16px;
     font-weight: lighter;
     padding: 0 20px;
+    transition-duration: 0.5s;
 }
 
 .menu ul li button {
@@ -62,16 +63,16 @@ body {
     font-size: inherit;
     background: none;
     padding: 0.7vh 1vw;
-    border-width: 1px;
     border-radius: 10px;
-    border-style: solid;
-    border-color: white;
+    border: 1px solid white;
     margin-left: 1vw;
+    transition-duration: 0.5s;
 
 }
 
 .menu ul li button:hover {
     background-color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.6);
     transition-duration: 0.5s;
     cursor: pointer;
 }
@@ -138,7 +139,7 @@ button:focus, textarea {
     color: white;
     background: none;
     border-radius: 10px;
-    border: 1px solid rgba(225, 225, 225, 0.5);
+    border: 1px solid white;
     font-size: 15px;
     height: 36px;
     padding: 0 5px;
@@ -204,8 +205,12 @@ button:focus, textarea {
 }
 
 .popup-title{
-    font-size: 27px;
+    font-size: 26px;
     text-align: center !important;
+}
+
+.popup-title.sign-in{
+    font-size: 32px;
 }
 
 .recoveryPassBtn {
@@ -277,6 +282,7 @@ button:focus, textarea {
     height: 20px;
     border-radius: 50%;
     cursor: pointer;
+    transition-duration: 0.5s;
 }
 
 .close:hover {
@@ -291,6 +297,7 @@ button:focus, textarea {
     background: none;
     height: 20px;
     border-radius: 50%;
+    transition-duration: 0.5s;
 }
 
 .close2:hover {
@@ -349,6 +356,7 @@ a {
     margin: 60px auto 0 auto;
     text-align:center;
     border-radius: 10px;
+    transition-duration: 0.5s;
 }
 
 .loginRecBtn{
@@ -364,6 +372,7 @@ a {
     background: white;
     font-weight: bold;
     cursor: pointer;
+    transition-duration: 0.5s;
 }
 
 .login-button-gradient-wrapper.rec{

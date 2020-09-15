@@ -19,6 +19,7 @@ function ItemViewContent(id) {
     const fetchItemDetails = async (itemId) => {
         const response = await fetch(`http://localhost:8080/api/items/${itemId}`);
         const item = await response.json();
+        console.log(item);
         setItem(item);
     }
 
@@ -56,7 +57,6 @@ function ItemViewContent(id) {
     return (
 
         <div className="wrapper">
-
             <div className="item-view-container">
                 <div id="photos-name-price-container">
                     <div className="main-item-photo-area">
@@ -78,9 +78,9 @@ function ItemViewContent(id) {
                         <form onChange={calculatePrice}>
                             <div className="calendar">
                                 <p className="form-label">From :</p><input type="date"
-                                                                           className="input-field start-date"/>
+                                      className="input-field start-date"/>
                                 <p className="form-label">Until :</p><input type="date"
-                                                                            className="input-field end-date"/>
+                                      className="input-field end-date"/>
                                 <p className="price-estimation">Estimated price: {estimatedPrice} pln</p>
                             </div>
                         </form>

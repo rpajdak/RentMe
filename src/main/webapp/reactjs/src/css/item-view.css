@@ -6,7 +6,7 @@
 /* Slideshow container */
 .slideshow-container {
     max-width: 1000px;
-    max-height: 300px;
+    height: 300px;
     border-radius: 15px;
     position: relative;
     margin: auto;
@@ -14,6 +14,7 @@
 }
 .slides-container{
     text-align:center;
+
 }
 /* Hide the images by default */
 .mySlides {
@@ -35,6 +36,7 @@
     border-radius: 3px 3px 3px 3px;
     user-select: none;
     background: rgba(0, 0, 0, 0.1);
+    transition-duration: 0.5s;
 }
 
 
@@ -46,6 +48,7 @@
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
     background-color: rgba(0,0,0,0.7);
+    transition-duration: 0.5s;
 }
 
 .text {
@@ -99,11 +102,27 @@
     from {opacity: .4}
     to {opacity: 1}
 }
+.mySlides1{
+    background: rgba(255, 255, 255, 1);
+    height: 300px;
+    width: 500px;
+    border-radius: 15px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    text-justify: center;
+    display: flex
+}
 
 .mySlides1 img{
-    height: 100%;
+    align-self: center;
+    justify-self: center;
+    margin: auto;
+;
+    max-height: 100%;
     max-width: 100%;
-    border-radius: 15px;
 }
 
 .item-view-container{
@@ -172,6 +191,7 @@
     font-size: 12px;
     min-width: 120px;
     padding: 6px;
+    transition-duration: 0.5s;
 }
 
 .see-renter:hover {

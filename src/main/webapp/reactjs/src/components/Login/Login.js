@@ -63,7 +63,7 @@ function Login() {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="popup">
                     <div className="popup-content">
-                        <p className="popup-title">Sign in</p>
+                        <p className="popup-title sign-in">Sign in</p>
                         <img className="close" src={closeIcon} onClick={hideLogin} alt={"close-icon"}/>
                         <p className="input-label email">E-mail:</p>
                         <div className="login-data-input-decoration-wrapper">

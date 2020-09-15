@@ -3,6 +3,8 @@ import {useForm} from "react-hook-form";
 import "../../css/edit-item.css"
 import "../../css/add-item.css"
 import "../../css/header-and-body.css"
+import Image from "../../assets/camera.jpg"
+import AddImage from "../../assets/icon-with-mountain.svg"
 
 function EditItem(id) {
 
@@ -79,14 +81,27 @@ function EditItem(id) {
                 <h4>Manage item's images</h4>
             </div>
             <div className="input-image-grid">
-                <div className="item-photo-container" type="button" href="#">
+                <div className="edit-item-item-photo-container" type="button" href="#">
+                    <img class="edit-item-item-photo" src={Image}/>
                 </div>
-                <div className="item-photo-container"></div>
-                <div className="item-photo-container"></div>
-                <div className="item-photo-container 4"></div>
-                <div className="item-photo-container 5"></div>
-                <div className="item-photo-container 6"></div>
-                <div className="add-item-photo-container 7"></div>
+                <div className="edit-item-item-photo-container">
+                    <img class="edit-item-item-photo" src={Image}/>
+                </div>
+                <div className="edit-item-item-photo-container">
+                    <img class="edit-item-item-photo" src={Image}/>
+                </div>
+                <div className="edit-item-item-photo-container">
+                    <img class="edit-item-item-photo" src={Image}/>
+                </div>
+                <div className="edit-item-item-photo-container">
+                    <img class="edit-item-item-photo" src={Image}/>
+                </div>
+                <div className="edit-item-item-photo-container">
+                    <img class="edit-item-item-photo" src={Image}/>
+                </div>
+                <div className="add-item-photo-container">
+                    <img class="edit-item-item-photo" src={AddImage}/>
+                </div>
             </div>
             <div className="submit-button">
                 <button className="button" type="submit">Update Item</button>

@@ -27,22 +27,25 @@
     text-align: center;
     max-height: 100px;
     min-height: 50px;
-    background: url("../assets/close-window.svg");
+    background: url("../assets/close-icon-white.svg");
     background-size: 40%;
     background-repeat: no-repeat;
     background-position:center;
-}
+    }
 
-.edit-item-item-photo-container > .item-photo {
-    margin: 0 -1000%;
+.edit-item-item-photo-container > .edit-item-item-photo {
+    margin: 0 - 1000%;
 }
 
 .edit-item-item-photo{
-    max-height:100%;
+    max-height: 100px;
+    min-height: 50px;
     border-radius: 10px;
+    cursor: pointer;
+    transition-duration: 500ms;
 }
 
-.edit-item-item-photo-container:hover .item-photo{
+.edit-item-item-photo-container:hover .edit-item-item-photo{
     opacity: 0.18;
     transition-duration: 500ms;
 }
@@ -55,11 +58,18 @@
     text-align: center;
     max-height: 100px;
     min-height: 50px;
+    transition-duration: 500ms;
 }
 
-.add-item-photo-container > .item-photo {
-    margin: 0 -1000%;
+.add-item-photo-container:hover{
+    opacity: 0.5;
+    transition-duration: 500ms;
 }
+
+.add-item-photo-container > .edit-item-item-photo {
+    margin: 0 - 1000%;
+}
+
 
 
 
