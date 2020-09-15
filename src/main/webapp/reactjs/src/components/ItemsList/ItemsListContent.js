@@ -19,6 +19,7 @@ function ItemsListContent(searchPhrase) {
 
     useEffect(() => {fetchItems(searchPhrase)}, []);
 
+    const [itemsToAnimate, setItemsToAnimate] = useState([]);
 
     const fetchItems = async () => {
         if (searchPhraseContent.startsWith("category: ")) {
@@ -34,7 +35,55 @@ function ItemsListContent(searchPhrase) {
         }
     }
 
-//    function map () {
+
+    return (
+        <React.Fragment>
+                <HeaderWithLogoAndSearchBar SearchPhrasePassedToHeader={searchPhraseContent}/>
+                <div id="items-area" >
+                    <SortingOptions/>
+                    <div className="items-list">
+                        {fetchedItems.map(theItem => <Item item={theItem}/>)}
+                    </div>
+
+                </div>
+                <div className="map-wrapper">
+                    <div className="sub-map-wrapper">
+                        <div className="map-container">
+                        {/*<div id="map-overview" class="hidden">Back to map</div>*/}
+                        {/*<div id="map-canvas"></div>*/}
+
+                        {/*<div id="map-info">*/}
+                        {/*    <div class="gp brussels">*/}
+                        {/*        <h2>Brussels Grand Place</h2>*/}
+                        {/*        <img class="marker-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg/800px-Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg" alt="Grand Place Brussels"/>*/}
+                        {/*        <p>The Grand Place or Grote Markt is the central square of Brussels. It is surrounded by opulent guildhalls and two larger edifices, the city's Town Hall, and the King's House or Breadhouse building containing the Brussels City Museum.</p>*/}
+                        {/*        <p>The Grand Place is the most important tourist destination and most memorable landmark in Brussels. It is also considered as one of the most beautiful squares in Europe, and has been a UNESCO World Heritage Site since 1998.</p>*/}
+                        {/*        <p><a href="https://fr.wikipedia.org/wiki/Place_d%27Armes_(Namur)" targe="_blank">More info</a></p>*/}
+                        {/*    </div>*/}
+
+                        {/*    <div class="gp antwerp">*/}
+                        {/*        <h2>Antwerp Grand Place</h2>*/}
+                        {/*        <img class="marker-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Grote_Markt_%28Antwerpen%29.jpg/800px-Grote_Markt_%28Antwerpen%29.jpg" alt="Grand Place Antwerp"/>*/}
+                        {/*        <p>The Grote Markt ("Great Market Square") of Antwerp is a town square situated in the heart of the old city quarter. It is filled with an extravagant city hall, numerous elaborate 16th century guildhalls, many restaurants and cafés. Lying within walking distance of the Scheldt river, it hosts a Christmas market and ice rink in winter.</p>*/}
+                        {/*        <p><a href="https://en.wikipedia.org/wiki/Grote_Markt_(Antwerp)" target="_blank">More info</a></p>*/}
+                        {/*    </div>*/}
+
+                        {/*    <div class="gp namur">*/}
+                        {/*        <h2>Namur Grand Place</h2>*/}
+                        {/*        <img class="marker-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Namur_2007_04.JPG/800px-Namur_2007_04.JPG" alt="Grand Place Namur"/>*/}
+                        {/*        <p>The Place d'Armes, formerly Grand Place is a cobbled square located in Namur in Belgium. Located in the center of a fortification, a place of arms is the gathering place of a small troop and a central space hosting important ceremonies of military life.</p>*/}
+                        {/*        <p><a href="https://fr.wikipedia.org/wiki/Place_d%27Armes_(Namur)" targe="_blank">More info</a></p>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
+
+                        </div>
+                    </div>
+                </div>
+        </React.Fragment>
+
+    );
+
+    //    function map () {
 //
 //        src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"
 //
@@ -274,51 +323,6 @@ function ItemsListContent(searchPhrase) {
 //                document.querySelector(".popup").style.display="none";
 //            })
 //        }
-
-    return (
-        <div>
-                <HeaderWithLogoAndSearchBar SearchPhrasePassedToHeader={searchPhraseContent}/>
-                <div id="items-area">
-                    <SortingOptions/>
-                    <div className="items-list">
-                        {fetchedItems.map(theItem => <Item item={theItem} />)}
-                    </div>
-                </div>
-                <div className="map-wrapper">
-                    <div className="sub-map-wrapper">
-                        <div className="map-container">
-                        {/*<div id="map-overview" class="hidden">Back to map</div>*/}
-                        {/*<div id="map-canvas"></div>*/}
-
-                        {/*<div id="map-info">*/}
-                        {/*    <div class="gp brussels">*/}
-                        {/*        <h2>Brussels Grand Place</h2>*/}
-                        {/*        <img class="marker-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg/800px-Grand-Place%2C_Brussels_-_panorama%2C_June_2018.jpg" alt="Grand Place Brussels"/>*/}
-                        {/*        <p>The Grand Place or Grote Markt is the central square of Brussels. It is surrounded by opulent guildhalls and two larger edifices, the city's Town Hall, and the King's House or Breadhouse building containing the Brussels City Museum.</p>*/}
-                        {/*        <p>The Grand Place is the most important tourist destination and most memorable landmark in Brussels. It is also considered as one of the most beautiful squares in Europe, and has been a UNESCO World Heritage Site since 1998.</p>*/}
-                        {/*        <p><a href="https://fr.wikipedia.org/wiki/Place_d%27Armes_(Namur)" targe="_blank">More info</a></p>*/}
-                        {/*    </div>*/}
-
-                        {/*    <div class="gp antwerp">*/}
-                        {/*        <h2>Antwerp Grand Place</h2>*/}
-                        {/*        <img class="marker-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Grote_Markt_%28Antwerpen%29.jpg/800px-Grote_Markt_%28Antwerpen%29.jpg" alt="Grand Place Antwerp"/>*/}
-                        {/*        <p>The Grote Markt ("Great Market Square") of Antwerp is a town square situated in the heart of the old city quarter. It is filled with an extravagant city hall, numerous elaborate 16th century guildhalls, many restaurants and cafés. Lying within walking distance of the Scheldt river, it hosts a Christmas market and ice rink in winter.</p>*/}
-                        {/*        <p><a href="https://en.wikipedia.org/wiki/Grote_Markt_(Antwerp)" target="_blank">More info</a></p>*/}
-                        {/*    </div>*/}
-
-                        {/*    <div class="gp namur">*/}
-                        {/*        <h2>Namur Grand Place</h2>*/}
-                        {/*        <img class="marker-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Namur_2007_04.JPG/800px-Namur_2007_04.JPG" alt="Grand Place Namur"/>*/}
-                        {/*        <p>The Place d'Armes, formerly Grand Place is a cobbled square located in Namur in Belgium. Located in the center of a fortification, a place of arms is the gathering place of a small troop and a central space hosting important ceremonies of military life.</p>*/}
-                        {/*        <p><a href="https://fr.wikipedia.org/wiki/Place_d%27Armes_(Namur)" targe="_blank">More info</a></p>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
-
-                        </div>
-                    </div>
-                </div>
-        </div>
-    );
 }
 
 export default ItemsListContent;

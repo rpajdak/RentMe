@@ -62,19 +62,26 @@ VALUES (default, 'Julia', 'Nowosad','jnowosad@gmail.com','julia1234','Karmelicka
 
 
 INSERT INTO items
-VALUES (default, 'Bosch drill', 'This is very useful drill to your home', 25,'item-main-photo.jpg', 1, 2);
+VALUES (default, 'Drill - BOSH', 'This is very useful drill to your home! ', 25,'/images/drill-battery.jpg', 1, 2);
 
 INSERT INTO items
-VALUES (default, 'Guitar', 'You play at home', 10,'item-main-photo.jpg', 3, 1);
+VALUES (default, 'Guitar', 'You play at home, Acoustic guitar instrumentals provide the perfect background
+sound for a soft and relaxing ambiance. ', 10,'/images/guitar.jpg', 3, 1);
 
 INSERT INTO items
-VALUES (default, 'Bike', 'You can traver whenever you want', 35,'item-main-photo.jpg', 2, 3);
+VALUES (default, 'City Bike', 'You can traver whenever you want, A frame gives the bike strength, and the
+other parts are attached to the frame. The name comes from these two words - the prefix "bi-" meaning two,
+and the suffix "-cycle" meaning wheel.', 35,'/images/bicycle.jpg', 2, 3);
 
 INSERT INTO items
-VALUES (default, 'Skis', 'Skis to rent!' , 50, 'item-main-photo.jpg', 4, 4);
+VALUES (default, 'Pink Skis', 'Skis to rent! Substantially longer than wide and characteristically employed in pairs,
+ skis are attached to ski boots with ski bindings, with either a free, lockable, or partially secured heel.
+ ' , 50, '/images/skis.jpg ', 4, 4);
 
 INSERT INTO items
-VALUES (default, 'Car', 'Dont have a car? Rent one', 70,'item-main-photo.jpg', 5, 5);
+VALUES (default, 'Car', 'Dont have a car? Rent one. wheeled motor vehicle used for transportation.
+Most definitions of cars say that they run primarily on roads, seat one to eight people, have four tires,
+and mainly transport people rather than goods', 70,'/images/cars.jpg', 5, 5);
 
 
 INSERT INTO categories

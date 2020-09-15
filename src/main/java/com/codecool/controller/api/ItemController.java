@@ -34,11 +34,11 @@ public class ItemController {
         return itemConverter.entitiesToDTO(itemService.findItemsByNameContaining(searchPhrase.toUpperCase()));
     }
 
-//    @GetMapping("/list/byCategory/{searchPhrase}")
-//    @ResponseBody
-//    public List<ItemDTO> findItemsByCategory(@PathVariable("searchPhrase") String searchPhrase){
-//        return itemConverter.entitiesToDTO(itemService.findItemsByCategory(searchPhrase.toUpperCase()));
-//    }
+    @GetMapping("/list/byCategory/{searchPhrase}")
+    @ResponseBody
+    public List<ItemDTO> findItemsByCategory(@PathVariable("searchPhrase") String searchPhrase){
+        return itemConverter.entitiesToDTO(itemService.findItemsByCategory(searchPhrase.toUpperCase()));
+    }
 
     @GetMapping("/{id}")
     @ResponseBody

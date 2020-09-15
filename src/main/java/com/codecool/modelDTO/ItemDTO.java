@@ -1,5 +1,6 @@
 package com.codecool.modelDTO;
 
+import com.codecool.model.Category;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;

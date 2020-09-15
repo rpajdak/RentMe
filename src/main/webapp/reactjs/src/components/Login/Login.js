@@ -29,11 +29,11 @@ function Login() {
     };
 
     function hideLogin() {
-            document.querySelector(".wrapper").style.display = "flex";
-            fadeIn("wrapper", 75)
-            document.querySelector(".popup").style.display = "none";
+        document.querySelector(".wrapper").style.display = "flex";
+        fadeIn("wrapper", 75)
+        document.querySelector(".popup").style.display = "none";
     }
-    
+
 
     function fadeIn(element, duration) {
         var i = 0;
@@ -61,32 +61,32 @@ function Login() {
         <React.Fragment>
             <RecoverAcc/>
             <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="popup">
-                <div className="popup-content">
-                    <p className="popup-title">Sign in</p>
-                    <img className="close" src={closeIcon} onClick={hideLogin} alt={"close-icon"}/>
-                    <p className="input-label email">E-mail:</p>
-                    <div className="login-data-input-decoration-wrapper">
-                        <input className="login-data-input" type="text" placeholder="" name="email" ref={register({
-                            required: "Required",
-                            pattern: {
-                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                message: "invalid email address"
-                            }
-                        })}/>
-                    </div>
-                    {errors.email && <p className="login-validator-message">You need to enter valid email address.</p>}
-                    <p className="input-label">Password:</p>
-                    <div className="login-data-input-decoration-wrapper">
-                        <input className="login-data-input" type="password" placeholder="" name="password" ref={register}/>
-                    </div>
-                    <button className="recoveryPassBtn" onClick={forgotPass}>Forgot your password?</button>
-                    <div className="login-button-gradient-wrapper">
-                        <button className="loginRecBtn">Login</button>
+                <div className="popup">
+                    <div className="popup-content">
+                        <p className="popup-title">Sign in</p>
+                        <img className="close" src={closeIcon} onClick={hideLogin} alt={"close-icon"}/>
+                        <p className="input-label email">E-mail:</p>
+                        <div className="login-data-input-decoration-wrapper">
+                            <input className="login-data-input" type="text" placeholder="" name="email" ref={register({
+                                required: "Required",
+                                pattern: {
+                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                    message: "invalid email address"
+                                }
+                            })}/>
+                        </div>
+                        {errors.email && <p className="login-validator-message">You need to enter valid email address.</p>}
+                        <p className="input-label">Password:</p>
+                        <div className="login-data-input-decoration-wrapper">
+                            <input className="login-data-input" type="password" placeholder="" name="password" ref={register}/>
+                        </div>
+                        <button className="recoveryPassBtn" onClick={forgotPass}>Forgot your password?</button>
+                        <div className="login-button-gradient-wrapper">
+                            <button className="loginRecBtn">Login</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
         </React.Fragment>
     );
 }

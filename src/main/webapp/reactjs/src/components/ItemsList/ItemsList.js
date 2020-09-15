@@ -8,7 +8,7 @@ function ItemsList({match}) {
     const [searchPhrase, setSearchPhrase] = useState(match.params.searchPhrase);
 
     return (
-        <div>
+        <div >
             <Login />
             <div className="wrapper">
                 <HeaderWithLogoAndSearchBar/>

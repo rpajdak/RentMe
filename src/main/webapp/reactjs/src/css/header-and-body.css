@@ -246,8 +246,8 @@ button:focus, textarea {
     border: none;
     border-radius: 8px;
     padding: 5px;
-    height: 32px;
-    width: 276px;
+    height: 42px;
+    width: 286px;
 }
 
 .login-validator-message{
