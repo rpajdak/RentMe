@@ -92,7 +92,7 @@ function ItemViewContent(id) {
                         <p className="item-normal-text">{item.description}</p>
                     </div>
                     <div>
-                        <button className="button book-now" type="submit">Book now!</button>
+                        <button className="button book-now" type="submit">Rent Me!</button>
                     </div>
                 </div>
             </div>

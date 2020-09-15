@@ -16,12 +16,14 @@ import AddItemContent from "../AddItem/AddItemContent";
 import ErrorPage from '../ErrorPage/ErrorPage'
 import ItemsList from '../ItemsList/ItemsList'
 import ItemView from "../ItemView/ItemView";
+import PaymentCont from "../Payment/PaymentsCont";
 
 function App() {
    return (
      <Router>
        <div className="App">
          <Switch>
+           <Route path="/pay/item/:id" component={PaymentCont}/>
            <Route path="/about" component={About}/>
            <Route path="/" exact component={LandingPage}/>
            <Route path="/index" component={LandingPage}/>

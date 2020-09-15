@@ -62,16 +62,16 @@ VALUES (default, 'Julia', 'Nowosad','jnowosad@gmail.com','julia1234','Karmelicka
 
 
 INSERT INTO items
-VALUES (default, 'Drill - BOSH', 'This is very useful drill to your home! ', 25,'/images/drill-battery.jpg', 1, 2);
+VALUES (default, 'Drill - BOSH', 'This is very useful drill to your home! ', 25,'/images/drill-battery.jpg', 1, 1);
 
 INSERT INTO items
 VALUES (default, 'Guitar', 'You play at home, Acoustic guitar instrumentals provide the perfect background
-sound for a soft and relaxing ambiance. ', 10,'/images/guitar.jpg', 3, 1);
+sound for a soft and relaxing ambiance. ', 10,'/images/guitar.jpg', 3, 3);
 
 INSERT INTO items
 VALUES (default, 'City Bike', 'You can traver whenever you want, A frame gives the bike strength, and the
 other parts are attached to the frame. The name comes from these two words - the prefix "bi-" meaning two,
-and the suffix "-cycle" meaning wheel.', 35,'/images/bicycle.jpg', 2, 3);
+and the suffix "-cycle" meaning wheel.', 35,'/images/bicycle.jpg', 2, 2);
 
 INSERT INTO items
 VALUES (default, 'Pink Skis', 'Skis to rent! Substantially longer than wide and characteristically employed in pairs,
@@ -79,9 +79,25 @@ VALUES (default, 'Pink Skis', 'Skis to rent! Substantially longer than wide and 
  ' , 50, '/images/skis.jpg ', 4, 4);
 
 INSERT INTO items
-VALUES (default, 'Car', 'Dont have a car? Rent one. wheeled motor vehicle used for transportation.
+VALUES (default, 'Old Car', 'Dont have a car? Rent one. wheeled motor vehicle used for transportation.
 Most definitions of cars say that they run primarily on roads, seat one to eight people, have four tires,
-and mainly transport people rather than goods', 70,'/images/cars.jpg', 5, 5);
+and mainly transport people rather than goods', 50,'/images/cars.jpg', 5, 5);
+
+INSERT INTO items
+VALUES (default, 'Mercedes', 'Dont have a car? Rent one. wheeled motor vehicle used for transportation.
+Most definitions of cars say that they run primarily on roads, seat one to eight people, have four tires,
+and mainly transport people rather than goods', 80,'/images/mercedes.jpg', 5, 5);
+
+INSERT INTO items
+VALUES (default, 'Audi', 'Dont have a car? Rent one. wheeled motor vehicle used for transportation.
+Most definitions of cars say that they run primarily on roads, seat one to eight people, have four tires,
+and mainly transport people rather than goods', 70,'/images/audi.jpg', 5, 5);
+
+INSERT INTO items
+VALUES (default, 'Ferrari', 'Dont have a car? Rent one. wheeled motor vehicle used for transportation.
+Most definitions of cars say that they run primarily on roads, seat one to eight people, have four tires,
+and mainly transport people rather than goods', 150,'/images/ferrari.png', 5, 5);
+
 
 
 INSERT INTO categories
