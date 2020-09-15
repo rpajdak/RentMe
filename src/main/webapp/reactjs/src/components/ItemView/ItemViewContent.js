@@ -8,25 +8,37 @@ function ItemViewContent(id) {
     const [itemId, setItemID] = useState(id.value);
     const [item, setItem] = useState([]);
     const [user, setUser] = useState([]);
+    const [coordinates, setCoordinates] = useState([]);
     let [estimatedPrice, setEstimatedPrice] = useState(0);
 
 
     useEffect(() => {
         fetchItemDetails(itemId);
-        fetchUserName(itemId)
+
     }, []);
 
     const fetchItemDetails = async (itemId) => {
         const response = await fetch(`http://localhost:8080/api/items/${itemId}`);
         const item = await response.json();
         console.log(item);
+        setUser(item.owner);
         setItem(item);
     }
 
-    const fetchUserName = async (itemId) => {
-        const response = await fetch(`http://localhost:8080/users/find-by/item/${itemId}`);
-        const user = await response.json();
-        setUser(user);
+    const fetchCoordinates = async () => {
+        console.log("dupa");
+        console.log(user.address + ", " + user.city)
+        const response = await fetch(`https://us1.locationiq.com/v1/search.php?
+        key=pk.c84947e6df16b1d534d0e92e38fc18f0
+        &q=${user.address + ", " + user.city}
+        &format=json`);
+        console.log(`https://us1.locationiq.com/v1/search.php?
+        key=pk.c84947e6df16b1d534d0e92e38fc18f0
+        &q=${user.address + ", " + user.city}
+        &format=json`);
+        const coordinates = await response.json();
+        console.log(coordinates);
+        setCoordinates(coordinates);
     }
 
     function getDays() {
@@ -56,7 +68,7 @@ function ItemViewContent(id) {
 
     return (
 
-        <div className="wrapper">
+        <div className="wrapper" onLoad={fetchCoordinates}>
             <div className="item-view-container">
                 <div id="photos-name-price-container">
                     <div className="main-item-photo-area">
@@ -95,6 +107,8 @@ function ItemViewContent(id) {
                         <button className="button book-now" type="submit">Book now!</button>
                     </div>
                 </div>
+                    <p className="item-heading-2 item-location">Location</p>
+                    <p>{user.address}, {user.postCode} {user.city}</p>
             </div>
         </div>
     )
