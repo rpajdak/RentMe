@@ -1,5 +1,6 @@
 package com.codecool.modelDTO;
 
+import com.codecool.model.AppUser;
 import com.codecool.model.Category;
 import lombok.Data;
 import lombok.Getter;
@@ -16,4 +17,5 @@ public class ItemDTO {
     private Category category;
     private String picUrl;
     private String city;
+    private AppUser owner;
 }

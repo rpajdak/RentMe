@@ -44,7 +44,7 @@
 
 .items-list-item-name{
     text-align: left;
-    font-family: "Roboto-regular";
+    font-family: "Roboto";
     font-size: 1.1em;
     margin-top: 8px;
     padding: 0;
@@ -52,7 +52,7 @@
 
 .item-info{
     color: black;
-    font-family: "roboto-regular";
+    font-family: "Roboto";
     height: 100%;
     width: 100%;
     margin-left: 10px;

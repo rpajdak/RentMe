@@ -25,6 +25,7 @@ public class ItemConverter {
         itemDTO.setPrice(item.getPrice());
         itemDTO.setPicUrl(item.getPicUrl());
         itemDTO.setCategory(item.getCategory());
+        itemDTO.setOwner(item.getOwner());
 
         return itemDTO;
     }

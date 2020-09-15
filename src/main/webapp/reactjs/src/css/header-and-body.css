@@ -326,7 +326,7 @@ button:focus, textarea {
 .popup-content2 h4 {
     display: grid;
     align-items: end;
-    font: "roboto-regular";
+    font: "Roboto";
 }
 
 .popup-content2 p{
