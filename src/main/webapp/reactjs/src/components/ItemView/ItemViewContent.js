@@ -2,43 +2,39 @@ import React, {useState, useEffect} from "react";
 import {useForm} from "react-hook-form";
 import "../../css/item-view.css";
 import "../../css/header-and-body.css"
+import SimpleMap from "../Map/SimpleMap"
 
 function ItemViewContent(id) {
 
     const [itemId, setItemID] = useState(id.value);
     const [item, setItem] = useState([]);
     const [user, setUser] = useState([]);
-    const [coordinates, setCoordinates] = useState([]);
+    const [latitude, setLatitude] = useState([]);
+    const [longitude, setLongitude] = useState([]);
     let [estimatedPrice, setEstimatedPrice] = useState(0);
 
 
     useEffect(() => {
         fetchItemDetails(itemId);
-
     }, []);
 
     const fetchItemDetails = async (itemId) => {
         const response = await fetch(`http://localhost:8080/api/items/${itemId}`);
         const item = await response.json();
-        console.log(item);
         setUser(item.owner);
         setItem(item);
     }
 
     const fetchCoordinates = async () => {
-        console.log("dupa");
-        console.log(user.address + ", " + user.city)
         const response = await fetch(`https://us1.locationiq.com/v1/search.php?
         key=pk.c84947e6df16b1d534d0e92e38fc18f0
         &q=${user.address + ", " + user.city}
         &format=json`);
-        console.log(`https://us1.locationiq.com/v1/search.php?
-        key=pk.c84947e6df16b1d534d0e92e38fc18f0
-        &q=${user.address + ", " + user.city}
-        &format=json`);
-        const coordinates = await response.json();
-        console.log(coordinates);
-        setCoordinates(coordinates);
+        const geocaching = await response.json();
+        const fetchedLatitude = Number(geocaching[0].lat);
+        const fetchedLongitude = Number(geocaching[0].lon);
+        setLatitude(fetchedLatitude);
+        setLongitude(fetchedLongitude);
     }
 
     function getDays() {
@@ -65,6 +61,11 @@ function ItemViewContent(id) {
             setEstimatedPrice(days * price);
         }
     }
+    console.log("fucking type of:");
+    console.log(typeof latitude);
+    console.log(typeof 50.0482302);
+    console.log(latitude);
+    console.log(50.0482302);
 
     return (
 
@@ -108,7 +109,8 @@ function ItemViewContent(id) {
                     </div>
                 </div>
                     <p className="item-heading-2 item-location">Location</p>
-                    <p>{user.address}, {user.postCode} {user.city}</p>
+                    <p>{user.address}, {user.postCode} {user.city}, Lat: {latitude}, Lon: {longitude}</p>
+                    <SimpleMap lat={latitude} lon={longitude}/>
             </div>
         </div>
     )
