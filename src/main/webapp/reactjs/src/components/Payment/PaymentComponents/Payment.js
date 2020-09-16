@@ -10,19 +10,19 @@ function Payment() {
                     <form>
                         <div className="row">
                             <div className="col-50">
-                                <h3>Billing Address</h3>
-                                <label htmlFor="fname"><i className="fa fa-user"/> Full Name</label>
+                                <h3 className="h3-text">Billing Address</h3>
+                                <label className="label" htmlFor="fname"><i className="fa fa-user"/> Full Name</label>
                                 <input className="type-text" type="text" id="fname" name="firstname" placeholder="John M. Doe"/>
-                                <label htmlFor="email"><i className="fa fa-envelope"/> Email</label>
+                                <label className="label" htmlFor="email"><i className="fa fa-envelope"/> Email</label>
                                 <input className="type-text" type="text" id="email" name="email" placeholder="john@example.com"/>
-                                <label htmlFor="adr"><i className="fa fa-address-card-o"/> Address</label>
+                                <label className="label" htmlFor="adr"><i className="fa fa-address-card-o"/> Address</label>
                                 <input className="type-text" type="text" id="adr" name="address" placeholder="542 W. 15th Street"/>
-                                <label htmlFor="city"><i className="fa fa-institution"/> City</label>
+                                <label className="label" htmlFor="city"><i className="fa fa-institution"/> City</label>
                                 <input className="type-text" type="text" id="city" name="city" placeholder="New York"/>
 
                                 <div className="row">
                                     <div className="col-50">
-                                        <label htmlFor="zip">Zip-Code</label>
+                                        <label className="label" htmlFor="zip">Zip-Code</label>
                                         <input  className="type-text" type="text" id="zip" name="zip" placeholder="10001"/>
                                     </div>
                                 </div>
@@ -30,30 +30,30 @@ function Payment() {
 
                             <div className="col-50">
                                 <h3 className="h3-text">Payment</h3>
-                                <label htmlFor="cname">Name on Card</label>
+                                <label className="label" htmlFor="cname">Name on Card</label>
                                 <input className="type-text" type="text" id="cname" name="cardname" placeholder="John More Doe"/>
-                                <label htmlFor="ccnum">Credit card number</label>
+                                <label className="label" htmlFor="ccnum">Credit card number</label>
                                 <input className="type-text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444"/>
-                                <label htmlFor="expmonth">Exp Month</label>
+                                <label className="label" htmlFor="expmonth">Exp Month</label>
                                 <input className="type-text" type="text" id="expmonth" name="expmonth" placeholder="September"/>
 
                                 <div className="row">
                                     <div className="col-50">
-                                        <label htmlFor="expyear">Exp Year</label>
+                                        <label className="label" htmlFor="expyear">Exp Year</label>
                                         <input  className="type-text"  type="text" id="expyear" name="expyear" placeholder="2018"/>
                                     </div>
                                     <div className="col-50">
-                                        <label htmlFor="cvv">CVV</label>
+                                        <label className="label" htmlFor="cvv">CVV</label>
                                         <input className="type-text" type="text" id="cvv" name="cvv" placeholder="352"/>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
-                        <label>
-                            <input type="checkbox" checked="checked" name="sameadr"/> I accept all terms & conditions
+                        <label className="label">
+                            <input  type="checkbox" checked="checked" name="sameadr"/> I accept all terms & conditions
                         </label>
-                        <input type="submit" value="Book now!" className="btn"/>
+                        <input type="submit" value="Pay" className="btn"/>
                     </form>
                 </div>
             </div>

@@ -2,8 +2,11 @@ import React, {useState, useEffect} from "react";
 import {useForm} from "react-hook-form";
 import "../../css/item-view.css";
 import "../../css/header-and-body.css"
+import {Link} from "react-router-dom";
 
 function ItemViewContent(id) {
+
+    let itemLinkToPay = "/pay/item/" + id.value;
 
     const [itemId, setItemID] = useState(id.value);
     const [item, setItem] = useState([]);
@@ -92,7 +95,7 @@ function ItemViewContent(id) {
                         <p className="item-normal-text">{item.description}</p>
                     </div>
                     <div>
-                        <button className="button book-now" type="submit">Rent Me!</button>
+                       <Link to={itemLinkToPay}> <button className="button book-now" type="submit">Rent Me!</button></Link>
                     </div>
                 </div>
             </div>

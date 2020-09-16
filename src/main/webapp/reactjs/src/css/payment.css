@@ -41,7 +41,7 @@
     border-radius: 3px;
 }
 
-label {
+.label {
     margin-bottom: 10px;
     display: block;
     color: black;
@@ -83,18 +83,13 @@ span.price {
     }
 }
 
-h3{
+.h3-text{
     color: black;
 }
 
-.main-item-photo{
-    padding: 50px;
-}
 
 .description-renter{
-    background-color: #f2f2f2;
-    border-radius: 3px;
-    border: 2px solid blue;
+    color: white;
 }
 
 .h3-text{
@@ -104,8 +99,54 @@ h3{
     font-size: 22px;
 }
 
-.mySlides1{
-    max-width: 25vw;
+.picture-view{
+    max-width: 60vw;
+    max-height: 50vh;
     padding: 15px;
-    margin-top: auto;
+    align-self: flex-end;
+}
+
+.payment-container{
+    padding-top: 10px;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+}
+
+.photo-name-payment-container{
+    padding: 50px;
+}
+
+.description-renter{
+    text-align: start;
+}
+
+.summary-payment{
+    text-align: start;
+    font-size: 30px;
+    color: white;
+    padding-bottom: 15px;
+}
+
+.summary-description{
+    color: white;
+    font-size: 17px;
+}
+
+.picture-containter{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.summary-payment-price{
+    color: white;
+    font-size: 23px;
+    padding: 7px;
+    text-align: start;
+    border: 1px solid white;
+    border-radius: 8px;
+    justify-items: start;
+    max-width: 300px;
+
 }

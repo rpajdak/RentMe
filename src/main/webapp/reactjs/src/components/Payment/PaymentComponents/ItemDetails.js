@@ -12,6 +12,7 @@ function ItemDetails(id) {
     let [estimatedPrice, setEstimatedPrice] = useState(0);
 
 
+
     useEffect(() => {
         fetchItemDetails(itemId);
         fetchUserName(itemId)
@@ -56,26 +57,22 @@ function ItemDetails(id) {
     }
 
     return (
-        <div id="photos-name-price-container">
-                <div className="main-item-photo">
-                    <div className="slideshow-container">
-                        <div className="slides-container">
-                            <div className="mySlides1">
-                                <img alt="item-image" src={item.picUrl}/>
-                            </div>
-                        </div>
+        <div className="payment-container">
+            <div id="photo-name-payment-container">
+                    <div className="picture-containter">
+                        <img className="picture-view" alt="item-image" src={item.picUrl}/>
                     </div>
-                </div>
+            </div>
             <div className="description-renter">
-                <p className="item-heading">{item.name}</p>
-                <button className="see-renter" type="submit"> Owner: {user.firstName} {user.lastName}</button>
+                <h1 className="summary-payment">Summary of your purchase!</h1>
+                <p className="summary-description">Your item: {item.name}</p>
+                <p className="summary-description"> Reting from:  {user.firstName} {user.lastName}</p>
+                <p className="summary-description" >Renting dates: 15.08.2020 - 16.08.2020 </p>
+                <p className="summary-payment-price">To pay: {estimatedPrice} PLN</p>
             </div>
-
-            <div id="item-name-price">
-                <p className="price-estimation">Price to pay: {estimatedPrice} PLN</p>
-            </div>
-
         </div>
+
+
     )
 }
 
