@@ -3,10 +3,15 @@ import {useForm} from "react-hook-form";
 import Geocode from "react-geocode";
 import "../../css/item-view.css";
 import "../../css/header-and-body.css"
+
+import {Link} from "react-router-dom";
+
 import ItemViewMap from "../Map/ItemViewMap"
 
 
 function ItemViewContent(id) {
+
+    let itemLinkToPay = "/pay/item/" + id.value;
 
     const [itemId, setItemID] = useState(id.value);
     const [item, setItem] = useState([]);
@@ -100,7 +105,7 @@ function ItemViewContent(id) {
                         <p className="item-normal-text">{item.description}</p>
                     </div>
                     <div>
-                        <button className="button book-now" type="submit">Book now!</button>
+                       <Link to={itemLinkToPay}> <button className="button book-now" type="submit">Rent Me!</button></Link>
                     </div>
                 </div>
                     <p className="item-heading-2 item-location">Location</p>

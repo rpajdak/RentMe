@@ -20,6 +20,7 @@ function AddItem() {
     const onSubmit =  async (data) => {
         const headers = new Headers();
         headers.append('Content-type', 'application/json');
+        console.log(data)
 
         const options = {
             method: 'POST',
@@ -29,7 +30,6 @@ function AddItem() {
 
         const request = new Request('http://localhost:8080/api/items', options);
         const response = await fetch(request);
-        console.log(response)
         const status = await response.status;
 
         }
