@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import {useState, useEffect} from "react";
 import GoogleMapReact from 'google-map-react';
-import ItemViewMarker from "./MapComponents/ItemViewMarker.js";
+import ItemsListMarker from "./MapComponents/ItemsListMarker";
+import { withGoogleMap, GoogleMap, InfoWindow, Marker, OverlayView } from 'react-google-maps'
+import map from 'lodash/map'
 
-function ItemViewMap (props) {
+function ItemsListMap (props) {
 
-    const AnyReactComponent = ({ text }) => <div>{text}</div>;
+    console.log(props.itemsToPlace);
 
-      const defaultProps = {
-        zoom: 15
-      };
+
+    const defaultProps = {
+      zoom: 12
+    };
 
       // google api key needed
       // const center={
@@ -22,26 +25,25 @@ function ItemViewMap (props) {
     }
 
 
+
+
   return (
       // Important! Always set the container height explicitly
 
-      <div style={{ height: '500px', width: '900px'}}>
+      <div style={{ height: '87.7vh', width: '100%'}}>
         <GoogleMapReact
+
           bootstrapURLKeys={{ key: ""}}
           center={center}
           defaultZoom={defaultProps.zoom}
         >
-
-            {/*google api key needed*/}
-            {/*<Marker*/}
-            {/*    lat={props.lat}*/}
-            {/*    lng={props.lon}*/}
-            {/*/>*/}
-
-            <ItemViewMarker
-                lat={50.0484729}
-                lng={19.9589230}
-            />
+            {props.itemsToPlace.map(item => (
+                <ItemsListMarker
+                    lat={item.owner.lat}
+                    lng={item.owner.lng}
+                    price={item.price}
+                />
+            ))}
 
         </GoogleMapReact>
       </div>
@@ -49,4 +51,4 @@ function ItemViewMap (props) {
   }
 
 
-export default ItemViewMap;
+export default ItemsListMap;

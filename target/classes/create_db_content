@@ -23,6 +23,8 @@ CREATE TABLE users(
                       city varchar(255) NOT NULL,
                       is_admin boolean NOT NULL,
                       post_code varchar(10) NOT NULL
+                      lat numeric(10),
+                      lng numeric(10)
 );
 
 CREATE TABLE reservations(
@@ -40,25 +42,25 @@ CREATE TABLE categories(
 );
 
 INSERT INTO users
-VALUES (default, 'Joanna', 'Brzuchacz','jbrzuchacz@gmail.com','asia1234','Ślusarska 9', 'Kraków','t', '31-807');
+VALUES (default, 'Joanna', 'Brzuchacz','jbrzuchacz@gmail.com','asia1234','Ślusarska 9', 'Kraków','t', '31-807', 50.0484763, 19.958923);
 
 INSERT INTO users
-VALUES (default, 'Michał', 'Kuk','mkuk@gmail.com','michal1234','Ślusarska 9', 'Kraków','t', '31-807');
+VALUES (default, 'Michał', 'Kuk','mkuk@gmail.com','michal1234','Ślusarska 9', 'Kraków','t', '31-807', 50.0484763, 19.958923);
 
 INSERT INTO users
-VALUES (default, 'Miłosz', 'Bryła','mbryla@gmail.com','michal1234','Ślusarska 9', 'Kraków','t', '31-807');
+VALUES (default, 'Miłosz', 'Bryła','mbryla@gmail.com','michal1234','Ślusarska 9', 'Kraków','t', '31-807', 50.0484763, 19.958923);
 
 INSERT INTO users
-VALUES (default, 'Rafał', 'Pajdak','rpajdak@gmail.com','rafal1234','Ślusarska 9', 'Kraków','t', '31-807');
+VALUES (default, 'Rafał', 'Pajdak','rpajdak@gmail.com','rafal1234','Ślusarska 9', 'Kraków','t', '31-807', 50.0484763, 19.958923);
 
 INSERT INTO users
-VALUES (default, 'Maciek', 'Bolek','mbolek@gmail.com','asia1234','Ślusarska 9', 'Kraków','n', '31-807');
+VALUES (default, 'Maciek', 'Bolek','mbolek@gmail.com','asia1234','Ślusarska 9', 'Kraków','n', '31-807', 50.0484763, 19.958923);
 
 INSERT INTO users
-VALUES (default, 'Dorota', 'Bażant','dbazant@gmail.com','dorota1234','Karmelicka 9', 'Kraków','n', '31-807');
+VALUES (default, 'Dorota', 'Bażant','dbazant@gmail.com','dorota1234','Karmelicka 9', 'Kraków','n', '31-807', 50.0641204, 19.9303813);
 
 INSERT INTO users
-VALUES (default, 'Julia', 'Nowosad','jnowosad@gmail.com','julia1234','Karmelicka 9', 'Kraków','n', '31-807');
+VALUES (default, 'Julia', 'Nowosad','jnowosad@gmail.com','julia1234','Karmelicka 9', 'Kraków','n', '31-807', 50.0641204, 19.9303813);
 
 
 INSERT INTO items
@@ -72,6 +74,10 @@ INSERT INTO items
 VALUES (default, 'City Bike', 'You can traver whenever you want, A frame gives the bike strength, and the
 other parts are attached to the frame. The name comes from these two words - the prefix "bi-" meaning two,
 and the suffix "-cycle" meaning wheel.', 35,'/images/bicycle.jpg', 2, 3);
+
+INSERT INTO items
+VALUES (default, 'Mountain Bike', 'Try yourself on steep uphills or just ride out of typical asphalt road.
+This bike is universal, robust and reliable', 45,'/images/mountain-bicycle.jpg', 6, 3);
 
 INSERT INTO items
 VALUES (default, 'Pink Skis', 'Skis to rent! Substantially longer than wide and characteristically employed in pairs,
