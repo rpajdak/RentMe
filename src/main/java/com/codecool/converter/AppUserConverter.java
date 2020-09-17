@@ -16,6 +16,8 @@ public class AppUserConverter {
         appUserDTO.setLastName(appUser.getLastName());
         appUserDTO.setAddress(appUser.getAddress());
         appUserDTO.setCity(appUser.getCity());
+        appUserDTO.setLat(appUser.getLat());
+        appUserDTO.setLng(appUser.getLng());
         return appUserDTO;
     }
 

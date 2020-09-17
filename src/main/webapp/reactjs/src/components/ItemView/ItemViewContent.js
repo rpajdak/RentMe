@@ -1,45 +1,41 @@
 import React, {useState, useEffect} from "react";
 import {useForm} from "react-hook-form";
+import Geocode from "react-geocode";
 import "../../css/item-view.css";
 import "../../css/header-and-body.css"
+import ItemViewMap from "../Map/ItemViewMap"
+
 
 function ItemViewContent(id) {
 
     const [itemId, setItemID] = useState(id.value);
     const [item, setItem] = useState([]);
     const [user, setUser] = useState([]);
-    const [coordinates, setCoordinates] = useState([]);
     let [estimatedPrice, setEstimatedPrice] = useState(0);
-
 
     useEffect(() => {
         fetchItemDetails(itemId);
-
     }, []);
 
     const fetchItemDetails = async (itemId) => {
         const response = await fetch(`http://localhost:8080/api/items/${itemId}`);
         const item = await response.json();
-        console.log(item);
         setUser(item.owner);
         setItem(item);
     }
-
-    const fetchCoordinates = async () => {
-        console.log("dupa");
-        console.log(user.address + ", " + user.city)
-        const response = await fetch(`https://us1.locationiq.com/v1/search.php?
-        key=pk.c84947e6df16b1d534d0e92e38fc18f0
-        &q=${user.address + ", " + user.city}
-        &format=json`);
-        console.log(`https://us1.locationiq.com/v1/search.php?
-        key=pk.c84947e6df16b1d534d0e92e38fc18f0
-        &q=${user.address + ", " + user.city}
-        &format=json`);
-        const coordinates = await response.json();
-        console.log(coordinates);
-        setCoordinates(coordinates);
-    }
+    // google api key needed below
+//    Geocode.setApiKey("");
+//    Geocode.fromAddress(user.address + ", " + user.city).then(
+//        response => {
+//            const { lat, lng } = response.results[0].geometry.location;
+//            console.log(lat, lng);
+//            setLatitude(50.0484729);
+//            setLongitude(19.9589230);
+//        },
+//        error => {
+//            console.error(error);
+//        }
+//    );
 
     function getDays() {
         let start = document.querySelector(".start-date").value.split('-');
@@ -68,7 +64,7 @@ function ItemViewContent(id) {
 
     return (
 
-        <div className="wrapper" onLoad={fetchCoordinates}>
+        <div className="wrapper" >
             <div className="item-view-container">
                 <div id="photos-name-price-container">
                     <div className="main-item-photo-area">
@@ -109,6 +105,7 @@ function ItemViewContent(id) {
                 </div>
                     <p className="item-heading-2 item-location">Location</p>
                     <p>{user.address}, {user.postCode} {user.city}</p>
+                    <ItemViewMap lat={user.lat} lon={user.lng}/>
             </div>
         </div>
     )

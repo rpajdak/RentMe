@@ -5,8 +5,7 @@ import Login from "../Login/Login";
 import "../../css/header-and-body.css";
 import "../../css/about.css";
 
-
-function About() {
+function About(){
     return (
         <div>
             <Login />

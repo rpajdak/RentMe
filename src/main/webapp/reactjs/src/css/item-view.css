@@ -1,8 +1,5 @@
 * {box-sizing:border-box}
 
-
-
-
 /* Slideshow container */
 .slideshow-container {
     max-width: 1000px;
@@ -129,8 +126,7 @@
     border: 2px solid rgba(225,225,225,0.5);
     border-radius: 15px;
     width: 1010px;
-    margin: auto;
-    margin-top: 15vh;
+    margin: 100px auto 50px auto;
     overflow: hidden;
     padding: 30px 45px;
     background: none;
@@ -141,7 +137,6 @@
 #photos-name-price-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3fr 2fr);
     grid-gap:30px;
 }
 
@@ -220,6 +215,10 @@
     border-radius: 15px;
     overflow: hidden;
   }
+
+#item-view-map-container p {
+    margin-bottom: 20px;
+}
   
   @media (min-width: 648px) {
     #item-view-map-container {
