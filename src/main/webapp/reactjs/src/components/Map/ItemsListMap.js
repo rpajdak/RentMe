@@ -14,7 +14,7 @@ function ItemsListMap (props) {
       zoom: 12
     };
 
-      // google api key needed
+      // need to solve map bound problem
       // const center={
       //     lat: Number(props.lat - 0.001),
       //     lng: Number(props.lon + 0.002)

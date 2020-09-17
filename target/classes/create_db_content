@@ -7,7 +7,7 @@ CREATE TABLE items(
                       id serial PRIMARY KEY,
                       name varchar(99) NOT NULL,
                       description varchar(255) NOT NULL,
-                      price numeric(2) NOT NULL,
+                      price decimal NOT NULL,
                       pic_url varchar(255),
                       owner_id BIGINT,
                       category_id BIGINT
@@ -22,9 +22,9 @@ CREATE TABLE users(
                       address varchar(255) NOT NULL,
                       city varchar(255) NOT NULL,
                       is_admin boolean NOT NULL,
-                      post_code varchar(10) NOT NULL
-                      lat numeric(10),
-                      lng numeric(10)
+                      post_code varchar(10) NOT NULL,
+                      lat decimal,
+                      lng decimal
 );
 
 CREATE TABLE reservations(

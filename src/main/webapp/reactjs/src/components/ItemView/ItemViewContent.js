@@ -11,8 +11,6 @@ function ItemViewContent(id) {
     const [itemId, setItemID] = useState(id.value);
     const [item, setItem] = useState([]);
     const [user, setUser] = useState([]);
-    const [latitude, setLatitude] = useState([]);
-    const [longitude, setLongitude] = useState([]);
     let [estimatedPrice, setEstimatedPrice] = useState(0);
 
     useEffect(() => {
@@ -26,18 +24,18 @@ function ItemViewContent(id) {
         setItem(item);
     }
     // google api key needed below
-    Geocode.setApiKey("");
-    Geocode.fromAddress(user.address + ", " + user.city).then(
-        response => {
-            const { lat, lng } = response.results[0].geometry.location;
-            console.log(lat, lng);
-            setLatitude(50.0484729);
-            setLongitude(19.9589230);
-        },
-        error => {
-            console.error(error);
-        }
-    );
+//    Geocode.setApiKey("");
+//    Geocode.fromAddress(user.address + ", " + user.city).then(
+//        response => {
+//            const { lat, lng } = response.results[0].geometry.location;
+//            console.log(lat, lng);
+//            setLatitude(50.0484729);
+//            setLongitude(19.9589230);
+//        },
+//        error => {
+//            console.error(error);
+//        }
+//    );
 
     function getDays() {
         let start = document.querySelector(".start-date").value.split('-');
@@ -107,7 +105,7 @@ function ItemViewContent(id) {
                 </div>
                     <p className="item-heading-2 item-location">Location</p>
                     <p>{user.address}, {user.postCode} {user.city}</p>
-                    <ItemViewMap lat={latitude} lon={longitude}/>
+                    <ItemViewMap lat={user.lat} lon={user.lng}/>
             </div>
         </div>
     )
