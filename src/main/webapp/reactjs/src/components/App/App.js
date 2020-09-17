@@ -7,16 +7,20 @@ import {
   Link,
 } from "react-router-dom";
 
-import About from '../About/About'
+import About from '../About/About';
 import ItemContent from "../EditItem/ItemContent";
-import Login from '../Login/Login'
-import RecoverAcc from '../RecoverAcc/RecoverAcc'
-import LandingPage from '../LandingPage/LandingPage'
+import Login from '../Login/Login';
+import RecoverAcc from '../RecoverAcc/RecoverAcc';
+import LandingPage from '../LandingPage/LandingPage';
 import AddItemContent from "../AddItem/AddItemContent";
-import ErrorPage from '../ErrorPage/ErrorPage'
-import ItemsList from '../ItemsList/ItemsList'
+import ErrorPage from '../ErrorPage/ErrorPage';
+import ItemsList from '../ItemsList/ItemsList';
+
 import ItemView from "../ItemView/ItemView";
 import PaymentCont from "../Payment/PaymentsCont";
+
+
+
 
 function App() {
    return (

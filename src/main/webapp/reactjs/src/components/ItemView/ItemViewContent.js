@@ -1,8 +1,13 @@
 import React, {useState, useEffect} from "react";
 import {useForm} from "react-hook-form";
+import Geocode from "react-geocode";
 import "../../css/item-view.css";
 import "../../css/header-and-body.css"
+
 import {Link} from "react-router-dom";
+
+import ItemViewMap from "../Map/ItemViewMap"
+
 
 function ItemViewContent(id) {
 
@@ -13,24 +18,29 @@ function ItemViewContent(id) {
     const [user, setUser] = useState([]);
     let [estimatedPrice, setEstimatedPrice] = useState(0);
 
-
     useEffect(() => {
         fetchItemDetails(itemId);
-        fetchUserName(itemId)
     }, []);
 
     const fetchItemDetails = async (itemId) => {
         const response = await fetch(`http://localhost:8080/api/items/${itemId}`);
         const item = await response.json();
-        console.log(item);
+        setUser(item.owner);
         setItem(item);
     }
-
-    const fetchUserName = async (itemId) => {
-        const response = await fetch(`http://localhost:8080/users/find-by/item/${itemId}`);
-        const user = await response.json();
-        setUser(user);
-    }
+    // google api key needed below
+//    Geocode.setApiKey("");
+//    Geocode.fromAddress(user.address + ", " + user.city).then(
+//        response => {
+//            const { lat, lng } = response.results[0].geometry.location;
+//            console.log(lat, lng);
+//            setLatitude(50.0484729);
+//            setLongitude(19.9589230);
+//        },
+//        error => {
+//            console.error(error);
+//        }
+//    );
 
     function getDays() {
         let start = document.querySelector(".start-date").value.split('-');
@@ -59,7 +69,7 @@ function ItemViewContent(id) {
 
     return (
 
-        <div className="wrapper">
+        <div className="wrapper" >
             <div className="item-view-container">
                 <div id="photos-name-price-container">
                     <div className="main-item-photo-area">
@@ -98,6 +108,9 @@ function ItemViewContent(id) {
                        <Link to={itemLinkToPay}> <button className="button book-now" type="submit">Rent Me!</button></Link>
                     </div>
                 </div>
+                    <p className="item-heading-2 item-location">Location</p>
+                    <p>{user.address}, {user.postCode} {user.city}</p>
+                    <ItemViewMap lat={user.lat} lon={user.lng}/>
             </div>
         </div>
     )

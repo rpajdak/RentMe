@@ -11,4 +11,6 @@ public class AppUserDTO {
     private String address;
     private String city;
     private String postCode;
+    private double lat;
+    private double lng;
 }
