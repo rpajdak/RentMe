@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -112,7 +113,7 @@ public class AppUser {
         }
 
         public Builder lng(double lat) {
-            this.lat = lat;
+            this.lng = lat;
             return this;
         }
 

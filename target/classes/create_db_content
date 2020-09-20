@@ -76,6 +76,49 @@ other parts are attached to the frame. The name comes from these two words - the
 and the suffix "-cycle" meaning wheel.', 35,'/images/bicycle.jpg', 2, 2);
 
 INSERT INTO items
+VALUES (default, 'City Bike', 'You can traver whenever you want, A frame gives the bike strength, and the
+other parts are attached to the frame. The name comes from these two words - the prefix "bi-" meaning two,
+and the suffix "-cycle" meaning wheel.', 35,'/images/bicycle.jpg', 2, 2);
+
+INSERT INTO items
+VALUES (default, 'City Bike', 'You can traver whenever you want, A frame gives the bike strength, and the
+other parts are attached to the frame. The name comes from these two words - the prefix "bi-" meaning two,
+and the suffix "-cycle" meaning wheel.', 35,'/images/bicycle.jpg', 2, 2);
+
+INSERT INTO items
+VALUES (default, 'City Bike', 'You can traver whenever you want, A frame gives the bike strength, and the
+other parts are attached to the frame. The name comes from these two words - the prefix "bi-" meaning two,
+and the suffix "-cycle" meaning wheel.', 35,'/images/bicycle.jpg', 2, 2);
+
+INSERT INTO items
+VALUES (default, 'City Bike', 'You can traver whenever you want, A frame gives the bike strength, and the
+other parts are attached to the frame. The name comes from these two words - the prefix "bi-" meaning two,
+and the suffix "-cycle" meaning wheel.', 35,'/images/bicycle.jpg', 2, 2);
+
+INSERT INTO items
+VALUES (default, 'City Bike', 'You can traver whenever you want, A frame gives the bike strength, and the
+other parts are attached to the frame. The name comes from these two words - the prefix "bi-" meaning two,
+and the suffix "-cycle" meaning wheel.', 35,'/images/bicycle.jpg', 2, 2);
+
+INSERT INTO items
+VALUES (default, 'City Bike', 'You can traver whenever you want, A frame gives the bike strength, and the
+other parts are attached to the frame. The name comes from these two words - the prefix "bi-" meaning two,
+and the suffix "-cycle" meaning wheel.', 35,'/images/bicycle.jpg', 2, 2);
+
+INSERT INTO items
+VALUES (default, 'City Bike', 'You can traver whenever you want, A frame gives the bike strength, and the
+other parts are attached to the frame. The name comes from these two words - the prefix "bi-" meaning two,
+and the suffix "-cycle" meaning wheel.', 35,'/images/bicycle.jpg', 2, 2);
+
+INSERT INTO items
+VALUES (default, 'City Bike', 'You can traver whenever you want, A frame gives the bike strength, and the
+other parts are attached to the frame. The name comes from these two words - the prefix "bi-" meaning two,
+and the suffix "-cycle" meaning wheel.', 35,'/images/bicycle.jpg', 2, 2);
+
+
+
+
+INSERT INTO items
 VALUES (default, 'Mountain Bike', 'Try yourself on steep uphills or just ride out of typical asphalt road.
 This bike is universal, robust and reliable', 45,'/images/mountain-bicycle.jpg', 6, 3);
 

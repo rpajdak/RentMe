@@ -7,7 +7,7 @@ function Item(props) {
 
     return (
         <NavLink to={itemLink}>
-        <div className="items-list-item">
+        <div className="items-list-item" style={{animationDelay: props.orderly + "s"}}>
             <div className="item-photo-container">
                   <img className="items-list-item-photo"  src={props.item.picUrl}/>
             </div>
