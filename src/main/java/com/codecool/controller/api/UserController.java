@@ -15,7 +15,7 @@ import static org.springframework.http.HttpStatus.*;
 @Controller
 @CrossOrigin
 @RestController
-@RequestMapping("/users/")
+@RequestMapping("/users")
 public class UserController {
 
     private UserService userService;
@@ -77,8 +77,8 @@ public class UserController {
     @PostMapping()
     @ResponseBody
     @ResponseStatus(CREATED)
-    public void addUser(@RequestBody AppUser appUser) {
-        userService.addUser(appUser);
+    public void addUser(@RequestBody AppUserDTO appUserDTO) {
+        userService.addUser(appUserConverter.DTOtoEntity(appUserDTO));
     }
 
 
