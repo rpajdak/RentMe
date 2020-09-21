@@ -2,6 +2,7 @@ package com.codecool.service;
 
 import com.codecool.dao.ItemRepository;
 import com.codecool.model.Item;
+import com.codecool.modelDTO.ItemDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

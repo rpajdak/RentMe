@@ -10,7 +10,7 @@ function AddItem() {
 
     const [category, setItems] = useState([]);
     const fetchCategories = async () => {
-        const response = await fetch('http://localhost:8080/api/categories/all');
+        const response = await fetch('http://localhost:8080/api/categories');
         const category = await response.json();
         setItems(category);
     }
@@ -78,7 +78,7 @@ function AddItem() {
                 <input className="item-details" name="postCode" placeholder="Post-code" ref={register({required: true, minLength: 6, maxLength: 6})}/>
                 {errors.postCode && <p className="error-message">Post-Code number must be in format XX-XXX</p>}
                 <h4>Phone number:</h4>
-                <input className="item-details" name="phoneNumber" placeholder="Your phone number" ref={register({required: true, minLength: 9, maxLength: 9})}/>
+                <input className="item-details" name="phoneNumber" placeholder="Your phone number" ref={register({required: true, value: /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/ })}/>
                 {errors.phoneNumber && <p className="error-message">Phone number is not valid!</p>}
                 <h6>
                     By Clicking "Add item for rent", you agree to our <a href="#">Terms</a> and that you have

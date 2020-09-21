@@ -23,7 +23,7 @@ function EditItem(id) {
     }, []);
 
     const fetchCategories = async () => {
-        const response = await fetch('http://localhost:8080/api/categories/all');
+        const response = await fetch('http://localhost:8080/api/categories');
         const category = await response.json();
         setItems(category);
     }

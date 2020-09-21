@@ -18,4 +18,6 @@ public class ItemDTO {
     private String picUrl;
     private String city;
     private AppUser owner;
+
+
 }

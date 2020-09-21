@@ -1,5 +1,4 @@
 package com.codecool.controller.api;
-
 import com.codecool.converter.AppUserConverter;
 import com.codecool.model.AppUser;
 import com.codecool.modelDTO.UserAddressDTO;
@@ -9,9 +8,7 @@ import com.codecool.service.UserService;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 import static org.springframework.http.HttpStatus.*;
 
 
