@@ -7,9 +7,7 @@ import map from 'lodash/map'
 
 function ItemsListMap (props) {
 
-    console.log(props.itemsToPlace);
-
-
+    let n = -0.5;
     const defaultProps = {
       zoom: 12
     };
