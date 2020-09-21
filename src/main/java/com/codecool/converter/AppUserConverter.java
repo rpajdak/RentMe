@@ -28,6 +28,16 @@ public class AppUserConverter {
     }
 
 
+    public AppUser DTOtoEntity(AppUserDTO appUserDTO) {
+        AppUser appUser = new AppUser();
+        appUser.setFirstName(appUserDTO.getFirstName());
+        appUser.setLastName(appUserDTO.getLastName());
+        appUser.setAddress(appUserDTO.getAddress());
+        appUser.setCity(appUserDTO.getCity());
+        appUser.setLat(appUserDTO.getLat());
+        appUser.setLng(appUserDTO.getLng());
+        return appUser;
+    }
 
 }
 
