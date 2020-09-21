@@ -1,11 +1,11 @@
 import React from 'react';
 import Pointer from "../../../assets/pointer-price.svg"
 
-const ItemsListMarker = ({price}) => {
+function ItemsListMarker(props){
     return (
-        <div style={{ height: '50px', width: '50px'}}>
-            <p style={{ height: '40px', width: '40px', position: 'absolute', left: '17px'}}> {price} </p>
-            <img src={Pointer}/>
+        <div className={"items-list-map-marker"}>
+            <p style={{ height: '40px', width: '60px', position: 'absolute', right: '-69px', textAlign: 'center'}}> {props.price} </p>
+            <img style={{ height: '60px', width: '80px'}} src={Pointer}/>
         </div>
     );
 };

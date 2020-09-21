@@ -4,6 +4,16 @@ html {
     scroll-behavior: smooth;
 }
 
+.wrapper{
+    opacity: 0;
+    animation: appearSoftly 0.7s forwards;
+}
+
+@keyframes appearSoftly {
+    0%{}
+    100%{opacity: 1}
+}
+
 body {
     margin: 0;
     padding: 0;

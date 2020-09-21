@@ -12,7 +12,7 @@ import ItemsListMap from "../Map/ItemsListMap"
 
 
 function ItemsListContent(searchPhrase) {
-
+    let n = -0.1;
     const [searchPhraseContent, setSearchPhrase] = useState(searchPhrase.phrase);
     const [fetchedItems, setItems] = useState([]);
 
@@ -32,13 +32,19 @@ function ItemsListContent(searchPhrase) {
 
     useEffect(() => {fetchItems(searchPhrase)}, []);
 
+
+
     return (
         <React.Fragment>
                 <HeaderWithLogoAndSearchBar SearchPhrasePassedToHeader={searchPhraseContent}/>
                 <div id="items-area" >
                     <SortingOptions/>
                     <div className="items-list">
-                        {fetchedItems.map(theItem => <Item item={theItem}/>)}
+                        {
+                            fetchedItems.map(function(theItem){return <Item orderly={n+=0.1} item={theItem}/>;
+
+                            })
+                        }
                     </div>
                 </div>
                 <div className="map-wrapper">
