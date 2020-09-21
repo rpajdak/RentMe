@@ -87,7 +87,7 @@ and the suffix "-cycle" meaning wheel.', 35,'/images/bicycle.jpg', 2, 2);
 
 INSERT INTO items
 VALUES (default, 'Mountain Bike', 'Try yourself on steep uphills or just ride out of typical asphalt road.
-This bike is universal, robust and reliable', 45,'/images/mountain-bicycle.jpg', 6, 3);
+This bike is universal, robust and reliable', 45,'/images/mountain-bicycle.jpg', 6, 2);
 
 INSERT INTO items
 VALUES (default, 'Pink Skis', 'Skis to rent! Substantially longer than wide and characteristically employed in pairs,

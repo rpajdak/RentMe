@@ -31,8 +31,7 @@ function AddItem() {
         const request = new Request('http://localhost:8080/api/items', options);
         const response = await fetch(request);
         const status = await response.status;
-
-        }
+    }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -54,7 +53,7 @@ function AddItem() {
                 <select className="type-selector" id="quest-type" name="category" ref={register}>
                     <option value="" selected disabled hidden>Choose...</option>
                     {category.map(element => (
-                        <option>{element.description}</option>
+                        <option value={element.id}>{element.description}</option>
                     ))} </select>
 
                 <h4>Description:</h4>

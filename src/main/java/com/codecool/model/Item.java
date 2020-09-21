@@ -26,10 +26,10 @@ public class Item {
     private double price;
     @Column(name= "pic_url")
     private String picUrl;
-    @ManyToOne
+    @ManyToOne (cascade=CascadeType.MERGE)
     @JoinColumn(name= "owner_id")
     private AppUser owner;
-    @ManyToOne
+    @ManyToOne (cascade=CascadeType.MERGE)
     @JoinColumn(name= "category_id")
     private Category category;
 
