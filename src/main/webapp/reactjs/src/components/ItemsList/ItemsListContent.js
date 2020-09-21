@@ -19,7 +19,7 @@ function ItemsListContent(searchPhrase) {
     const fetchItems = async () => {
         if (searchPhraseContent.startsWith("category: ")) {
             const categoryToBrowse = searchPhraseContent.slice(10);
-            const response = await fetch(`http://localhost:8080/api/items/list/byCategory/${categoryToBrowse}`);
+            const response = await fetch(`http://localhost:8080/api/items/categories/${categoryToBrowse}`);
             const items = await response.json();
             setItems(items);
         }

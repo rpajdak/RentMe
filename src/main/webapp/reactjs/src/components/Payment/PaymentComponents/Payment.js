@@ -6,7 +6,7 @@ function Payment() {
     return(
         <div className="row">
             <div className="col-75">
-                <div className="container">
+                <div className="container-payments">
                     <form>
                         <div className="row">
                             <div className="col-50">

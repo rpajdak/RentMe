@@ -18,8 +18,8 @@ public class CategoriesController {
     public CategoriesController(CategoryService categoryService){
         this.categoryService = categoryService;
     }
-    //do usuniecia all JSONAPPLICATIONVALUE
-    @GetMapping(value = "/all")
+
+    @GetMapping
     @ResponseBody
     public List<Category> getAllCategories(){
         return categoryService.getAllCategories();
