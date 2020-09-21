@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.http.HttpStatus.*;
+
 @Controller
 @RestController
 @RequestMapping("/api/items")
@@ -21,19 +23,21 @@ public class ItemController {
         this.itemConverter = itemConverter;
         this.itemService = itemService;
     }
-
+    //all do usuniecia
     @GetMapping("/all")
     @ResponseBody
     public List<ItemDTO> getAllItems(){
         return itemConverter.entitiesToDTO(itemService.getAllItems());
     }
 
+    //list moze  byc do usuniecia,
     @GetMapping("/list/{searchPhrase}")
     @ResponseBody
+    //czy request Parameter ??
     public List<ItemDTO> findItemsByNameContaining(@PathVariable("searchPhrase") String searchPhrase){
         return itemConverter.entitiesToDTO(itemService.findItemsByNameContaining(searchPhrase.toUpperCase()));
     }
-
+    //dodac request Parameter
     @GetMapping("/list/byCategory/{searchPhrase}")
     @ResponseBody
     public List<ItemDTO> findItemsByCategory(@PathVariable("searchPhrase") String searchPhrase){
@@ -45,16 +49,17 @@ public class ItemController {
     public ItemDTO findById(@PathVariable("id") Long id){
         return  itemConverter.entityToDTO(itemService.findById(id));
     }
-
+    //, dodac DTO zamiast Item
     @PostMapping()
     @ResponseBody
+    @ResponseStatus(CREATED)
     public void addItem(@RequestBody Item item){
-
         itemService.addItem(item);
     }
-
+//CMD + B
     @PutMapping()
     @ResponseBody
+    @ResponseStatus(OK)
     public void updateItem(@RequestBody Item item){
 
         itemService.updateItem(item);
@@ -62,6 +67,7 @@ public class ItemController {
 
     @DeleteMapping()
     @ResponseBody
+    @ResponseStatus(NO_CONTENT)
     public void deleteItem(@RequestParam Long id){
         itemService.deleteItemById(id);
     }

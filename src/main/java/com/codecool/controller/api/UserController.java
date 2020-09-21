@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 
 @Controller
 @CrossOrigin
@@ -38,12 +40,12 @@ public class UserController {
         return appUserConverter.entitiesToDTO(userService.getAllRenters());
     }
 
-    @GetMapping("/renters/{id}")
+    @GetMapping(value = "/renters/{id}", produces = APPLICATION_JSON_VALUE)
     @ResponseBody
     public AppUserDTO findUserById(@PathVariable("id") Long id) {
         return appUserConverter.entityToDTO(userService.getUserById(id));
     }
-
+    //  renters/
     @GetMapping("/renters/find-by/item/{id}")
     @ResponseBody
     public UserAddressDTO findUserAddressByItemId(@PathVariable("id") Long id) {
@@ -62,7 +64,7 @@ public class UserController {
     public AppUserDTO findAdminById(@PathVariable("id") Long id) {
         return appUserConverter.entityToDTO(userService.getUserById(id));
     }
-
+    //STATUSY , app user musi byc DTO
     @PostMapping()
     @ResponseBody
     public void addUser(@RequestBody AppUser appUser) {

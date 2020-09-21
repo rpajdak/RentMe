@@ -13,13 +13,13 @@ import java.util.List;
 @CrossOrigin
 public class CategoriesController {
 
-    CategoryService categoryService;
+    private CategoryService categoryService;
 
     public CategoriesController(CategoryService categoryService){
         this.categoryService = categoryService;
     }
-
-    @GetMapping("/all")
+    //do usuniecia all JSONAPPLICATIONVALUE
+    @GetMapping(value = "/all")
     @ResponseBody
     public List<Category> getAllCategories(){
         return categoryService.getAllCategories();
