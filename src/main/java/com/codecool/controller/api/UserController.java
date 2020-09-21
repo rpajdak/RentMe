@@ -6,15 +6,19 @@ import com.codecool.modelDTO.UserAddressDTO;
 import com.codecool.modelDTO.AppUserDTO;
 import com.codecool.modelDTO.UserNameDTO;
 import com.codecool.service.UserService;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.http.HttpStatus.*;
+
 
 @Controller
 @CrossOrigin
 @RestController
+@RequestMapping("/users/")
 public class UserController {
 
     private UserService userService;
@@ -25,66 +29,73 @@ public class UserController {
         this.appUserConverter = appUserConverter;
     }
 
-    @GetMapping("/admins/all")
+    
+    @GetMapping(value = "/admins/all", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
+    @ResponseStatus(OK)
     public List<AppUserDTO> getAllAdmins() {
-
         return appUserConverter.entitiesToDTO(userService.getAllAdmins());
     }
 
-    @GetMapping("/renters/all")
+
+    @GetMapping(value = "/renters/all", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
+    @ResponseStatus(OK)
     public List<AppUserDTO> getAllRenters() {
         return appUserConverter.entitiesToDTO(userService.getAllRenters());
     }
 
-    @GetMapping("/renters/{id}")
+    @GetMapping(value = "/renters/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
+    @ResponseStatus(OK)
     public AppUserDTO findUserById(@PathVariable("id") Long id) {
         return appUserConverter.entityToDTO(userService.getUserById(id));
     }
 
-    @GetMapping("/renters/find-by/item/{id}")
+
+    @GetMapping(value = "/admins/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
+    @ResponseStatus(OK)
+    public AppUserDTO findAdminById(@PathVariable("id") Long id) {
+        return appUserConverter.entityToDTO(userService.getUserById(id));
+    }
+
+
+    @GetMapping(value = "/address/item/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @ResponseStatus(OK)
     public UserAddressDTO findUserAddressByItemId(@PathVariable("id") Long id) {
         return userService.getUserAddressByItemId(id);
     }
 
-    @GetMapping("/users/find-by/item/{id}")
+
+    @GetMapping(value = "/users/find-by/item/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
+    @ResponseStatus(OK)
     public UserNameDTO findUserNameByItemId(@PathVariable("id") Long id) {
         return userService.getUserNameByItemId(id);
     }
 
 
-    @GetMapping("/admins/{id}")
-    @ResponseBody
-    public AppUserDTO findAdminById(@PathVariable("id") Long id) {
-        return appUserConverter.entityToDTO(userService.getUserById(id));
-    }
-
     @PostMapping()
     @ResponseBody
+    @ResponseStatus(CREATED)
     public void addUser(@RequestBody AppUser appUser) {
         userService.addUser(appUser);
     }
 
+
     @PutMapping
     @ResponseBody
+    @ResponseStatus(OK)
     public void updateUser(@RequestBody AppUser appUser) {
         userService.updateUser(appUser);
-    }
-
-//   Just for test
-    @PutMapping("/test")
-    @ResponseBody
-    public void justTest(@RequestBody String s){
-        System.out.println(s);
     }
 
 
     @DeleteMapping
     @ResponseBody
+    @ResponseStatus(NO_CONTENT)
     public void deleteAppUser(long id) {
         userService.deleteUser(id);
     }
