@@ -2,6 +2,7 @@ package com.codecool.controller.api;
 import com.codecool.converter.ItemConverter;
 import com.codecool.model.Item;
 import com.codecool.modelDTO.ItemDTO;
+import com.codecool.modelDTO.ItemForListDTO;
 import com.codecool.service.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -24,15 +25,16 @@ public class ItemController {
         this.itemService = itemService;
     }
 
-
     @GetMapping
     @ResponseBody
+    @ResponseStatus(OK)
     public List<ItemDTO> getAllItems() {
         return itemConverter.entitiesToDTO(itemService.getAllItems());
     }
 
     @GetMapping("/{id}")
     @ResponseBody
+    @ResponseStatus(OK)
     public ItemDTO findById(@PathVariable("id") Long id) {
         return itemConverter.entityToDTO(itemService.findById(id));
     }
@@ -40,14 +42,16 @@ public class ItemController {
 
     @GetMapping("/list/{searchPhrase}")
     @ResponseBody
-    public List<ItemDTO> findItemsByNameContaining(@PathVariable("searchPhrase") String searchPhrase) {
-        return itemConverter.entitiesToDTO(itemService.findItemsByNameContaining(searchPhrase.toUpperCase()));
+    @ResponseStatus(OK)
+    public List<ItemForListDTO> findItemsByNameContaining(@PathVariable("searchPhrase") String searchPhrase) {
+        return itemConverter.itemsToItemsForListDTO(itemService.findItemsByNameContaining(searchPhrase.toUpperCase()));
     }
 
     @GetMapping("/categories/{searchPhrase}")
     @ResponseBody
-    public List<ItemDTO> findItemsByCategory(@PathVariable("searchPhrase") String searchPhrase) {
-        return itemConverter.entitiesToDTO(itemService.findItemsByCategory(searchPhrase.toUpperCase()));
+    @ResponseStatus(OK)
+    public List<ItemForListDTO> findItemsByCategory(@PathVariable("searchPhrase") String searchPhrase) {
+        return itemConverter.itemsToItemsForListDTO(itemService.findItemsByCategory(searchPhrase.toUpperCase()));
     }
 
 
@@ -56,7 +60,7 @@ public class ItemController {
     @ResponseBody
     @ResponseStatus(CREATED)
     public void addItem(@RequestBody Item item) {
-        itemService.addItem(item);
+                itemService.addItem(item);
     }
 
 

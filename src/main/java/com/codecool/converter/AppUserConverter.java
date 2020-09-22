@@ -12,6 +12,7 @@ public class AppUserConverter {
 
     public AppUserDTO entityToDTO(AppUser appUser) {
         AppUserDTO appUserDTO = new AppUserDTO();
+        appUserDTO.setId(appUser.getId());
         appUserDTO.setFirstName(appUser.getFirstName());
         appUserDTO.setLastName(appUser.getLastName());
         appUserDTO.setAddress(appUser.getAddress());
@@ -30,6 +31,7 @@ public class AppUserConverter {
 
     public AppUser DTOtoEntity(AppUserDTO appUserDTO) {
         AppUser appUser = new AppUser();
+        appUser.setId(appUserDTO.getId());
         appUser.setFirstName(appUserDTO.getFirstName());
         appUser.setLastName(appUserDTO.getLastName());
         appUser.setAddress(appUserDTO.getAddress());
