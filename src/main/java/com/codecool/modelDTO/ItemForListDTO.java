@@ -9,13 +9,12 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-public class ItemDTO {
+public class ItemForListDTO {
     private Long id;
     private String name;
     private String description;
-    private double price;
+    private Double price;
     private Category category;
     private String picUrl;
-    private String city;
-    private AppUser owner;
+    private AppUserDTO owner;
 }

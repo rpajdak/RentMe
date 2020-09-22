@@ -47,9 +47,9 @@ public class AppUser {
     public AppUser() {
     }
 
-    public AppUser(String firstName, String lastName, String email, String password, String address,
+    public AppUser(Long id, String firstName, String lastName, String email, String password, String address,
                    String city, boolean isAdmin, double lat, double lng) {
-
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -62,6 +62,7 @@ public class AppUser {
     }
 
     public static final class Builder {
+        private Long id;
         private String firstName;
         private String lastName;
         private String email;
@@ -71,6 +72,11 @@ public class AppUser {
         private Boolean isAdmin;
         private Double lat;
         private Double lng;
+
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
 
         public Builder firstName(String firstName) {
             this.firstName = firstName;
@@ -119,6 +125,7 @@ public class AppUser {
 
         public AppUser build() {
             AppUser appUser = new AppUser();
+            appUser.id = this.id;
             appUser.firstName = this.firstName;
             appUser.lastName = this.lastName;
             appUser.email = this.email;
