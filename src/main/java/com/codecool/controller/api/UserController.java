@@ -27,7 +27,7 @@ public class UserController {
     }
 
     
-    @GetMapping(value = "/admins/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/admins", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)
     public List<AppUserDTO> getAllAdmins() {
@@ -35,7 +35,7 @@ public class UserController {
     }
 
 
-    @GetMapping(value = "/renters/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/renters", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)
     public List<AppUserDTO> getAllRenters() {
