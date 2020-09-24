@@ -8,12 +8,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 
 class UserServiceTest {
@@ -36,10 +34,23 @@ class UserServiceTest {
         List<AppUser> users = userService.getAllAppUsers();
 
         //then:
-        Assertions.assertEquals(users.size(),4);
-        Assertions.assertEquals(users.get(0).getFirstName(),"Joanna");
-        Assertions.assertEquals(users.get(2).getFirstName(),"Miłosz");
+        Assertions.assertEquals(4, users.size());
+        Assertions.assertEquals("Joanna", users.get(0).getFirstName());
+        Assertions.assertEquals("Miłosz", users.get(2).getFirstName());
 
+    }
+
+
+    @Test
+    public void should_return_only_when_IsAdmin_is_true() {
+        //when:
+        List<AppUser> admins = userService.getAllAdmins();
+
+        //then:
+        Assertions.assertEquals(2, admins.size());
+        Assertions.assertEquals("Joanna", admins.get(0).getFirstName());
+        Assertions.assertEquals("Miłosz", admins.get(1).getFirstName());
+        Assertions.assertEquals(2, admins.size());
     }
 
 
