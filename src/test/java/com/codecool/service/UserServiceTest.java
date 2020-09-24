@@ -54,6 +54,18 @@ class UserServiceTest {
     }
 
 
+    @Test
+    public void sould_return_only_when_IsAdmin_is_false(){
+        //when:
+        List<AppUser> admins = userService.getAllRenters();
+
+        //then:
+        Assertions.assertEquals(2,admins.size());
+        Assertions.assertEquals("Rafał",admins.get(0).getFirstName());
+        Assertions.assertEquals("Michał",admins.get(1).getFirstName());
+        Assertions.assertEquals(2,admins.size());
+    }
+
     private List<AppUser> prepareMockData() {
         AppUser appUser1 = new AppUser.Builder()
                 .firstName("Joanna")
@@ -61,7 +73,7 @@ class UserServiceTest {
                 .build();
 
         AppUser appUser2 = new AppUser.Builder()
-                .firstName("Rafal")
+                .firstName("Rafał")
                 .isAdmin(false)
                 .build();
         AppUser appUser3 = new AppUser.Builder()
