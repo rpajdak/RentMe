@@ -88,8 +88,18 @@ public class ItemControllerIntegrationTests {
 
     @Test
     public void should_return_OK_status_code_when_item_updated() throws Exception {
-        mockMvc.perform(put("/api/items/{id}", 1))
-                .andExpect(status().isOk())
-                .andExpect(content().contentType("application/json"));
+        ItemDTO itemDTO = new ItemDTO();
+        itemDTO.setName("Item");
+        itemDTO.setPrice(13.99);
+        itemDTO.setPicUrl("picture.jpg");
+
+
+
+        mockMvc.perform(put("/api/items")
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .content(new ObjectMapper().writeValueAsString(itemDTO)))
+                .andExpect(status().isOk());
     }
+
+
 }
