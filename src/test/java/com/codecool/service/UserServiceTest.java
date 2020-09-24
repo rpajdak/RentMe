@@ -30,7 +30,17 @@ class UserServiceTest {
         given(userRepository.findAll()).willReturn(prepareMockData());
     }
 
+    @Test
+    public void should_return_all_users() {
+        //when:
+        List<AppUser> users = userService.getAllAppUsers();
 
+        //then:
+        Assertions.assertEquals(users.size(),4);
+        Assertions.assertEquals(users.get(0).getFirstName(),"Joanna");
+        Assertions.assertEquals(users.get(2).getFirstName(),"Miłosz");
+
+    }
 
 
     private List<AppUser> prepareMockData() {
