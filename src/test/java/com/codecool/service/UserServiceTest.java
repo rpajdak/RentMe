@@ -2,6 +2,7 @@ package com.codecool.service;
 
 import com.codecool.dao.UserRepository;
 import com.codecool.model.AppUser;
+import com.codecool.modelDTO.UserAddressDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.*;
 
 class UserServiceTest {
 
@@ -26,6 +28,7 @@ class UserServiceTest {
     public void init() {
         MockitoAnnotations.initMocks(this);
         given(userRepository.findAll()).willReturn(prepareMockData());
+        when(userRepository.findAppUserAddressByItemId(1)).thenReturn(prepareUserAddress());
     }
 
     @Test
@@ -55,15 +58,29 @@ class UserServiceTest {
 
 
     @Test
-    public void sould_return_only_when_IsAdmin_is_false(){
+    public void should_return_only_when_IsAdmin_is_false() {
         //when:
         List<AppUser> admins = userService.getAllRenters();
 
         //then:
-        Assertions.assertEquals(2,admins.size());
-        Assertions.assertEquals("Rafał",admins.get(0).getFirstName());
-        Assertions.assertEquals("Michał",admins.get(1).getFirstName());
-        Assertions.assertEquals(2,admins.size());
+        Assertions.assertEquals(2, admins.size());
+        Assertions.assertEquals("Rafał", admins.get(0).getFirstName());
+        Assertions.assertEquals("Michał", admins.get(1).getFirstName());
+        Assertions.assertEquals(2, admins.size());
+    }
+
+    @Test
+    public void should_return_user_addressDTO_when_user_id_is_passed() {
+
+        //when:
+        UserAddressDTO userAddressDTO = userService.getUserAddressByItemId(1);
+
+        //then:
+        verify(userRepository, times(1)).findAppUserAddressByItemId(1);
+        Assertions.assertEquals("Kraków", userAddressDTO.getCity());
+        Assertions.assertEquals("Karmelicka 9", userAddressDTO.getAddress());
+
+
     }
 
     private List<AppUser> prepareMockData() {
@@ -89,4 +106,11 @@ class UserServiceTest {
         return Arrays.asList(appUser1, appUser2, appUser3, appUser4);
     }
 
+    private String[] prepareUserAddress() {
+        return new String[]{"Karmelicka 9,Kraków,31-807", ""};
+    }
+
+    private String prepareFullUSerName(){
+        return "Jan Truskolaski";
+    }
 }
