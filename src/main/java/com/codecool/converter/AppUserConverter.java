@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 @Component
 public class AppUserConverter {
 
-    public AppUserDTO entityToDTO(AppUser appUser) {
+    public static AppUserDTO entityToDTO(AppUser appUser) {
         AppUserDTO appUserDTO = new AppUserDTO();
         appUserDTO.setId(appUser.getId());
         appUserDTO.setFirstName(appUser.getFirstName());
@@ -22,14 +22,14 @@ public class AppUserConverter {
         return appUserDTO;
     }
 
-    public List<AppUserDTO> entitiesToDTO(List<AppUser> appUsers) {
+    public static List<AppUserDTO> entitiesToDTO(List<AppUser> appUsers) {
         return appUsers.stream()
-                .map(user -> entityToDTO(user))
+                .map(AppUserConverter::entityToDTO)
                 .collect(Collectors.toList());
     }
 
 
-    public AppUser DTOtoEntity(AppUserDTO appUserDTO) {
+    public static AppUser DTOtoEntity(AppUserDTO appUserDTO) {
         AppUser appUser = new AppUser();
         appUser.setId(appUserDTO.getId());
         appUser.setFirstName(appUserDTO.getFirstName());
