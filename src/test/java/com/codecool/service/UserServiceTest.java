@@ -3,6 +3,7 @@ package com.codecool.service;
 import com.codecool.dao.UserRepository;
 import com.codecool.model.AppUser;
 import com.codecool.modelDTO.UserAddressDTO;
+import com.codecool.modelDTO.UserNameDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,6 +30,7 @@ class UserServiceTest {
         MockitoAnnotations.initMocks(this);
         given(userRepository.findAll()).willReturn(prepareMockData());
         when(userRepository.findAppUserAddressByItemId(1)).thenReturn(prepareUserAddress());
+        when(userRepository.findAppUserNmeByItemId(1)).thenReturn(prepareFullUserName());
     }
 
     @Test
@@ -70,7 +72,7 @@ class UserServiceTest {
     }
 
     @Test
-    public void should_return_user_addressDTO_when_user_id_is_passed() {
+    public void should_return_user_addressDTO_when_item_id_is_passed() {
 
         //when:
         UserAddressDTO userAddressDTO = userService.getUserAddressByItemId(1);
@@ -79,7 +81,19 @@ class UserServiceTest {
         verify(userRepository, times(1)).findAppUserAddressByItemId(1);
         Assertions.assertEquals("Kraków", userAddressDTO.getCity());
         Assertions.assertEquals("Karmelicka 9", userAddressDTO.getAddress());
+    }
 
+
+    @Test
+    public void should_return_user_nameDTO_when_item_id_is_passed() {
+
+        //when:
+        UserNameDTO userNameDTO = userService.getUserNameByItemId(1);
+
+        //then:
+        verify(userRepository, times(1)).findAppUserNmeByItemId(1);
+        Assertions.assertEquals("Jan", userNameDTO.getFirstName());
+        Assertions.assertEquals("Truskolaski", userNameDTO.getLastName());
 
     }
 
@@ -110,7 +124,7 @@ class UserServiceTest {
         return new String[]{"Karmelicka 9,Kraków,31-807", ""};
     }
 
-    private String prepareFullUSerName(){
-        return "Jan Truskolaski";
+    private String prepareFullUserName() {
+        return "Jan,Truskolaski";
     }
 }
