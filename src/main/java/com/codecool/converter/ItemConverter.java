@@ -57,4 +57,17 @@ public class ItemConverter {
                 .collect(Collectors.toList());
     }
 
+    public Item DTOtoEntity(ItemDTO itemDTO) {
+        Item item = new Item();
+        item.setId(itemDTO.getId());
+        item.setName(itemDTO.getName());
+        item.setCategory(itemDTO.getCategory());
+        item.setDescription(itemDTO.getDescription());
+        item.setOwner(itemDTO.getOwner());
+        item.setPrice(itemDTO.getPrice());
+        item.setPicUrl(itemDTO.getPicUrl());
+
+        return item;
+    }
+
 }

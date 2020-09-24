@@ -49,6 +49,16 @@ public class AppTestConfig {
     }
 
     @Bean
+    public CategoriesController categoriesController(){
+        return  new CategoriesController(categoryService());
+    }
+
+    @Bean
+    public CategoryService categoryService(){
+        return Mockito.mock(CategoryService.class);
+    }
+
+    @Bean
     public UserService userService() {
         return Mockito.mock(UserService.class);
     }
@@ -58,9 +68,16 @@ public class AppTestConfig {
         return Mockito.mock(ItemService.class);
     }
 
+
     @Bean
     public Category category() { return Mockito.mock(Category.class);}
 
+
+    @Bean
+    public  ItemController itemController(){
+        return new ItemController(itemService(), itemConverter());
+    }
+}
 
     @Bean
     public  ItemController itemController(){
