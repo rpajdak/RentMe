@@ -67,6 +67,8 @@ public class AppUserControllerIntegrationTests {
         ).andExpect(status().isCreated());
         verify(userService, times(1)).addUser(any(AppUser.class));
     }
+
+
 }
 
 

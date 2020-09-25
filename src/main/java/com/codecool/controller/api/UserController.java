@@ -19,32 +19,30 @@ import static org.springframework.http.HttpStatus.*;
 public class UserController {
 
     private UserService userService;
-    private AppUserConverter appUserConverter;
 
-    public UserController(UserService userService, AppUserConverter appUserConverter) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.appUserConverter = appUserConverter;
     }
 
     @GetMapping(value = "/admins", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)
     public List<AppUserDTO> getAllAdmins() {
-        return appUserConverter.entitiesToDTO(userService.getAllAdmins());
+        return AppUserConverter.entitiesToDTO(userService.getAllAdmins());
     }
 
     @GetMapping(value = "/renters", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)
     public List<AppUserDTO> getAllRenters() {
-        return appUserConverter.entitiesToDTO(userService.getAllRenters());
+        return AppUserConverter.entitiesToDTO(userService.getAllRenters());
     }
 
     @GetMapping(value = "/renters/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)
     public AppUserDTO findUserById(@PathVariable("id") Long id) {
-        return appUserConverter.entityToDTO(userService.getUserById(id));
+        return AppUserConverter.entityToDTO(userService.getUserById(id));
     }
 
 
@@ -52,7 +50,7 @@ public class UserController {
     @ResponseBody
     @ResponseStatus(OK)
     public AppUserDTO findAdminById(@PathVariable("id") Long id) {
-        return appUserConverter.entityToDTO(userService.getUserById(id));
+        return AppUserConverter.entityToDTO(userService.getUserById(id));
     }
 
 
@@ -76,7 +74,7 @@ public class UserController {
     @ResponseBody
     @ResponseStatus(CREATED)
     public void addUser(@RequestBody AppUserDTO appUserDTO) {
-        userService.addUser(appUserConverter.DTOtoEntity(appUserDTO));
+        userService.addUser(AppUserConverter.DTOtoEntity(appUserDTO));
     }
 
 
