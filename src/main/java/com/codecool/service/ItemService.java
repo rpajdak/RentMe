@@ -51,5 +51,10 @@ public class ItemService {
         return itemRepository.findItemsByCategory(searchPhrase);
     }
 
+    public List<Item> findItemsByUser(Long UserId){
+
+        return itemRepository.findItemsByUser(UserId);
+    }
+
 
 }

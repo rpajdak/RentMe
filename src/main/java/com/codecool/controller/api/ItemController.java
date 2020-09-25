@@ -39,7 +39,6 @@ public class ItemController {
         return itemConverter.entityToDTO(itemService.findById(id));
     }
 
-
     @GetMapping("/list/{searchPhrase}")
     @ResponseBody
     @ResponseStatus(OK)
@@ -54,6 +53,12 @@ public class ItemController {
         return itemConverter.itemsToItemsForListDTO(itemService.findItemsByCategory(searchPhrase.toUpperCase()));
     }
 
+    @GetMapping("/users/{userId}")
+    @ResponseBody
+    @ResponseStatus(OK)
+    public List<ItemForListDTO> findItemsByUser(@PathVariable("userId") Long userId) {
+        return itemConverter.itemsToItemsForListDTO(itemService.findItemsByUser(userId));
+    }
 
     //, dodac DTO zamiast Item
     @PostMapping()
@@ -63,12 +68,10 @@ public class ItemController {
                 itemService.addItem(item);
     }
 
-
     @PutMapping()
     @ResponseBody
     @ResponseStatus(OK)
     public void updateItem(@RequestBody Item item) {
-
         itemService.updateItem(item);
     }
 

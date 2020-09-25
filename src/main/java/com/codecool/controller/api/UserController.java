@@ -26,14 +26,12 @@ public class UserController {
         this.appUserConverter = appUserConverter;
     }
 
-    
     @GetMapping(value = "/admins", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)
     public List<AppUserDTO> getAllAdmins() {
         return appUserConverter.entitiesToDTO(userService.getAllAdmins());
     }
-
 
     @GetMapping(value = "/renters", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
