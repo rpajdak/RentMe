@@ -49,8 +49,7 @@ public class UserService {
         userRepository.save(appUser);
     }
 
-    public void updateUser(AppUser updatedUser) {
-        userRepository.save(updatedUser);
+    public void updateUser(AppUser updatedUser) {userRepository.save(updatedUser);
     }
 
     public void deleteUser(long id) {
