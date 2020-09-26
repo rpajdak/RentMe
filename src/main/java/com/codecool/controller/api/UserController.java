@@ -24,14 +24,12 @@ public class UserController {
         this.userService = userService;
     }
 
-    
     @GetMapping(value = "/admins", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)
     public List<AppUserDTO> getAllAdmins() {
         return AppUserConverter.entitiesToDTO(userService.getAllAdmins());
     }
-
 
     @GetMapping(value = "/renters", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody

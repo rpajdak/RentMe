@@ -41,4 +41,64 @@ public class Item {
         this.owner = owner;
         this.category = category;
     }
+
+    public static final class Builder {
+        private Long id;
+        private String name;
+        private String description;
+        private double price;
+        private Category category;
+        private String picUrl;
+        private String city;
+        private AppUser owner;
+
+        public Item.Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public Item.Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Item.Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Item.Builder price(double price) {
+            this.price = price;
+            return this;
+        }
+
+        public Item.Builder category(Category category) {
+            this.category = category;
+            return this;
+        }
+
+        public Item.Builder picUrl(String picUrl) {
+            this.picUrl = picUrl;
+            return this;
+        }
+
+
+        public Item.Builder owner(AppUser owner) {
+            this.owner = owner;
+            return this;
+        }
+
+        public Item build() {
+            Item item = new Item();
+            item.id = this.id;
+            item.name = this.name;
+            item.description = this.description;
+            item.price = this.price;
+            item.category = this.category;
+            item.picUrl = this.picUrl;
+            item.owner = this.owner;
+
+            return item;
+        }
+}
 }

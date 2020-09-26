@@ -29,7 +29,7 @@ public class AppTestConfig {
     }
 
     @Bean
-    public ItemConverter itemConverter(){
+    public ItemConverter itemConverter() {
         return new ItemConverter();
     }
 
@@ -39,12 +39,12 @@ public class AppTestConfig {
     }
 
     @Bean
-    public CategoriesController categoriesController(){
-        return  new CategoriesController(categoryService());
+    public CategoriesController categoriesController() {
+        return new CategoriesController(categoryService());
     }
 
     @Bean
-    public CategoryService categoryService(){
+    public CategoryService categoryService() {
         return Mockito.mock(CategoryService.class);
     }
 
@@ -54,16 +54,17 @@ public class AppTestConfig {
     }
 
     @Bean
-    public ItemService itemService(){
+    public ItemService itemService() {
         return Mockito.mock(ItemService.class);
     }
 
     @Bean
-    public Category category() { return Mockito.mock(Category.class);}
-
+    public Category category() {
+        return Mockito.mock(Category.class);
+    }
 
     @Bean
-    public  ItemController itemController(){
+    public ItemController itemController() {
         return new ItemController(itemService(), itemConverter());
     }
 }

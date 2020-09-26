@@ -113,12 +113,12 @@ public class AppUser {
             return this;
         }
 
-        public Builder lat(double lat) {
+        public Builder lat(Double lat) {
             this.lat = lat;
             return this;
         }
 
-        public Builder lng(double lng) {
+        public Builder lng(Double lng) {
             this.lng = lng;
             return this;
         }

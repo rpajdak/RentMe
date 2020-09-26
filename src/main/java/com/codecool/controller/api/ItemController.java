@@ -39,7 +39,6 @@ public class ItemController {
         return itemConverter.entityToDTO(itemService.findById(id));
     }
 
-
     @GetMapping("/list/{searchPhrase}")
     @ResponseBody
     @ResponseStatus(OK)
@@ -54,28 +53,32 @@ public class ItemController {
         return itemConverter.itemsToItemsForListDTO(itemService.findItemsByCategory(searchPhrase.toUpperCase()));
     }
 
+    @GetMapping("/users/{userId}")
+    @ResponseBody
+    @ResponseStatus(OK)
+    public List<ItemForListDTO> findItemsByUser(@PathVariable("userId") Long userId) {
+        return itemConverter.itemsToItemsForListDTO(itemService.findItemsByUser(userId));
+    }
 
     //, dodac DTO zamiast Item
     @PostMapping()
     @ResponseBody
     @ResponseStatus(CREATED)
-    public void addItem(@RequestBody Item item) {
-                itemService.addItem(item);
+    public void addItem(@RequestBody ItemDTO item) {
+        itemService.addItem(itemConverter.DTOtoEntity(item));
     }
-
 
     @PutMapping()
     @ResponseBody
     @ResponseStatus(OK)
-    public void updateItem(@RequestBody Item item) {
-
-        itemService.updateItem(item);
+    public void updateItem(@RequestBody ItemDTO item) {
+        itemService.updateItem(itemConverter.DTOtoEntity(item));
     }
 
-    @DeleteMapping()
+    @DeleteMapping("/{id}")
     @ResponseBody
     @ResponseStatus(NO_CONTENT)
-    public void deleteItem(@RequestParam Long id) {
+    public void deleteItem(@PathVariable("id") Long id) {
         itemService.deleteItemById(id);
     }
 
