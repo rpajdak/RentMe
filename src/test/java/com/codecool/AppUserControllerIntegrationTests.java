@@ -16,8 +16,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.hamcrest.Matchers.hasSize;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.mockito.Mockito.*;
 
@@ -68,7 +73,39 @@ public class AppUserControllerIntegrationTests {
         verify(userService, times(1)).addUser(any(AppUser.class));
     }
 
+    @Test
+    public void should_return_list_of_admins() throws Exception {
+        List<AppUser> admins = Arrays.asList(new AppUser.Builder()
+                        .firstName("rafal")
+                        .lastName("Nowak")
+                        .build(),
+                new AppUser.Builder()
+                        .firstName("Michał")
+                        .lastName("Stoch")
+                        .build());
 
+        when(userService.getAllAdmins()).thenReturn(admins);
+
+
+        mockMvc.perform(get("/users/admins"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType("application/json"))
+                .andExpect(jsonPath("$", hasSize(2)))
+                .andExpect(jsonPath("$.[1].firstName").value("Michał"));
+    }
+
+    @Test
+    public void should_return_no_content_code_when_user_removed() throws Exception {
+
+        AppUserDTO appUserDTO = new AppUserDTO();
+        appUserDTO.setId((long) 1);
+
+        mockMvc.perform(delete("/users/{id}",1))
+                .andExpect(status().isNoContent());
+
+        verify(userService, times(1)).deleteUser(any(Long.class));
+
+    }
 }
 
 

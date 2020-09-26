@@ -86,10 +86,10 @@ public class UserController {
     }
 
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ResponseBody
     @ResponseStatus(NO_CONTENT)
-    public void deleteAppUser(long id) {
+    public void deleteAppUser(@PathVariable("id") long id) {
         userService.deleteUser(id);
     }
 
