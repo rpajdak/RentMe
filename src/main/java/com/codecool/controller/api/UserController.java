@@ -1,84 +1,95 @@
 package com.codecool.controller.api;
-
 import com.codecool.converter.AppUserConverter;
 import com.codecool.model.AppUser;
 import com.codecool.modelDTO.UserAddressDTO;
 import com.codecool.modelDTO.AppUserDTO;
+import com.codecool.modelDTO.UserNameDTO;
 import com.codecool.service.UserService;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+import static org.springframework.http.HttpStatus.*;
 
 
 @Controller
 @CrossOrigin
 @RestController
+@RequestMapping("/users")
 public class UserController {
 
     private UserService userService;
-    private AppUserConverter appUserConverter;
 
-    public UserController(UserService userService, AppUserConverter appUserConverter) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.appUserConverter = appUserConverter;
     }
 
-    @GetMapping("/admins/all")
+    @GetMapping(value = "/admins", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
+    @ResponseStatus(OK)
     public List<AppUserDTO> getAllAdmins() {
-
-        return appUserConverter.entitiesToDTO(userService.getAllAdmins());
+        return AppUserConverter.entitiesToDTO(userService.getAllAdmins());
     }
 
-    @GetMapping("/renters/all")
+    @GetMapping(value = "/renters", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
+    @ResponseStatus(OK)
     public List<AppUserDTO> getAllRenters() {
-        return appUserConverter.entitiesToDTO(userService.getAllRenters());
+        return AppUserConverter.entitiesToDTO(userService.getAllRenters());
     }
 
-    @GetMapping("/renters/{id}")
+    @GetMapping(value = "/renters/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
+    @ResponseStatus(OK)
     public AppUserDTO findUserById(@PathVariable("id") Long id) {
-        return appUserConverter.entityToDTO(userService.getUserById(id));
-    }
-
-    @GetMapping("/renters/find-by/item/{id}")
-    @ResponseBody
-    public UserAddressDTO findUserAddressByItemId(@PathVariable("id") Long id) {
-        return  userService.getUserAddressByItemId(id);
+        return AppUserConverter.entityToDTO(userService.getUserById(id));
     }
 
 
-    @GetMapping("/admins/{id}")
+    @GetMapping(value = "/admins/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
+    @ResponseStatus(OK)
     public AppUserDTO findAdminById(@PathVariable("id") Long id) {
-        return appUserConverter.entityToDTO(userService.getUserById(id));
+        return AppUserConverter.entityToDTO(userService.getUserById(id));
     }
+
+
+    @GetMapping(value = "/address/item/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @ResponseStatus(OK)
+    public UserAddressDTO findUserAddressByItemId(@PathVariable("id") Long id) {
+        return userService.getUserAddressByItemId(id);
+    }
+
+
+    @GetMapping(value = "/users/find-by/item/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @ResponseStatus(OK)
+    public UserNameDTO findUserNameByItemId(@PathVariable("id") Long id) {
+        return userService.getUserNameByItemId(id);
+    }
+
 
     @PostMapping()
     @ResponseBody
-    public void addUser(@RequestBody AppUser appUser) {
-        userService.addUser(appUser);
+    @ResponseStatus(CREATED)
+    public void addUser(@RequestBody AppUserDTO appUserDTO) {
+        userService.addUser(AppUserConverter.DTOtoEntity(appUserDTO));
     }
+
 
     @PutMapping
     @ResponseBody
+    @ResponseStatus(OK)
     public void updateUser(@RequestBody AppUser appUser) {
         userService.updateUser(appUser);
     }
 
-//   Just for test
-    @PutMapping("/test")
-    @ResponseBody
-    public void justTest(@RequestBody String s){
-        System.out.println(s);
-    }
 
-
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ResponseBody
-    public void deleteAppUser(long id) {
+    @ResponseStatus(NO_CONTENT)
+    public void deleteAppUser(@PathVariable("id") long id) {
         userService.deleteUser(id);
     }
 

@@ -2,11 +2,14 @@ package com.codecool.controller.api;
 import com.codecool.converter.ItemConverter;
 import com.codecool.model.Item;
 import com.codecool.modelDTO.ItemDTO;
+import com.codecool.modelDTO.ItemForListDTO;
 import com.codecool.service.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import static org.springframework.http.HttpStatus.*;
 
 @Controller
 @RestController
@@ -17,84 +20,66 @@ public class ItemController {
     private ItemService itemService;
     private ItemConverter itemConverter;
 
-    public ItemController(ItemService itemService, ItemConverter itemConverter){
+    public ItemController(ItemService itemService, ItemConverter itemConverter) {
         this.itemConverter = itemConverter;
         this.itemService = itemService;
     }
 
-    @GetMapping("/all")
+    @GetMapping
     @ResponseBody
-    public List<ItemDTO> getAllItems(){
+    @ResponseStatus(OK)
+    public List<ItemDTO> getAllItems() {
         return itemConverter.entitiesToDTO(itemService.getAllItems());
-    }
-
-    @GetMapping("/list/{searchPhrase}")
-    @ResponseBody
-    public List<ItemDTO> findItemsByNameContaining(@PathVariable("searchPhrase") String searchPhrase){
-        return itemConverter.entitiesToDTO(itemService.findItemsByNameContaining(searchPhrase.toUpperCase()));
-    }
-
-    @GetMapping("/list/byCategory/{searchPhrase}")
-    @ResponseBody
-    public List<ItemDTO> findItemsByCategory(@PathVariable("searchPhrase") String searchPhrase){
-        return itemConverter.entitiesToDTO(itemService.findItemsByCategory(searchPhrase.toUpperCase()));
     }
 
     @GetMapping("/{id}")
     @ResponseBody
-    public ItemDTO findById(@PathVariable("id") Long id){
-        return  itemConverter.entityToDTO(itemService.findById(id));
+    @ResponseStatus(OK)
+    public ItemDTO findById(@PathVariable("id") Long id) {
+        return itemConverter.entityToDTO(itemService.findById(id));
     }
 
+    @GetMapping("/list/{searchPhrase}")
+    @ResponseBody
+    @ResponseStatus(OK)
+    public List<ItemForListDTO> findItemsByNameContaining(@PathVariable("searchPhrase") String searchPhrase) {
+        return itemConverter.itemsToItemsForListDTO(itemService.findItemsByNameContaining(searchPhrase.toUpperCase()));
+    }
+
+    @GetMapping("/categories/{searchPhrase}")
+    @ResponseBody
+    @ResponseStatus(OK)
+    public List<ItemForListDTO> findItemsByCategory(@PathVariable("searchPhrase") String searchPhrase) {
+        return itemConverter.itemsToItemsForListDTO(itemService.findItemsByCategory(searchPhrase.toUpperCase()));
+    }
+
+    @GetMapping("/users/{userId}")
+    @ResponseBody
+    @ResponseStatus(OK)
+    public List<ItemForListDTO> findItemsByUser(@PathVariable("userId") Long userId) {
+        return itemConverter.itemsToItemsForListDTO(itemService.findItemsByUser(userId));
+    }
+
+    //, dodac DTO zamiast Item
     @PostMapping()
     @ResponseBody
-    public void addItem(@RequestBody Item item){
-
-        itemService.addItem(item);
+    @ResponseStatus(CREATED)
+    public void addItem(@RequestBody ItemDTO item) {
+        itemService.addItem(itemConverter.DTOtoEntity(item));
     }
 
     @PutMapping()
     @ResponseBody
-    public void updateItem(@RequestBody Item item){
-
-        itemService.updateItem(item);
+    @ResponseStatus(OK)
+    public void updateItem(@RequestBody ItemDTO item) {
+        itemService.updateItem(itemConverter.DTOtoEntity(item));
     }
 
-    @DeleteMapping()
+    @DeleteMapping("/{id}")
     @ResponseBody
-    public void deleteItem(@RequestParam Long id){
+    @ResponseStatus(NO_CONTENT)
+    public void deleteItem(@PathVariable("id") Long id) {
         itemService.deleteItemById(id);
-    }
-
-
-    public static Double calculate(final double numberOne, final String operation, final double numberTwo)
-    {
-
-        if(operation == "+"){
-            return numberOne + numberTwo;
-        }
-
-        else if(operation == "-"){
-            return  numberOne - numberTwo;
-        }
-
-        else if(operation == "*"){
-            return  numberOne * numberTwo;
-        }
-
-        else if(operation == "/"){
-            if(numberTwo == 0){
-                return null;
-            }
-            return numberOne/numberTwo;
-        }
-        else
-            return null;
-    }
-
-
-    public static void main(String[] args) {
-        System.out.println(calculate(-3, "*", 0));
     }
 
 }

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -30,6 +31,10 @@ public class AppUser {
     private Boolean isAdmin;
     @Column(name= "post_code")
     private String postCode;
+    @Column(name= "lat")
+    private Double lat;
+    @Column(name= "lng")
+    private Double lng;
 
     public boolean isAdmin() {
         return isAdmin;
@@ -42,9 +47,9 @@ public class AppUser {
     public AppUser() {
     }
 
-    public AppUser(String firstName, String lastName, String email, String password, String address,
-                   String city, boolean isAdmin) {
-
+    public AppUser(Long id, String firstName, String lastName, String email, String password, String address,
+                   String city, boolean isAdmin, double lat, double lng) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -52,9 +57,12 @@ public class AppUser {
         this.address = address;
         this.city = city;
         this.isAdmin = isAdmin;
+        this.lat = lat;
+        this.lng = lng;
     }
 
     public static final class Builder {
+        private Long id;
         private String firstName;
         private String lastName;
         private String email;
@@ -62,6 +70,13 @@ public class AppUser {
         private String address;
         private String city;
         private Boolean isAdmin;
+        private Double lat;
+        private Double lng;
+
+        public Builder id(Long id) {
+            this.id = id;
+            return this;
+        }
 
         public Builder firstName(String firstName) {
             this.firstName = firstName;
@@ -98,8 +113,19 @@ public class AppUser {
             return this;
         }
 
+        public Builder lat(Double lat) {
+            this.lat = lat;
+            return this;
+        }
+
+        public Builder lng(Double lng) {
+            this.lng = lng;
+            return this;
+        }
+
         public AppUser build() {
             AppUser appUser = new AppUser();
+            appUser.id = this.id;
             appUser.firstName = this.firstName;
             appUser.lastName = this.lastName;
             appUser.email = this.email;
@@ -107,6 +133,8 @@ public class AppUser {
             appUser.address = this.address;
             appUser.city = this.city;
             appUser.isAdmin = this.isAdmin;
+            appUser.lat = this.lat;
+            appUser.lng = this.lng;
             return appUser;
         }
     }

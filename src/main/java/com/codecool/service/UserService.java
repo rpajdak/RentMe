@@ -3,6 +3,8 @@ package com.codecool.service;
 import com.codecool.dao.UserRepository;
 import com.codecool.model.AppUser;
 import com.codecool.modelDTO.UserAddressDTO;
+import com.codecool.modelDTO.UserNameDTO;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,6 +32,15 @@ public class UserService {
         return userAddressDTO;
     }
 
+    public UserNameDTO getUserNameByItemId(long id){
+        String userName =  userRepository.findAppUserNmeByItemId(id);
+        String[] splitName = userName.split(",");
+        UserNameDTO userNameDTO = new UserNameDTO();
+        userNameDTO.setFirstName(splitName[0]);
+        userNameDTO.setLastName(splitName[1]);
+        return userNameDTO;
+    }
+
     public List<AppUser> getAllAppUsers() {
         return userRepository.findAll();
     }
@@ -38,8 +49,7 @@ public class UserService {
         userRepository.save(appUser);
     }
 
-    public void updateUser(AppUser updatedUser) {
-        userRepository.save(updatedUser);
+    public void updateUser(AppUser updatedUser) {userRepository.save(updatedUser);
     }
 
     public void deleteUser(long id) {
