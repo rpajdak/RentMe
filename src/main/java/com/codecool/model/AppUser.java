@@ -138,6 +138,7 @@ public class AppUser {
             appUser.email = this.email;
             appUser.password = this.password;
             appUser.address = this.address;
+            appUser.postCode = this.postCode;
             appUser.city = this.city;
             appUser.isAdmin = this.isAdmin;
             appUser.lat = this.lat;
