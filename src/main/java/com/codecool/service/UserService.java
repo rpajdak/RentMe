@@ -49,7 +49,16 @@ public class UserService {
         userRepository.save(appUser);
     }
 
-    public void updateUser(AppUser updatedUser) {userRepository.save(updatedUser);
+    public void updateUser(AppUser updatedUser) {
+        AppUser existingUser = getUserById(updatedUser.getId());
+        existingUser.setFirstName(updatedUser.getFirstName());
+        existingUser.setLastName(updatedUser.getLastName());
+        existingUser.setEmail(updatedUser.getEmail());
+        existingUser.setAddress(updatedUser.getAddress());
+        existingUser.setPostCode(updatedUser.getPostCode());
+        existingUser.setCity(updatedUser.getCity());
+        existingUser.setPassword(updatedUser.getPassword());
+        userRepository.save(existingUser);
     }
 
     public void deleteUser(long id) {

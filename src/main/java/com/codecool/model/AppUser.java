@@ -48,13 +48,14 @@ public class AppUser {
     }
 
     public AppUser(Long id, String firstName, String lastName, String email, String password, String address,
-                   String city, boolean isAdmin, double lat, double lng) {
+                   String postCode, String city, boolean isAdmin, double lat, double lng) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.address = address;
+        this.postCode = postCode;
         this.city = city;
         this.isAdmin = isAdmin;
         this.lat = lat;
@@ -68,6 +69,7 @@ public class AppUser {
         private String email;
         private String password;
         private String address;
+        private String postCode;
         private String city;
         private Boolean isAdmin;
         private Double lat;
@@ -100,6 +102,11 @@ public class AppUser {
 
         public Builder address(String address) {
             this.address = address;
+            return this;
+        }
+
+        public Builder postCode(String postCode) {
+            this.postCode = postCode;
             return this;
         }
 
