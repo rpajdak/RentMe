@@ -2,6 +2,7 @@ package com.codecool.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -21,14 +22,23 @@ import javax.sql.DataSource;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final DataSource dataSource;
+    private final String secret;
     private final ObjectMapper objectMapper;
     private final AuthenticationSuccessHandler authenticationSuccessHandler;
+    private final AuthenticationFailureHandler authenticationFailureHandler;
 
 
-    public SecurityConfig(DataSource dataSource, ObjectMapper objectMapper, AuthenticationSuccessHandler authenticationSuccessHandler) {
+    public SecurityConfig(DataSource dataSource,
+                          ObjectMapper objectMapper,
+                          AuthenticationSuccessHandler authenticationSuccessHandler,
+                          AuthenticationFailureHandler authenticationFailureHandler,
+                          @Value("${jwt.secret}") String secret) {
+
+        this.secret = secret;
         this.dataSource = dataSource;
         this.objectMapper = objectMapper;
         this.authenticationSuccessHandler = authenticationSuccessHandler;
+        this.authenticationFailureHandler = authenticationFailureHandler;
     }
 
     @Bean
@@ -43,9 +53,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .passwordEncoder(passwordEncoder())
-                .usersByUsernameQuery("select email, password "
-                        + "from users "
-                        + "where email = ?");
+                .usersByUsernameQuery("select email, password,enabled from users where email = ?")
+                .authoritiesByUsernameQuery("select email,role from users where email = ? ");
 
     }
 
@@ -65,7 +74,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .addFilter(authenticationFilter())
-//                .addFilter(new JwtAuthorizationFilter(authenticationManager(), super.userDetailsService(), secret, new JwtController()))
+                .addFilter(new JwtAuthorizationFilter(authenticationManager(), super.userDetailsService(), secret, new JwtController()))
                 .exceptionHandling()
                 .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED));
     }
@@ -74,7 +83,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public JsonObjectAuthenticationFilter authenticationFilter() throws Exception {
         JsonObjectAuthenticationFilter filter = new JsonObjectAuthenticationFilter(objectMapper);
         filter.setAuthenticationSuccessHandler(authenticationSuccessHandler);
-//        filter.setAuthenticationFailureHandler(authenticationFailureHandler);
+        filter.setAuthenticationFailureHandler(authenticationFailureHandler);
         filter.setAuthenticationManager(super.authenticationManager());
         return filter;
     }

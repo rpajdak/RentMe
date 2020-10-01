@@ -35,6 +35,10 @@ public class AppUser {
     private Double lat;
     @Column(name= "lng")
     private Double lng;
+    @Column(name= "enabled")
+    private int enabled;
+    @Column(name= "ROLE")
+    private int role;
 
     public boolean isAdmin() {
         return isAdmin;

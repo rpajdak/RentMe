@@ -37,8 +37,8 @@ public class AuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccess
 
         Cookie cookie = new Cookie("token", token);
         cookie.setHttpOnly(true);
-        setHeader(request, response, token);
         response.addCookie(cookie);
+        setHeader(request, response, token);
     }
 
     private String createToken(UserDetails principal) {
@@ -54,7 +54,7 @@ public class AuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccess
 
     private void setHeader(HttpServletRequest request, HttpServletResponse response, String token){
         response.addHeader("Authorization", "Bearer " + token);
-//        response.addHeader("Access-Control-Allow-Origin", "*");
+   //     response.addHeader("Access-Control-Allow-Origin", "*");
 
         response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
         response.setHeader("Access-Control-Allow-Credentials", "true");
