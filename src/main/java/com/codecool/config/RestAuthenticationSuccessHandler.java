@@ -45,7 +45,7 @@ public class RestAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuc
     private void setHeader(HttpServletRequest request, HttpServletResponse response, String token) {
         response.addHeader("Authorization", "Bearer " + token);
         response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-        response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("Access-Control-Allow-Credentials", "true");;
         response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
         response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Headers", "Content-Type, Accept, X-Requested-With, remember-me");
