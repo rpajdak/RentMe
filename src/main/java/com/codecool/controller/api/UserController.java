@@ -13,7 +13,7 @@ import static org.springframework.http.HttpStatus.*;
 
 
 @Controller
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/users")
 public class UserController {

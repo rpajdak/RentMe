@@ -1,7 +1,8 @@
 package com.codecool.config;
 
+import com.codecool.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
@@ -12,23 +13,36 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.cors.CorsConfiguration;
 
 import javax.sql.DataSource;
 
+@EnableWebSecurity
 @Configuration
-@EnableWebSecurity(debug = true)
+@CrossOrigin
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final DataSource dataSource;
     private final ObjectMapper objectMapper;
-    private final AuthenticationSuccessHandler authenticationSuccessHandler;
+    private final RestAuthenticationFailureHandler successHandler;
+    private final RestAuthenticationSuccessHandler failureHandler;
+    private final String secret;
+    private final UserService userService;
+    private final JwtController jwtController;
 
-
-    public SecurityConfig(DataSource dataSource, ObjectMapper objectMapper, AuthenticationSuccessHandler authenticationSuccessHandler) {
+    public SecurityConfig(DataSource dataSource, ObjectMapper objectMapper, RestAuthenticationFailureHandler succesHandler,
+                          RestAuthenticationSuccessHandler failureHandler, @Value("${jwt.secret}") String secret, UserService userService, JwtController jwtController) {
         this.dataSource = dataSource;
         this.objectMapper = objectMapper;
-        this.authenticationSuccessHandler = authenticationSuccessHandler;
+        this.successHandler = succesHandler;
+        this.failureHandler = failureHandler;
+        this.secret = secret;
+        this.userService = userService;
+        this.jwtController = jwtController;
     }
 
     @Bean
@@ -37,46 +51,42 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return encoder;
     }
 
-
     @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .passwordEncoder(passwordEncoder())
-                .usersByUsernameQuery("select email, password "
-                        + "from users "
-                        + "where email = ?");
-
+                .usersByUsernameQuery("select email,password,enabled from users where email = ?")
+                .authoritiesByUsernameQuery("select email, role from users where email = ?");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.authorizeRequests()
-                .antMatchers("/").permitAll()
+        http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues());
+        http
+                .authorizeRequests()
                 .antMatchers("/login").permitAll()
-                .antMatchers("/register").permitAll()
-                .antMatchers("/logoutUser").permitAll()
-                .antMatchers("/api/items").permitAll()
-//                .antMatchers("/api/**").hasRole("USER")
-//                .antMatchers("/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .addFilter(authenticationFilter())
-//                .addFilter(new JwtAuthorizationFilter(authenticationManager(), super.userDetailsService(), secret, new JwtController()))
+                .addFilter(new JwtAuthorizationFilter(authenticationManager(), userService, secret, jwtController))
                 .exceptionHandling()
                 .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED));
     }
 
-    @Bean
     public JsonObjectAuthenticationFilter authenticationFilter() throws Exception {
-        JsonObjectAuthenticationFilter filter = new JsonObjectAuthenticationFilter(objectMapper);
-        filter.setAuthenticationSuccessHandler(authenticationSuccessHandler);
-//        filter.setAuthenticationFailureHandler(authenticationFailureHandler);
-        filter.setAuthenticationManager(super.authenticationManager());
-        return filter;
+        JsonObjectAuthenticationFilter authenticationFilter = new JsonObjectAuthenticationFilter(objectMapper);
+        authenticationFilter.setAuthenticationFailureHandler(successHandler);
+        authenticationFilter.setAuthenticationSuccessHandler(failureHandler);
+        authenticationFilter.setAuthenticationManager(super.authenticationManager());
+        return authenticationFilter;
     }
 
+    @Bean
+    public UserDetailsManager userDetailsManager() {
+        return new JdbcUserDetailsManager(dataSource);
+    }
 }

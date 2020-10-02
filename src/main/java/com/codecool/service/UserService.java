@@ -5,6 +5,7 @@ import com.codecool.model.AppUser;
 import com.codecool.modelDTO.UserAddressDTO;
 import com.codecool.modelDTO.UserNameDTO;
 import org.apache.catalina.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -68,5 +69,9 @@ public class UserService {
         return getAllAppUsers().stream()
                 .filter(user -> !user.getIsAdmin())
                 .collect(Collectors.toList());
+    }
+
+    public UserDetails loadUserByUsername(String userName) {
+        return userRepository.loadUserByUsername(userName);
     }
 }
