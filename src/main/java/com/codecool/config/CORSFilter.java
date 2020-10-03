@@ -1,4 +1,4 @@
-package com.codecool.login;
+package com.codecool.config;
 
 import java.io.IOException;
 import javax.servlet.Filter;

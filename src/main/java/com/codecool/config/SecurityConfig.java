@@ -70,6 +70,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
+                .cors()
+                .and()
                 .addFilter(authenticationFilter())
                 .addFilter(new JwtAuthorizationFilter(authenticationManager(), userService, secret, jwtController))
                 .exceptionHandling()
