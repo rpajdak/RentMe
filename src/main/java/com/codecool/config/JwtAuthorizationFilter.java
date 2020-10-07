@@ -57,7 +57,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
         if(token == null){
             token = getTokenFromCookie(request, response, filterChain);
-            System.out.println(token);
+            System.out.println("JwtAuthorization");
             logger.info(token);
         }
         if (token != null) {

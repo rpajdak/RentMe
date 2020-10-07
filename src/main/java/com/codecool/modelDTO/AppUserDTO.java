@@ -1,10 +1,11 @@
 package com.codecool.modelDTO;
 
+
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
 @Getter
+@Setter
 public class AppUserDTO {
     private Long id;
     private String firstName;
@@ -15,6 +16,10 @@ public class AppUserDTO {
     private String postCode;
     private Double lat;
     private Double lng;
+    private String role;
+    private String password;
+    private Boolean isAdmin = false;
+
 
     public static final class Builder {
         private Long id;
@@ -23,16 +28,25 @@ public class AppUserDTO {
         private String email;
         private String address;
         private String city;
+        private String postCode;
         private Boolean isAdmin;
         private Double lat;
         private Double lng;
+        private String role;
+        private String password;
+
 
         public Builder id(Long id) {
             this.id = id;
             return this;
         }
 
-        public Builder id(String firstName) {
+        public Builder isAdmin(Boolean isAdmin) {
+            this.isAdmin = isAdmin;
+            return this;
+        }
+
+        public Builder firstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
@@ -57,10 +71,11 @@ public class AppUserDTO {
             return this;
         }
 
-        public Builder isAdmin(boolean isAdmin) {
-            this.isAdmin = isAdmin;
+        public Builder postcode(String postcode) {
+            this.postCode = postcode;
             return this;
         }
+
 
         public Builder lat(Double lat) {
             this.lat = lat;
@@ -72,15 +87,31 @@ public class AppUserDTO {
             return this;
         }
 
+        public Builder role(String role) {
+            this.role = role;
+            return this;
+        }
+
+        public Builder password(String password) {
+            this.password = password;
+            return this;
+        }
+
+
         public AppUserDTO build() {
             AppUserDTO appUserDTO = new AppUserDTO();
             appUserDTO.id = this.id;
             appUserDTO.firstName = this.firstName;
             appUserDTO.lastName = this.lastName;
+            appUserDTO.email = this.email;
             appUserDTO.address = this.address;
             appUserDTO.city = this.city;
+            appUserDTO.postCode = this.postCode;
             appUserDTO.lat = this.lat;
             appUserDTO.lng = this.lng;
+            appUserDTO.role = this.role;
+            appUserDTO.password = this.password;
+            appUserDTO.isAdmin = this.isAdmin;
             return appUserDTO;
         }
     }

@@ -74,8 +74,10 @@ public class UserController {
     @ResponseBody
     @ResponseStatus(CREATED)
     public void addUser(@RequestBody AppUserDTO appUserDTO) {
-        userService.addUser(AppUserConverter.DTOtoEntity(appUserDTO));
-    }
+        AppUser user = AppUserConverter.DTOtoEntity(appUserDTO);
+        System.out.println(user);
+        userService.addUser(user);
+        }
 
 
     @PutMapping

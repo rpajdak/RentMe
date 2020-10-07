@@ -39,6 +39,10 @@ public class AppUserConverter {
         appUser.setCity(appUserDTO.getCity());
         appUser.setLat(appUserDTO.getLat());
         appUser.setLng(appUserDTO.getLng());
+        appUser.setEmail(appUserDTO.getEmail());
+        appUser.setPostCode(appUserDTO.getPostCode());
+        appUser.setRole(appUserDTO.getRole());
+        appUser.setPassword(appUserDTO.getPassword());
         return appUser;
     }
 
