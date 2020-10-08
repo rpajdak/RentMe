@@ -30,7 +30,6 @@ public class AppUserDTO {
         private String city;
         private String postCode;
         private Boolean isAdmin;
-        private String postCode;
         private Double lat;
         private Double lng;
         private String role;
