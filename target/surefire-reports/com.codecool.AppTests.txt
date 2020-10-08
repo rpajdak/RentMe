@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.codecool.AppTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.088 s <<< FAILURE! - in com.codecool.AppTests
-contextLoads  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.IllegalStateException: Failed to load ApplicationContext
-Caused by: org.springframework.beans.factory.support.BeanDefinitionOverrideException: Invalid bean definition with name 'appUserConverter' defined in class path resource [com/codecool/AppTestConfig.class]: Cannot register bean definition [Root bean: class [null]; scope=; abstract=false; lazyInit=null; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=appTestConfig; factoryMethodName=appUserConverter; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/codecool/AppTestConfig.class]] for bean 'appUserConverter': There is already [Generic bean: class [com.codecool.converter.AppUserConverter]; scope=singleton; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [/Users/michal/Desktop/Codecool/Advanced/RentMe/target/classes/com/codecool/converter/AppUserConverter 2.class]] bound.
-

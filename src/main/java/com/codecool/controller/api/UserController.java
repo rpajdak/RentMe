@@ -13,7 +13,7 @@ import static org.springframework.http.HttpStatus.*;
 
 
 @Controller
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -45,7 +45,6 @@ public class UserController {
         return AppUserConverter.entityToDTO(userService.getUserById(id));
     }
 
-
     @GetMapping(value = "/admins/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)
@@ -74,8 +73,10 @@ public class UserController {
     @ResponseBody
     @ResponseStatus(CREATED)
     public void addUser(@RequestBody AppUserDTO appUserDTO) {
-        userService.addUser(AppUserConverter.DTOtoEntity(appUserDTO));
-    }
+        AppUser user = AppUserConverter.DTOtoEntity(appUserDTO);
+        System.out.println(user);
+        userService.addUser(user);
+        }
 
 
     @PutMapping

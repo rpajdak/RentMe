@@ -19,7 +19,7 @@ public class AppUser {
     private String firstName;
     @Column(name= "last_name")
     private String lastName;
-    @Column(name= "email")
+    @Column(name= "email",unique = true)
     private String email;
     @Column(name= "password")
     private String password;
@@ -35,14 +35,10 @@ public class AppUser {
     private Double lat;
     @Column(name= "lng")
     private Double lng;
-
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
+    @Column(name= "enabled")
+    private int enabled;
+    @Column(name = "role")
+    private String role;
 
     public AppUser() {
     }
