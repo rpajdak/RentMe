@@ -30,6 +30,7 @@ public class AppUserDTO {
         private String city;
         private String postCode;
         private Boolean isAdmin;
+        private String postCode;
         private Double lat;
         private Double lng;
         private String role;
@@ -63,6 +64,11 @@ public class AppUserDTO {
 
         public Builder address(String address) {
             this.address = address;
+            return this;
+        }
+
+        public Builder postCode(String postCode) {
+            this.postCode = postCode;
             return this;
         }
 
@@ -105,6 +111,7 @@ public class AppUserDTO {
             appUserDTO.lastName = this.lastName;
             appUserDTO.email = this.email;
             appUserDTO.address = this.address;
+            appUserDTO.postCode = this.postCode;
             appUserDTO.city = this.city;
             appUserDTO.postCode = this.postCode;
             appUserDTO.lat = this.lat;
