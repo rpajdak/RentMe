@@ -6,7 +6,9 @@ import com.codecool.modelDTO.UserAddressDTO;
 import com.codecool.modelDTO.AppUserDTO;
 import com.codecool.modelDTO.UserNameDTO;
 import com.codecool.service.UserService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -75,12 +77,13 @@ public class UserController {
     @PostMapping()
     @ResponseBody
     @ResponseStatus(CREATED)
-    public void addUser(@RequestBody AppUserDTO appUserDTO) {
+    public ResponseEntity<Object> attemptToAddUser(@RequestBody AppUserDTO appUserDTO) {
 
         if (userService.checkIfEmailAlreadyExist(appUserDTO)) {
-            throw new NullPointerException();
+            return ResponseEntity.status(CONFLICT).body("Email is already in use");
         } else {
             userService.addUser(AppUserConverter.DTOtoEntity(appUserDTO));
+            return ResponseEntity.status(OK).body("Account has been created.");
         }
     }
 
