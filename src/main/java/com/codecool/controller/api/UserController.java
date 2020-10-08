@@ -45,7 +45,6 @@ public class UserController {
         return AppUserConverter.entityToDTO(userService.getUserById(id));
     }
 
-
     @GetMapping(value = "/admins/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)

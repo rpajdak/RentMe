@@ -18,7 +18,7 @@ public class AppUserDTO {
     private Double lng;
     private String role;
     private String password;
-    private Boolean isAdmin = false;
+    private Boolean isAdmin;
 
 
     public static final class Builder {

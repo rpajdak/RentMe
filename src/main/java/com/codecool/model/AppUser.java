@@ -40,14 +40,6 @@ public class AppUser {
     @Column(name = "role")
     private String role;
 
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
-
     public AppUser() {
     }
 

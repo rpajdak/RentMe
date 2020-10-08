@@ -18,6 +18,7 @@ public class AppUserConverter {
         appUserDTO.setAddress(appUser.getAddress());
         appUserDTO.setEmail(appUser.getEmail());
         appUserDTO.setCity(appUser.getCity());
+        appUserDTO.setIsAdmin(appUser.getIsAdmin());
         appUserDTO.setLat(appUser.getLat());
         appUserDTO.setLng(appUser.getLng());
         return appUserDTO;
@@ -43,6 +44,7 @@ public class AppUserConverter {
         appUser.setPostCode(appUserDTO.getPostCode());
         appUser.setRole(appUserDTO.getRole());
         appUser.setPassword(appUserDTO.getPassword());
+        appUser.setIsAdmin(appUserDTO.getIsAdmin());
         return appUser;
     }
 
