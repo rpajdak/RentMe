@@ -52,8 +52,6 @@ public class UserService {
     }
 
     public void updateUser(AppUser updatedUser) {
-        userRepository.save(updatedUser);
-    public void updateUser(AppUser updatedUser) {
         AppUser existingUser = getUserById(updatedUser.getId());
         existingUser.setFirstName(updatedUser.getFirstName());
         existingUser.setLastName(updatedUser.getLastName());
