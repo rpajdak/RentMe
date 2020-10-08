@@ -74,7 +74,6 @@ public class UserController {
     @ResponseStatus(CREATED)
     public void addUser(@RequestBody AppUserDTO appUserDTO) {
         AppUser user = AppUserConverter.DTOtoEntity(appUserDTO);
-        System.out.println(user);
         userService.addUser(user);
         }
 
