@@ -2,6 +2,7 @@ package com.codecool.service;
 
 import com.codecool.dao.UserRepository;
 import com.codecool.model.AppUser;
+import com.codecool.modelDTO.AppUserDTO;
 import com.codecool.modelDTO.UserAddressDTO;
 import com.codecool.modelDTO.UserNameDTO;
 import org.apache.catalina.User;
@@ -23,7 +24,7 @@ public class UserService {
         return userRepository.getAppUsersById(id);
     }
 
-    public UserAddressDTO getUserAddressByItemId(long id){
+    public UserAddressDTO getUserAddressByItemId(long id) {
         String userAddress = userRepository.findAppUserAddressByItemId(id)[0];
         String[] splitString = userAddress.split(",");
         UserAddressDTO userAddressDTO = new UserAddressDTO();
@@ -33,8 +34,8 @@ public class UserService {
         return userAddressDTO;
     }
 
-    public UserNameDTO getUserNameByItemId(long id){
-        String userName =  userRepository.findAppUserNmeByItemId(id);
+    public UserNameDTO getUserNameByItemId(long id) {
+        String userName = userRepository.findAppUserNmeByItemId(id);
         String[] splitName = userName.split(",");
         UserNameDTO userNameDTO = new UserNameDTO();
         userNameDTO.setFirstName(splitName[0]);
@@ -51,6 +52,8 @@ public class UserService {
     }
 
     public void updateUser(AppUser updatedUser) {
+        userRepository.save(updatedUser);
+    public void updateUser(AppUser updatedUser) {
         AppUser existingUser = getUserById(updatedUser.getId());
         existingUser.setFirstName(updatedUser.getFirstName());
         existingUser.setLastName(updatedUser.getLastName());
@@ -66,7 +69,9 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-
+    public Boolean checkIfEmailAlreadyExist(AppUserDTO appUserDTO) {
+        return userRepository.checkIfEmailAlreadyExist(appUserDTO.getEmail()) != null;
+    }
 
     public List<AppUser> getAllAdmins() {
         return getAllAppUsers().stream()

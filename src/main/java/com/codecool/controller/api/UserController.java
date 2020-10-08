@@ -1,4 +1,5 @@
 package com.codecool.controller.api;
+
 import com.codecool.converter.AppUserConverter;
 import com.codecool.model.AppUser;
 import com.codecool.modelDTO.UserAddressDTO;
@@ -8,7 +9,9 @@ import com.codecool.service.UserService;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+
 import static org.springframework.http.HttpStatus.*;
 
 
@@ -73,9 +76,13 @@ public class UserController {
     @ResponseBody
     @ResponseStatus(CREATED)
     public void addUser(@RequestBody AppUserDTO appUserDTO) {
-        AppUser user = AppUserConverter.DTOtoEntity(appUserDTO);
-        userService.addUser(user);
+
+        if (userService.checkIfEmailAlreadyExist(appUserDTO)) {
+            throw new NullPointerException();
+        } else {
+            userService.addUser(AppUserConverter.DTOtoEntity(appUserDTO));
         }
+    }
 
 
     @PutMapping

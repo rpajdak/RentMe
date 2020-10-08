@@ -21,5 +21,9 @@ public interface UserRepository extends JpaRepository<AppUser, Long> {
 
     @Query("SELECT u.email,u.password,u.enabled from AppUser u where u.email = :userName")
     UserDetails loadUserByUsername(String userName);
+
+    @Query("SELECT u.lastName from AppUser u where u.email = :userEmail")
+    UserDetails checkIfEmailAlreadyExist(String userEmail);
+
 }
 
