@@ -1,4 +1,5 @@
 package com.codecool.controller.api;
+
 import com.codecool.converter.AppUserConverter;
 import com.codecool.model.AppUser;
 import com.codecool.modelDTO.UserAddressDTO;
@@ -8,7 +9,9 @@ import com.codecool.service.UserService;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+
 import static org.springframework.http.HttpStatus.*;
 
 
@@ -45,6 +48,14 @@ public class UserController {
         return AppUserConverter.entityToDTO(userService.getUserById(id));
     }
 
+    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+    @GetMapping(value = "/renters", params = "email", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @ResponseStatus(OK)
+    public AppUserDTO findUserByEmail(@RequestParam(value="email") String email) {
+        return AppUserConverter.entityToDTO(userService.getUserByEmail(email));
+    }
+
     @GetMapping(value = "/admins/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)
@@ -76,7 +87,7 @@ public class UserController {
         AppUser user = AppUserConverter.DTOtoEntity(appUserDTO);
         System.out.println(user);
         userService.addUser(user);
-        }
+    }
 
 
     @PutMapping
