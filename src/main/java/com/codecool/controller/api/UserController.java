@@ -93,7 +93,7 @@ public class UserController {
             userService.addUser(AppUserConverter.DTOtoEntity(appUserDTO));
             return ResponseEntity.status(OK).body("Account has been created.");
         }
-  
+    }
 
 
     @PutMapping
