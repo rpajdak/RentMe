@@ -101,6 +101,7 @@ class UserServiceTest {
         AppUser appUser1 = new AppUser.Builder()
                 .firstName("Joanna")
                 .isAdmin(true)
+                .email("jbrzuchacz@gmail.com")
                 .build();
 
         AppUser appUser2 = new AppUser.Builder()

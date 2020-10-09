@@ -68,7 +68,7 @@ public class UserService {
     }
 
     public Boolean checkIfEmailAlreadyExist(AppUserDTO appUserDTO) {
-        return userRepository.checkIfEmailAlreadyExist(appUserDTO.getEmail()) != null;
+        return userRepository.getAppUsersByEmail(appUserDTO.getEmail()) != null;
     }
 
     public List<AppUser> getAllAdmins() {

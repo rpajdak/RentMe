@@ -91,7 +91,7 @@ public class UserController {
             return ResponseEntity.status(CONFLICT).body("Email is already in use");
         } else {
             userService.addUser(AppUserConverter.DTOtoEntity(appUserDTO));
-            return ResponseEntity.status(OK).body("Account has been created.");
+            return ResponseEntity.status(CREATED).body("Account has been created.");
         }
     }
 
