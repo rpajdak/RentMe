@@ -32,6 +32,10 @@ public class JsonObjectAuthenticationFilter extends UsernamePasswordAuthenticati
                     authRequest.getEmail(), authRequest.getPassword()
             );
             setDetails(request, token);
+
+            response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+            response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+
             return this.getAuthenticationManager().authenticate(token);
         } catch (IOException e) {
             throw new IllegalArgumentException(e.getMessage());

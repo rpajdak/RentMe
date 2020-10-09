@@ -86,4 +86,8 @@ public class UserService {
     public UserDetails loadUserByUsername(String userName) {
         return userRepository.loadUserByUsername(userName);
     }
+
+    public AppUser getUserByEmail(String email) {
+        return userRepository.getAppUsersByEmail(email);
+    }
 }

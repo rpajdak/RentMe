@@ -50,6 +50,14 @@ public class UserController {
         return AppUserConverter.entityToDTO(userService.getUserById(id));
     }
 
+    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+    @GetMapping(value = "/renters", params = "email", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @ResponseStatus(OK)
+    public AppUserDTO findUserByEmail(@RequestParam(value="email") String email) {
+        return AppUserConverter.entityToDTO(userService.getUserByEmail(email));
+    }
+
     @GetMapping(value = "/admins/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)
@@ -85,7 +93,7 @@ public class UserController {
             userService.addUser(AppUserConverter.DTOtoEntity(appUserDTO));
             return ResponseEntity.status(OK).body("Account has been created.");
         }
-    }
+  
 
 
     @PutMapping
