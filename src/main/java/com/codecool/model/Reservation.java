@@ -3,9 +3,8 @@ package com.codecool.model;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
-
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -17,14 +16,16 @@ public class Reservation {
     @Id
     @Column(name= "id")
     private Long id;
-    @Column(name= "item_id")
-    private Long itemId;
-    @Column(name= "renter_id")
-    private Long appUserId;
-    @CreationTimestamp
-    private Date rentingStartDate;
-    @CreationTimestamp
-    private Date rentingEndDate;
+    @OneToOne (cascade=CascadeType.MERGE)
+    @JoinColumn(name= "item_id")
+    private Item item;
+    @OneToOne (cascade=CascadeType.MERGE)
+    @JoinColumn(name= "renter_id")
+    private AppUser owner;
+    @Column(name= "date_start")
+    private Date dateStart;
+    @Column(name= "date_end")
+    private Date dateEnd;
 
     public Reservation() {
     }

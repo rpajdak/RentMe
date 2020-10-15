@@ -20,8 +20,6 @@ public class ItemDTO {
     private AppUser owner;
 
 
-
-
     public static final class Builder {
         private Long id;
         private String name;
