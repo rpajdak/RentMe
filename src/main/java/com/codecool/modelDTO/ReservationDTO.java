@@ -5,7 +5,7 @@ import com.codecool.model.AppUser;
 import com.codecool.model.Item;
 import lombok.Getter;
 import lombok.Setter;
-import java.util.Date;
+import java.sql.Date;
 
 @Getter
 @Setter

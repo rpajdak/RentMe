@@ -3,7 +3,6 @@ package com.codecool.service;
 import com.codecool.dao.ReservationRepository;
 import com.codecool.model.Reservation;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service

@@ -35,6 +35,6 @@ insert into items (description, name, pic_url,  price, category_id, owner_id) va
 insert into items (description, name, pic_url,  price, category_id, owner_id) values('test', 'Race bike', '/images/racebike.jpg', 20,  6,  2);
 INSERT INTO items (description, name, pic_url,  price, category_id, owner_id)  VALUES ('This is very useful drill to your home! ', 'Drill - BOSH',  '/images/drill-battery.jpg', 20,  1, 1);
 
-insert into reservations (item_id, renter_id) values (1, 1);
-insert into reservations (item_id, renter_id) values (2, 2);
-insert into reservations (item_id, renter_id) values (3, 2);
+insert into reservations (item_id, renter_id, date_start, date_end) values (1, 1, '2020-10-16 00:00:00', '2020-10-18 00:00:00');
+insert into reservations (item_id, renter_id, date_start, date_end) values (2, 2, '2020-10-16 00:00:00', '2020-10-18 00:00:00');
+insert into reservations (item_id, renter_id, date_start, date_end) values (3, 2, '2020-10-16 00:00:00', '2020-10-18 00:00:00');
