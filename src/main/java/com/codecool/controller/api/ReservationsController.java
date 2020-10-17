@@ -30,15 +30,15 @@ public class ReservationsController {
 
     @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(OK)
-    public List<Reservation> getAllReservations(){
-        return reservationService.getAllReservations();
+    public List<ReservationDTO> getAllReservations(){
+        return ReservationConverter.entitiesToDTO(reservationService.getAllReservations());
     }
 
     @GetMapping(params = "ownerId", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)
-    public List<Reservation> getReservationsByOwner(@RequestParam(value="ownerId") Long ownerId){
-        return reservationService.getReservationsByOwnerId(ownerId);
+    public List<ReservationDTO> getReservationsByOwner(@RequestParam(value="ownerId") Long ownerId){
+        return ReservationConverter.entitiesToDTO(reservationService.getReservationsByOwnerId(ownerId));
     }
 
     @PostMapping()
