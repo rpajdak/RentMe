@@ -22,6 +22,7 @@ public class AppUserConverter {
         appUserDTO.setIsAdmin(appUser.getIsAdmin());
         appUserDTO.setLat(appUser.getLat());
         appUserDTO.setLng(appUser.getLng());
+        appUserDTO.setEnabled(appUser.getEnabled());
         return appUserDTO;
     }
 
@@ -48,6 +49,7 @@ public class AppUserConverter {
         appUser.setRole(appUserDTO.getRole());
         appUser.setPassword(appUserDTO.getPassword());
         appUser.setIsAdmin(appUserDTO.getIsAdmin());
+        appUser.setEnabled(appUserDTO.getEnabled());
         return appUser;
     }
 

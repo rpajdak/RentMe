@@ -19,6 +19,7 @@ public class AppUserDTO {
     private String role;
     private String password;
     private Boolean isAdmin;
+    private int enabled;
 
 
     public static final class Builder {
@@ -34,6 +35,7 @@ public class AppUserDTO {
         private Double lng;
         private String role;
         private String password;
+        private int enabled;
 
 
         public Builder id(Long id) {
@@ -102,6 +104,11 @@ public class AppUserDTO {
             return this;
         }
 
+        public Builder enabled(Integer enabled){
+            this.enabled = enabled;
+            return this;
+        }
+
 
         public AppUserDTO build() {
             AppUserDTO appUserDTO = new AppUserDTO();
@@ -118,6 +125,7 @@ public class AppUserDTO {
             appUserDTO.role = this.role;
             appUserDTO.password = this.password;
             appUserDTO.isAdmin = this.isAdmin;
+            appUserDTO.enabled = this.enabled;
             return appUserDTO;
         }
     }
