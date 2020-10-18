@@ -2,6 +2,7 @@ package com.codecool.controller.api;
 
 import com.codecool.converter.AppUserConverter;
 import com.codecool.model.AppUser;
+import com.codecool.modelDTO.ItemForListDTO;
 import com.codecool.modelDTO.UserAddressDTO;
 import com.codecool.modelDTO.AppUserDTO;
 import com.codecool.modelDTO.UserNameDTO;
@@ -66,19 +67,19 @@ public class UserController {
     }
 
 
-    @GetMapping(value = "/address/item/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/address", params = "byItemId", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)
-    public UserAddressDTO findUserAddressByItemId(@PathVariable("id") Long id) {
-        return userService.getUserAddressByItemId(id);
+    public UserAddressDTO findUserAddressByItemId(@RequestParam(value="byItemId") Long itemId) {
+        return userService.getUserAddressByItemId(itemId);
     }
 
 
-    @GetMapping(value = "/users/find-by/item/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(params = "byItemId", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)
-    public UserNameDTO findUserNameByItemId(@PathVariable("id") Long id) {
-        return userService.getUserNameByItemId(id);
+    public UserNameDTO findUserNameByItemId(@RequestParam(value="byItemId") Long itemId) {
+        return userService.getUserNameByItemId(itemId);
     }
 
 

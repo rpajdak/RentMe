@@ -4,6 +4,7 @@ import com.codecool.model.Item;
 import com.codecool.modelDTO.ItemDTO;
 import com.codecool.modelDTO.ItemForListDTO;
 import com.codecool.service.ItemService;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,40 +40,39 @@ public class ItemController {
         return itemConverter.entityToDTO(itemService.findById(id));
     }
 
-    @GetMapping("/list/{searchPhrase}")
+    @GetMapping(params = "nameContaining", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)
-    public List<ItemForListDTO> findItemsByNameContaining(@PathVariable("searchPhrase") String searchPhrase) {
-        return itemConverter.itemsToItemsForListDTO(itemService.findItemsByNameContaining(searchPhrase.toUpperCase()));
+    public List<ItemForListDTO> findItemsByNameContaining(@RequestParam(value="nameContaining") String nameContaining) {
+        return itemConverter.itemsToItemsForListDTO(itemService.findItemsByNameContaining(nameContaining.toUpperCase()));
     }
 
-    @GetMapping("/categories/{searchPhrase}")
+    @GetMapping(params = "byCategory", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)
-    public List<ItemForListDTO> findItemsByCategory(@PathVariable("searchPhrase") String searchPhrase) {
-        return itemConverter.itemsToItemsForListDTO(itemService.findItemsByCategory(searchPhrase.toUpperCase()));
+    public List<ItemForListDTO> findItemsByCategory(@RequestParam(value="byCategory") String byCategory) {
+        return itemConverter.itemsToItemsForListDTO(itemService.findItemsByCategory(byCategory.toUpperCase()));
     }
 
-    @GetMapping("/users/{userId}")
+    @GetMapping(params = "byOwnerId", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     @ResponseStatus(OK)
-    public List<ItemForListDTO> findItemsByUser(@PathVariable("userId") Long userId) {
-        return itemConverter.itemsToItemsForListDTO(itemService.findItemsByUser(userId));
+    public List<ItemForListDTO> findItemsByUser(@RequestParam(value="byOwnerId") Long ownerId) {
+        return itemConverter.itemsToItemsForListDTO(itemService.findItemsByUser(ownerId));
     }
 
-    //, dodac DTO zamiast Item
     @PostMapping()
     @ResponseBody
     @ResponseStatus(CREATED)
-    public void addItem(@RequestBody ItemDTO item) {
-        itemService.addItem(itemConverter.DTOtoEntity(item));
+    public void addItem(@RequestBody ItemDTO itemDTO) {
+        itemService.addItem(itemConverter.DTOtoEntity(itemDTO));
     }
 
     @PutMapping()
     @ResponseBody
     @ResponseStatus(OK)
-    public void updateItem(@RequestBody ItemDTO item) {
-        itemService.updateItem(itemConverter.DTOtoEntity(item));
+    public void updateItem(@RequestBody ItemDTO itemDTO) {
+        itemService.updateItem(itemConverter.DTOtoEntity(itemDTO));
     }
 
     @DeleteMapping("/{id}")
