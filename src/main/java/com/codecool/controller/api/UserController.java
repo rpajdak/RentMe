@@ -1,5 +1,6 @@
 package com.codecool.controller.api;
 
+import com.codecool.api.CallGeocodingApi;
 import com.codecool.converter.AppUserConverter;
 import com.codecool.model.AppUser;
 import com.codecool.modelDTO.ItemForListDTO;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.springframework.http.HttpStatus.*;
 
@@ -87,13 +89,18 @@ public class UserController {
     @ResponseBody
     @ResponseStatus(CREATED)
     public ResponseEntity<Object> attemptToAddUser(@RequestBody AppUserDTO appUserDTO) {
-
-        if (userService.checkIfEmailAlreadyExist(appUserDTO)) {
-            return ResponseEntity.status(CONFLICT).body("Email is already in use");
-        } else {
-            userService.addUser(AppUserConverter.DTOtoEntity(appUserDTO));
-            return ResponseEntity.status(CREATED).body("Account has been created.");
+        try {
+            Map<String, Double> coordinates = CallGeocodingApi.getCoordinates(
+                    appUserDTO.getAddress() + " " + appUserDTO.getCity()
+            );
+            appUserDTO.setLat(coordinates.get("lat"));
+            appUserDTO.setLng(coordinates.get("lng"));
         }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        userService.addUser(AppUserConverter.DTOtoEntity(appUserDTO));
+        return ResponseEntity.status(CREATED).body("Account has been created.");
     }
 
 
