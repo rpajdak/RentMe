@@ -1,6 +1,6 @@
 package com.codecool.converter;
 
-import com.codecool.model.Category;
+import com.codecool.category.domain.Category;
 import com.codecool.modelDTO.CategoryDTO;
 import org.springframework.stereotype.Component;
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.codecool.converter;
 
-import com.codecool.model.Reservation;
-import com.codecool.modelDTO.ReservationDTO;
+import com.codecool.reservation.domain.Reservation;
+import com.codecool.reservation.dto.ReservationDTO;
 import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.Collectors;

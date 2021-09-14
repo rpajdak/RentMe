@@ -1,8 +1,7 @@
 package com.codecool.modelDTO;
 
-import com.codecool.App;
-import com.codecool.model.AppUser;
-import com.codecool.model.Category;
+import com.codecool.user.domain.AppUser;
+import com.codecool.category.domain.Category;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;

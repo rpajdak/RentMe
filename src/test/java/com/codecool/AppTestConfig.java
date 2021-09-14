@@ -1,20 +1,15 @@
 package com.codecool;
 
-import com.codecool.controller.api.CategoriesController;
-import com.codecool.controller.api.ItemController;
-import com.codecool.controller.api.UserController;
+import com.codecool.category.CategoriesController;
+import com.codecool.item.ItemController;
+import com.codecool.user.UserController;
 import com.codecool.converter.AppUserConverter;
 import com.codecool.converter.ItemConverter;
-import com.codecool.dao.UserRepository;
-import com.codecool.model.Category;
-import com.codecool.model.Item;
-import com.codecool.service.CategoryService;
-import com.codecool.service.ItemService;
-import com.codecool.service.UserService;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import com.codecool.category.domain.Category;
+import com.codecool.category.CategoryService;
+import com.codecool.item.ItemService;
+import com.codecool.user.UserService;
 import org.mockito.Mockito;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;

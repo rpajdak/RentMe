@@ -1,8 +1,6 @@
 package com.codecool.converter;
 
-import com.codecool.model.AppUser;
-import com.codecool.model.Item;
-import com.codecool.modelDTO.AppUserDTO;
+import com.codecool.item.domain.Item;
 import com.codecool.modelDTO.ItemDTO;
 import com.codecool.modelDTO.ItemForListDTO;
 import org.springframework.stereotype.Component;

@@ -1,12 +1,9 @@
 package com.codecool;
 
 
-import com.codecool.model.AppUser;
-import com.codecool.model.Category;
-import com.codecool.model.Item;
-import com.codecool.modelDTO.AppUserDTO;
+import com.codecool.item.domain.Item;
 import com.codecool.modelDTO.ItemDTO;
-import com.codecool.service.ItemService;
+import com.codecool.item.ItemService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
