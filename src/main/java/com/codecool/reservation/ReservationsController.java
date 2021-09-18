@@ -43,8 +43,8 @@ public class ReservationsController {
   @ResponseStatus(CREATED)
   public ResponseEntity<Object> attemptToAddReservation(
       @RequestBody ReservationDTO reservationDTO) {
+
     reservationService.addReservation(ReservationConverter.DTOToEntity(reservationDTO));
     return status(CREATED).body("Account has been created.");
   }
-
 }
