@@ -12,7 +12,6 @@ import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.ResponseEntity.status;
 
-@Controller
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/reservations")
@@ -44,7 +43,7 @@ public class ReservationsController {
   public ResponseEntity<Object> attemptToAddReservation(
       @RequestBody ReservationDTO reservationDTO) {
 
-    reservationService.addReservation(ReservationConverter.DTOToEntity(reservationDTO));
+    reservationService.addReservation(reservationDTO);
     return status(CREATED).body("Account has been created.");
   }
 }

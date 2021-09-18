@@ -1,21 +1,19 @@
 package com.codecool.category;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
 import com.codecool.category.domain.Category;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@RequiredArgsConstructor
 public class CategoryService {
-    CategoryRepository categoryRepository;
 
-    public CategoryService(CategoryRepository categoryRepository){
-        this.categoryRepository = categoryRepository;
-    }
+  @NonNull
+  CategoryRepository categoryRepository;
 
-    public List<Category> getAllCategories(){
-        return categoryRepository.findAll();
-    }
-
-
+  public List<Category> getAllCategories() {
+    return categoryRepository.findAll();
+  }
 }

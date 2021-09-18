@@ -41,4 +41,8 @@ public class AppUser {
   private int enabled;
   @Column(name = "role")
   private String role;
+
+  public String getFullName() {
+    return firstName + " " + lastName;
+  }
 }

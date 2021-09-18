@@ -1,57 +1,64 @@
 package com.codecool.item;
 
-import com.codecool.item.domain.Item;
-import org.springframework.stereotype.Service;
+import com.codecool.item.dto.ItemDTO;
+import com.codecool.item.dto.ItemForListDTO;
 
 import java.util.List;
 
-@Service
+import static com.codecool.item.ItemConverter.DTOtoEntity;
+import static com.codecool.item.ItemConverter.entitiesToDTO;
+import static com.codecool.item.ItemConverter.entityToDTO;
+import static java.util.stream.Collectors.toList;
+
 public class ItemService {
-    private ItemRepository itemRepository;
 
-    public ItemService(ItemRepository itemRepository){
-        this.itemRepository = itemRepository;
-    }
+  private ItemRepository itemRepository;
 
-    public List<Item> getAllItems(){
+  public ItemService(ItemRepository itemRepository) {
+    this.itemRepository = itemRepository;
+  }
 
-        return itemRepository.findAll();
-    }
+  public List<ItemDTO> getAllItems() {
 
-    public Item  findById(Long id){
+    return itemRepository.findAll().stream()
+        .map(ItemConverter::entityToDTO)
+        .collect(toList());
+  }
 
-        return itemRepository.getItemById(id);
-    }
+  public ItemDTO findById(Long id) {
 
-    public void addItem(Item item){
+    return entityToDTO(itemRepository.getItemById(id));
+  }
 
-        itemRepository.save(item);
-    }
+  public void addItem(ItemDTO itemDto) {
 
-    public void updateItem(Item item){
+    itemRepository.save(DTOtoEntity(itemDto));
+  }
 
-        itemRepository.save(item);
-    }
+  public void updateItem(ItemDTO itemDto) {
 
-    public void deleteItemById(Long id){
+    itemRepository.save(DTOtoEntity(itemDto));
+  }
 
-        itemRepository.deleteById(id);
-    }
+  public void deleteItemById(Long id) {
 
-    public List<Item> findItemsByNameContaining(String searchPhrase){
+    itemRepository.deleteById(id);
+  }
 
-        return itemRepository.findItemsByNameContaining(searchPhrase);
-    }
+  public List<ItemDTO> findItemsByNameContaining(String searchPhrase) {
+    return entitiesToDTO(itemRepository.findItemsByNameContaining(searchPhrase));
+  }
 
-    public List<Item> findItemsByCategory(String searchPhrase){
+  public List<ItemForListDTO> findItemsByCategory(String searchPhrase) {
 
-        return itemRepository.findItemsByCategory(searchPhrase);
-    }
+    return itemRepository.findItemsByCategory(searchPhrase).stream()
+        .map(ItemConverter::itemToItemForListDTO)
+        .collect(toList());
+  }
 
-    public List<Item> findItemsByUser(Long UserId){
-
-        return itemRepository.findItemsByUser(UserId);
-    }
-
-
+  public List<ItemForListDTO> findItemsByUser(Long UserId) {
+    return itemRepository.findItemsByUser(UserId).stream()
+        .map(ItemConverter::itemToItemForListDTO)
+        .collect(toList());
+  }
 }

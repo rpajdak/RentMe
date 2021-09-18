@@ -26,7 +26,6 @@ public class CategoriesControllerTests {
 
     private MockMvc mockMvc;
 
-
     @Autowired
     private CategoryService categoryService;
 

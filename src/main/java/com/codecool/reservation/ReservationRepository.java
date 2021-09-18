@@ -1,18 +1,22 @@
 package com.codecool.reservation;
 
 import com.codecool.reservation.domain.Reservation;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.repository.Repository;
+
 import java.util.List;
 
-@Repository
-public interface ReservationRepository  extends JpaRepository<Reservation, Long> {
 
-    Reservation getReservationById(Long id);
+public interface ReservationRepository extends Repository<Reservation, Long> {
 
-    @Query("select r from Reservation r left join r.owner o where r.owner.id = :id")
-    List<Reservation> getReservationsByOwnerId(Long id);
+  Reservation getReservationById(Long id);
 
+  @Query("select r from Reservation r left join r.owner o where r.owner.id = :id")
+  List<Reservation> getReservationsByOwnerId(Long id);
 
+  List<Reservation> findAll();
+
+  Reservation save(Reservation reservation);
+
+  void deleteById(Long id);
 }

@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static java.util.stream.Collectors.*;
+import static java.util.stream.Collectors.toList;
 
-@Service
+
 public class ReservationService {
 
   private ReservationRepository reservationRepository;
@@ -29,9 +29,9 @@ public class ReservationService {
     return reservationRepository.getReservationById(id);
   }
 
-  public void addReservation(Reservation reservation) {
+  public void addReservation(ReservationDTO reservation) {
 
-    reservationRepository.save(reservation);
+    reservationRepository.save(ReservationConverter.DTOToEntity(reservation));
   }
 
   public void updateReservation(Reservation reservation) {
