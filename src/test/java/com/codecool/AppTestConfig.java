@@ -1,20 +1,15 @@
 package com.codecool;
 
-import com.codecool.controller.api.CategoriesController;
-import com.codecool.controller.api.ItemController;
-import com.codecool.controller.api.UserController;
-import com.codecool.converter.AppUserConverter;
-import com.codecool.converter.ItemConverter;
-import com.codecool.dao.UserRepository;
-import com.codecool.model.Category;
-import com.codecool.model.Item;
-import com.codecool.service.CategoryService;
-import com.codecool.service.ItemService;
-import com.codecool.service.UserService;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import com.codecool.category.CategoriesController;
+import com.codecool.category.CategoryService;
+import com.codecool.category.domain.Category;
+import com.codecool.item.ItemController;
+import com.codecool.item.ItemConverter;
+import com.codecool.item.ItemService;
+import com.codecool.user.UserController;
+import com.codecool.user.UserService;
+import com.codecool.user.domain.AppUserConverter;
 import org.mockito.Mockito;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -23,49 +18,51 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Configuration
 public class AppTestConfig {
 
-    @Bean
-    public AppUserConverter appUserConverter() {
-        return new AppUserConverter();
-    }
+  @Bean
+  public AppUserConverter appUserConverter() {
+    return new AppUserConverter();
+  }
 
-    @Bean
-    public ItemConverter itemConverter() {
-        return new ItemConverter();
-    }
+  @Bean
+  public ItemConverter itemConverter() {
+    return new ItemConverter();
+  }
 
-    @Bean
-    public UserController userController() {
-        return new UserController(userService());
-    }
+  @Bean
+  public UserController userController() {
+    return new UserController(userService());
+  }
 
-    @Bean
-    public CategoriesController categoriesController() {
-        return new CategoriesController(categoryService());
-    }
+  @Bean
+  public CategoriesController categoriesController() {
+    return new CategoriesController(categoryService());
+  }
 
-    @Bean
-    public CategoryService categoryService() {
-        return Mockito.mock(CategoryService.class);
-    }
+  @Bean
+  public CategoryService categoryService() {
+    return Mockito.mock(CategoryService.class);
+  }
 
-    @Bean
-    public UserService userService() {
-        return Mockito.mock(UserService.class);
-    }
+  @Bean
+  public UserService userService() {
+    return Mockito.mock(UserService.class);
+  }
 
-    @Bean
-    public ItemService itemService() {
-        return Mockito.mock(ItemService.class);
-    }
+  @Bean
+  public ItemService itemService() {
+    return Mockito.mock(ItemService.class);
+  }
 
-    @Bean
-    public Category category() {
-        return Mockito.mock(Category.class);
-    }
+  @Bean
+  public Category category() {
+    return Mockito.mock(Category.class);
+  }
 
-    @Bean
-    public ItemController itemController() {
-        return new ItemController(itemService(), itemConverter());
-    }
+  @Bean
+  public ItemController itemController(
+      ItemService itemService) {
+
+    return new ItemController(itemService);
+  }
 }
 
