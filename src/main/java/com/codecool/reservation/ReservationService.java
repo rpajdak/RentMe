@@ -1,12 +1,10 @@
 package com.codecool.reservation;
 
-import com.codecool.converter.ReservationConverter;
 import com.codecool.reservation.domain.Reservation;
 import com.codecool.reservation.dto.ReservationDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
 

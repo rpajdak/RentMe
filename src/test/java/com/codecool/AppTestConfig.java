@@ -4,7 +4,7 @@ import com.codecool.category.CategoriesController;
 import com.codecool.item.ItemController;
 import com.codecool.user.UserController;
 import com.codecool.user.domain.AppUserConverter;
-import com.codecool.converter.ItemConverter;
+import com.codecool.item.ItemConverter;
 import com.codecool.category.domain.Category;
 import com.codecool.category.CategoryService;
 import com.codecool.item.ItemService;

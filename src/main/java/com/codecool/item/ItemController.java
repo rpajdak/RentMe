@@ -1,8 +1,6 @@
 package com.codecool.item;
-import com.codecool.converter.ItemConverter;
-import com.codecool.modelDTO.ItemDTO;
-import com.codecool.modelDTO.ItemForListDTO;
-import com.codecool.item.ItemService;
+import com.codecool.item.dto.ItemDTO;
+import com.codecool.item.dto.ItemForListDTO;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

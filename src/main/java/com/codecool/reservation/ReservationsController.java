@@ -1,6 +1,5 @@
 package com.codecool.reservation;
 
-import com.codecool.converter.ReservationConverter;
 import com.codecool.reservation.dto.ReservationDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

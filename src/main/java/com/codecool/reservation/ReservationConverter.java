@@ -1,4 +1,4 @@
-package com.codecool.converter;
+package com.codecool.reservation;
 
 import com.codecool.reservation.domain.Reservation;
 import com.codecool.reservation.dto.ReservationDTO;

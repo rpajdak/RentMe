@@ -2,7 +2,7 @@ package com.codecool;
 
 
 import com.codecool.item.domain.Item;
-import com.codecool.modelDTO.ItemDTO;
+import com.codecool.item.dto.ItemDTO;
 import com.codecool.item.ItemService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
@@ -97,6 +97,4 @@ public class ItemControllerIntegrationTests {
                 .content(new ObjectMapper().writeValueAsString(itemDTO)))
                 .andExpect(status().isOk());
     }
-
-
 }

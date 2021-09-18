@@ -1,4 +1,4 @@
-package com.codecool.modelDTO;
+package com.codecool.category.dto;
 
 import lombok.Data;
 import lombok.Getter;

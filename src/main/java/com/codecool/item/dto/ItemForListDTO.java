@@ -1,4 +1,4 @@
-package com.codecool.modelDTO;
+package com.codecool.item.dto;
 
 import com.codecool.category.domain.Category;
 import com.codecool.user.dto.AppUserDTO;
