@@ -3,6 +3,7 @@ package com.codecool.converter;
 import com.codecool.item.domain.Item;
 import com.codecool.modelDTO.ItemDTO;
 import com.codecool.modelDTO.ItemForListDTO;
+import com.codecool.user.domain.AppUserConverter;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

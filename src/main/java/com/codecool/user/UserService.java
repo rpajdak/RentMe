@@ -1,8 +1,8 @@
 package com.codecool.user;
 
 import com.codecool.api.CallGeocodingApi;
-import com.codecool.converter.AppUserConverter;
 import com.codecool.user.domain.AppUser;
+import com.codecool.user.domain.AppUserConverter;
 import com.codecool.user.dto.AppUserDTO;
 import com.codecool.user.dto.UserAddressDTO;
 import com.codecool.user.dto.UserNameDTO;
@@ -12,8 +12,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.List;
 import java.util.Map;
 
-import static com.codecool.converter.AppUserConverter.DTOtoEntity;
-import static com.codecool.converter.AppUserConverter.entityToDTO;
+import static com.codecool.user.domain.AppUserConverter.DTOtoEntity;
+import static com.codecool.user.domain.AppUserConverter.entityToDTO;
 import static java.lang.String.format;
 import static java.util.stream.Collectors.toList;
 

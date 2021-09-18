@@ -1,46 +1,55 @@
 package com.codecool.reservation;
 
+import com.codecool.converter.ReservationConverter;
 import com.codecool.reservation.domain.Reservation;
+import com.codecool.reservation.dto.ReservationDTO;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.*;
 
 @Service
 public class ReservationService {
-    private ReservationRepository reservationRepository;
 
-    public ReservationService(ReservationRepository reservationRepository){
-        this.reservationRepository = reservationRepository;
-    }
+  private ReservationRepository reservationRepository;
 
-    public List<Reservation> getAllReservations(){
+  public ReservationService(ReservationRepository reservationRepository) {
+    this.reservationRepository = reservationRepository;
+  }
 
-        return reservationRepository.findAll();
-    }
+  public List<ReservationDTO> getAllReservations() {
+    return reservationRepository.findAll()
+        .stream()
+        .map(ReservationConverter::entityToDTO)
+        .collect(toList());
+  }
 
-    public Reservation findById(Long id){
+  public Reservation findById(Long id) {
 
-        return reservationRepository.getReservationById(id);
-    }
+    return reservationRepository.getReservationById(id);
+  }
 
-    public void addReservation(Reservation reservation){
+  public void addReservation(Reservation reservation) {
 
-        reservationRepository.save(reservation);
-    }
+    reservationRepository.save(reservation);
+  }
 
-    public void updateReservation(Reservation reservation){
+  public void updateReservation(Reservation reservation) {
 
-        reservationRepository.save(reservation);
-    }
+    reservationRepository.save(reservation);
+  }
 
-    public void deleteReservationById(Long id){
+  public void deleteReservationById(Long id) {
 
-        reservationRepository.deleteById(id);
-    }
+    reservationRepository.deleteById(id);
+  }
 
-    public List<Reservation> getReservationsByOwnerId(Long ownerId){
-
-        return reservationRepository.getReservationsByOwnerId(ownerId);
-    }
-
-
+  public List<ReservationDTO> getReservationsByOwnerId(Long ownerId) {
+    return reservationRepository.getReservationsByOwnerId(ownerId)
+        .stream()
+        .map(ReservationConverter::entityToDTO)
+        .collect(toList());
+  }
 }

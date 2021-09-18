@@ -1,6 +1,5 @@
-package com.codecool.converter;
+package com.codecool.user.domain;
 
-import com.codecool.user.domain.AppUser;
 import com.codecool.user.dto.AppUserDTO;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +9,6 @@ import java.util.stream.Collectors;
 @Component
 public class AppUserConverter {
 
-  //TODO change it into builder
   public static AppUserDTO entityToDTO(AppUser appUser) {
     AppUserDTO appUserDTO = AppUserDTO.builder().build();
     appUserDTO.setId(appUser.getId());
