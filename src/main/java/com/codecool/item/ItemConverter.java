@@ -7,6 +7,7 @@ import com.codecool.user.domain.AppUserConverter;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Component
@@ -26,11 +27,11 @@ public class ItemConverter {
 
   public static ItemDTO entityToDTO(Item item) {
     return ItemDTO.builder()
-        .categoryName(item.getCategory().getDescription())
+//        .categoryName(item.getCategory().getDescription())
         .description(item.getDescription())
         .id(item.getId())
         .name(item.getName())
-        .ownerName(item.getOwner().getFullName())
+//        .ownerName(item.getOwner().getFullName())
         .picUrl(item.getPicUrl())
         .price(item.getPrice())
         .build();
@@ -43,14 +44,14 @@ public class ItemConverter {
     itemForListDTO.setDescription(item.getDescription());
     itemForListDTO.setPrice(item.getPrice());
     itemForListDTO.setPicUrl(item.getPicUrl());
-    itemForListDTO.setCategory(item.getCategory());
-    itemForListDTO.setOwner(AppUserConverter.entityToDTO(item.getOwner()));
+//    itemForListDTO.setCategory(item.getCategory());
+//    itemForListDTO.setOwner(AppUserConverter.entityToDTO(item.getOwner()));
     return itemForListDTO;
   }
 
   public List<ItemForListDTO> itemsToItemsForListDTO(List<Item> items) {
     return items.stream()
-        .map(item -> itemToItemForListDTO(item))
+        .map(ItemConverter::itemToItemForListDTO)
         .collect(Collectors.toList());
   }
 
@@ -59,6 +60,7 @@ public class ItemConverter {
     Item item = new Item();
     item.setId(itemDTO.getId());
     item.setName(itemDTO.getName());
+    item.setItemId(UUID.randomUUID().toString());
 //    item.setCategory(itemDTO.getCategory());
     item.setDescription(itemDTO.getDescription());
 //    item.setOwner(itemDTO.getOwner());

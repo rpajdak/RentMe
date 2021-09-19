@@ -2,13 +2,14 @@ package com.codecool;
 
 
 import com.codecool.item.ItemService;
+import com.codecool.item.dto.AddItemRequestWrapper;
 import com.codecool.item.dto.ItemDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+import org.springframework.security.core.Authentication;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -18,7 +19,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-import static org.springframework.http.MediaType.*;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -71,7 +72,7 @@ public class ItemControllerIntegrationTests {
         .contentType(APPLICATION_JSON_VALUE)
         .content(new ObjectMapper().writeValueAsString(itemDTO))
     ).andExpect(status().isCreated());
-    verify(itemService, times(1)).addItem(any(ItemDTO.class));
+    verify(itemService, times(1)).addItem(any(AddItemRequestWrapper.class),any(Authentication.class));
   }
 
   @Test

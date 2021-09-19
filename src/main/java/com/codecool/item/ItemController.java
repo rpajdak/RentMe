@@ -3,9 +3,11 @@ package com.codecool.item;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import com.codecool.item.dto.AddItemRequestWrapper;
 import com.codecool.item.dto.ItemDTO;
 import com.codecool.item.dto.ItemForListDTO;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,7 +44,7 @@ public class ItemController {
   @GetMapping(params = "nameContaining", produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseBody
   @ResponseStatus(OK)
-  public List<ItemDTO> findItemsByNameContaining(
+  public List<ItemForListDTO> findItemsByNameContaining(
       @RequestParam(value = "nameContaining") String nameContaining) {
 
     return
@@ -68,8 +70,8 @@ public class ItemController {
   @PostMapping()
   @ResponseBody
   @ResponseStatus(CREATED)
-  public void addItem(@RequestBody ItemDTO itemDTO) {
-    itemService.addItem(itemDTO);
+  public void addItem(@RequestBody AddItemRequestWrapper addItemRequestWrapper, Authentication authentication) {
+    itemService.addItem(addItemRequestWrapper,authentication);
   }
 
   @PutMapping()

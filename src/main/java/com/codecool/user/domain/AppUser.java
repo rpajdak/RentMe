@@ -4,6 +4,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+import com.codecool.item.domain.Item;
+
+import java.util.Collection;
 import javax.persistence.*;
 
 @Entity
@@ -15,7 +18,7 @@ public class AppUser {
 
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Id
-  @Column(name = "id")
+  @Column(name = "user_id")
   private Long id;
   @Column(name = "first_name")
   private String firstName;
@@ -41,8 +44,19 @@ public class AppUser {
   private int enabled;
   @Column(name = "role")
   private String role;
+  //  @OneToMany(cascade = ALL, orphanRemoval = true)
+//  @JoinColumn(name = "user_id", updatable = false, nullable = false)
+  @OneToMany(
+      cascade = CascadeType.ALL,
+      orphanRemoval = true
+  )
+  Collection<Item> itemList;
 
   public String getFullName() {
     return firstName + " " + lastName;
+  }
+
+  public void addItem(Item item) {
+    itemList.add(item);
   }
 }

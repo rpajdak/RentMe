@@ -17,11 +17,11 @@ public interface ItemRepository extends Repository<Item, Long> {
   @Query("Select i from Item i where upper(i.name) like %:searchPhrase%")
   List<Item> findItemsByNameContaining(String searchPhrase);
 
-  @Query("select i from Item i left join i.category c where upper(i.category.description) like %:searchPhrase%")
-  List<Item> findItemsByCategory(String searchPhrase);
-
-  @Query("select i from Item i left join i.owner u where i.owner.id = :userId")
-  List<Item> findItemsByUser(Long userId);
+//  @Query("select i from Item i left join i.category c where upper(i.category.description) like %:searchPhrase%")
+//  List<Item> findItemsByCategory(String searchPhrase);
+//
+//  @Query("select i from Item i left join i.owner u where i.owner.id = :userId")
+//  List<Item> findItemsByUser(Long userId);
 
   List<Item> findAll();
 }

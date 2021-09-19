@@ -9,6 +9,7 @@ import com.codecool.user.dto.UserNameDTO;
 import com.codecool.user.exception.GettingCoordinatesForUserException;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -29,8 +30,12 @@ public class UserService {
     return entityToDTO(userRepository.getAppUsersById(id));
   }
 
+  public AppUser getEntityByEmail(String email) {
+    return userRepository.getAppUsersByEmail(email);
+  }
+
   public UserAddressDTO getUserAddressByItemId(long id) {
-    String userAddress = userRepository.findAppUserAddressByItemId(id)[0];
+    String userAddress = null;
     String[] splitString = userAddress.split(",");
     UserAddressDTO userAddressDTO = new UserAddressDTO();
     userAddressDTO.setAddress(splitString[0]);
@@ -40,7 +45,7 @@ public class UserService {
   }
 
   public UserNameDTO getUserNameByItemId(long id) {
-    String userName = userRepository.findAppUserNmeByItemId(id);
+    String userName = null;
     String[] splitName = userName.split(",");
     UserNameDTO userNameDTO = new UserNameDTO();
     userNameDTO.setFirstName(splitName[0]);
@@ -110,6 +115,14 @@ public class UserService {
       throw new GettingCoordinatesForUserException(
           format("Getting coordinates for user %s failed", appUserDTO.getEmail()), e);
     }
+  }
+
+  public void save(AppUser entityByEmail) {
+    userRepository.save(entityByEmail);
+  }
+
+  Collection<Long> getItemsIdByUserId(long i) {
+    return userRepository.getItemsIdByUserId(i);
   }
 }
 

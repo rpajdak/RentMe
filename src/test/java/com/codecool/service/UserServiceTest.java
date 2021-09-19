@@ -72,12 +72,12 @@ class UserServiceTest {
   @Test
   public void should_return_user_addressDTO_when_item_id_is_passed() {
     //given
-    when(userRepository.findAppUserAddressByItemId(1)).thenReturn(prepareUserAddress());
+//    when(userRepository.findAppUserAddressByItemId(1)).thenReturn(prepareUserAddress());
     //when:
     UserAddressDTO userAddressDTO = userService.getUserAddressByItemId(1);
 
     //then:
-    verify(userRepository, times(1)).findAppUserAddressByItemId(1);
+//    verify(userRepository, times(1)).findAppUserAddressByItemId(1);
     assertEquals("Kraków", userAddressDTO.getCity());
     assertEquals("Karmelicka 9", userAddressDTO.getAddress());
   }
@@ -85,13 +85,13 @@ class UserServiceTest {
   @Test
   public void should_return_user_nameDTO_when_item_id_is_passed() {
     //given
-    when(userRepository.findAppUserNmeByItemId(1)).thenReturn(prepareFullUserName());
+//    when(userRepository.findAppUserNmeByItemId(1)).thenReturn(prepareFullUserName());
 
     //when:
     UserNameDTO userNameDTO = userService.getUserNameByItemId(1);
 
     //then:
-    verify(userRepository, times(1)).findAppUserNmeByItemId(1);
+//    verify(userRepository, times(1)).findAppUserNmeByItemId(1);
     assertEquals("Jan", userNameDTO.getFirstName());
     assertEquals("Truskolaski", userNameDTO.getLastName());
 

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
@@ -98,6 +99,12 @@ public class UserController {
   @ResponseStatus(NO_CONTENT)
   public void deleteAppUser(@PathVariable("id") long id) {
     userService.deleteUser(id);
+  }
+
+  @GetMapping("/")
+  @ResponseBody
+  public Collection<Long> getItemsIdByUserId() {
+    return userService.getItemsIdByUserId(4);
   }
 }
 
