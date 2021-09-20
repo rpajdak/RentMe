@@ -24,67 +24,67 @@ import static org.springframework.http.HttpStatus.OK;
 @RequiredArgsConstructor
 public class ItemController {
 
-  @NonNull
-  private ItemService itemService;
+    @NonNull
+    private ItemService itemService;
 
-  @GetMapping
-  @ResponseBody
-  @ResponseStatus(OK)
-  public List<ItemDTO> getAllItems() {
-    return itemService.getAllItems();
-  }
+    @GetMapping
+    @ResponseBody
+    @ResponseStatus(OK)
+    public List<ItemDTO> getAllItems() {
+        return itemService.getAllItems();
+    }
 
-  @GetMapping("/{id}")
-  @ResponseBody
-  @ResponseStatus(OK)
-  public ItemDTO findById(@PathVariable("id") Long id) {
-    return itemService.findById(id);
-  }
+    @GetMapping("/{id}")
+    @ResponseBody
+    @ResponseStatus(OK)
+    public ItemDTO findById(@PathVariable("id") Long id) {
+        return itemService.getItemDTOById(id);
+    }
 
-  @GetMapping(params = "nameContaining", produces = MediaType.APPLICATION_JSON_VALUE)
-  @ResponseBody
-  @ResponseStatus(OK)
-  public List<ItemForListDTO> findItemsByNameContaining(
-      @RequestParam(value = "nameContaining") String nameContaining) {
+    @GetMapping(params = "nameContaining", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @ResponseStatus(OK)
+    public List<ItemForListDTO> findItemsByNameContaining(
+            @RequestParam(value = "nameContaining") String nameContaining) {
 
-    return
-        itemService.findItemsByNameContaining(nameContaining.toUpperCase());
-  }
+        return
+                itemService.getItemsByNameContaining(nameContaining.toUpperCase());
+    }
 
-  @GetMapping(params = "byCategory", produces = MediaType.APPLICATION_JSON_VALUE)
-  @ResponseBody
-  @ResponseStatus(OK)
-  public List<ItemForListDTO> findItemsByCategory(
-      @RequestParam(value = "byCategory") String byCategory) {
+    @GetMapping(params = "byCategory", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @ResponseStatus(OK)
+    public List<ItemForListDTO> findItemsByCategory(
+            @RequestParam(value = "byCategory") String category) {
 
-    return itemService.findItemsByCategory(byCategory.toUpperCase());
-  }
+        return itemService.getItemsByCategory(category.toUpperCase());
+    }
 
-  @GetMapping(params = "byOwnerId", produces = MediaType.APPLICATION_JSON_VALUE)
-  @ResponseBody
-  @ResponseStatus(OK)
-  public List<ItemForListDTO> findItemsByUser(@RequestParam(value = "byOwnerId") Long ownerId) {
-    return itemService.findItemsByUser(ownerId);
-  }
+    @GetMapping(params = "byOwnerId", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @ResponseStatus(OK)
+    public List<ItemForListDTO> findItemsByUser(@RequestParam(value = "byOwnerId") Long userId) {
+        return itemService.getItemsByUserId(userId);
+    }
 
-  @PostMapping()
-  @ResponseBody
-  @ResponseStatus(CREATED)
-  public void addItem(@RequestBody AddItemRequestWrapper addItemRequestWrapper, Authentication authentication) {
-    itemService.addItem(addItemRequestWrapper,authentication);
-  }
+    @PostMapping()
+    @ResponseBody
+    @ResponseStatus(CREATED)
+    public void addItem(@RequestBody AddItemRequestWrapper addItemRequestWrapper, Authentication authentication) {
+        itemService.addItem(addItemRequestWrapper, authentication);
+    }
 
-  @PutMapping()
-  @ResponseBody
-  @ResponseStatus(OK)
-  public void updateItem(@RequestBody ItemDTO itemDTO) {
-    itemService.updateItem(itemDTO);
-  }
+    @PutMapping()
+    @ResponseBody
+    @ResponseStatus(OK)
+    public void updateItem(@RequestBody ItemDTO itemDTO) {
+        itemService.updateItem(itemDTO);
+    }
 
-  @DeleteMapping("/{id}")
-  @ResponseBody
-  @ResponseStatus(NO_CONTENT)
-  public void deleteItem(@PathVariable("id") Long id) {
-    itemService.deleteItemById(id);
-  }
+    @DeleteMapping("/{id}")
+    @ResponseBody
+    @ResponseStatus(NO_CONTENT)
+    public void deleteItem(@PathVariable("id") Long id) {
+        itemService.deleteItemById(id);
+    }
 }

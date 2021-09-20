@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 public class AddItemRequestWrapper {
-
-  Long categoryId;
-  ItemDTO itemDTO;
+    Long categoryId;
+    ItemDTO itemDTO;
 }

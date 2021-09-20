@@ -1,7 +1,7 @@
 package com.codecool.user;
 
-import com.codecool.user.domain.AppUser;
-import com.codecool.user.dto.AppUserDTO;
+import com.codecool.user.domain.User;
+import com.codecool.user.dto.UserDTO;
 import com.codecool.user.dto.UserAddressDTO;
 import com.codecool.user.dto.UserNameDTO;
 import org.springframework.http.MediaType;
@@ -31,21 +31,21 @@ public class UserController {
   @GetMapping(value = "/admins", produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseBody
   @ResponseStatus(OK)
-  public List<AppUserDTO> getAllAdmins() {
+  public List<UserDTO> getAllAdmins() {
     return userService.getAllAdmins();
   }
 
   @GetMapping(value = "/renters", produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseBody
   @ResponseStatus(OK)
-  public List<AppUserDTO> getAllRenters() {
+  public List<UserDTO> getAllRenters() {
     return userService.getAllRenters();
   }
 
   @GetMapping(value = "/renters/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseBody
   @ResponseStatus(OK)
-  public AppUserDTO findUserById(@PathVariable("id") Long id) {
+  public UserDTO findUserById(@PathVariable("id") Long id) {
     return userService.getUserById(id);
   }
 
@@ -53,14 +53,14 @@ public class UserController {
   @GetMapping(value = "/renters", params = "email", produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseBody
   @ResponseStatus(OK)
-  public AppUserDTO findUserByEmail(@RequestParam(value = "email") String email) {
+  public User findUserByEmail(@RequestParam(value = "email") String email) {
     return userService.getUserByEmail(email);
   }
 
   @GetMapping(value = "/admins/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
   @ResponseBody
   @ResponseStatus(OK)
-  public AppUserDTO findAdminById(@PathVariable("id") Long id) {
+  public UserDTO findAdminById(@PathVariable("id") Long id) {
     return userService.getUserById(id);
   }
 
@@ -81,17 +81,17 @@ public class UserController {
   @PostMapping()
   @ResponseBody
   @ResponseStatus(CREATED)
-  public ResponseEntity<Object> addUser(@RequestBody AppUserDTO appUserDTO) {
+  public ResponseEntity<Object> addUser(@RequestBody UserDTO userDTO) {
 
-    userService.addUser(appUserDTO);
+    userService.addUser(userDTO);
     return ResponseEntity.status(CREATED).body("Account has been created.");
   }
 
   @PutMapping
   @ResponseBody
   @ResponseStatus(OK)
-  public void updateUser(@RequestBody AppUser appUser) {
-    userService.updateUser(appUser);
+  public void updateUser(@RequestBody User user) {
+    userService.updateUser(user);
   }
 
   @DeleteMapping("/{id}")
@@ -101,10 +101,5 @@ public class UserController {
     userService.deleteUser(id);
   }
 
-  @GetMapping("/")
-  @ResponseBody
-  public Collection<Long> getItemsIdByUserId() {
-    return userService.getItemsIdByUserId(4);
-  }
 }
 

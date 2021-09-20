@@ -3,7 +3,7 @@ package com.codecool.item;
 import com.codecool.item.domain.Item;
 import com.codecool.item.dto.ItemDTO;
 import com.codecool.item.dto.ItemForListDTO;
-import com.codecool.user.domain.AppUserConverter;
+import com.codecool.user.UserConverter;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -13,10 +13,10 @@ import java.util.stream.Collectors;
 @Component
 public class ItemConverter {
 
-  private AppUserConverter appUserConverter;
+  private UserConverter userConverter;
 
   public ItemConverter() {
-    this.appUserConverter = new AppUserConverter();
+    this.userConverter = new UserConverter();
   }
 
   public static List<ItemDTO> entitiesToDTO(List<Item> items) {
@@ -27,11 +27,9 @@ public class ItemConverter {
 
   public static ItemDTO entityToDTO(Item item) {
     return ItemDTO.builder()
-//        .categoryName(item.getCategory().getDescription())
         .description(item.getDescription())
         .id(item.getId())
         .name(item.getName())
-//        .ownerName(item.getOwner().getFullName())
         .picUrl(item.getPicUrl())
         .price(item.getPrice())
         .build();
@@ -44,8 +42,6 @@ public class ItemConverter {
     itemForListDTO.setDescription(item.getDescription());
     itemForListDTO.setPrice(item.getPrice());
     itemForListDTO.setPicUrl(item.getPicUrl());
-//    itemForListDTO.setCategory(item.getCategory());
-//    itemForListDTO.setOwner(AppUserConverter.entityToDTO(item.getOwner()));
     return itemForListDTO;
   }
 
@@ -55,15 +51,12 @@ public class ItemConverter {
         .collect(Collectors.toList());
   }
 
-  //TODO hmmm??
   public static Item DTOtoEntity(ItemDTO itemDTO) {
     Item item = new Item();
     item.setId(itemDTO.getId());
     item.setName(itemDTO.getName());
     item.setItemId(UUID.randomUUID().toString());
-//    item.setCategory(itemDTO.getCategory());
     item.setDescription(itemDTO.getDescription());
-//    item.setOwner(itemDTO.getOwner());
     item.setPrice(itemDTO.getPrice());
     item.setPicUrl(itemDTO.getPicUrl());
     return item;

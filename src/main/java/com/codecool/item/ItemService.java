@@ -10,10 +10,9 @@ import com.codecool.item.dto.AddItemRequestWrapper;
 import com.codecool.item.dto.ItemDTO;
 import com.codecool.item.dto.ItemForListDTO;
 import com.codecool.user.UserService;
-import com.codecool.user.domain.AppUser;
+import com.codecool.user.domain.User;
 import org.springframework.security.core.Authentication;
 
-import java.util.Collection;
 import java.util.List;
 import javax.transaction.Transactional;
 
@@ -25,68 +24,64 @@ import static java.util.stream.Collectors.toList;
 @AllArgsConstructor
 public class ItemService {
 
-  private ItemRepository itemRepository;
+    private ItemRepository itemRepository;
+    private UserService userService;
+    private CategoryService categoryService;
 
-  private UserService userService;
+    public List<ItemDTO> getAllItems() {
+        return itemRepository.findAll().stream()
+                .map(ItemConverter::entityToDTO)
+                .collect(toList());
+    }
+    public Item getItemById(Long id) {
+        return itemRepository.getItemById(id);
+    }
+    public ItemDTO getItemDTOById(Long id) {
+        return ItemConverter.entityToDTO(itemRepository.getItemById(id));
+    }
 
-  private CategoryService service;
+    public List<ItemForListDTO> getItemsByNameContaining(String searchPhrase) {
+        return itemRepository.findItemsByNameContaining(searchPhrase).stream()
+                .map(ItemConverter::itemToItemForListDTO)
+                .collect(toList());
+    }
 
-  public ItemService(ItemRepository itemRepository) {
-    this.itemRepository = itemRepository;
-  }
+    public List<ItemForListDTO> getItemsByCategory(String searchPhrase) {
+        return itemRepository.findItemsByCategoryName(searchPhrase)
+                .stream()
+                .map(ItemConverter::itemToItemForListDTO)
+                .collect(toList());
+    }
 
-  public List<ItemDTO> getAllItems() {
+    public List<ItemForListDTO> getItemsByUserId(Long UserId) {
+        return itemRepository.findItemsByUserId(UserId)
+                .stream()
+                .map(ItemConverter::itemToItemForListDTO)
+                .collect(toList());
+    }
 
-    return itemRepository.findAll().stream()
-        .map(ItemConverter::entityToDTO)
-        .collect(toList());
-  }
+    List<Long> getItemsIdByUserId(long userId) {
+        return itemRepository.getItemsIdByUserId(userId);
+    }
 
-  public ItemDTO findById(Long id) {
+    @Transactional
+    public void addItem(AddItemRequestWrapper addItemRequestWrapper, Authentication authentication) {
+        final Item item = DTOtoEntity(addItemRequestWrapper.getItemDTO());
 
-    return entityToDTO(itemRepository.getItemById(id));
-  }
+        Category categoryOfTheItem = categoryService.getCategoryById(addItemRequestWrapper.getCategoryId());
+        categoryOfTheItem.addItem(item);
 
-  @Transactional
-  public void addItem(AddItemRequestWrapper addItemRequestWrapper, Authentication authentication) {
-    final Item item = DTOtoEntity(addItemRequestWrapper.getItemDTO());
+        User OwnerOfTheItem = userService.getUserByEmail(authentication.getName());
+        OwnerOfTheItem.addItem(item);
 
-    Category categoryById = service.getCategoryById(addItemRequestWrapper.getCategoryId());
-    categoryById.addItem(item);
+        itemRepository.save(item);
+    }
 
-    AppUser entityByEmail = userService.getEntityByEmail("b@gmail.com");
-    entityByEmail.addItem(item);
+    public void updateItem(ItemDTO itemDto) {
+        itemRepository.save(DTOtoEntity(itemDto));
+    }
 
-    Item savedItem = itemRepository.save(item);
-  }
-
-  public void updateItem(ItemDTO itemDto) {
-
-    itemRepository.save(DTOtoEntity(itemDto));
-  }
-
-  public void deleteItemById(Long id) {
-
-    itemRepository.deleteById(id);
-  }
-
-  public List<ItemForListDTO> findItemsByNameContaining(String searchPhrase) {
-    return itemRepository.findItemsByNameContaining(searchPhrase).stream()
-        .map(ItemConverter::itemToItemForListDTO)
-        .collect(toList());
-  }
-
-  public List<ItemForListDTO> findItemsByCategory(String searchPhrase) {
-    return null;
-//    return itemRepository.findItemsByCategory(searchPhrase).stream()
-//        .map(ItemConverter::itemToItemForListDTO)
-//        .collect(toList());
-  }
-
-  public List<ItemForListDTO> findItemsByUser(Long UserId) {
-    return null;
-//    return itemRepository.findItemsByUser(UserId).stream()
-//        .map(ItemConverter::itemToItemForListDTO)
-//        .collect(toList());
-  }
+    public void deleteItemById(Long id) {
+        itemRepository.deleteById(id);
+    }
 }

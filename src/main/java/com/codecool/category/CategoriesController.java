@@ -14,13 +14,14 @@ public class CategoriesController {
 
     private CategoryService categoryService;
 
-    public CategoriesController(CategoryService categoryService){
+    public CategoriesController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
 
     @GetMapping
     @ResponseBody
-    public List<Category> getAllCategories(){
+    public List<Category> getAllCategories() {
         return categoryService.getAllCategories();
     }
+
 }

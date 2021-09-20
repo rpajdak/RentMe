@@ -2,8 +2,8 @@ package com.codecool.service;
 
 import com.codecool.user.UserRepository;
 import com.codecool.user.UserService;
-import com.codecool.user.domain.AppUser;
-import com.codecool.user.dto.AppUserDTO;
+import com.codecool.user.domain.User;
+import com.codecool.user.dto.UserDTO;
 import com.codecool.user.dto.UserAddressDTO;
 import com.codecool.user.dto.UserNameDTO;
 import org.junit.jupiter.api.Test;
@@ -33,7 +33,7 @@ class UserServiceTest {
     when(userRepository.findAll()).thenReturn(prepareMockData());
 
     //when
-    List<AppUser> users = userService.getAllAppUsers();
+    List<User> users = userService.getAllAppUsers();
 
     //then:
     assertEquals(4, users.size());
@@ -47,7 +47,7 @@ class UserServiceTest {
     when(userRepository.findAll()).thenReturn(prepareMockData());
 
     //when
-    List<AppUserDTO> admins = userService.getAllAdmins();
+    List<UserDTO> admins = userService.getAllAdmins();
 
     //then:
     assertEquals(2, admins.size());
@@ -61,7 +61,7 @@ class UserServiceTest {
     when(userRepository.findAll()).thenReturn(prepareMockData());
 
     //when:
-    List<AppUserDTO> rentersList = userService.getAllRenters();
+    List<UserDTO> rentersList = userService.getAllRenters();
 
     //then:
     assertEquals(2, rentersList.size());
@@ -97,28 +97,28 @@ class UserServiceTest {
 
   }
 
-  private List<AppUser> prepareMockData() {
-    AppUser appUser1 = new AppUser();
-    appUser1.setFirstName("Joanna");
-    appUser1.setIsAdmin(true);
-    appUser1.setEmail("jbrzuchacz@gmail.com");
+  private List<User> prepareMockData() {
+    User user1 = new User();
+    user1.setFirstName("Joanna");
+    user1.setIsAdmin(true);
+    user1.setEmail("jbrzuchacz@gmail.com");
 
-    AppUser appUser2 = new AppUser();
-    appUser2.setFirstName("Rafał");
-    appUser2.setIsAdmin(false);
-    appUser2.setEmail("jbrzuchacz@gmail.com");
+    User user2 = new User();
+    user2.setFirstName("Rafał");
+    user2.setIsAdmin(false);
+    user2.setEmail("jbrzuchacz@gmail.com");
 
-    AppUser appUser3 = new AppUser();
-    appUser3.setFirstName("Miłosz");
-    appUser3.setIsAdmin(true);
-    appUser3.setEmail("mbryla@gmail.com");
+    User user3 = new User();
+    user3.setFirstName("Miłosz");
+    user3.setIsAdmin(true);
+    user3.setEmail("mbryla@gmail.com");
 
-    AppUser appUser4 = new AppUser();
-    appUser4.setFirstName("Michał");
-    appUser4.setIsAdmin(false);
-    appUser4.setEmail("mkuk@gmail.com");
+    User user4 = new User();
+    user4.setFirstName("Michał");
+    user4.setIsAdmin(false);
+    user4.setEmail("mkuk@gmail.com");
 
-    return of(appUser1, appUser2, appUser3, appUser4);
+    return of(user1, user2, user3, user4);
   }
 
   private String[] prepareUserAddress() {

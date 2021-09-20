@@ -1,7 +1,10 @@
 package com.codecool.reservation;
 
+import com.codecool.item.dto.AddItemRequestWrapper;
+import com.codecool.reservation.dto.AddReservationRequestWrapper;
 import com.codecool.reservation.dto.ReservationDTO;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,10 +43,9 @@ public class ReservationsController {
   @PostMapping()
   @ResponseBody
   @ResponseStatus(CREATED)
-  public ResponseEntity<Object> attemptToAddReservation(
-      @RequestBody ReservationDTO reservationDTO) {
-
-    reservationService.addReservation(reservationDTO);
-    return status(CREATED).body("Account has been created.");
+  public ResponseEntity<Object> addReservation(
+          @RequestBody AddReservationRequestWrapper addReservationRequestWrapper, Authentication authentication) {
+    reservationService.addReservation(addReservationRequestWrapper, authentication);
+    return status(CREATED).body("Reservation has been created.");
   }
 }

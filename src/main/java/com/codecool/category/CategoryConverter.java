@@ -3,6 +3,7 @@ package com.codecool.category;
 import com.codecool.category.domain.Category;
 import com.codecool.category.dto.CategoryDTO;
 import org.springframework.stereotype.Component;
+
 import java.util.List;
 import java.util.stream.Collectors;
 

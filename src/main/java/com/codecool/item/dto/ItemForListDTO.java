@@ -1,7 +1,7 @@
 package com.codecool.item.dto;
 
 import com.codecool.category.domain.Category;
-import com.codecool.user.dto.AppUserDTO;
+import com.codecool.user.dto.UserDTO;
 
 import lombok.Data;
 import lombok.Getter;
@@ -17,5 +17,5 @@ public class ItemForListDTO {
     private Double price;
     private Category category;
     private String picUrl;
-    private AppUserDTO owner;
+    private UserDTO owner;
 }

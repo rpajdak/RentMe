@@ -8,7 +8,7 @@ import com.codecool.item.ItemConverter;
 import com.codecool.item.ItemService;
 import com.codecool.user.UserController;
 import com.codecool.user.UserService;
-import com.codecool.user.domain.AppUserConverter;
+import com.codecool.user.UserConverter;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +19,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class AppTestConfig {
 
   @Bean
-  public AppUserConverter appUserConverter() {
-    return new AppUserConverter();
+  public UserConverter appUserConverter() {
+    return new UserConverter();
   }
 
   @Bean

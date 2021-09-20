@@ -51,7 +51,7 @@ public class ItemControllerIntegrationTests {
   public void should_return_item_by_id() throws Exception {
     Long id = 1L;
     ItemDTO itemDTO = makeItemDto();
-    when(itemService.findById(id))
+    when(itemService.getItemDTOById(id))
         .thenReturn(itemDTO);
 
     mockMvc.perform(get("/api/items/{id}", id))

@@ -1,4 +1,4 @@
-package com.codecool.api;
+package com.codecool.user.adressGeocoding;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CallGeocodingApi {
+public class AddressGeocoder {
 
     public static Map<String, Double> getCoordinates(String address) throws JSONException {
 
