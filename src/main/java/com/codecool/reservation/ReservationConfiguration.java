@@ -11,7 +11,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan
 @EnableJpaRepositories
 public class ReservationConfiguration {
-
     @Bean
     ReservationService reservationService(ReservationRepository reservationRepository,
                                           ReservationConverter reservationConverter,

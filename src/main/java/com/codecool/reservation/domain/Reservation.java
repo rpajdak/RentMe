@@ -21,8 +21,4 @@ public class Reservation {
     @Column(name = "date_end")
     private LocalDate dateEnd;
 
-    public Reservation() {
-    }
-
-
 }

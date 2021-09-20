@@ -32,7 +32,7 @@ public class Item {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     Collection<Reservation> reservations;
 
-    public void addReservation(Reservation reservation){
+    public void addReservation(Reservation reservation) {
         reservations.add(reservation);
     }
 }

@@ -1,7 +1,5 @@
 package com.codecool.security;
 
-
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.codecool.user.UserService;
@@ -54,13 +52,13 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                                                                   FilterChain filterChain) throws IOException, ServletException {
         String token = request.getHeader(TOKEN_HEADER);
 
-        if(token == null){
+        if (token == null) {
             token = getTokenFromCookie(request, response, filterChain);
             System.out.println("JwtAuthorization");
             logger.info(token);
         }
         if (token != null) {
-            if(token.startsWith(TOKEN_PREFIX)){
+            if (token.startsWith(TOKEN_PREFIX)) {
                 token = token.replace(TOKEN_PREFIX, "");
             }
             String userName = JWT.require(Algorithm.HMAC256(secret))
@@ -69,9 +67,9 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                     .getSubject();
             if (userName != null) {
                 UserDetails userDetails = null;
-                try{
-                    userDetails = userService.loadUserByUsername(userName);
-                } catch (UsernameNotFoundException ex){
+                try {
+                    userDetails = userService.getUserSecurityDetailsByEmail(userName);
+                } catch (UsernameNotFoundException ex) {
                     // jwtController.logout(response);
                     filterChain.doFilter(request, response);
                     return null;

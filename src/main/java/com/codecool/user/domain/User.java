@@ -5,10 +5,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import com.codecool.item.domain.Item;
-
 import java.util.Collection;
 import javax.persistence.*;
+
+import com.codecool.item.domain.Item;
 
 @Entity
 @Data

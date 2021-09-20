@@ -19,7 +19,4 @@ public class CategoryService {
         return categoryRepository.getCategoryById(id);
     }
 
-    public Category updateCategory(Category categoryById) {
-        return categoryRepository.save(categoryById);
-    }
 }

@@ -6,6 +6,7 @@ import com.codecool.user.dto.UserDTO;
 import com.codecool.user.dto.UserAddressDTO;
 import com.codecool.user.dto.UserNameDTO;
 import com.codecool.user.exception.GettingCoordinatesForUserException;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;
@@ -16,19 +17,16 @@ import static com.codecool.user.UserConverter.entityToDTO;
 import static java.lang.String.format;
 import static java.util.stream.Collectors.toList;
 
+@AllArgsConstructor
 public class UserService {
 
     private UserRepository userRepository;
-
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     public UserDTO getUserById(long id) {
         return entityToDTO(userRepository.getUserById(id));
     }
 
-    public User getEntityByEmail(String email) {
+    public User getUserByEmail(String email) {
         return userRepository.getUserByEmail(email);
     }
 
@@ -51,8 +49,40 @@ public class UserService {
         return userNameDTO;
     }
 
-    public List<User> getAllAppUsers() {
+    public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    public Boolean checkIfEmailAlreadyExists(UserDTO userDTO) {
+        return userRepository.getUserByEmail(userDTO.getEmail()) != null;
+    }
+
+    public List<UserDTO> getAllAdmins() {
+        return getAllUsers().stream()
+                .filter(User::getIsAdmin)
+                .map(UserConverter::entityToDTO)
+                .collect(toList());
+    }
+
+    public List<UserDTO> getAllRenters() {
+        return getAllUsers().stream()
+                .filter(user -> !user.getIsAdmin())
+                .map(UserConverter::entityToDTO)
+                .collect(toList());
+    }
+
+    public UserDetails getUserSecurityDetailsByEmail(String email) {
+        return userRepository.getUserSecurityDetailsByEmail(email);
+    }
+
+    private Map<String, Double> getCoordinatesForUser(UserDTO userDTO) {
+        try {
+            return AddressGeocoder.getCoordinates(
+                    userDTO.getAddress() + " " + userDTO.getCity());
+        } catch (Exception e) {
+            throw new GettingCoordinatesForUserException(
+                    format("Getting coordinates for user %s failed", userDTO.getEmail()), e);
+        }
     }
 
     public void addUser(UserDTO userDTO) {
@@ -77,46 +107,6 @@ public class UserService {
 
     public void deleteUser(long id) {
         userRepository.deleteById(id);
-    }
-
-    public Boolean checkIfEmailAlreadyExist(UserDTO userDTO) {
-        return userRepository.getUserByEmail(userDTO.getEmail()) != null;
-    }
-
-    public List<UserDTO> getAllAdmins() {
-        return getAllAppUsers().stream()
-                .filter(User::getIsAdmin)
-                .map(UserConverter::entityToDTO)
-                .collect(toList());
-    }
-
-    public List<UserDTO> getAllRenters() {
-        return getAllAppUsers().stream()
-                .filter(user -> !user.getIsAdmin())
-                .map(UserConverter::entityToDTO)
-                .collect(toList());
-    }
-
-    public UserDetails loadUserByUsername(String userName) {
-        return userRepository.loadUserByUsername(userName);
-    }
-
-    public User getUserByEmail(String email) {
-        return userRepository.getUserByEmail(email);
-    }
-
-    private Map<String, Double> getCoordinatesForUser(UserDTO userDTO) {
-        try {
-            return AddressGeocoder.getCoordinates(
-                    userDTO.getAddress() + " " + userDTO.getCity());
-        } catch (Exception e) {
-            throw new GettingCoordinatesForUserException(
-                    format("Getting coordinates for user %s failed", userDTO.getEmail()), e);
-        }
-    }
-
-    public void save(User entityByEmail) {
-        userRepository.save(entityByEmail);
     }
 
 }

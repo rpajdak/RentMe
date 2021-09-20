@@ -21,7 +21,7 @@ public class Category {
     @Id
     @Column(name = "id")
     private Long id;
-    @Column(name = "description")
+    @Column(name = "name")
     private String name;
     @Column(name = "pic_url")
     private String picUrl;

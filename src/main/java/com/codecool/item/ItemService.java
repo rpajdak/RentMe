@@ -33,9 +33,11 @@ public class ItemService {
                 .map(ItemConverter::entityToDTO)
                 .collect(toList());
     }
+
     public Item getItemById(Long id) {
         return itemRepository.getItemById(id);
     }
+
     public ItemDTO getItemDTOById(Long id) {
         return ItemConverter.entityToDTO(itemRepository.getItemById(id));
     }

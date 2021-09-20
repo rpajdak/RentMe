@@ -10,7 +10,6 @@ import java.time.LocalDate;
 @Setter
 @Builder
 public class ReservationDTO {
-
     private Long id;
     private Long itemID;
     private Long ownerID;

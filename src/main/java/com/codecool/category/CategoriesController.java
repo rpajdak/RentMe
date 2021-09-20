@@ -1,12 +1,10 @@
 package com.codecool.category;
 
 import com.codecool.category.domain.Category;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
 @RestController
 @RequestMapping("/api/categories")
 @CrossOrigin

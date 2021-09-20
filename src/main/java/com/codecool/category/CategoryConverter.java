@@ -10,14 +10,14 @@ import java.util.stream.Collectors;
 @Component
 public class CategoryConverter {
 
+    public CategoryDTO entityToDTO(Category category) {
+        return new CategoryDTO();
+    }
+
     public List<CategoryDTO> entitiesToDTO(List<Category> categories) {
         return categories.stream()
                 .map(category -> entityToDTO(category))
                 .collect(Collectors.toList());
-    }
-
-    public CategoryDTO entityToDTO(Category category) {
-        return new CategoryDTO();
     }
 
 }

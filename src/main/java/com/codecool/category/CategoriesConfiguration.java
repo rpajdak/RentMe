@@ -9,10 +9,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan
 @EnableJpaRepositories
 public class CategoriesConfiguration {
-
     @Bean
     CategoryService categoryService(
-        CategoryRepository categoryRepository) {
+            CategoryRepository categoryRepository) {
         return new CategoryService(categoryRepository);
     }
 }

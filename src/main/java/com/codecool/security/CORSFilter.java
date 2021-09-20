@@ -21,7 +21,6 @@ public class CORSFilter implements Filter {
 
     private final List<String> allowedOrigins = Arrays.asList("http://localhost:3000");
 
-
     private final Logger log = LoggerFactory.getLogger(CORSFilter.class);
 
     public CORSFilter() {

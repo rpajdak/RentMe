@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ItemDTO {
-
     @JsonProperty("id")
     Long id;
     @JsonProperty("name")

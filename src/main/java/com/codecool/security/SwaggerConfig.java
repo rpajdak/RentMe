@@ -12,14 +12,12 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
-
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-
 import java.util.List;
 
 import static java.util.Collections.singletonList;
@@ -48,7 +46,7 @@ public class SwaggerConfig {
                 .consumes(DEFAULT_PRODUCES_AND_CONSUMES)
                 .ignoredParameterTypes(UsernamePasswordAuthenticationToken.class)
                 .select()
-                .paths(PathSelectors. regex ( "^(?!/(error).*$).*$" ))
+                .paths(PathSelectors.regex("^(?!/(error).*$).*$"))
                 .build()
                 .securitySchemes(singletonList(createSchema()))
                 .securityContexts(singletonList(createContext()));
