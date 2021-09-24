@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import com.codecool.item.domain.Item;
+
+import java.util.Collection;
 import javax.persistence.*;
 
 @Getter
@@ -14,14 +17,18 @@ import javax.persistence.*;
 @Entity
 @Table(name = "categories")
 public class Category {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "pic_url")
+    private String picUrl;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    Collection<Item> items;
 
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Id
-  @Column(name = "id")
-  private Long id;
-  @Column(name = "description")
-  private String description;
-  @Column(name = "pic_url")
-  private String picUrl;
-
+    public void addItem(Item item) {
+        items.add(item);
+    }
 }

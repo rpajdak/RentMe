@@ -1,53 +1,63 @@
 package com.codecool.reservation;
 
+import com.codecool.item.ItemService;
+import com.codecool.item.domain.Item;
 import com.codecool.reservation.domain.Reservation;
+import com.codecool.reservation.dto.addReservationRequestWrapper;
 import com.codecool.reservation.dto.ReservationDTO;
-import org.springframework.stereotype.Service;
+import com.codecool.user.UserService;
+import com.codecool.user.domain.User;
+import lombok.AllArgsConstructor;
+import org.springframework.security.core.Authentication;
 
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
-
+@AllArgsConstructor
 public class ReservationService {
 
-  private ReservationRepository reservationRepository;
+    private ReservationRepository reservationRepository;
+    private ReservationConverter reservationConverter;
+    private ItemService itemService;
+    private UserService userService;
 
-  public ReservationService(ReservationRepository reservationRepository) {
-    this.reservationRepository = reservationRepository;
-  }
+    public List<ReservationDTO> getAllReservations() {
+        return reservationRepository.findAll()
+                .stream()
+                .map(reservationConverter::entityToDTO)
+                .collect(toList());
+    }
 
-  public List<ReservationDTO> getAllReservations() {
-    return reservationRepository.findAll()
-        .stream()
-        .map(ReservationConverter::entityToDTO)
-        .collect(toList());
-  }
+    public Reservation getReservationById(Long id) {
+        return reservationRepository.getReservationById(id);
+    }
 
-  public Reservation findById(Long id) {
+    public List<ReservationDTO> getReservationsByOwnerId(Long ownerId) {
+        return reservationRepository.getReservationsByOwnerId(ownerId)
+                .stream()
+                .map(reservationConverter::entityToDTO)
+                .collect(toList());
+    }
 
-    return reservationRepository.getReservationById(id);
-  }
+    public void addReservation(addReservationRequestWrapper addReservationRequestWrapper, Authentication authentication) {
 
-  public void addReservation(ReservationDTO reservation) {
+        final Reservation reservation = reservationConverter.DTOToEntity(addReservationRequestWrapper.getReservationDTO());
 
-    reservationRepository.save(ReservationConverter.DTOToEntity(reservation));
-  }
+        Item reservedItem = itemService.getItemById(addReservationRequestWrapper.getItemId());
+        reservedItem.addReservation(reservation);
 
-  public void updateReservation(Reservation reservation) {
+        User reservationHolder = userService.getUserByEmail(authentication.getName());
+        reservationHolder.addReservation(reservation);
 
-    reservationRepository.save(reservation);
-  }
+        reservationRepository.save(reservation);
+    }
 
-  public void deleteReservationById(Long id) {
+    public void updateReservation(Reservation reservation) {
+        reservationRepository.save(reservation);
+    }
 
-    reservationRepository.deleteById(id);
-  }
-
-  public List<ReservationDTO> getReservationsByOwnerId(Long ownerId) {
-    return reservationRepository.getReservationsByOwnerId(ownerId)
-        .stream()
-        .map(ReservationConverter::entityToDTO)
-        .collect(toList());
-  }
+    public void deleteReservationById(Long id) {
+        reservationRepository.deleteById(id);
+    }
 }

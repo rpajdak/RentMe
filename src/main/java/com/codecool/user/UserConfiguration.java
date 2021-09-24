@@ -9,9 +9,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan
 @EnableJpaRepositories
 public class UserConfiguration {
-
-  @Bean
-  UserService userService(UserRepository userRepository) {
-    return new UserService(userRepository);
-  }
+    @Bean
+    UserService userService(UserRepository userRepository) {
+        return new UserService(userRepository);
+    }
 }

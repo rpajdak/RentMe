@@ -1,12 +1,14 @@
 package com.codecool.item;
 
+import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import com.codecool.item.dto.AddItemRequestWrapper;
 import com.codecool.item.dto.ItemDTO;
 import com.codecool.item.dto.ItemForListDTO;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,74 +17,70 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NO_CONTENT;
 import static org.springframework.http.HttpStatus.OK;
 
-@Controller
 @RestController
 @RequestMapping("/api/items")
 @CrossOrigin
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class ItemController {
 
-  @NonNull
-  private ItemService itemService;
+    private ItemService itemService;
 
-  @GetMapping
-  @ResponseBody
-  @ResponseStatus(OK)
-  public List<ItemDTO> getAllItems() {
-    return itemService.getAllItems();
-  }
+    @GetMapping
+    @ResponseBody
+    @ResponseStatus(OK)
+    public List<ItemDTO> getAllItems() {
+        return itemService.getAllItems();
+    }
 
-  @GetMapping("/{id}")
-  @ResponseBody
-  @ResponseStatus(OK)
-  public ItemDTO findById(@PathVariable("id") Long id) {
-    return itemService.findById(id);
-  }
+    @GetMapping("/{id}")
+    @ResponseBody
+    @ResponseStatus(OK)
+    public ItemDTO getItemById(@PathVariable("id") Long id) {
+        return itemService.getItemDTOById(id);
+    }
 
-  @GetMapping(params = "nameContaining", produces = MediaType.APPLICATION_JSON_VALUE)
-  @ResponseBody
-  @ResponseStatus(OK)
-  public List<ItemDTO> findItemsByNameContaining(
-      @RequestParam(value = "nameContaining") String nameContaining) {
+    @GetMapping(params = "nameContaining", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @ResponseStatus(OK)
+    public List<ItemForListDTO> getItemsByNameContaining(
+            @RequestParam(value = "nameContaining") String nameContaining) {
 
-    return
-        itemService.findItemsByNameContaining(nameContaining.toUpperCase());
-  }
+        return itemService.getItemsByNameContaining(nameContaining.toUpperCase());
+    }
 
-  @GetMapping(params = "byCategory", produces = MediaType.APPLICATION_JSON_VALUE)
-  @ResponseBody
-  @ResponseStatus(OK)
-  public List<ItemForListDTO> findItemsByCategory(
-      @RequestParam(value = "byCategory") String byCategory) {
+    @GetMapping(params = "byCategory", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @ResponseStatus(OK)
+    public List<ItemForListDTO> getItemsByCategory(
+            @RequestParam(value = "byCategory") String category) {
+        return itemService.getItemsByCategory(category.toUpperCase());
+    }
 
-    return itemService.findItemsByCategory(byCategory.toUpperCase());
-  }
+    @GetMapping(params = "byOwnerId", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @ResponseStatus(OK)
+    public List<ItemForListDTO> getItemsByUser(@RequestParam(value = "byOwnerId") Long userId) {
+        return itemService.getItemsByUserId(userId);
+    }
 
-  @GetMapping(params = "byOwnerId", produces = MediaType.APPLICATION_JSON_VALUE)
-  @ResponseBody
-  @ResponseStatus(OK)
-  public List<ItemForListDTO> findItemsByUser(@RequestParam(value = "byOwnerId") Long ownerId) {
-    return itemService.findItemsByUser(ownerId);
-  }
+    @PostMapping()
+    @ResponseBody
+    @ResponseStatus(CREATED)
+    public void addItem(@RequestBody AddItemRequestWrapper addItemRequestWrapper, Authentication authentication) {
+        itemService.addItem(addItemRequestWrapper, authentication);
+    }
 
-  @PostMapping()
-  @ResponseBody
-  @ResponseStatus(CREATED)
-  public void addItem(@RequestBody ItemDTO itemDTO) {
-    itemService.addItem(itemDTO);
-  }
+    @PutMapping()
+    @ResponseBody
+    @ResponseStatus(OK)
+    public void updateItem(@RequestBody ItemDTO itemDTO) {
+        itemService.updateItem(itemDTO);
+    }
 
-  @PutMapping()
-  @ResponseBody
-  @ResponseStatus(OK)
-  public void updateItem(@RequestBody ItemDTO itemDTO) {
-    itemService.updateItem(itemDTO);
-  }
-
-  @DeleteMapping("/{id}")
-  @ResponseBody
-  @ResponseStatus(NO_CONTENT)
-  public void deleteItem(@PathVariable("id") Long id) {
-    itemService.deleteItemById(id);
-  }
+    @DeleteMapping("/{id}")
+    @ResponseBody
+    @ResponseStatus(NO_CONTENT)
+    public void deleteItem(@PathVariable("id") Long id) {
+        itemService.deleteItemById(id);
+    }
 }

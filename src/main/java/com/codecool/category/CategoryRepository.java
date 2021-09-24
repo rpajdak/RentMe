@@ -7,5 +7,10 @@ import java.util.List;
 
 public interface CategoryRepository extends Repository<Category, Long> {
 
-  List<Category> findAll();
+    Category save(Category category);
+
+    List<Category> findAll();
+
+    Category getCategoryById(Long id);
+
 }

@@ -9,6 +9,6 @@ import lombok.Setter;
 @Setter
 public class CategoryDTO {
     private Long id;
-    private String description;
+    private String name;
     private double picUrl;
 }
