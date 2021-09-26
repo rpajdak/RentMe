@@ -10,7 +10,7 @@ import lombok.Setter;
 @Data
 @Getter
 @Setter
-public class ItemForListDTO {
+public class ItemListDto {
     private Long id;
     private String name;
     private String description;
