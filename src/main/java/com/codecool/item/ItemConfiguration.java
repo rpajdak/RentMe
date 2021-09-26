@@ -11,8 +11,16 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan
 @EnableJpaRepositories
 public class ItemConfiguration {
-    @Bean
-    ItemService itemService(ItemRepository itemRepository, UserService userService, CategoryService categoryService) {
-        return new ItemService(itemRepository, userService, categoryService);
-    }
+
+  @Bean
+  ItemService itemService(ItemRepository itemRepository) {
+    return new ItemService(itemRepository);
+  }
+
+  @Bean
+  ItemUseCase itemUseCase(
+      ItemService itemService, UserService userService, CategoryService categoryService) {
+
+    return new ItemUseCase(itemService, userService, categoryService);
+  }
 }
